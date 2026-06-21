@@ -19,6 +19,16 @@ Then run:
 uv run research_crew
 ```
 
+## Live demo UI (Streamlit)
+
+For a lecture-friendly view of the agents working, run the Streamlit app instead of the plain CLI. It shows each agent/task/tool event live in the browser, then renders the final report.
+
+```bash
+uv run streamlit run streamlit_app.py
+```
+
+Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is auto-forwarded and a preview tab opens automatically (configured in `.devcontainer/devcontainer.json`).
+
 ## Installation
 
 Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.

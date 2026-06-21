@@ -7,6 +7,13 @@
     }
   },
   "postCreateCommand": "pip install uv && uv sync",
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit demo",
+      "onAutoForward": "openPreview"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python"]
