@@ -2,7 +2,16 @@
 
 Welcome to the ResearchCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
-## Run in GitHub Codespaces
+## Getting Started — choose one option
+
+There are two independent ways to get this project running. Pick **one**:
+
+- **Option A — GitHub Codespaces:** run entirely in the browser, nothing installed on your machine.
+- **Option B — Run locally:** clone the repo and run it with Python/uv on your own computer.
+
+Both options end up running the exact same code; only the setup step differs. Everything below "Run the crew" applies regardless of which option you picked.
+
+### Option A: GitHub Codespaces (no local install)
 
 No local install needed.
 
@@ -14,10 +23,46 @@ Once it's ready, add your API keys one of two ways:
 - **Codespaces secrets (recommended for a class):** in your GitHub account/org settings under Codespaces → Secrets, add `GEMINI_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables in every codespace automatically.
 - **Local `.env` file:** copy `.env.example` to `.env` inside the codespace and fill in your keys.
 
-Then run:
+Once that's done, skip ahead to [Run the crew](#run-the-crew) below.
+
+### Option B: Run locally
+
+Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+
+First, if you haven't already, install uv:
+
+```bash
+pip install uv
+```
+
+Clone the repo, then from its root install the dependencies:
+
+```bash
+uv sync
+```
+
+Copy `.env.example` to `.env` and fill in your `GEMINI_API_KEY` and `SERPER_API_KEY`.
+
+Once that's done, continue with [Run the crew](#run-the-crew) below.
+
+### Customizing
+
+**Make sure your `.env` has the right API keys for whichever LLM/tools you use**
+
+- Modify `src/research_crew/config/agents.yaml` to define your agents
+- Modify `src/research_crew/config/tasks.yaml` to define your tasks
+- Modify `src/research_crew/crew.py` to add your own logic, tools and specific args
+- Modify `src/research_crew/main.py` to add custom inputs for your agents and tasks
+
+## Run the crew
+
+This applies whether you set up via Codespaces or locally. From the project root:
+
 ```bash
 uv run research_crew
 ```
+
+This initializes the research_crew Crew, assembling the agents and assigning them tasks as defined in your configuration, and saves the report to `output/report.md`.
 
 ## Live demo UI (Streamlit)
 
@@ -28,43 +73,6 @@ uv run streamlit run streamlit_app.py
 ```
 
 Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is auto-forwarded and a preview tab opens automatically (configured in `.devcontainer/devcontainer.json`).
-
-## Installation
-
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/research_crew/config/agents.yaml` to define your agents
-- Modify `src/research_crew/config/tasks.yaml` to define your tasks
-- Modify `src/research_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/research_crew/main.py` to add custom inputs for your agents and tasks
-
-## Running the Project
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
-```
-
-This command initializes the research_crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
 
 ## Understanding Your Crew
 
