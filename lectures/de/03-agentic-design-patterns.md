@@ -45,3 +45,7 @@ Das ist die einfachstmögliche Multi-Agenten-Pipeline: zwei Agenten, keine Verha
 ## Zusatzaufgabe
 
 Der sequentielle Prozess erzwingt die Task-Reihenfolge über die Listenreihenfolge in `self.tasks`. Versucht, `analysis_task` vor `research_task` im `tasks: List[Task]`-Mechanismus umzustellen (Tipp: die Task-Reihenfolge ergibt sich aus der Reihenfolge der Methodendefinitionen unter `@task`) und sagt voraus, was kaputtgeht, bevor ihr es ausführt.
+
+---
+
+**Team-Aufgabe:** Die Vorlesungen 02–03 schalten zusammen [**Meilenstein M0: Baseline**](assignment-milestones.md#m0-baseline) der [Team-Aufgabe](assignment-overview.md) frei — euer eigener zweistufiger, sequentieller Crew-Entwurf ist jetzt fällig.

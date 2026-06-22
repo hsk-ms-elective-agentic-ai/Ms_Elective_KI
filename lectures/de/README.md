@@ -37,6 +37,10 @@ Zwei Begleitwerke werden über mehrere Lektionen hinweg zitiert statt pro Sitzun
 
 Nicht abgedeckt: Die Module "Microsoft Agent Framework" und "Browser-use / Computer Use Agents" des Quellkurses sind spezifisch für Tools außerhalb des Anwendungsbereichs von CrewAI und wurden bewusst ausgelassen.
 
+## Benotete Team-Aufgabe
+
+Begleitend zu den Vorlesungen entwerfen Teams ihre eigene Crew zu einem Thema ihrer Wahl und bauen sie Meilenstein für Meilenstein aus, sobald neue Vorlesungsinhalte neue Fähigkeiten freischalten — mit einer kritischen Risiko-/Grenzenanalyse als Hauptabgabe und funktionierendem Code als optionalem Bonus. Siehe [Überblick zur Aufgabe](assignment-overview.md), [Meilensteine der Aufgabe](assignment-milestones.md) und [Vorlagen für die Aufgabe](assignment-templates.md).
+
 ## Für Lehrende
 
-Jede Übung verweist auf reale Dateien in `src/research_crew/`. Lassen Sie Studierende direkt in ihrem eigenen Codespace oder Fork arbeiten — siehe das Haupt-[README](../../README.md) für die beiden Einrichtungsoptionen. Musterlösungen sind bewusst nicht enthalten; falls Sie eine Referenzimplementierung zur Bewertung möchten, lassen Sie Studierende einen PR gegen ihren eigenen Fork öffnen, damit Sie den Diff überprüfen können.
+Jede Übung verweist auf reale Dateien in `src/research_crew/`. Lassen Sie Studierende direkt in ihrem eigenen Codespace oder Fork arbeiten — siehe das Haupt-[README](../../README.md) für die beiden Einrichtungsoptionen. Musterlösungen sind bewusst nicht enthalten; falls Sie eine Referenzimplementierung zur Bewertung möchten, lassen Sie Studierende einen PR gegen ihren eigenen Fork öffnen, damit Sie den Diff überprüfen können. Für die Team-Aufgabe speziell siehe den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für Repo-/Team-Setup.

@@ -37,3 +37,7 @@ Check it yourself: `git log --oneline -- .env.example` shows it has only ever co
 ## Stretch goal
 
 Add a guardrail (lecture 06) to `analysis_task` that checks the final report for suspicious strings (e.g. "ignore previous instructions", "system prompt") and fails validation if found — a crude but illustrative defense against prompt injection making it into a delivered report.
+
+---
+
+**Team assignment:** together with lecture 10, this unlocks [**Milestone Final: Production and security**](assignment-milestones.md#final-production-and-security) of the [team assignment](assignment-overview.md) — your final submission, including `RETROSPECTIVE.md`, is due.
