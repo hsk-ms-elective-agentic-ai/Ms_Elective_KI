@@ -1,17 +1,8 @@
-# Assignment Templates
-
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-templates.md)
-
-**`DESIGN.md` and `TEAM.md` already exist at your repo root** — every team's "Use this template" copy starts with them already in place, same as `knowledge/user_preference.txt` or `.env.example`. Fill them in directly rather than recreating them; they're reproduced below for reference. The user story format further down is for GitHub Issues, which you create yourself — there's no file for that one. See [Assignment Overview](assignment-overview.md) for how they're used and [Assignment Milestones](assignment-milestones.md) for what to write at each stage.
-
-## `DESIGN.md`
-
-This is the main report: a structured design document for your crew's architecture, covering what you built, why, and what could go wrong. Fill in each section as the relevant milestone unlocks it — mark later sections "not yet" rather than deleting them. For the **Risks**, **Constraints**, and **Design history** tables specifically: this is append-only — add new rows per milestone, never edit or delete a previous row. If a later milestone changes your assessment, add a new row noting the update instead.
-
-```markdown
 # Crew Design Document
 
 **Team:** [team name] · **Topic:** [your crew's topic] · **Last updated:** [milestone, YYYY-MM-DD]
+
+> Fill in each section as the relevant milestone unlocks it — mark later sections "not yet" rather than deleting them. For the **Risks**, **Constraints**, and **Design history** tables specifically: this is append-only — add new rows per milestone, never edit or delete a previous row. If a later milestone changes your assessment, add a new row noting the update instead. See [lectures/en/assignment-milestones.md](lectures/en/assignment-milestones.md) (or the German twin) for what belongs in each section at each stage.
 
 ## 1. Overview
 - **Problem / goal:** what is this crew for, in one or two sentences?
@@ -82,36 +73,3 @@ This is the main report: a structured design document for your crew's architectu
 ### M0 — Baseline (YYYY-MM-DD)
 **Changed:**
 **Why:**
-
-### M1 — Tools (YYYY-MM-DD)
-**Changed:**
-**Why:**
-```
-
-At the final submission, the last Design History entry should answer specifically: *what changed between your interim and final design, and what did you learn that made you change it?*
-
-## User story (per epic, in a GitHub Issue)
-
-```markdown
-**Story:** As a [stakeholder of the crew's output], I want [capability], so that [value].
-
-**Acceptance criteria:**
-- [ ] [testable condition 1]
-- [ ] [testable condition 2]
-
-**Definition of done:**
-- [ ] Implemented in `agents.yaml`/`tasks.yaml`/`crew.py`
-- [ ] Risk identified and logged in `RISK_LOG.md`
-```
-
-## `TEAM.md`
-
-```markdown
-# Team
-
-| Name | GitHub handle | Primary contribution |
-| --- | --- | --- |
-| ... | ... | ... |
-
-Topic: [your crew's topic]
-```

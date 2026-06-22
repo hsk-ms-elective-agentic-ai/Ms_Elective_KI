@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-templates.md)
 
-Kopiert diese in euer Team-Repo und füllt sie aus. Siehe [Überblick zur Aufgabe](assignment-overview.md) dafür, wie sie genutzt werden, und [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase hineingehört.
+**`DESIGN.md` und `TEAM.md` liegen bereits im Wurzelverzeichnis eures Repos** — jede "Use this template"-Kopie eines Teams startet bereits mit diesen Dateien, genau wie mit `knowledge/user_preference.txt` oder `.env.example`. Füllt sie direkt aus, statt sie neu anzulegen; sie sind unten zur Referenz noch einmal abgedruckt. Das User-Story-Format weiter unten ist für GitHub Issues, die ihr selbst anlegt — dafür gibt es keine Datei. Siehe [Überblick zur Aufgabe](assignment-overview.md) dafür, wie sie genutzt werden, und [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase hineingehört.
 
 ## `DESIGN.md`
 
