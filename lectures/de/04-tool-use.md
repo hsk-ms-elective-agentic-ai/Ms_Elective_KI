@@ -51,3 +51,7 @@ Die [Tool-Kategorientabelle](../../README.md#adding-more-tools-or-rag-for-studen
 ## Zusatzaufgabe
 
 Tauscht `SerperDevTool` gegen eines der anderen fertigen Such-Tools aus der README-Tabelle (z. B. `TavilySearchTool`) und bringt es mit einem eigenen kostenlosen API-Schlüssel dieses Anbieters zum Laufen.
+
+---
+
+**Team-Aufgabe:** Diese Vorlesung schaltet [**Meilenstein M1: Tools**](assignment-milestones.md#m1-tools) der [Team-Aufgabe](assignment-overview.md) frei.

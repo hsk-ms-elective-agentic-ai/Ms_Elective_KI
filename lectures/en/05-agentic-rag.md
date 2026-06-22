@@ -62,3 +62,7 @@ This is the main hands-on exercise of the series — wire up real RAG:
 ## Stretch goal
 
 Add a second knowledge source of a different type (`StringKnowledgeSource` for inline text, or `PDFKnowledgeSource` for a PDF you provide) and confirm both sources are retrievable.
+
+---
+
+**Team assignment:** this lecture unlocks [**Milestone M2: RAG**](assignment-milestones.md#m2-rag-interim-submission) of the [team assignment](assignment-overview.md) — your **interim submission** is due at the end of this milestone.

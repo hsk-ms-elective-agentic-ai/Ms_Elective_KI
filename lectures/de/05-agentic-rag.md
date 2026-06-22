@@ -62,3 +62,7 @@ Das ist die zentrale praktische Übung der Reihe — echtes RAG verkabeln:
 ## Zusatzaufgabe
 
 Fügt eine zweite Knowledge-Quelle eines anderen Typs hinzu (`StringKnowledgeSource` für eingebetteten Text, oder `PDFKnowledgeSource` für ein eigenes PDF) und prüft, dass beide Quellen abrufbar sind.
+
+---
+
+**Team-Aufgabe:** Diese Vorlesung schaltet [**Meilenstein M2: RAG**](assignment-milestones.md#m2-rag-zwischenabgabe) der [Team-Aufgabe](assignment-overview.md) frei — eure **Zwischenabgabe** ist am Ende dieses Meilensteins fällig.

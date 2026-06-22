@@ -37,3 +37,7 @@ Prüft es selbst: `git log --oneline -- .env.example` zeigt, dass sie immer nur 
 ## Zusatzaufgabe
 
 Fügt `analysis_task` ein Guardrail (Lektion 06) hinzu, das den finalen Report auf verdächtige Strings prüft (z. B. "ignore previous instructions", "system prompt") und die Validierung scheitern lässt, falls gefunden — eine grobe, aber anschauliche Verteidigung dagegen, dass Prompt Injection in einen ausgelieferten Report gelangt.
+
+---
+
+**Team-Aufgabe:** Zusammen mit Vorlesung 10 schaltet diese Vorlesung [**Meilenstein Abschluss: Produktion und Sicherheit**](assignment-milestones.md#abschluss-produktion-und-sicherheit) der [Team-Aufgabe](assignment-overview.md) frei — eure Abschlussabgabe, inklusive `RETROSPECTIVE.md`, ist fällig.

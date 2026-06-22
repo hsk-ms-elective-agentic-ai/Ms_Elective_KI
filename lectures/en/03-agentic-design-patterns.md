@@ -45,3 +45,7 @@ This is the simplest possible multi-agent pipeline: two agents, zero negotiation
 ## Stretch goal
 
 Sequential process forces task order via list order in `self.tasks`. Try reordering `analysis_task` before `research_task` in the `tasks: List[Task]` mechanism (hint: task order comes from method definition order under `@task`) and predict what breaks before running it.
+
+---
+
+**Team assignment:** lectures 02–03 together unlock [**Milestone M0: Baseline**](assignment-milestones.md#m0-baseline) of the [team assignment](assignment-overview.md) — your own two-agent, sequential crew design is due.

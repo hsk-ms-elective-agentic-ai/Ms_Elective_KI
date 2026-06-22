@@ -43,3 +43,7 @@ return Crew(
 ## Stretch goal
 
 Try `manager_agent` instead of `manager_llm` — define your own dedicated manager `Agent` with a role like "Editorial Director" and pass it in instead. Compare whether the delegation decisions change.
+
+---
+
+**Team assignment:** together with lecture 06, this unlocks [**Milestone M3: Multi-agent and trust**](assignment-milestones.md#m3-multi-agent-and-trust) of the [team assignment](assignment-overview.md).

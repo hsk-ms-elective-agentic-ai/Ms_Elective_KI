@@ -51,3 +51,7 @@ The README's [tool category table](../../README.md#adding-more-tools-or-rag-for-
 ## Stretch goal
 
 Swap `SerperDevTool` for one of the other pre-built search tools in the README's table (e.g. `TavilySearchTool`) and get it running with your own free API key from that provider.
+
+---
+
+**Team assignment:** this lecture unlocks [**Milestone M1: Tools**](assignment-milestones.md#m1-tools) of the [team assignment](assignment-overview.md).

@@ -43,3 +43,7 @@ return Crew(
 ## Zusatzaufgabe
 
 Probiert `manager_agent` statt `manager_llm` — definiert euren eigenen dedizierten Manager-`Agent` mit einer Rolle wie "Editorial Director" und übergebt ihn stattdessen. Vergleicht, ob sich die Delegationsentscheidungen ändern.
+
+---
+
+**Team-Aufgabe:** Zusammen mit Vorlesung 06 schaltet diese Vorlesung [**Meilenstein M3: Multi-Agent und Vertrauen**](assignment-milestones.md#m3-multi-agent-und-vertrauen) der [Team-Aufgabe](assignment-overview.md) frei.

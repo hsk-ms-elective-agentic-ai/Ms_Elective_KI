@@ -37,6 +37,10 @@ Two companion texts are cited across multiple lectures rather than per-session: 
 
 Not covered: the source course's "Microsoft Agent Framework" and "Browser-use / Computer Use Agents" modules are framework-specific to tools outside CrewAI's scope and are intentionally omitted.
 
+## Graded team assignment
+
+Alongside the lectures, teams design their own crew for a topic of their choice, growing it in complexity milestone-by-milestone as new lecture content unlocks new capabilities, with a critical risk/constraint analysis as the main graded deliverable and working code as an optional bonus. See [Assignment Overview](en/assignment-overview.md), [Assignment Milestones](en/assignment-milestones.md), and [Assignment Templates](en/assignment-templates.md).
+
 ## For instructors
 
-Each exercise references real files in `src/research_crew/`. Have students work directly in their own Codespace or fork — see the main [README](../README.md) for the two setup options. Solutions aren't included on purpose; if you want a reference implementation for grading, ask students to open a PR against their own fork so you can review the diff.
+Each exercise references real files in `src/research_crew/`. Have students work directly in their own Codespace or fork — see the main [README](../README.md) for the two setup options. Solutions aren't included on purpose; if you want a reference implementation for grading, ask students to open a PR against their own fork so you can review the diff. For the team assignment specifically, see the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for repo/team setup.
