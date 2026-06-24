@@ -4,7 +4,7 @@
 
 Dies ist die benotete Aufgabe, die parallel zur Übungsreihe läuft: In Teams entwerft ihr eine CrewAI-Crew zu einem Thema eurer Wahl und baut sie mit wachsender Komplexität aus, während die Übungen neue Fähigkeiten einführen. Das primäre Abgabeprodukt ist in jeder Phase **euer Entwurf plus eure kritische Einschätzung seiner Risiken und Grenzen** — funktionierender Code ist ein optionaler Bonus, nie eine Pflicht.
 
-Siehe [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase zu bauen ist, und [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt.
+Siehe [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase zu bauen ist, [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt, und den [Sprint-Plan](assignment-sprint-plan.md), falls ihr das als echte Scrum-Sprints mit Sprint Planning/Review/Retrospektive durchführen wollt.
 
 ## So funktioniert es: Sprints entlang der Übungen
 
@@ -67,7 +67,7 @@ Führt euren Entwurfsprozess wie ein echtes Produkt-Backlog:
 - Fügt jedem Epic "Risiko identifiziert und dokumentiert" zur Definition of Done hinzu, damit Risikoanalyse eine Gewohnheit wird, kein einmaliger Aufsatz.
 - Ist euer Team größer als zwei, rotiert die Facilitator-Rolle jeden Sprint.
 
-Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-templates.md).
+Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-templates.md); eine vollständige Sprint-für-Sprint-Aufschlüsselung (Planning-Checkliste, Definition of Done, Review, Retrospektive) im [Sprint-Plan](assignment-sprint-plan.md).
 
 ## Für Lehrende
 
