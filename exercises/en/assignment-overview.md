@@ -29,18 +29,20 @@ This course runs in a GitHub Organization, with **one private repository per tea
 
 ### Collaborating without git experience
 
-You don't need branches or pull requests for day-to-day team work — one simple loop is enough:
+One branch per sprint, one pull request to close it out — beyond that, day-to-day work is the same simple loop as committing straight to `main`:
 
-1. Edit a file normally (in your Codespace).
-2. Open the **Source Control** panel (the branching-lines icon in the sidebar).
-3. Type a one-line commit message, click **✓ Commit**.
-4. Click **Sync Changes** — this pulls any teammate's changes and pushes yours, in one step.
+1. **At the start of each sprint**, create a branch named `sprint-<N>` (e.g. `sprint-2`): click the branch name in the bottom-left corner of VS Code → **Create new branch...**. Everyone on the team works on this same branch for the rest of the sprint.
+2. Edit a file normally (in your Codespace).
+3. Open the **Source Control** panel (the branching-lines icon in the sidebar).
+4. Type a one-line commit message, click **✓ Commit**.
+5. Click **Sync Changes** — this pulls any teammate's changes and pushes yours, in one step (now syncing your `sprint-<N>` branch, not `main`).
+6. **At the end of the sprint**, open a pull request from `sprint-<N>` into `main` — GitHub shows a "Compare & pull request" banner on github.com right after you push a new branch, or use the **GitHub Pull Requests** panel in VS Code. Skim the diff as a team (this is also a natural moment to catch a stray file nobody meant to commit), then merge it yourselves — no approval needed. Start the next sprint by branching `sprint-<N+1>` from the now-updated `main`.
 
-No terminal, no `git add`/`commit`/`push` commands. Everyone commits straight to `main`.
+No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
 To avoid two people editing the same file at once, **divide files between teammates** where you can — e.g. one person owns `agents.yaml`, another `tasks.yaml`. `DESIGN.md` is one shared file everyone contributes to, so for that one specifically: take turns, or commit-and-sync every few minutes rather than both editing it for a long stretch in parallel. If a conflict does happen anyway, VS Code shows a merge view with clickable "Accept Current / Incoming / Both" buttons — ask your instructor for a quick live demo of this once, so it doesn't surprise anyone mid-deadline.
 
-For quick edits (e.g. a `DESIGN.md` entry), you can skip Codespaces entirely: open the file on github.com, click the pencil icon, edit in the browser, and click **"Commit changes"** at the bottom.
+For quick edits (e.g. a `DESIGN.md` entry), you can skip Codespaces entirely: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"** at the bottom.
 
 ## Submission package
 
@@ -51,10 +53,11 @@ At each submission deadline (interim: end of Sprint 3, final: end of Sprint 5), 
 | Executable crew config | `src/research_crew/config/agents.yaml` + `tasks.yaml` (+ `crew.py` once tools/RAG/process change) | The literal, runnable version of your design |
 | Design document | `DESIGN.md` — architecture (agents/tasks/tools/RAG), risks, constraints, security, production considerations, design history | Your full design rationale, critically assessed, in one evolving report |
 | Backlog | GitHub Issues (labeled by epic) + a Projects board | Your user stories and progress — lives on GitHub, nothing to export |
+| Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A clean, reviewable diff of exactly what changed each sprint, and why (use the PR description) |
 | Team notes | `TEAM.md` | Members and who contributed what |
 | Optional bonus | a working `crew.py` + a successful `uv run research_crew` | Extra credit only — never required |
 
-Submission is simply **the state of your team repo's `main` branch at the deadline** — there's no pull request to open. Share your repo URL once, at the start; your instructor checks your commit history against each deadline on that same repo (and may tag a specific commit for grading).
+At the deadline itself, your submission is **the state of your team repo's `main` branch** — share your repo URL once, at the start. The chain of merged sprint PRs leading up to it is what your instructor actually reads to follow how your design evolved, rather than diffing raw commit history by hand.
 
 ## Grading
 
@@ -116,4 +119,4 @@ Students submit their **email and GitHub username** via a [team sign-up issue](.
 
 ### 5. Ongoing: review submissions
 
-Check each team's commit history on `main` at each deadline — tag a specific commit yourself (Releases → "Create a new release") if you want an immutable snapshot for grading. Solutions aren't included on purpose, the same as the rest of this series.
+Each team merges one pull request per sprint (`sprint-<N>` → `main`) — review that PR's diff directly on GitHub (**Pull requests → Closed**, on their repo) for what changed and why, rather than diffing raw commit history yourself. At each deadline (interim: Sprint 3, final: Sprint 5), grade against the state of `main`, using the chain of merged sprint PRs as the sprint-by-sprint record behind it. Solutions aren't included on purpose, the same as the rest of this series.
