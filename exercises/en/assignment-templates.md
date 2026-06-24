@@ -101,7 +101,7 @@ At the final submission, the last Design History entry should answer specificall
 
 **Definition of done:**
 - [ ] Implemented in `agents.yaml`/`tasks.yaml`/`crew.py`
-- [ ] Risk identified and logged in `RISK_LOG.md`
+- [ ] Risk identified and logged in `DESIGN.md`'s Risks table
 ```
 
 ## `TEAM.md`
@@ -114,4 +114,23 @@ At the final submission, the last Design History entry should answer specificall
 | ... | ... | ... |
 
 Topic: [your crew's topic]
+```
+
+## Peer evaluation (private — do not commit this to your repo)
+
+Submit this directly to your instructor (email, not GitHub) at each submission deadline. Keeping it out of the shared repo — where teammates would see it — is what makes honest feedback possible; this is what feeds the individual adjustment described in [Assignment Overview](assignment-overview.md#grading).
+
+```markdown
+# Peer Evaluation — [your name] — [milestone: interim / final]
+
+## Your teammates
+One section per teammate, not yourself:
+
+### [Teammate name]
+- Contribution (1–5, 5 = pulled their full share or more):
+- What did they actually do this stage, specifically?
+- Anything else your instructor should know? (optional, confidential)
+
+## Yourself
+- What did you contribute this stage, specifically?
 ```
