@@ -4,7 +4,7 @@
 
 This is the graded assignment that runs alongside the exercise series: in teams, you design a CrewAI crew for a topic of your choice, growing it in complexity as the exercises introduce new capabilities. The primary deliverable at every stage is **your design plus your critical assessment of its risks and constraints** — working code is an optional bonus, never a requirement.
 
-See [Assignment Milestones](assignment-milestones.md) for what to build at each stage, and [Assignment Templates](assignment-templates.md) for the documents you'll fill in.
+See [Assignment Milestones](assignment-milestones.md) for what to build at each stage, [Assignment Templates](assignment-templates.md) for the documents you'll fill in, and the [Sprint Plan](assignment-sprint-plan.md) if you want to run this as actual Scrum sprints with sprint planning/review/retrospective built in.
 
 ## How this works: sprints tied to exercises
 
@@ -67,7 +67,7 @@ Run your design process like a real product backlog:
 - Add "risks identified and mitigation documented" to every epic's definition of done, so risk analysis is a habit, not a one-off essay.
 - If your team is larger than two, rotate a facilitator role each sprint.
 
-Templates for all of this are in [Assignment Templates](assignment-templates.md).
+Templates for all of this are in [Assignment Templates](assignment-templates.md); a full sprint-by-sprint breakdown (planning checklist, Definition of Done, review, retrospective) is in the [Sprint Plan](assignment-sprint-plan.md).
 
 ## For instructors
 

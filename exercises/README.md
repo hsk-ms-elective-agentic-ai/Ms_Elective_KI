@@ -29,7 +29,7 @@ Lakshmanan's *Generative AI Design Patterns* is cited as a companion text in exe
 
 ## Graded team assignment
 
-Alongside the exercise sessions, teams design their own crew for a topic of their choice, growing it in complexity milestone-by-milestone as new exercise content unlocks new capabilities, with a critical risk/constraint analysis as the main graded deliverable and working code as an optional bonus. See [Assignment Overview](en/assignment-overview.md), [Assignment Milestones](en/assignment-milestones.md), and [Assignment Templates](en/assignment-templates.md).
+Alongside the exercise sessions, teams design their own crew for a topic of their choice, growing it in complexity milestone-by-milestone as new exercise content unlocks new capabilities, with a critical risk/constraint analysis as the main graded deliverable and working code as an optional bonus. See [Assignment Overview](en/assignment-overview.md), [Assignment Milestones](en/assignment-milestones.md), [Assignment Templates](en/assignment-templates.md), and the [Sprint Plan](en/assignment-sprint-plan.md) for running it as Scrum.
 
 ## For instructors
 

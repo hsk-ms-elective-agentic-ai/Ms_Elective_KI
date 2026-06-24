@@ -29,7 +29,7 @@ Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Übung 05 (P
 
 ## Benotete Team-Aufgabe
 
-Begleitend zu den Übungen entwerfen Teams ihre eigene Crew zu einem Thema ihrer Wahl und bauen sie Meilenstein für Meilenstein aus, sobald neue Übungsinhalte neue Fähigkeiten freischalten — mit einer kritischen Risiko-/Grenzenanalyse als Hauptabgabe und funktionierendem Code als optionalem Bonus. Siehe [Überblick zur Aufgabe](assignment-overview.md), [Meilensteine der Aufgabe](assignment-milestones.md) und [Vorlagen für die Aufgabe](assignment-templates.md).
+Begleitend zu den Übungen entwerfen Teams ihre eigene Crew zu einem Thema ihrer Wahl und bauen sie Meilenstein für Meilenstein aus, sobald neue Übungsinhalte neue Fähigkeiten freischalten — mit einer kritischen Risiko-/Grenzenanalyse als Hauptabgabe und funktionierendem Code als optionalem Bonus. Siehe [Überblick zur Aufgabe](assignment-overview.md), [Meilensteine der Aufgabe](assignment-milestones.md), [Vorlagen für die Aufgabe](assignment-templates.md), und den [Sprint-Plan](assignment-sprint-plan.md), um das als Scrum durchzuführen.
 
 ## Für Lehrende
 
