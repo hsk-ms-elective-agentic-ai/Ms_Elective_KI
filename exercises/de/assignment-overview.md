@@ -4,6 +4,8 @@
 
 Dies ist die benotete Aufgabe, die parallel zur Übungsreihe läuft: In Teams entwerft ihr eine CrewAI-Crew zu einem Thema eurer Wahl und baut sie mit wachsender Komplexität aus, während die Übungen neue Fähigkeiten einführen. Das primäre Abgabeprodukt ist in jeder Phase **euer Entwurf plus eure kritische Einschätzung seiner Risiken und Grenzen** — funktionierender Code ist ein optionaler Bonus, nie eine Pflicht.
 
+**Teamgröße:** 3–5 Studierende. Klein genug, dass alle einen echten Anteil am Ergebnis haben, groß genug, um bis M3 plausibel drei unterschiedliche Agentenrollen zu besetzen, ohne dass eine Person heimlich alles macht.
+
 Siehe [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase zu bauen ist, [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt, und den [Sprint-Plan](assignment-sprint-plan.md), falls ihr das als echte Scrum-Sprints mit Sprint Planning/Review/Retrospektive durchführen wollt.
 
 ## So funktioniert es: Sprints entlang der Übungen
@@ -39,7 +41,7 @@ Kein Terminal, keine `git add`/`commit`/`push`-Befehle. Alle committen direkt au
 
 Um zu vermeiden, dass zwei Personen dieselbe Datei gleichzeitig bearbeiten, **teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. verwaltet eine Person `agents.yaml`, eine andere `tasks.yaml`. `DESIGN.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch dabei ab, oder committet und synct alle paar Minuten, statt lange parallel in derselben Datei zu arbeiten. Falls trotzdem ein Konflikt auftritt, zeigt VS Code eine Merge-Ansicht mit anklickbaren Buttons ("Accept Current / Incoming / Both") — bittet eure Lehrperson einmal um eine kurze Live-Demo davon, damit es niemanden mitten in einer Deadline überrascht.
 
-Für schnelle Änderungen (z. B. einen `RISK_LOG.md`-Eintrag) könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, klickt auf das Stift-Icon, bearbeitet sie im Browser und klickt unten auf **"Commit changes"**.
+Für schnelle Änderungen (z. B. einen `DESIGN.md`-Eintrag) könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, klickt auf das Stift-Icon, bearbeitet sie im Browser und klickt unten auf **"Commit changes"**.
 
 ## Abgabepaket
 
@@ -57,7 +59,21 @@ Die Abgabe ist einfach **der Zustand des `main`-Branchs eures Team-Repos zur Dea
 
 ## Bewertung
 
-Die Entwurfsdokumente (`agents.yaml`/`tasks.yaml` + `DESIGN.md` + Backlog) tragen den weit überwiegenden Teil der Note. Funktionierender Code gibt Bonuspunkte oben drauf, ersetzt aber nie eine dünne oder fehlende Risikoanalyse. Siehe [Meilensteine der Aufgabe](assignment-milestones.md) für die konkreten, pro Phase bewerteten Risikoanalyse-Fragen.
+Dieselben Gewichtungen gelten für Zwischen- und Abschlussabgabe, bewertet anhand dessen, was bis zur jeweiligen Deadline tatsächlich fertig ist:
+
+| Komponente | Gewicht | Was bewertet wird |
+| --- | --- | --- |
+| Architektur & Entwurf | 25 % | `agents.yaml`/`tasks.yaml` + `DESIGN.md` §1–2 — passt der Rollensplit wirklich zu eurem Anwendungsfall, statt ein umbenannter Standard zu sein? |
+| Risiko- und Grenzenanalyse | 30 % | `DESIGN.md` §3–4 — spezifisch zu eurem Entwurf, wächst über die Meilensteine, nicht generisch |
+| Sicherheit & Produktions-Aspekte | 15 % | `DESIGN.md` §5–6 — ein konkretes Threat Model und ein Monitoring-Plan für *euren* Entwurf, nicht das generische Beispiel aus den Übungen |
+| Prozess: Backlog & Epics | 15 % | GitHub Issues/Projects-Board — echte User Stories mit Akzeptanzkriterien, Definition of Done tatsächlich genutzt, nicht nur abgehakt |
+| Design-Historie & Retrospektive | 15 % | Ehrliche Entwicklung des Denkens über die Meilensteine hinweg, nicht eine einzige, am Ende glattgeschriebene Antwort |
+
+**Optionaler Bonus:** ein funktionierendes `crew.py` + ein erfolgreiches `uv run research_crew` — bis zu **+10 %** Zusatzpunkte oben auf das Obige. Nie Pflicht, nie ein Ersatz für eine dünne Risikoanalyse.
+
+**Individuelle Anpassung innerhalb der Teamnote:** Der Anteil jedes Studierenden an der Teamnote kann anhand der vertraulichen [Peer Evaluation](assignment-templates.md#peer-evaluation-vertraulich--nicht-ins-repo-committen) um bis zu **±15 %** verschoben werden — direkt an eure Lehrperson geschickt, nie ins Repo committed, damit Feedback ehrlich sein kann.
+
+Siehe [Meilensteine der Aufgabe](assignment-milestones.md) für die konkreten, pro Phase bewerteten Risikoanalyse-Fragen.
 
 ## Agile Praxis: Backlog und User Stories
 

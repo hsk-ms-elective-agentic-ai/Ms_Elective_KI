@@ -101,7 +101,7 @@ Bei der Abschlussabgabe sollte der letzte Design-Historie-Eintrag konkret beantw
 
 **Definition of Done:**
 - [ ] Umgesetzt in `agents.yaml`/`tasks.yaml`/`crew.py`
-- [ ] Risiko identifiziert und in `RISK_LOG.md` dokumentiert
+- [ ] Risiko identifiziert und in der Risiken-Tabelle von `DESIGN.md` dokumentiert
 ```
 
 ## `TEAM.md`
@@ -114,4 +114,23 @@ Bei der Abschlussabgabe sollte der letzte Design-Historie-Eintrag konkret beantw
 | ... | ... | ... |
 
 Thema: [Thema eurer Crew]
+```
+
+## Peer Evaluation (vertraulich — nicht ins Repo committen)
+
+Schickt das direkt an eure Lehrperson (per E-Mail, nicht über GitHub), bei jeder Abgabe-Deadline. Es aus dem gemeinsamen Repo herauszuhalten — wo Teammitglieder es sehen würden — ist genau das, was ehrliches Feedback erst möglich macht; das fließt in die individuelle Anpassung ein, die im [Überblick zur Aufgabe](assignment-overview.md#bewertung) beschrieben ist.
+
+```markdown
+# Peer Evaluation — [euer Name] — [Meilenstein: Zwischenabgabe / Abschluss]
+
+## Eure Teammitglieder
+Ein Abschnitt pro Teammitglied, nicht für euch selbst:
+
+### [Name des Teammitglieds]
+- Beitrag (1–5, 5 = hat den vollen eigenen Anteil oder mehr geleistet):
+- Was hat diese Person in dieser Phase konkret gemacht?
+- Sonst noch etwas, das eure Lehrperson wissen sollte? (optional, vertraulich)
+
+## Ihr selbst
+- Was habt ihr in dieser Phase konkret beigetragen?
 ```

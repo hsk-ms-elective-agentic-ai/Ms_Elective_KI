@@ -4,6 +4,8 @@
 
 This is the graded assignment that runs alongside the exercise series: in teams, you design a CrewAI crew for a topic of your choice, growing it in complexity as the exercises introduce new capabilities. The primary deliverable at every stage is **your design plus your critical assessment of its risks and constraints** — working code is an optional bonus, never a requirement.
 
+**Team size:** 3–5 students. Small enough that everyone has a real stake in the outcome, large enough to plausibly fill three distinct agent roles by M3 without one person quietly doing everything.
+
 See [Assignment Milestones](assignment-milestones.md) for what to build at each stage, [Assignment Templates](assignment-templates.md) for the documents you'll fill in, and the [Sprint Plan](assignment-sprint-plan.md) if you want to run this as actual Scrum sprints with sprint planning/review/retrospective built in.
 
 ## How this works: sprints tied to exercises
@@ -39,7 +41,7 @@ No terminal, no `git add`/`commit`/`push` commands. Everyone commits straight to
 
 To avoid two people editing the same file at once, **divide files between teammates** where you can — e.g. one person owns `agents.yaml`, another `tasks.yaml`. `DESIGN.md` is one shared file everyone contributes to, so for that one specifically: take turns, or commit-and-sync every few minutes rather than both editing it for a long stretch in parallel. If a conflict does happen anyway, VS Code shows a merge view with clickable "Accept Current / Incoming / Both" buttons — ask your instructor for a quick live demo of this once, so it doesn't surprise anyone mid-deadline.
 
-For quick edits (e.g. a `RISK_LOG.md` entry), you can skip Codespaces entirely: open the file on github.com, click the pencil icon, edit in the browser, and click **"Commit changes"** at the bottom.
+For quick edits (e.g. a `DESIGN.md` entry), you can skip Codespaces entirely: open the file on github.com, click the pencil icon, edit in the browser, and click **"Commit changes"** at the bottom.
 
 ## Submission package
 
@@ -57,7 +59,21 @@ Submission is simply **the state of your team repo's `main` branch at the deadli
 
 ## Grading
 
-The design documents (`agents.yaml`/`tasks.yaml` + `DESIGN.md` + backlog) carry the large majority of the grade. Working code is bonus points on top, never a substitute for a thin or missing risk analysis. See [Assignment Milestones](assignment-milestones.md) for the specific risk-analysis prompts graded at each stage.
+The same weights apply at both the interim and final submission, scored against whatever's actually complete by that deadline:
+
+| Component | Weight | What's assessed |
+| --- | --- | --- |
+| Architecture & design | 25% | `agents.yaml`/`tasks.yaml` + `DESIGN.md` §1–2 — is the role split genuinely suited to your use case, not a relabeled default? |
+| Risk & constraint analysis | 30% | `DESIGN.md` §3–4 — specific to your design, growing across milestones, not generic |
+| Security & production considerations | 15% | `DESIGN.md` §5–6 — a concrete threat model and monitoring plan for *your* design, not the generic example from the exercises |
+| Process: backlog & epics | 15% | GitHub Issues/Project board — real user stories with acceptance criteria, Definition of Done actually used, not just checked off |
+| Design history & retrospective | 15% | Honest evolution of thinking across milestones, not one polished answer written at the end |
+
+**Optional bonus:** a working `crew.py` + a successful `uv run research_crew` — up to **+10%** extra credit on top of the above. Never required, never a substitute for a thin risk analysis.
+
+**Individual adjustment within the team grade:** each student's share of the team grade can move by up to **±15%** based on the private [peer evaluation](assignment-templates.md#peer-evaluation-private--do-not-commit-this-to-your-repo) — submitted directly to your instructor, never committed to the repo, so feedback can be honest.
+
+See [Assignment Milestones](assignment-milestones.md) for the specific risk-analysis prompts graded at each stage.
 
 ## Agile practice: backlog and user stories
 
