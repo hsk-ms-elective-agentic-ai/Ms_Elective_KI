@@ -2,16 +2,16 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-templates.md)
 
-**`DESIGN.md` und `TEAM.md` liegen bereits im Wurzelverzeichnis eures Repos** — jede "Use this template"-Kopie eines Teams startet bereits mit diesen Dateien, genau wie mit `knowledge/user_preference.txt` oder `.env.example`. Füllt sie direkt aus, statt sie neu anzulegen; sie sind unten zur Referenz noch einmal abgedruckt. Das User-Story-Format weiter unten ist für GitHub Issues, die ihr selbst anlegt — dafür gibt es keine Datei. Siehe [Überblick zur Aufgabe](assignment-overview.md) dafür, wie sie genutzt werden, und [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase hineingehört.
+**`DESIGN.md` und `TEAM.md` liegen bereits im Wurzelverzeichnis eures Repos** — jede "Use this template"-Kopie eines Teams startet bereits mit diesen Dateien, genau wie mit `knowledge/user_preference.txt` oder `.env.example`. Füllt sie direkt aus, statt sie neu anzulegen; sie sind unten zur Referenz noch einmal abgedruckt. Das User-Story-Format weiter unten ist für GitHub Issues, die ihr selbst anlegt — dafür gibt es keine Datei. Siehe [Überblick zur Aufgabe](assignment-overview.md) dafür, wie sie genutzt werden — die jeweilige Sprint-Seite (beginnend bei [Sprint 0](00-vision-architecture.md)) sagt euch, was in welcher Phase hineingehört.
 
 ## `DESIGN.md`
 
-Das ist der Hauptbericht: ein strukturiertes Design-Dokument für die Architektur eurer Crew, das festhält, was ihr gebaut habt, warum, und was schiefgehen könnte. Füllt jeden Abschnitt aus, sobald der jeweilige Meilenstein ihn freischaltet — markiert spätere Abschnitte mit "noch nicht" statt sie zu löschen. Speziell für die Tabellen **Risiken**, **Grenzen** und **Design-Historie**: Das ist append-only — fügt pro Meilenstein neue Zeilen hinzu, bearbeitet oder löscht nie eine vorherige Zeile. Falls ein späterer Meilenstein eure Einschätzung ändert, fügt stattdessen eine neue Zeile hinzu, die das Update vermerkt.
+Das ist der Hauptbericht: ein strukturiertes Design-Dokument für die Architektur eurer Crew, das festhält, was ihr gebaut habt, warum, und was schiefgehen könnte. Füllt jeden Abschnitt aus, sobald der jeweilige Sprint ihn freischaltet — markiert spätere Abschnitte mit "noch nicht" statt sie zu löschen. Speziell für die Tabellen **Risiken**, **Grenzen** und **Design-Historie**: Das ist append-only — fügt pro Sprint neue Zeilen hinzu, bearbeitet oder löscht nie eine vorherige Zeile. Falls ein späterer Sprint eure Einschätzung ändert, fügt stattdessen eine neue Zeile hinzu, die das Update vermerkt.
 
 ```markdown
 # Crew-Design-Dokument
 
-**Team:** [Teamname] · **Thema:** [Thema eurer Crew] · **Zuletzt aktualisiert:** [Meilenstein, JJJJ-MM-TT]
+**Team:** [Teamname] · **Thema:** [Thema eurer Crew] · **Zuletzt aktualisiert:** [Sprint, JJJJ-MM-TT]
 
 ## 1. Überblick
 - **Problem / Ziel:** Wofür ist diese Crew, in ein bis zwei Sätzen?
@@ -37,38 +37,38 @@ Das ist der Hauptbericht: ein strukturiertes Design-Dokument für die Architektu
 | | | | | |
 
 ### Knowledge Sources / RAG
-*(bis M2 als "noch nicht hinzugefügt" stehen lassen)*
+*(bis Sprint 3 als "noch nicht hinzugefügt" stehen lassen)*
 
 | Quelle | Typ | Warum dieser Inhalt | Embedder | Bekannte Lücken (was NICHT abgedeckt ist) |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
 ### Guardrails / Vertrauensmechanismen
-*(bis M3 als "noch keine" stehen lassen)*
+*(bis Sprint 5 als "noch keine" stehen lassen)*
 -
 
 ## 3. Risiken
-*(append-only — pro Meilenstein neue Zeilen hinzufügen, alte nie bearbeiten)*
+*(append-only — pro Sprint neue Zeilen hinzufügen, alte nie bearbeiten)*
 
-| # | Meilenstein | Risiko | Wo es auftritt (Agent/Task/Tool/RAG) | Mitigation oder akzeptierter Kompromiss |
+| # | Sprint | Risiko | Wo es auftritt (Agent/Task/Tool/RAG) | Mitigation oder akzeptierter Kompromiss |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
 ## 4. Grenzen (Constraints)
-*(append-only — pro Meilenstein neue Zeilen hinzufügen, alte nie bearbeiten)*
+*(append-only — pro Sprint neue Zeilen hinzufügen, alte nie bearbeiten)*
 
-| # | Meilenstein | Grenze | Typ (Rate-Limit / Kosten / Latenz / Daten / Zeit / Team) | Wie der Entwurf sie berücksichtigt |
+| # | Sprint | Grenze | Typ (Rate-Limit / Kosten / Latenz / Daten / Zeit / Team) | Wie der Entwurf sie berücksichtigt |
 | --- | --- | --- | --- | --- |
 | | | | | |
 
 ## 5. Sicherheit & Threat Model
-*(ab M3 ausfüllen, bis zum Abschluss vollständig)*
+*(bis Sprint 5 — Abschlussabgabe — vollständig ausfüllen)*
 - Konkretes, zu diesem Entwurf passendes Prompt-Injection-Szenario:
 - Umgang mit Secrets:
 - Umfang der Tool-Berechtigungen:
 
 ## 6. Produktions-Aspekte
-*(beim Abschluss ausfüllen)*
+*(bis Sprint 5 — Abschlussabgabe — ausfüllen)*
 - Was ihr überwachen würdet:
 - Was euch auf einen Ausfall hinweisen würde:
 - Was für echten Produktionseinsatz noch fehlt:
@@ -77,13 +77,13 @@ Das ist der Hauptbericht: ein strukturiertes Design-Dokument für die Architektu
 - Welchen anderen Entwurf habt ihr erwogen (anderer Prozess, anderes Tool, kein RAG, anderer Rollensplit), und warum habt ihr ihn verworfen?
 
 ## 8. Design-Historie
-*(append-only — ein Eintrag pro Meilenstein, nie einen vorherigen Eintrag bearbeiten)*
+*(append-only — ein Eintrag pro Sprint, nie einen vorherigen Eintrag bearbeiten)*
 
-### M0 — Baseline (JJJJ-MM-TT)
+### Sprint 0 — Baseline (JJJJ-MM-TT)
 **Geändert:**
 **Warum:**
 
-### M1 — Tools (JJJJ-MM-TT)
+### Sprint 2 — Tools (JJJJ-MM-TT)
 **Geändert:**
 **Warum:**
 ```
@@ -121,7 +121,7 @@ Thema: [Thema eurer Crew]
 Schickt das direkt an eure Lehrperson (per E-Mail, nicht über GitHub), bei jeder Abgabe-Deadline. Es aus dem gemeinsamen Repo herauszuhalten — wo Teammitglieder es sehen würden — ist genau das, was ehrliches Feedback erst möglich macht; das fließt in die individuelle Anpassung ein, die im [Überblick zur Aufgabe](assignment-overview.md#bewertung) beschrieben ist.
 
 ```markdown
-# Peer Evaluation — [euer Name] — [Meilenstein: Zwischenabgabe / Abschluss]
+# Peer Evaluation — [euer Name] — [Zwischenabgabe / Abschluss]
 
 ## Eure Teammitglieder
 Ein Abschnitt pro Teammitglied, nicht für euch selbst:

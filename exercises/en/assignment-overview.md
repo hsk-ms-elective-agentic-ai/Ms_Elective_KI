@@ -2,25 +2,24 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment that runs alongside the exercise series: in teams, you design a CrewAI crew for a topic of your choice, growing it in complexity as the exercises introduce new capabilities. The primary deliverable at every stage is **your design plus your critical assessment of its risks and constraints** — working code is an optional bonus, never a requirement.
+This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you design a CrewAI crew for a use case of your choice, and each sprint both teaches a concept and grows your own crew with it. The primary deliverable at every stage is **your design plus your critical assessment of its risks and constraints** — working code is an optional bonus, never a requirement.
 
-**Team size:** 3–5 students. Small enough that everyone has a real stake in the outcome, large enough to plausibly fill three distinct agent roles by M3 without one person quietly doing everything.
+**Team size:** 3–5 students. Small enough that everyone has a real stake in the outcome, large enough to plausibly fill three distinct agent roles by Sprint 4 without one person quietly doing everything.
 
-See [Assignment Milestones](assignment-milestones.md) for what to build at each stage, [Assignment Templates](assignment-templates.md) for the documents you'll fill in, and the [Sprint Plan](assignment-sprint-plan.md) if you want to run this as actual Scrum sprints with sprint planning/review/retrospective built in.
+See [Assignment Templates](assignment-templates.md) for the documents you'll fill in (`DESIGN.md`, `TEAM.md`, user stories, peer evaluation). Sprint planning, the Definition of Done, and what to submit are built directly into each sprint's own page — there's no separate milestone ladder or sprint plan to cross-reference.
 
-## How this works: sprints tied to exercises
+## How this works: one sprint, one concept, one piece of your crew
 
-Treat each exercise as a sprint boundary. Each sprint unlocks one new capability (an "epic") for your crew design — you don't redesign from scratch each time, you extend what you already have.
+| Sprint | Unlocks |
+| --- | --- |
+| [0 — Vision & Architecture](00-vision-architecture.md) | Pick your use case, design your agents and tasks |
+| [1 — First Runnable MVP](01-first-mvp.md) | A working sequential (or parallel) crew |
+| [2 — Tools](02-tools.md) | A tool your use case actually needs |
+| [3 — RAG](03-rag.md) | Grounded answers from a real knowledge source *(interim submission due)* |
+| [4 — Dynamic Orchestration (Hierarchical)](04-dynamic-orchestration.md) | A third agent + manager-delegated process |
+| [5 — Production Safety & Stability](05-production-safety.md) | Threat model, monitoring plan *(final submission due)* |
 
-| Exercise(s) | Unlocks | Milestone |
-| --- | --- | --- |
-| [01](01-agentic-frameworks.md) | Agents, tasks, sequential process | **M0: Baseline** |
-| [02](02-tool-use.md) | Tool use | **M1: Tools** |
-| [03](03-agentic-rag.md) | Knowledge sources / RAG | **M2: RAG** *(interim submission due here)* |
-| [04](04-multi-agent-pattern.md) | Multi-agent/hierarchical process | **M3: Multi-agent** |
-| [05](05-production.md) + [06](06-securing-agents.md) | Production concerns, security threat modeling | **Final: Production and security** |
-
-Two submissions: an **interim submission** at M2 (formative, lighter weight — catches weak foundations early) and a **final submission** after the last exercise (the full design plus a retrospective on how your thinking changed).
+You don't redesign from scratch each sprint — you extend what you already have. Two submissions: an **interim submission** at the end of Sprint 3 (formative, lighter weight — catches weak foundations early) and a **final submission** at the end of Sprint 5 (the full design plus a retrospective on how your thinking changed).
 
 ## Team setup: repos and accounts
 
@@ -45,7 +44,7 @@ For quick edits (e.g. a `DESIGN.md` entry), you can skip Codespaces entirely: op
 
 ## Submission package
 
-At each milestone deadline, your submission is the state of your team repo's `main` branch:
+At each submission deadline (interim: end of Sprint 3, final: end of Sprint 5), your submission is the state of your team repo's `main` branch:
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |
@@ -64,26 +63,26 @@ The same weights apply at both the interim and final submission, scored against 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
 | Architecture & design | 25% | `agents.yaml`/`tasks.yaml` + `DESIGN.md` §1–2 — is the role split genuinely suited to your use case, not a relabeled default? |
-| Risk & constraint analysis | 30% | `DESIGN.md` §3–4 — specific to your design, growing across milestones, not generic |
-| Security & production considerations | 15% | `DESIGN.md` §5–6 — a concrete threat model and monitoring plan for *your* design, not the generic example from the exercises |
+| Risk & constraint analysis | 30% | `DESIGN.md` §3–4 — specific to your design, growing across sprints, not generic |
+| Security & production considerations | 15% | `DESIGN.md` §5–6 — a concrete threat model and monitoring plan for *your* design, not the generic example from sprint 5 |
 | Process: backlog & epics | 15% | GitHub Issues/Project board — real user stories with acceptance criteria, Definition of Done actually used, not just checked off |
-| Design history & retrospective | 15% | Honest evolution of thinking across milestones, not one polished answer written at the end |
+| Design history & retrospective | 15% | Honest evolution of thinking across sprints, not one polished answer written at the end |
 
 **Optional bonus:** a working `crew.py` + a successful `uv run research_crew` — up to **+10%** extra credit on top of the above. Never required, never a substitute for a thin risk analysis.
 
 **Individual adjustment within the team grade:** each student's share of the team grade can move by up to **±15%** based on the private [peer evaluation](assignment-templates.md#peer-evaluation-private--do-not-commit-this-to-your-repo) — submitted directly to your instructor, never committed to the repo, so feedback can be honest.
 
-See [Assignment Milestones](assignment-milestones.md) for the specific risk-analysis prompts graded at each stage.
+Each sprint's own page has the specific questions graded at that stage — answered directly in `DESIGN.md`, not as a separate "critical thinking" exercise.
 
 ## Agile practice: backlog and user stories
 
 Run your design process like a real product backlog:
-- Each milestone's new capability is an **epic**. Break it into 2–4 **user stories**: *"As a [stakeholder of the crew's output], I want [capability], so that [value]."*
+- Each sprint's new capability is an **epic**. Break it into 2–4 **user stories**: *"As a [stakeholder of the crew's output], I want [capability], so that [value]."*
 - Write **acceptance criteria** for each story as testable conditions — these double as a draft of the task's `expected_output` field once you get to the YAML, which is a useful thing to notice in itself.
 - Add "risks identified and mitigation documented" to every epic's definition of done, so risk analysis is a habit, not a one-off essay.
 - If your team is larger than two, rotate a facilitator role each sprint.
 
-Templates for all of this are in [Assignment Templates](assignment-templates.md); a full sprint-by-sprint breakdown (planning checklist, Definition of Done, review, retrospective) is in the [Sprint Plan](assignment-sprint-plan.md).
+Templates for all of this are in [Assignment Templates](assignment-templates.md). The sprint planning, Definition of Done, and review steps are built directly into each sprint's own "Your task" section — open the relevant sprint page when you're ready to plan it, rather than a separate sprint-plan document.
 
 ## For instructors
 
