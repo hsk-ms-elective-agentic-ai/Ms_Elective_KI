@@ -10,7 +10,7 @@ Lecture theory is delivered via slides in class. This repository is the hands-on
 
 Each team can spin up its **own thread** off the relevant channel for internal team coordination — any member can start one, no special permission needed.
 
-Emails, WhatsApp messages, carrier pigeons, and notes passed during lecture will be received with genuine warmth, admired for their effort, and otherwise met with a serene, untroubled silence. If it didn't happen on Discord, it didn't happen.
+Inquiries via email, WhatsApp, or any other channel will not be answered.
 
 ## Goal
 
@@ -33,7 +33,7 @@ Everything from section 4 onward in this README applies to **your team's repo**,
 
 ### Team assignment
 
-Teams of **3–5 students** design their own crew for a use case of their choice (see the table below), growing it in complexity milestone-by-milestone as new sessions unlock new capabilities — a critical risk/constraint analysis is the main graded deliverable, working code is an optional bonus. Plan the work itself using GitHub Issues as **epics and user stories**, organized into **sprints** — see the [Sprint Plan](exercises/en/assignment-sprint-plan.md) for the full sprint-by-sprint breakdown (sprint goal, planning checklist, Definition of Done, review, retrospective). Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** design their own crew for a use case of their choice (see the table below) — this *is* the exercise series, not a separate thing alongside it: each of the 6 sprints below both teaches a concept and grows your own crew with it. Plan the work itself using GitHub Issues as **epics and user stories**, organized into **sprints** — the sprint planning, Definition of Done, and review steps are built directly into each sprint's own page. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 
@@ -52,7 +52,7 @@ For the team assignment, you design your own crew for a use case of your choice 
 | 9 | Personal finance topic explainer | "ETFs vs. individual stocks"<br>*Finance Researcher → Plain-Language Educator* | Web search | A fund prospectus or glossary |
 | 10 | News digest on an ongoing story | "Weekly digest on [news topic]"<br>*News Tracker → Digest Editor* | Web search / news search tool | A backgrounder doc |
 
-Full detail (why each is low-friction on the code side despite the new role design, and exactly what changes at each milestone) is in [exercises/en/assignment-milestones.md](exercises/en/assignment-milestones.md).
+Full detail (why each is low-friction on the code side despite the new role design, and exactly what changes each sprint) is in [Sprint 0 — Vision & Architecture](exercises/en/00-vision-architecture.md).
 
 ## 3. Exercises & Tools
 
@@ -65,7 +65,7 @@ Full detail (why each is low-friction on the code side despite the new role desi
 - **Crew** — the collection of agents + tasks + a `process` for running them
 - **Process** — the orchestration strategy: `sequential` (fixed pipeline) or `hierarchical` (a manager agent delegates dynamically)
 
-CrewAI's signature choice — covered in depth in [exercise 01](exercises/en/01-agentic-frameworks.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
+CrewAI's signature choice — covered in depth in [Sprint 0](exercises/en/00-vision-architecture.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
 
 ### The template code
 
@@ -77,12 +77,12 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/config/agents.yaml](src/research_crew/config/agents.yaml) | Each agent's `role`/`goal`/`backstory` |
 | [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
-| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (exercise 02) |
-| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (exercise 03) |
+| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (Sprint 2) |
+| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (Sprint 3) |
 
-### Exercise sessions
+### Exercise sprints
 
-7 exercise sessions ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, multi-agent patterns, production, and security — scoped to what's actually demonstrated in this repo's code. Each one starts directly with the practical work, weaving in just enough background from the relevant paper (a short citation and, where one exists, its original figure) to place the concept, then goes straight into where it shows up in this repo's code, a hands-on task, and an optional stretch goal — a hands-on companion to the lecture, not a second lecture.
+6 sprints ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, dynamic multi-agent orchestration, production, and security — scoped to what's actually demonstrated in this repo's code, and done directly on **your own use case**, not a generic exercise you redo for real later. Each sprint starts directly with the practical work, weaving in just enough background from the relevant paper (a short citation and, where one exists, its original figure) to place the concept, then goes straight into your own crew, with sprint planning (user stories/epics) and a few pointed questions built in — a hands-on companion to the lecture, not a second lecture.
 
 ### Adding more tools or RAG (for students)
 
@@ -112,7 +112,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in exercise 03.
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in Sprint 3.
 
 ## 4. Technical Setup: Codespaces or Local
 

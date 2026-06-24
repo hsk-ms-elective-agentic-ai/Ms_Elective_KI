@@ -2,35 +2,31 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../README.md)
 
-Das sind die praktischen Übungssitzungen zu **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Die Vorlesungstheorie wird über Folien im Kurs vermittelt; diese Reihe ist die praktische Begleitung dazu und nutzt dieses Repository als durchgängiges Beispiel — bewusst beschränkt auf die Konzepte, die im Code dieses Projekts tatsächlich gezeigt werden, statt eines umfassenden Überblicks über jedes agentische KI-Thema.
+Das sind die praktischen Sprints zu **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Die Vorlesungstheorie wird über Folien im Kurs vermittelt; diese Reihe ist die praktische Begleitung dazu, nutzt die Demo-Crew dieses Repositorys als durchgängiges Beispiel — und ist zugleich die benotete Team-Aufgabe, kein separates Ding daneben. Jeder Sprint ist etwas, das ihr direkt an **eurem eigenen Anwendungsfall** macht, keine generische Übung, die ihr einmal macht und später für echt wiederholt.
 
-Jede Übung startet direkt mit der praktischen Arbeit statt mit einem eigenen Theorie-Block — sie webt gerade so viel Hintergrund aus dem jeweiligen Paper ein (ein kurzes Zitat und, wo vorhanden, dessen Originalabbildung), um das Konzept einzuordnen, und geht dann direkt in den Code:
-- **In diesem Repo** — wo genau das Konzept bereits in `research_crew` auftaucht, mit Datei-/Zeilenverweisen
-- **Aufgabe** — etwas, das ihr selbst implementiert oder verändert
+Jeder Sprint hat denselben Aufbau:
+- **Hintergrund** — gerade so viel Theorie, um das Konzept einzuordnen, mit Zitat des bahnbrechenden Papers (und der Originalabbildung, wo eine existiert)
+- **In diesem Repo** — wo genau das Konzept im Code der Demo-Crew auftaucht, mit Datei-/Zeilenverweisen
+- **Aufgabe** — Sprint Planning (GitHub-Issues als User Stories/Epics öffnen) und konkrete Schritte für *eure* Crew, am Ende ein paar gezielte Fragen, die ihr direkt in `DESIGN.md` beantwortet
 - **Zusatzaufgabe** (optional) — eine schwerere Anschlussaufgabe für alle, die früher fertig sind
 
-Diese Reihe wiederholt nicht, was die Vorlesung zu jedem Thema bereits behandelt — sie ist die praktische Begleitung, keine zweite Vorlesung.
+Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** funktionsfähig haben, bevor Sprint 0 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt.
 
-Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** (über Codespaces oder lokal) funktionsfähig haben, bevor Übung 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt.
+Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Sprint 5 zitiert; Simon (1969) und Brown (2008) begründen die Design-Thinking-Elemente in Sprint 0; alle anderen Zitate sind spezifische arXiv-Papers, aufgeführt pro Sprint.
 
-Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Übung 05 (Produktion) zitiert; alle anderen Zitate sind spezifische arXiv-Papers, aufgeführt pro Übung unter "Originalarbeit".
+## Sprints
 
-## Übungen
+| # | Titel | Schaltet frei |
+| --- | --- | --- |
+| [0](00-vision-architecture.md) | Vision & Architektur | Anwendungsfall wählen, Agenten und Tasks entwerfen |
+| [1](01-first-mvp.md) | Erster lauffähiger MVP | Eine funktionierende sequentielle (oder parallele) Crew |
+| [2](02-tools.md) | Tools | Ein Tool, das euer Anwendungsfall wirklich braucht |
+| [3](03-rag.md) | RAG | Verankerte Antworten aus einer echten Knowledge Source *(Zwischenabgabe fällig)* |
+| [4](04-dynamic-orchestration.md) | Dynamische Orchestrierung (Hierarchisch) | Ein dritter Agent + manager-delegierter Prozess |
+| [5](05-production-safety.md) | Produktionssicherheit & Stabilität | Threat Model, Monitoring-Plan *(Abschlussabgabe fällig)* |
 
-| # | Titel |
-| --- | --- |
-| [00](00-course-setup.md) | Einrichtung des Kurses |
-| [01](01-agentic-frameworks.md) | Agentische Frameworks: CrewAI-Grundlagen |
-| [02](02-tool-use.md) | Tool-Nutzung |
-| [03](03-agentic-rag.md) | Agentisches RAG |
-| [04](04-multi-agent-pattern.md) | Multi-Agenten-Pattern |
-| [05](05-production.md) | KI-Agenten in Produktion |
-| [06](06-securing-agents.md) | KI-Agenten absichern |
-
-## Benotete Team-Aufgabe
-
-Begleitend zu den Übungen entwerfen Teams ihre eigene Crew zu einem Thema ihrer Wahl und bauen sie Meilenstein für Meilenstein aus, sobald neue Übungsinhalte neue Fähigkeiten freischalten — mit einer kritischen Risiko-/Grenzenanalyse als Hauptabgabe und funktionierendem Code als optionalem Bonus. Siehe [Überblick zur Aufgabe](assignment-overview.md), [Meilensteine der Aufgabe](assignment-milestones.md), [Vorlagen für die Aufgabe](assignment-templates.md), und den [Sprint-Plan](assignment-sprint-plan.md), um das als Scrum durchzuführen.
+Was bewertet wird und wie, das Abgabepaket, Team-Setup und die Vorlagen (`DESIGN.md`, `TEAM.md`, User Stories, Peer Evaluation), siehe [Überblick zur Aufgabe](assignment-overview.md) (Deutsch / [English](../en/assignment-overview.md)).
 
 ## Für Lehrende
 
-Jede Übung verweist auf reale Dateien in `src/research_crew/`. Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Org-/Team-/Repo-Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die Commit-Historie jedes Teams direkt prüft.
+Jeder Sprint verweist auf reale Dateien in `src/research_crew/`. Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Org-/Team-/Repo-Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die Commit-Historie jedes Teams direkt prüft.

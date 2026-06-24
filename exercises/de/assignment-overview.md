@@ -2,25 +2,24 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe, die parallel zur Übungsreihe läuft: In Teams entwerft ihr eine CrewAI-Crew zu einem Thema eurer Wahl und baut sie mit wachsender Komplexität aus, während die Übungen neue Fähigkeiten einführen. Das primäre Abgabeprodukt ist in jeder Phase **euer Entwurf plus eure kritische Einschätzung seiner Risiken und Grenzen** — funktionierender Code ist ein optionaler Bonus, nie eine Pflicht.
+Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams entwerft ihr eine CrewAI-Crew zu einem Anwendungsfall eurer Wahl, und jeder Sprint vermittelt sowohl ein Konzept als auch baut eure eigene Crew damit aus. Das primäre Abgabeprodukt ist in jeder Phase **euer Entwurf plus eure kritische Einschätzung seiner Risiken und Grenzen** — funktionierender Code ist ein optionaler Bonus, nie eine Pflicht.
 
-**Teamgröße:** 3–5 Studierende. Klein genug, dass alle einen echten Anteil am Ergebnis haben, groß genug, um bis M3 plausibel drei unterschiedliche Agentenrollen zu besetzen, ohne dass eine Person heimlich alles macht.
+**Teamgröße:** 3–5 Studierende. Klein genug, dass alle einen echten Anteil am Ergebnis haben, groß genug, um bis Sprint 4 plausibel drei unterschiedliche Agentenrollen zu besetzen, ohne dass eine Person heimlich alles macht.
 
-Siehe [Meilensteine der Aufgabe](assignment-milestones.md) dafür, was in welcher Phase zu bauen ist, [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt, und den [Sprint-Plan](assignment-sprint-plan.md), falls ihr das als echte Scrum-Sprints mit Sprint Planning/Review/Retrospektive durchführen wollt.
+Siehe [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt (`DESIGN.md`, `TEAM.md`, User Stories, Peer Evaluation). Sprint Planning, Definition of Done und was abzugeben ist, sind direkt in die jeweilige Sprint-Seite eingebaut — es gibt keine separate Meilenstein-Leiter oder Sprint-Plan-Datei, auf die ihr verweisen müsstet.
 
-## So funktioniert es: Sprints entlang der Übungen
+## So funktioniert es: ein Sprint, ein Konzept, ein Teil eurer Crew
 
-Behandelt jede Übung als Sprint-Grenze. Jeder Sprint schaltet eine neue Fähigkeit ("Epic") für euren Crew-Entwurf frei — ihr entwerft nicht jedes Mal neu, sondern erweitert, was schon da ist.
+| Sprint | Schaltet frei |
+| --- | --- |
+| [0 — Vision & Architektur](00-vision-architecture.md) | Anwendungsfall wählen, Agenten und Tasks entwerfen |
+| [1 — Erster lauffähiger MVP](01-first-mvp.md) | Eine funktionierende sequentielle (oder parallele) Crew |
+| [2 — Tools](02-tools.md) | Ein Tool, das euer Anwendungsfall wirklich braucht |
+| [3 — RAG](03-rag.md) | Verankerte Antworten aus einer echten Knowledge Source *(Zwischenabgabe fällig)* |
+| [4 — Dynamische Orchestrierung (Hierarchisch)](04-dynamic-orchestration.md) | Ein dritter Agent + manager-delegierter Prozess |
+| [5 — Produktionssicherheit & Stabilität](05-production-safety.md) | Threat Model, Monitoring-Plan *(Abschlussabgabe fällig)* |
 
-| Übung(en) | Schaltet frei | Meilenstein |
-| --- | --- | --- |
-| [01](01-agentic-frameworks.md) | Agenten, Tasks, sequentieller Prozess | **M0: Baseline** |
-| [02](02-tool-use.md) | Tool-Nutzung | **M1: Tools** |
-| [03](03-agentic-rag.md) | Knowledge Sources / RAG | **M2: RAG** *(Zwischenabgabe hier fällig)* |
-| [04](04-multi-agent-pattern.md) | Multi-Agenten-/hierarchischer Prozess | **M3: Multi-Agent** |
-| [05](05-production.md) + [06](06-securing-agents.md) | Produktions-Aspekte, Security-Threat-Modeling | **Abschluss: Produktion und Sicherheit** |
-
-Zwei Abgaben: eine **Zwischenabgabe** bei M2 (formativ, geringeres Gewicht — fängt schwache Grundlagen früh ab) und eine **Abschlussabgabe** nach der letzten Übung (der vollständige Entwurf plus eine Retrospektive darüber, wie sich euer Denken verändert hat).
+Ihr entwerft nicht jeden Sprint neu — ihr erweitert, was schon da ist. Zwei Abgaben: eine **Zwischenabgabe** am Ende von Sprint 3 (formativ, geringeres Gewicht — fängt schwache Grundlagen früh ab) und eine **Abschlussabgabe** am Ende von Sprint 5 (der vollständige Entwurf plus eine Retrospektive darüber, wie sich euer Denken verändert hat).
 
 ## Team-Setup: Repos und Accounts
 
@@ -45,7 +44,7 @@ Für schnelle Änderungen (z. B. einen `DESIGN.md`-Eintrag) könnt ihr Codespace
 
 ## Abgabepaket
 
-Bei jeder Meilenstein-Deadline ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
+Bei jeder Abgabe-Deadline (Zwischenabgabe: Ende von Sprint 3, Abschluss: Ende von Sprint 5) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
@@ -64,26 +63,26 @@ Dieselben Gewichtungen gelten für Zwischen- und Abschlussabgabe, bewertet anhan
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
 | Architektur & Entwurf | 25 % | `agents.yaml`/`tasks.yaml` + `DESIGN.md` §1–2 — passt der Rollensplit wirklich zu eurem Anwendungsfall, statt ein umbenannter Standard zu sein? |
-| Risiko- und Grenzenanalyse | 30 % | `DESIGN.md` §3–4 — spezifisch zu eurem Entwurf, wächst über die Meilensteine, nicht generisch |
-| Sicherheit & Produktions-Aspekte | 15 % | `DESIGN.md` §5–6 — ein konkretes Threat Model und ein Monitoring-Plan für *euren* Entwurf, nicht das generische Beispiel aus den Übungen |
+| Risiko- und Grenzenanalyse | 30 % | `DESIGN.md` §3–4 — spezifisch zu eurem Entwurf, wächst über die Sprints, nicht generisch |
+| Sicherheit & Produktions-Aspekte | 15 % | `DESIGN.md` §5–6 — ein konkretes Threat Model und ein Monitoring-Plan für *euren* Entwurf, nicht das generische Beispiel aus Sprint 5 |
 | Prozess: Backlog & Epics | 15 % | GitHub Issues/Projects-Board — echte User Stories mit Akzeptanzkriterien, Definition of Done tatsächlich genutzt, nicht nur abgehakt |
-| Design-Historie & Retrospektive | 15 % | Ehrliche Entwicklung des Denkens über die Meilensteine hinweg, nicht eine einzige, am Ende glattgeschriebene Antwort |
+| Design-Historie & Retrospektive | 15 % | Ehrliche Entwicklung des Denkens über die Sprints hinweg, nicht eine einzige, am Ende glattgeschriebene Antwort |
 
 **Optionaler Bonus:** ein funktionierendes `crew.py` + ein erfolgreiches `uv run research_crew` — bis zu **+10 %** Zusatzpunkte oben auf das Obige. Nie Pflicht, nie ein Ersatz für eine dünne Risikoanalyse.
 
 **Individuelle Anpassung innerhalb der Teamnote:** Der Anteil jedes Studierenden an der Teamnote kann anhand der vertraulichen [Peer Evaluation](assignment-templates.md#peer-evaluation-vertraulich--nicht-ins-repo-committen) um bis zu **±15 %** verschoben werden — direkt an eure Lehrperson geschickt, nie ins Repo committed, damit Feedback ehrlich sein kann.
 
-Siehe [Meilensteine der Aufgabe](assignment-milestones.md) für die konkreten, pro Phase bewerteten Risikoanalyse-Fragen.
+Jede Sprint-Seite selbst enthält die konkreten Fragen, die in dieser Phase bewertet werden — beantwortet direkt in `DESIGN.md`, nicht als separate "kritisches Denken"-Übung.
 
 ## Agile Praxis: Backlog und User Stories
 
 Führt euren Entwurfsprozess wie ein echtes Produkt-Backlog:
-- Die neue Fähigkeit jedes Meilensteins ist ein **Epic**. Brecht es in 2–4 **User Stories** herunter: *"Als [Stakeholder des Crew-Ergebnisses] möchte ich [Fähigkeit], damit [Nutzen]."*
+- Die neue Fähigkeit jedes Sprints ist ein **Epic**. Brecht es in 2–4 **User Stories** herunter: *"Als [Stakeholder des Crew-Ergebnisses] möchte ich [Fähigkeit], damit [Nutzen]."*
 - Schreibt **Akzeptanzkriterien** für jede Story als testbare Bedingungen — diese sind zugleich ein Entwurf für das `expected_output`-Feld des Tasks, sobald ihr beim YAML angelangt seid, was an sich schon eine nützliche Beobachtung ist.
 - Fügt jedem Epic "Risiko identifiziert und dokumentiert" zur Definition of Done hinzu, damit Risikoanalyse eine Gewohnheit wird, kein einmaliger Aufsatz.
 - Ist euer Team größer als zwei, rotiert die Facilitator-Rolle jeden Sprint.
 
-Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-templates.md); eine vollständige Sprint-für-Sprint-Aufschlüsselung (Planning-Checkliste, Definition of Done, Review, Retrospektive) im [Sprint-Plan](assignment-sprint-plan.md).
+Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-templates.md). Sprint Planning, Definition of Done und Review sind direkt im "Aufgabe"-Abschnitt jeder Sprint-Seite eingebaut — öffnet die jeweilige Sprint-Seite, wenn ihr sie planen wollt, statt eine separate Sprint-Plan-Datei.
 
 ## Für Lehrende
 

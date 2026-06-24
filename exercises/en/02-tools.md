@@ -1,6 +1,6 @@
-# 02 — Tool Use
+# Sprint 2 — Tools
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-tool-use.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-tools.md)
 
 Tools turn an LLM from "generates plausible text" into "can actually do things": search the web, query a database, call an internal API, run code. The agent decides *when* and *with what arguments* to call a tool — you just need to describe the tool clearly enough that the LLM can use it correctly. Every CrewAI tool needs a **name** and **description** (what the agent reads to decide whether/how to use it — vague descriptions cause misuse), an **input schema** (a Pydantic model), and a `_run()` method with the actual implementation.
 
@@ -10,8 +10,6 @@ The idea that a language model can learn *when* to call a tool, *which* tool, an
 
 ![Toolformer examples: the model inserts API calls for a QA system, a calculator, a translation system, and a Wikipedia search engine into its own generated text](../assets/toolformer-schick2023-fig1.png)
 *Figure 1 from Schick et al. (2023): Toolformer autonomously deciding to call APIs to obtain information it needs. Reproduced for educational use in this course.*
-
-`SerperDevTool` in this crew plays the same role as the Wikipedia search API in the figure — the LLM decides on its own when a search is needed and writes the query.
 
 ## In this repo
 
@@ -29,20 +27,17 @@ class MyCustomTool(BaseTool):
         return "this is an example of a tool output, ignore it and move along."
 ```
 
-Compare it to the tool already in use, [crew.py:22](../../src/research_crew/crew.py#L22): `SerperDevTool()` — a fully pre-built tool from `crewai_tools`, requiring zero implementation, just an API key (`SERPER_API_KEY`).
+Compare it to the tool already in use, [crew.py:22](../../src/research_crew/crew.py#L22): `SerperDevTool()` — a fully pre-built tool from `crewai_tools`, requiring zero implementation, just an API key (`SERPER_API_KEY`). The README's [tool category table](../../README.md#adding-more-tools-or-rag-for-students) lists ~90 pre-built tools split by whether they need just an API key or local embeddings (that's sprint 3).
 
-The README's [tool category table](../../README.md#adding-more-tools-or-rag-for-students) lists ~90 pre-built tools split by whether they need just an API key (most search/scraping tools) or local embeddings (RAG-style tools, covered in exercise 03).
+## Your task
 
-## Task
-
-1. Implement `MyCustomTool` for real. Suggestions: a simple calculator (`eval`-free — parse and compute manually for safety), a tool that returns the current date/time, or a tool that counts words in a string.
-2. Write a clear `name` and `description` — bad ones cause the agent to never call the tool, or call it with wrong arguments. Test both a vague description and a precise one; compare whether the agent uses the tool.
-3. Add your tool to one of the agents in [crew.py](../../src/research_crew/crew.py) (`tools=[SerperDevTool(), MyCustomTool()]`) and craft a task description that should make the agent want to use it.
+1. **Sprint planning**: open 1–2 GitHub Issues as user stories labeled `epic:tools`, with acceptance criteria covering both the happy path and a failure case (rate limit, empty result, API down).
+2. Pick a tool your use case **actually needs** — not one to check a box. Either a pre-built one from the README's table, or a custom one following `custom_tool.py`'s pattern if nothing existing fits.
+3. Wire it into the relevant agent in `crew.py` (`tools=[...]`) and write a task description that should make the agent want to use it.
+4. Run it and confirm the agent actually calls the tool — check the verbose logs, don't just assume.
+5. Update `DESIGN.md`'s Tools table.
+6. Before calling this done, answer in `DESIGN.md`: what happens if this tool is rate-limited, returns nothing useful, or the API is down mid-run — does your crew degrade gracefully or just fail? Does the tool's description make misuse likely (wrong arguments, or not calling it when it should)? Now that you have a tool, what's actually better than your Sprint 1 MVP, specifically — and how would you show that to your stakeholder, not just claim it?
 
 ## Stretch goal
 
-Swap `SerperDevTool` for one of the other pre-built search tools in the README's table (e.g. `TavilySearchTool`) and get it running with your own free API key from that provider.
-
----
-
-**Team assignment:** this exercise unlocks [**Milestone M1: Tools**](assignment-milestones.md#m1-tools) of the [team assignment](assignment-overview.md).
+Swap your tool for a different one solving the same problem (e.g. a different search provider) and compare: same task, same agent, different tool — does the agent's behavior or output quality change, and why might that be?
