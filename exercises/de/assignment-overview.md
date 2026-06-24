@@ -29,18 +29,20 @@ Dieser Kurs läuft in einer GitHub-Organisation, mit **einem privaten Repository
 
 ### Zusammenarbeiten ohne Git-Erfahrung
 
-Für die tägliche Teamarbeit braucht ihr keine Branches oder Pull Requests — ein einfacher Ablauf reicht:
+Ein Branch pro Sprint, ein Pull Request, um ihn abzuschließen — darüber hinaus ist die tägliche Arbeit derselbe einfache Ablauf wie direktes Committen auf `main`:
 
-1. Bearbeitet eine Datei wie gewohnt (in eurem Codespace).
-2. Öffnet das **Source-Control-Panel** (das Verzweigungs-Icon in der Seitenleiste).
-3. Schreibt eine kurze Commit-Nachricht, klickt auf **✓ Commit**.
-4. Klickt auf **Sync Changes** — das holt in einem Schritt die Änderungen eurer Teammitglieder und schiebt eure eigenen hoch.
+1. **Zu Beginn jedes Sprints** erstellt ihr einen Branch namens `sprint-<N>` (z. B. `sprint-2`): klickt auf den Branch-Namen unten links in VS Code → **Create new branch...**. Das ganze Team arbeitet für den Rest des Sprints auf diesem einen Branch.
+2. Bearbeitet eine Datei wie gewohnt (in eurem Codespace).
+3. Öffnet das **Source-Control-Panel** (das Verzweigungs-Icon in der Seitenleiste).
+4. Schreibt eine kurze Commit-Nachricht, klickt auf **✓ Commit**.
+5. Klickt auf **Sync Changes** — das holt in einem Schritt die Änderungen eurer Teammitglieder und schiebt eure eigenen hoch (jetzt auf euren `sprint-<N>`-Branch, nicht auf `main`).
+6. **Am Ende des Sprints** öffnet ihr einen Pull Request von `sprint-<N>` nach `main` — GitHub zeigt auf github.com direkt nach dem Pushen eines neuen Branches ein "Compare & pull request"-Banner an, oder ihr nutzt das **GitHub Pull Requests**-Panel in VS Code. Schaut euch den Diff gemeinsam als Team an (das ist auch ein guter Moment, um eine versehentlich committete Datei zu entdecken), und merget ihn selbst — keine Freigabe nötig. Den nächsten Sprint startet ihr, indem ihr `sprint-<N+1>` vom dann aktualisierten `main` abzweigt.
 
-Kein Terminal, keine `git add`/`commit`/`push`-Befehle. Alle committen direkt auf `main`.
+Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
 Um zu vermeiden, dass zwei Personen dieselbe Datei gleichzeitig bearbeiten, **teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. verwaltet eine Person `agents.yaml`, eine andere `tasks.yaml`. `DESIGN.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch dabei ab, oder committet und synct alle paar Minuten, statt lange parallel in derselben Datei zu arbeiten. Falls trotzdem ein Konflikt auftritt, zeigt VS Code eine Merge-Ansicht mit anklickbaren Buttons ("Accept Current / Incoming / Both") — bittet eure Lehrperson einmal um eine kurze Live-Demo davon, damit es niemanden mitten in einer Deadline überrascht.
 
-Für schnelle Änderungen (z. B. einen `DESIGN.md`-Eintrag) könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, klickt auf das Stift-Icon, bearbeitet sie im Browser und klickt unten auf **"Commit changes"**.
+Für schnelle Änderungen (z. B. einen `DESIGN.md`-Eintrag) könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon, bearbeitet sie im Browser und klickt unten auf **"Commit changes"**.
 
 ## Abgabepaket
 
@@ -51,10 +53,11 @@ Bei jeder Abgabe-Deadline (Zwischenabgabe: Ende von Sprint 3, Abschluss: Ende vo
 | Lauffähige Crew-Konfiguration | `src/research_crew/config/agents.yaml` + `tasks.yaml` (+ `crew.py`, sobald Tools/RAG/Prozess sich ändern) | Die buchstäbliche, lauffähige Version eures Entwurfs |
 | Design-Dokument | `DESIGN.md` — Architektur (Agenten/Tasks/Tools/RAG), Risiken, Grenzen, Sicherheit, Produktions-Aspekte, Design-Historie | Eure vollständige, kritisch geprüfte Entwurfsbegründung, in einem sich entwickelnden Bericht |
 | Backlog | GitHub Issues (nach Epic gelabelt) + ein Projects-Board | Eure User Stories und euer Fortschritt — lebt auf GitHub, nichts zu exportieren |
+| Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein klarer, prüfbarer Diff von genau dem, was sich in jedem Sprint geändert hat, und warum (nutzt die PR-Beschreibung) |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
 | Optionaler Bonus | ein funktionierendes `crew.py` + ein erfolgreiches `uv run research_crew` | Nur Zusatzpunkte — nie Pflicht |
 
-Die Abgabe ist einfach **der Zustand des `main`-Branchs eures Team-Repos zur Deadline** — es gibt keinen Pull Request zu öffnen. Teilt eure Repo-URL einmal, am Anfang; eure Lehrperson prüft eure Commit-Historie zu jeder Deadline in genau diesem Repo (und kann dafür einen bestimmten Commit taggen).
+Zur Deadline selbst ist eure Abgabe **der Zustand des `main`-Branchs eures Team-Repos** — teilt eure Repo-URL einmal, am Anfang. Die Kette der gemergten Sprint-PRs davor ist das, was eure Lehrperson tatsächlich liest, um zu verfolgen, wie sich euer Entwurf entwickelt hat, statt die rohe Commit-Historie von Hand zu vergleichen.
 
 ## Bewertung
 
@@ -116,4 +119,4 @@ Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Te
 
 ### 5. Laufend: Abgaben prüfen
 
-Prüft die Commit-Historie jedes Teams auf `main` zu jeder Deadline — taggt selbst einen bestimmten Commit (Releases → "Create a new release"), wenn ihr einen unveränderlichen Stand für die Bewertung wollt. Musterlösungen sind bewusst nicht enthalten, wie im Rest dieser Reihe.
+Jedes Team merget einen Pull Request pro Sprint (`sprint-<N>` → `main`) — prüft diesen PR-Diff direkt auf GitHub (**Pull requests → Closed**, im jeweiligen Repo) auf das, was sich geändert hat und warum, statt selbst die rohe Commit-Historie zu vergleichen. Bewertet zu jeder Deadline (Zwischenabgabe: Sprint 3, Abschluss: Sprint 5) gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als sprintweisem Protokoll dahinter. Musterlösungen sind bewusst nicht enthalten, wie im Rest dieser Reihe.
