@@ -7,9 +7,6 @@ from research_crew.crew import ResearchCrew
 # Create output directory if it doesn't exist
 os.makedirs('output', exist_ok=True)
 
-# Codespaces secrets bypass .env entirely, so .env.example's MODEL default never applies there — set it here instead.
-os.environ.setdefault('MODEL', 'groq/llama-3.3-70b-versatile')
-
 REQUIRED_ENV_VARS = {
     'GROQ_API_KEY': 'powers the LLM behind every agent (get one free at https://console.groq.com/keys)',
     'SERPER_API_KEY': "powers the researcher agent's web search tool (get one free at https://serper.dev)",

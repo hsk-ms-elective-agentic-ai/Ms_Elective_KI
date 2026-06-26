@@ -170,6 +170,13 @@ Once that's done, continue with [Run the crew](#run-the-crew) below.
 - Modify `src/research_crew/crew.py` to add your own logic, tools and specific args
 - Modify `src/research_crew/main.py` to add custom inputs for your agents and tasks
 
+**Using DeepSeek instead of Groq (optional)**: the `MODEL` env var works with any provider `litellm` supports (already a dependency here), not just Groq. To switch:
+```
+MODEL=deepseek/deepseek-chat
+DEEPSEEK_API_KEY=...
+```
+Get a key at [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys). Unlike Groq, DeepSeek has no rate-limited free tier — it's pay-per-token from the first request (very cheap, but requires a card on file), so Groq stays the course default for a $0, no-card setup.
+
 ### Run the crew
 
 This applies whether you set up via Codespaces or locally. From the project root:
