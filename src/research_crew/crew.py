@@ -5,11 +5,19 @@ import os
 # main thread — fails (harmlessly) when run from Streamlit's worker thread otherwise.
 os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
 
+# Codespaces secrets bypass .env entirely, so .env.example's defaults never apply there —
+# set them here instead. Also: the Gemini embedder's model_name field shares a "model"
+# validation alias with the MODEL var above, so it silently inherits MODEL's value unless
+# pinned via this more specific env var — set both defensively, before crewai is imported.
+os.environ.setdefault('MODEL', 'groq/llama-3.3-70b-versatile')
+os.environ.setdefault('EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME', 'gemini-embedding-001')
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
+
 
 @CrewBase
 class ResearchCrew():
