@@ -9,7 +9,7 @@ os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
 # set them here instead. Also: the Gemini embedder's model_name field shares a "model"
 # validation alias with the MODEL var above, so it silently inherits MODEL's value unless
 # pinned via this more specific env var — set both defensively, before crewai is imported.
-os.environ.setdefault('MODEL', 'groq/llama-3.3-70b-versatile')
+os.environ.setdefault('MODEL', 'gpt-4o-mini')
 os.environ.setdefault('EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME', 'gemini-embedding-001')
 
 from crewai import Agent, Crew, Process, Task

@@ -17,7 +17,7 @@ load_dotenv()
 TOPIC = "TODO: your topic here"
 
 response = completion(
-    model=os.getenv("MODEL", "groq/llama-3.3-70b-versatile"),
+    model=os.getenv("MODEL", "gpt-4o-mini"),
     messages=[
         {"role": "user", "content": "TODO: write your question about the topic"},
     ],

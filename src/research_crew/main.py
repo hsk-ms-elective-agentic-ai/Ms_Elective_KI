@@ -8,10 +8,15 @@ from research_crew.crew import ResearchCrew
 os.makedirs('output', exist_ok=True)
 
 REQUIRED_ENV_VARS = {
-    'GROQ_API_KEY': 'powers the LLM behind every agent (get one free at https://console.groq.com/keys)',
     'SERPER_API_KEY': "powers the researcher agent's web search tool (get one free at https://serper.dev)",
     'GEMINI_API_KEY': 'powers embeddings for knowledge/memory features (get one free at https://ai.google.dev)',
 }
+
+# Gemini free tier covers both chat and embeddings with one key — no OpenAI key needed.
+# For OpenAI (default), OPENAI_API_KEY is required.
+_model = os.getenv('MODEL', 'gpt-4o-mini')
+if not _model.startswith('gemini/'):
+    REQUIRED_ENV_VARS['OPENAI_API_KEY'] = 'powers the LLM behind every agent (get one at https://platform.openai.com/api-keys)'
 
 # A copy-pasted secret with a trailing newline produces an "Illegal header value" error deep inside
 # litellm that's hard to diagnose — strip whitespace defensively before anything reads these.

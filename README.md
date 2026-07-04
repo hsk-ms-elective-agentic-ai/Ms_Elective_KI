@@ -102,7 +102,7 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | Evaluation & quality | No | `PatronusEvalTool`, `PatronusLocalEvaluatorTool`, `PatronusPredefinedCriteriaEvalTool` |
 | Platform & automation integrations | Varies by platform | `ZapierActionTool`, `ComposioTool`, `ApifyActorsTool`, `EnterpriseActionTool`, `MergeAgentHandlerTool`, `GenerateCrewaiAutomationTool`, `InvokeCrewAIAutomationTool`, `BedrockInvokeAgentTool`, `BedrockKBRetrieverTool`, `AIMindTool`, `LlamaIndexTool`, `ContextualAICreateAgentTool`, `ContextualAIParseTool`, `ContextualAIQueryTool`, `ContextualAIRerankTool` |
 
-For any tool marked "Needs embedder config", point it at Gemini the same way (otherwise it fails with a missing `OPENAI_API_KEY` error, even though the crew's chat LLM is Groq):
+For any tool marked "Needs embedder config", point it at Gemini the same way (otherwise it fails with a missing `OPENAI_API_KEY` error):
 
 ```python
 WebsiteSearchTool(config={
@@ -132,7 +132,7 @@ No local install needed. Open your team's repo on github.com → **Code → Crea
 
 The container automatically installs `uv` and runs `uv sync`.
 
-**API keys are set up once per team, not per student**: at least one team member gets the free keys and adds them as **repository secrets** on your team's repo (`Settings → Secrets and variables → Codespaces`) — `GROQ_API_KEY`, `SERPER_API_KEY`, `GEMINI_API_KEY`. Once set, every teammate gets them automatically in any Codespace opened on that repo — nobody else needs to do this step. See [Assignment Overview](exercises/en/assignment-overview.md#team-setup-repos-and-accounts) for exactly how this works and the rate-limit tradeoff to know about.
+**API keys are set up once per team, not per student**: at least one team member gets the keys and adds them as **repository secrets** on your team's repo (`Settings → Secrets and variables → Codespaces`) — `OPENAI_API_KEY` (or `GEMINI_API_KEY` if using the free tier), `SERPER_API_KEY`, and `GEMINI_API_KEY`. Once set, every teammate gets them automatically in any Codespace opened on that repo — nobody else needs to do this step. See [Assignment Overview](exercises/en/assignment-overview.md#team-setup-repos-and-accounts) for exactly how this works.
 
 <details>
 <summary>Alternative: local <code>.env</code> file inside the codespace (only if you can't use Codespaces secrets)</summary>
@@ -158,7 +158,7 @@ Clone the repo, then from its root install the dependencies:
 uv sync
 ```
 
-Copy `.env.example` to `.env` and fill in `GROQ_API_KEY`, `SERPER_API_KEY`, and `GEMINI_API_KEY` — ask your team for the keys they already set up as repository secrets (see Option A) rather than signing up again locally, unless you specifically want your own.
+Copy `.env.example` to `.env` and fill in your API keys (`OPENAI_API_KEY` or `GEMINI_API_KEY`, plus `SERPER_API_KEY` and `GEMINI_API_KEY`) — ask your team for the keys they already set up as repository secrets (see Option A) rather than signing up again locally, unless you specifically want your own.
 
 Once that's done, continue with [Run the crew](#run-the-crew) below.
 
@@ -171,12 +171,7 @@ Once that's done, continue with [Run the crew](#run-the-crew) below.
 - Modify `src/research_crew/crew.py` to add your own logic, tools and specific args
 - Modify `src/research_crew/main.py` to add custom inputs for your agents and tasks
 
-**Using DeepSeek instead of Groq (optional)**: the `MODEL` env var works with any provider `litellm` supports (already a dependency here), not just Groq. To switch:
-```
-MODEL=deepseek/deepseek-chat
-DEEPSEEK_API_KEY=...
-```
-Get a key at [platform.deepseek.com/api_keys](https://platform.deepseek.com/api_keys). Unlike Groq, DeepSeek has no rate-limited free tier — it's pay-per-token from the first request (very cheap, but requires a card on file), so Groq stays the course default for a $0, no-card setup.
+**Using Gemini free tier instead of OpenAI (optional)**: switch to Google's free-tier model by setting `MODEL=gemini/gemini-2.0-flash` in your `.env`. You only need one key (`GEMINI_API_KEY`) because the same key covers both the chat model and embeddings — no credit card required. Get a key at [ai.google.dev](https://ai.google.dev). The `MODEL` env var works with any provider `litellm` supports, so you can also swap in other models (e.g. `deepseek/deepseek-chat` with `DEEPSEEK_API_KEY`) without touching the code.
 
 ### Run the crew
 

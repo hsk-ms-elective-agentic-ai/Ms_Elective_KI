@@ -31,7 +31,7 @@ data          = f"Topic: {text}\n"
 query = persona + instruction + context + data_format + audience + tone + reasoning + data
 
 response = completion(
-    model=os.getenv("MODEL", "groq/llama-3.3-70b-versatile"),
+    model=os.getenv("MODEL", "gpt-4o-mini"),
     messages=[
         {"role": "user", "content": query},
     ],
