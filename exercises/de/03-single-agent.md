@@ -6,14 +6,20 @@ Wechselt von einem handgeschriebenen Prompt zu einem CrewAI-`Agent` und einem `T
 
 ## Hintergrund
 
-Die Beobachtung, dass LLM-basierte Agenten von einer expliziten Modulstruktur profitieren — Profil, Gedächtnis, Planung, Handlung — wurde systematisiert in:
+Die grundlegende Schleife, die einen Agenten zu einem Agenten macht — abwechselndes Reasoning über den nächsten Schritt und Ausführen einer Aktion (Tool aufrufen, Ergebnis lesen, Plan aktualisieren) — wurde eingeführt in:
+
+> Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2022). *ReAct: Synergizing Reasoning and Acting in Language Models*. ICLR 2023. [arXiv:2210.03629](https://arxiv.org/abs/2210.03629)
+
+ReAct (Reason + Act) ist das Muster, dem CrewAI-Agenten folgen: Das Modell denkt („Ich muss X finden"), handelt (ruft ein Tool auf), beobachtet das Ergebnis, denkt erneut nach und wiederholt dies, bis es eine finale Antwort produzieren kann. Das trennt einen Agenten von einem einzelnen Prompt-Aufruf — die Schleife.
+
+Die weitergehende Beobachtung, dass LLM-basierte Agenten von einer expliziten Modulstruktur profitieren — Profil, Gedächtnis, Planung, Handlung — wurde systematisiert in:
 
 > Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., & Wen, J. (2023). *A Survey on Large Language Model based Autonomous Agents*. [arXiv:2308.11432](https://arxiv.org/abs/2308.11432)
 
 ![Einheitliches Framework für LLM-basierte autonome Agenten: Profil-, Gedächtnis-, Planungs- und Handlungsmodule](../assets/agentsurvey-wang2023-fig2.png)
 *Abbildung 2 aus Wang et al. (2023). Reproduziert für Bildungszwecke in diesem Kurs.*
 
-In CrewAI-Begriffen: `role`/`goal`/`backstory` in `agents.yaml` = **Profil**; `tools` + die Task-Schleife = **Handlung**.
+In CrewAI-Begriffen: `role`/`goal`/`backstory` in `agents.yaml` = **Profil**; `tools` + die ReAct-Task-Schleife = **Handlung**.
 
 ## In diesem Repo
 

@@ -2,53 +2,68 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Three scripts, same topic, same model. Each one is a different strategy for shaping what the model produces — without a framework, without agents. Run all three and compare the outputs.
+Four scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all four and compare the outputs.
 
 ## Background
 
-A prompt is a program. The strategies you apply — structuring inputs into named components, asking for explicit reasoning, splitting a task into sequential calls — are the code. The model is the runtime.
+A prompt is a program. The strategies you apply — structuring inputs into named components, providing examples, asking for explicit reasoning, splitting a task into sequential calls — are the code. The model is the runtime.
 
 > Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., & Neubig, G. (2023). *Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing*. ACM Computing Surveys, 55(9), 1–35. [arXiv:2107.13586](https://arxiv.org/abs/2107.13586)
 
-Chain-of-thought prompting specifically — showing that asking the model to reason before answering improves performance on complex tasks — was demonstrated in:
+**Few-shot prompting** — providing input/output examples in the prompt so the model learns the expected format and style from context alone, without any weight updates — was the central finding of:
+
+> Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., … Amodei, D. (2020). *Language Models are Few-Shot Learners*. NeurIPS 2020. [arXiv:2005.14165](https://arxiv.org/abs/2005.14165)
+
+**Zero-shot chain-of-thought** — adding a short instruction asking the model to reason step by step before answering, with no worked examples — was demonstrated in:
+
+> Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. (2022). *Large Language Models are Zero-Shot Reasoners*. NeurIPS 2022. [arXiv:2205.11916](https://arxiv.org/abs/2205.11916)
+
+Wei et al. (2022) showed separately that including full worked reasoning chains as few-shot examples also improves performance — the two results are complementary:
 
 > Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou, D. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. NeurIPS 2022. [arXiv:2201.11903](https://arxiv.org/abs/2201.11903)
 
-## The three scripts
+## The four scripts
 
 ### 2a — Prompt Template
 [src/exercises/step_02a_prompt_template.py](../../src/exercises/step_02a_prompt_template.py)
 
-The prompt is split into named components (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`, `data`) concatenated into a single query. One API call.
+The prompt is split into named components (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`, `data`) concatenated into a single query. One API call, no examples, no reasoning instruction.
 
 ### 2b — Chain of Thought
 [src/exercises/step_02b_chain_of_thought.py](../../src/exercises/step_02b_chain_of_thought.py)
 
-Same component structure as 2a, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. One API call.
+Same component structure as 2a, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. This is the zero-shot CoT pattern from Kojima et al. (2022) — no examples needed, just the instruction.
 
 ### 2c — Chain Prompting
 [src/exercises/step_02c_chain_prompting.py](../../src/exercises/step_02c_chain_prompting.py)
 
-Two sequential API calls: the first extracts or prepares something from the topic; the second receives that output and produces the final answer. The task is deliberately split.
+Two sequential API calls: the first extracts or prepares something from the topic; the second receives that output and produces the final answer. The task is deliberately split across calls.
+
+### 2d — Few-Shot Prompting
+[src/exercises/step_02d_few_shot.py](../../src/exercises/step_02d_few_shot.py)
+
+Two or three input/output example pairs appear in the prompt before the real question. The model learns the expected format and style from those examples — this is in-context learning from Brown et al. (2020). No structure, no reasoning instruction, just patterns.
 
 ## Your task
 
-1. Set your topic in all three scripts — same topic as step 1, same topic across 2a/2b/2c.
+1. Set your topic in all four scripts — same topic as step 1, same topic across 2a/2b/2c/2d.
 
 2. Fill in the `TODO` fields and run each script:
    ```bash
    uv run python src/exercises/step_02a_prompt_template.py
    uv run python src/exercises/step_02b_chain_of_thought.py
    uv run python src/exercises/step_02c_chain_prompting.py
+   uv run python src/exercises/step_02d_few_shot.py
    ```
 
-3. Compare the three outputs:
+3. Compare the four outputs (each is saved to `output/step_02*.md`):
    - Which components in 2a had the most visible effect? Try removing one at a time.
-   - Does the `reasoning` component in 2b produce noticeably different conclusions — or just more text?
+   - Does the `reasoning` instruction in 2b produce noticeably different conclusions — or just more text?
    - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
+   - In 2d, do the examples steer the model toward a specific format or conclusion? What happens if you change just one example?
 
 4. Fill in the **Step 2** section of `EVALUATION.md`.
 
 ## Stretch goal
 
-In step 2c, try reversing the order of the two prompts — do the "final" step first, then refine it with the output of the "preparation" step. Does the order matter?
+In 2d, try a "zero-shot" variant by removing the examples and just asking the question directly — then compare that to the few-shot version. Is the improvement from the examples large, small, or unexpected?

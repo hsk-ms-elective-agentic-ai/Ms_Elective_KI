@@ -6,14 +6,20 @@ Move from a hand-written prompt to a CrewAI `Agent` and `Task`. The `role`, `goa
 
 ## Background
 
-The observation that LLM-based agents benefit from an explicit module structure — profile (who the agent is), memory, planning, action — was systematized in:
+The core loop that makes an agent an agent — alternating between reasoning about what to do next and taking an action (calling a tool, reading a result, updating a plan) — was introduced in:
+
+> Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2022). *ReAct: Synergizing Reasoning and Acting in Language Models*. ICLR 2023. [arXiv:2210.03629](https://arxiv.org/abs/2210.03629)
+
+ReAct (Reason + Act) is the pattern CrewAI agents follow: the model thinks ("I need to find X"), acts (calls a tool), observes the result, thinks again, and repeats until it can produce a final answer. This is what separates an agent from a single prompt call — the loop.
+
+The broader observation that LLM-based agents benefit from an explicit module structure — profile (who the agent is), memory, planning, action — was systematized in:
 
 > Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., & Wen, J. (2023). *A Survey on Large Language Model based Autonomous Agents*. [arXiv:2308.11432](https://arxiv.org/abs/2308.11432)
 
 ![Unified framework for LLM-based autonomous agents: Profile, Memory, Planning, Action modules](../assets/agentsurvey-wang2023-fig2.png)
 *Figure 2 from Wang et al. (2023). Reproduced for educational use in this course.*
 
-In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` = **Profile**; `tools` + the task loop = **Action**.
+In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` = **Profile**; `tools` + the ReAct task loop = **Action**.
 
 ## In this repo
 

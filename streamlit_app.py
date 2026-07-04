@@ -122,6 +122,7 @@ with tab_prompting:
             "2a — Prompt Template",
             "2b — Chain of Thought",
             "2c — Chain Prompting",
+            "2d — Few-Shot Prompting",
         ],
         horizontal=True,
     )
@@ -289,6 +290,55 @@ with tab_prompting:
                             st.markdown(output)
                         except Exception as exc:
                             st.error(str(exc))
+
+    # ── Step 2d ───────────────────────────────────────────────────────────────
+    elif step == "2d — Few-Shot Prompting":
+        st.markdown(
+            "Provide 2–3 input/output examples before your real question. "
+            "The model learns format and style from the examples — no training, just context (Brown et al., 2020)."
+        )
+        st.markdown("**Example 1**")
+        c1, c2 = st.columns(2)
+        with c1:
+            ex1_in  = st.text_area("Input", height=80, key="ex1_in")
+        with c2:
+            ex1_out = st.text_area("Output", height=80, key="ex1_out")
+
+        st.markdown("**Example 2**")
+        c1, c2 = st.columns(2)
+        with c1:
+            ex2_in  = st.text_area("Input", height=80, key="ex2_in")
+        with c2:
+            ex2_out = st.text_area("Output", height=80, key="ex2_out")
+
+        text = st.text_area("Your actual question / topic", height=80, key="fewshot_text")
+
+        if st.button("Run", type="primary", key="run_2d"):
+            if not text.strip():
+                st.warning("Enter your actual question first.")
+            else:
+                parts = []
+                if ex1_in.strip() and ex1_out.strip():
+                    parts.append(f"Input: {ex1_in}\nOutput: {ex1_out}")
+                if ex2_in.strip() and ex2_out.strip():
+                    parts.append(f"Input: {ex2_in}\nOutput: {ex2_out}")
+                parts.append(f"Input: {text}\nOutput:")
+                prompt = "\n\n".join(parts)
+                with st.expander("Assembled prompt"):
+                    st.code(prompt)
+                with st.spinner("Calling model…"):
+                    try:
+                        resp = completion(
+                            model=_model,
+                            messages=[{"role": "user", "content": prompt}],
+                        )
+                        output = resp.choices[0].message.content
+                        path = save_output("02d", prompt, output, topic=text[:80])
+                        st.caption(f"Saved to `{path}`")
+                        st.markdown("**Output**")
+                        st.markdown(output)
+                    except Exception as exc:
+                        st.error(str(exc))
 
 # ── Tab 2: Research Crew ──────────────────────────────────────────────────────
 

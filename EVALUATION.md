@@ -27,6 +27,7 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 **2a (Prompt Template) — what changed vs Step 1:**
 **2b (Chain of Thought) — what changed vs 2a:**
 **2c (Chain Prompting) — what changed vs 2a/2b:**
+**2d (Few-Shot) — what changed vs the others; did the examples steer the output noticeably:**
 **Which technique worked best for your topic, and why:**
 **One thing that surprised you:**
 
