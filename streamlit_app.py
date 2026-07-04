@@ -37,7 +37,7 @@ ICONS = {
 }
 
 
-def run_crew(topic: str, events: queue.Queue) -> None:
+def run_crew(crew, topic: str, events: queue.Queue) -> None:
     with crewai_event_bus.scoped_handlers():
         @crewai_event_bus.on(TaskStartedEvent)
         def _on_task_started(source, event):
@@ -70,7 +70,7 @@ def run_crew(topic: str, events: queue.Queue) -> None:
             events.put(("tool_error", f"{event.tool_name}: {event.error}"))
 
         try:
-            result = ResearchCrew().crew().kickoff(inputs={"topic": topic})
+            result = crew.kickoff(inputs={"topic": topic})
             events.put(("done", result.raw))
         except Exception as exc:
             events.put(("error", str(exc)))
@@ -256,8 +256,15 @@ with tab_crew:
     go = st.button("Run Crew", type="primary")
 
     if go:
+        # Build the crew in the main thread — CrewAI's telemetry registers
+        # signal handlers, which Python only permits on the main thread.
+        try:
+            crew = ResearchCrew().crew()
+        except Exception as exc:
+            st.error(f"Failed to initialize crew: {exc}")
+            st.stop()
         events: queue.Queue = queue.Queue()
-        thread = threading.Thread(target=run_crew, args=(topic, events), daemon=True)
+        thread = threading.Thread(target=run_crew, args=(crew, topic, events), daemon=True)
         thread.start()
 
         st.subheader("Live agent activity")
