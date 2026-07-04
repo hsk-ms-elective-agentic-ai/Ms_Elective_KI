@@ -28,11 +28,12 @@ Run each step with the same topic. Fill in right after running.
 **What the output looks like (2–3 sentences):**
 **One thing that surprised you:**
 
-### Step 2 — Prompt Template
+### Step 2 — Prompting Techniques
 **Date run:**
-**What changed vs Step 1 (be specific — format? depth? accuracy? tone?):**
-**What's better:**
-**What's harder or more fragile:**
+**2a (Prompt Template) — what changed vs Step 1:**
+**2b (Chain of Thought) — what changed vs 2a:**
+**2c (Chain Prompting) — what changed vs 2a/2b:**
+**Which technique worked best for your topic, and why:**
 **One thing that surprised you:**
 
 ### Step 3 — Single Agent

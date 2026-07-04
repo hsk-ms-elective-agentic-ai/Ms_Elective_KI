@@ -1,55 +1,54 @@
-# Step 2 — Prompt Template
+# Step 2 — Prompting Techniques
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Same model, same single API call, same topic — but now with a **system prompt** that assigns a role and specifies an output format. No framework, just two messages. The question this step is built around: how much of the difference between a mediocre and a useful LLM response comes from the model, and how much from how you instruct it?
+Three scripts, same topic, same model. Each one is a different strategy for shaping what the model produces — without a framework, without agents. Run all three and compare the outputs.
 
 ## Background
 
-"System", "user", and "assistant" roles are a convention — a labeling scheme that tells the model which parts of the context window are instructions vs. questions vs. prior answers. The model processes them all as tokens, but its training included enough examples of role-labeled conversations that the labels shift which part of its training distribution the response draws from.
-
-The key insight this step demonstrates:
+A prompt is a program. The strategies you apply — structuring inputs into named components, asking for explicit reasoning, splitting a task into sequential calls — are the code. The model is the runtime.
 
 > Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., & Neubig, G. (2023). *Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing*. ACM Computing Surveys, 55(9), 1–35. [arXiv:2107.13586](https://arxiv.org/abs/2107.13586)
 
-The core idea: a prompt is a program. The role, format instructions, and constraints you write are the code; the model is the runtime. You can change what the program produces without changing the runtime at all.
+Chain-of-thought prompting specifically — showing that asking the model to reason before answering improves performance on complex tasks — was demonstrated in:
 
-## The code
+> Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou, D. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. NeurIPS 2022. [arXiv:2201.11903](https://arxiv.org/abs/2201.11903)
 
-Open [src/exercises/step_02_prompt_template.py](../../src/exercises/step_02_prompt_template.py). The prompt is split into named components that are concatenated into a single query:
+## The three scripts
 
-| Component | Controls |
-| --- | --- |
-| `persona` | Who the model is |
-| `instruction` | What it should do |
-| `context` | Background it needs to perform well |
-| `data_format` | What the output should look like |
-| `audience` | Who will read the output |
-| `tone` | How it should sound |
-| `data` | The actual topic or text to work on |
+### 2a — Prompt Template
+[src/exercises/step_02a_prompt_template.py](../../src/exercises/step_02a_prompt_template.py)
 
-No new dependencies, no framework — just string concatenation.
+The prompt is split into named components (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`, `data`) concatenated into a single query. One API call.
+
+### 2b — Chain of Thought
+[src/exercises/step_02b_chain_of_thought.py](../../src/exercises/step_02b_chain_of_thought.py)
+
+Same component structure as 2a, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. One API call.
+
+### 2c — Chain Prompting
+[src/exercises/step_02c_chain_prompting.py](../../src/exercises/step_02c_chain_prompting.py)
+
+Two sequential API calls: the first extracts or prepares something from the topic; the second receives that output and produces the final answer. The task is deliberately split.
 
 ## Your task
 
-1. Set `TOPIC` to the same topic you used in step 1.
+1. Set your topic in all three scripts — same topic as step 1, same topic across 2a/2b/2c.
 
-2. Run it:
+2. Fill in the `TODO` fields and run each script:
    ```bash
-   uv run python src/exercises/step_02_prompt_template.py
+   uv run python src/exercises/step_02a_prompt_template.py
+   uv run python src/exercises/step_02b_chain_of_thought.py
+   uv run python src/exercises/step_02c_chain_prompting.py
    ```
 
-3. Compare the output to step 1:
-   - Which components had the most visible effect on the output?
-   - Is the output more or less useful for your specific topic — or just differently formatted?
+3. Compare the three outputs:
+   - Which components in 2a had the most visible effect? Try removing one at a time.
+   - Does the `reasoning` component in 2b produce noticeably different conclusions — or just more text?
+   - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
 
-4. **Experiment**: remove one component at a time from `query` and observe what changes. Try at least:
-   - Remove `data_format` — does the structure disappear entirely?
-   - Remove `persona` — does the tone or expertise level change?
-   - Remove `audience` — does anything noticeably shift?
-
-5. Fill in the **Step 2** section of `EVALUATION.md`.
+4. Fill in the **Step 2** section of `EVALUATION.md`.
 
 ## Stretch goal
 
-Write a second template for the same topic but for a different audience (e.g. a student vs. a board member). Run both. Does the audience specification meaningfully change what information appears — or just the tone?
+In step 2c, try reversing the order of the two prompts — do the "final" step first, then refine it with the output of the "preparation" step. Does the order matter?

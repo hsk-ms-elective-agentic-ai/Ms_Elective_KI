@@ -28,11 +28,12 @@ Führt jeden Schritt mit demselben Thema aus. Füllt direkt nach dem Ausführen 
 **Wie die Ausgabe aussieht (2–3 Sätze):**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 2 — Prompt-Vorlage
+### Schritt 2 — Prompting-Techniken
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 1 verändert hat (konkret — Format? Tiefe? Genauigkeit? Ton?):**
-**Was besser ist:**
-**Was schwieriger oder fragiler ist:**
+**2a (Prompt-Vorlage) — was sich gegenüber Schritt 1 verändert hat:**
+**2b (Chain of Thought) — was sich gegenüber 2a verändert hat:**
+**2c (Chain Prompting) — was sich gegenüber 2a/2b verändert hat:**
+**Welche Technik hat für euer Thema am besten funktioniert, und warum:**
 **Eine Sache, die euch überrascht hat:**
 
 ### Schritt 3 — Einzelner Agent
