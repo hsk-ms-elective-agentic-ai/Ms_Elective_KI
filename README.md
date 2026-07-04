@@ -29,15 +29,15 @@ This course runs in a GitHub Organization, not on this repo directly. Everything
 
 Everything from section 4 onward in this README applies to **your team's repo**, once you have access to it.
 
-## 2. Team Allocation & Sprint Work
+## 2. Team Allocation & Steps
 
 ### Team assignment
 
-Teams of **3–5 students** design their own crew for a use case of their choice (see the table below) — this *is* the exercise series, not a separate thing alongside it: each of the 6 sprints below both teaches a concept and grows your own crew with it. Plan the work itself using GitHub Issues as **epics and user stories**, organized into **sprints** — the sprint planning, Definition of Done, and review steps are built directly into each sprint's own page. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** work through five versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each of the 5 steps below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters for your use case. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 
-For the team assignment, you design your own crew for a use case of your choice — including your own agent roles and task flow, not the starter repo's `researcher`/`analyst` relabeled with a new topic. You're reusing the same CrewAI mechanics already in this repo (`Agent`/`Task`/`Crew`/`Process`, the same `agents.yaml`/`tasks.yaml` files) — never rewriting code from scratch, just designing new content for it. Pick one, or propose your own; the role splits below are starting points, not specs — push back on them if your topic calls for something different:
+For the team assignment, pick a topic from the table below (or propose your own) and run all 5 steps with it. The use case ideas are starting points — you're not implementing a custom crew for your topic, you're running the existing crew on it and evaluating what each step of the system adds. Pick one that has enough real-world substance to produce interesting comparisons:
 
 | # | Use case | Example topic & suggested role split | Natural tool to add | Natural RAG source to add |
 | --- | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ For the team assignment, you design your own crew for a use case of your choice 
 | 9 | Personal finance topic explainer | "ETFs vs. individual stocks"<br>*Finance Researcher → Plain-Language Educator* | Web search | A fund prospectus or glossary |
 | 10 | News digest on an ongoing story | "Weekly digest on [news topic]"<br>*News Tracker → Digest Editor* | Web search / news search tool | A backgrounder doc |
 
-Full detail (why each is low-friction on the code side despite the new role design, and exactly what changes each sprint) is in [Sprint 0 — Vision & Architecture](exercises/en/00-vision-architecture.md).
+Start at [Step 1 — Simple Prompting](exercises/en/01-simple-prompting.md) once you have the repo running.
 
 ## 3. Exercises & Tools
 
@@ -65,7 +65,7 @@ Full detail (why each is low-friction on the code side despite the new role desi
 - **Crew** — the collection of agents + tasks + a `process` for running them
 - **Process** — the orchestration strategy: `sequential` (fixed pipeline) or `hierarchical` (a manager agent delegates dynamically)
 
-CrewAI's signature choice — covered in depth in [Sprint 0](exercises/en/00-vision-architecture.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
+CrewAI's signature choice — demonstrated across the exercise steps — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
 
 ### The template code
 
@@ -77,12 +77,13 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/config/agents.yaml](src/research_crew/config/agents.yaml) | Each agent's `role`/`goal`/`backstory` |
 | [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
-| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (Sprint 2) |
-| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (Sprint 3) |
+| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (see Step 5) |
+| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (see Step 5) |
+| [src/exercises/](src/exercises/) | Standalone scripts for Steps 1–5 — the main exercise entry points |
 
-### Exercise sprints
+### Exercise steps
 
-6 sprints ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, dynamic multi-agent orchestration, production, and security — scoped to what's actually demonstrated in this repo's code, and done directly on **your own use case**, not a generic exercise you redo for real later. Each sprint starts directly with the practical work, weaving in just enough background from the relevant paper (a short citation and, where one exists, its original figure) to place the concept, then goes straight into your own crew, with sprint planning (user stories/epics) and a few pointed questions built in — a hands-on companion to the lecture, not a second lecture.
+5 steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → RAG + tools, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
 
 ### Adding more tools or RAG (for students)
 
@@ -112,7 +113,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in Sprint 3.
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/05-rag-and-tools.md).
 
 ## 4. Technical Setup: Codespaces or Local
 
@@ -203,6 +204,6 @@ For support, questions, or feedback regarding CrewAI itself (not the exercises):
 - Visit the [CrewAI documentation](https://docs.crewai.com)
 - Reach out via the [CrewAI GitHub repository](https://github.com/crewAIInc/crewAI)
 
-To learn CrewAI beyond what these sprints cover, on your own time:
+To learn CrewAI beyond what these steps cover, on your own time:
 - [Multi AI Agent Systems with crewAI](https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/) (DeepLearning.AI) — a short video course taught by CrewAI's founder; free during DeepLearning.AI's platform beta, may not stay free indefinitely
 - [Join the CrewAI Discord](https://discord.com/invite/X4JWnZnxPb)

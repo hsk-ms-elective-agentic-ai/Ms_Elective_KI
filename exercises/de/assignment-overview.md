@@ -1,122 +1,106 @@
-# Team-Aufgabe — Entwerft eure eigene Crew
+# Team-Aufgabe — Bewertet die Progression
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams entwerft ihr eine CrewAI-Crew zu einem Anwendungsfall eurer Wahl, und jeder Sprint vermittelt sowohl ein Konzept als auch baut eure eigene Crew damit aus. Das primäre Abgabeprodukt ist in jeder Phase **euer Entwurf plus eure kritische Einschätzung seiner Risiken und Grenzen** — funktionierender Code ist ein optionaler Bonus, nie eine Pflicht.
+Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch fünf Versionen desselben KI-Systems mit demselben Thema, fügt bei jedem Schritt eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `EVALUATION.md`: eine vergleichende Analyse dessen, was ihr beobachtet habt und was das für euren Anwendungsfall bedeutet.
 
-**Teamgröße:** 3–5 Studierende. Klein genug, dass alle einen echten Anteil am Ergebnis haben, groß genug, um bis Sprint 4 plausibel drei unterschiedliche Agentenrollen zu besetzen, ohne dass eine Person heimlich alles macht.
+**Teamgröße:** 3–5 Studierende.
 
-Siehe [Vorlagen für die Aufgabe](assignment-templates.md) für die Dokumente, die ihr ausfüllt (`DESIGN.md`, `TEAM.md`, User Stories, Peer Evaluation). Sprint Planning, Definition of Done und was abzugeben ist, sind direkt in die jeweilige Sprint-Seite eingebaut — es gibt keine separate Meilenstein-Leiter oder Sprint-Plan-Datei, auf die ihr verweisen müsstet.
+Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer Evaluation), sind im [Vorlagen-Dokument](assignment-templates.md) enthalten.
 
-## So funktioniert es: ein Sprint, ein Konzept, ein Teil eurer Crew
+## So funktioniert es: ein Schritt, eine Schicht, ein Vergleich
 
-| Sprint | Schaltet frei |
+| Schritt | Fügt hinzu |
 | --- | --- |
-| [0 — Vision & Architektur](00-vision-architecture.md) | Anwendungsfall wählen, Agenten und Tasks entwerfen |
-| [1 — Erster lauffähiger MVP](01-first-mvp.md) | Eine funktionierende sequentielle (oder parallele) Crew |
-| [2 — Tools](02-tools.md) | Ein Tool, das euer Anwendungsfall wirklich braucht |
-| [3 — RAG](03-rag.md) | Verankerte Antworten aus einer echten Knowledge Source *(Zwischenabgabe fällig)* |
-| [4 — Dynamische Orchestrierung (Hierarchisch)](04-dynamic-orchestration.md) | Ein dritter Agent + manager-delegierter Prozess |
-| [5 — Produktionssicherheit & Stabilität](05-production-safety.md) | Threat Model, Monitoring-Plan *(Abschlussabgabe fällig)* |
+| [1 — Einfaches Prompting](01-simple-prompting.md) | Der bloße API-Aufruf — eure Ausgangsbasis |
+| [2 — Prompt-Vorlage](02-prompt-template.md) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
+| [3 — Einzelner Agent](03-single-agent.md) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
+| [4 — Multi-Agent](04-multi-agent.md) | Rollenspezialisierung + Task-Verkettung |
+| [5 — RAG + Tools](05-rag-and-tools.md) | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
 
-Ihr entwerft nicht jeden Sprint neu — ihr erweitert, was schon da ist. Zwei Abgaben: eine **Zwischenabgabe** am Ende von Sprint 3 (formativ, geringeres Gewicht — fängt schwache Grundlagen früh ab) und eine **Abschlussabgabe** am Ende von Sprint 5 (der vollständige Entwurf plus eine Retrospektive darüber, wie sich euer Denken verändert hat).
+Ihr entwerft zwischen den Schritten nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 3 und eine **Abschlussabgabe** nach Schritt 5.
 
 ## Team-Setup: Repos und Accounts
 
-Dieser Kurs läuft in einer GitHub-Organisation, mit **einem privaten Repository pro Team — nicht eines pro Studierendem.** Ihr legt dieses Repo nicht selbst an; eure Lehrperson hat es bereits aus der Kursvorlage erzeugt, eines pro Team, und gibt eurem Team Zugang dazu, sobald ihr eingeschrieben seid. Siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für die Einschreibe-Schritte (GitHub-Account → Team-Anmelde-Issue → Einladung annehmen).
+Dieser Kurs läuft in einer GitHub-Organisation, mit **einem privaten Repository pro Team — nicht eines pro Studierenden.** Ihr legt dieses Repo nicht selbst an; eure Lehrperson erzeugt es aus der Kursvorlage, eines pro Team, und gibt eurem Team Zugang, sobald ihr eingeschrieben seid. Siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für die Einschreibe-Schritte.
 
-**Jedes Teammitglied braucht trotzdem einen eigenen GitHub-Account**, dem Team in der Organisation hinzugefügt (nicht nur direkt einem Repo). Zwei Gründe: Eure einzelnen Commits sind die Grundlage, anhand der der individuelle Beitrag im Team bewertet wird, und eine echte Commit-Historie unter eurem eigenen Account ist über diesen Kurs hinaus etwas wert.
+**Jedes Teammitglied braucht trotzdem einen eigenen GitHub-Account**, der dem Team in der Organisation hinzugefügt wurde. Eure einzelnen Commits sind die Grundlage, anhand der der individuelle Beitrag im Team bewertet wird.
 
 ### Zusammenarbeiten ohne Git-Erfahrung
 
-Ein Branch pro Sprint, ein Pull Request, um ihn abzuschließen — darüber hinaus ist die tägliche Arbeit derselbe einfache Ablauf wie direktes Committen auf `main`:
+Ein Branch pro Schritt, ein Pull Request, um ihn abzuschließen — darüber hinaus ist die tägliche Arbeit derselbe einfache Ablauf wie direktes Committen auf `main`:
 
-1. **Zu Beginn jedes Sprints** erstellt ihr einen Branch namens `sprint-<N>` (z. B. `sprint-2`): klickt auf den Branch-Namen unten links in VS Code → **Create new branch...**. Das ganze Team arbeitet für den Rest des Sprints auf diesem einen Branch.
+1. **Zu Beginn jedes Schritts** erstellt ihr einen Branch namens `sprint-<N>` (z. B. `sprint-2`): klickt auf den Branch-Namen unten links in VS Code → **Create new branch...**. Das ganze Team arbeitet für den Rest des Schritts auf diesem einen Branch.
 2. Bearbeitet eine Datei wie gewohnt (in eurem Codespace).
 3. Öffnet das **Source-Control-Panel** (das Verzweigungs-Icon in der Seitenleiste).
 4. Schreibt eine kurze Commit-Nachricht, klickt auf **✓ Commit**.
-5. Klickt auf **Sync Changes** — das holt in einem Schritt die Änderungen eurer Teammitglieder und schiebt eure eigenen hoch (jetzt auf euren `sprint-<N>`-Branch, nicht auf `main`).
-6. **Am Ende des Sprints** öffnet ihr einen Pull Request von `sprint-<N>` nach `main` — GitHub zeigt auf github.com direkt nach dem Pushen eines neuen Branches ein "Compare & pull request"-Banner an, oder ihr nutzt das **GitHub Pull Requests**-Panel in VS Code. Schaut euch den Diff gemeinsam als Team an (das ist auch ein guter Moment, um eine versehentlich committete Datei zu entdecken), und merget ihn selbst — keine Freigabe nötig. Den nächsten Sprint startet ihr, indem ihr `sprint-<N+1>` vom dann aktualisierten `main` abzweigt.
+5. Klickt auf **Sync Changes** — das holt in einem Schritt die Änderungen eurer Teammitglieder und schiebt eure eigenen hoch.
+6. **Am Ende des Schritts** öffnet ihr einen Pull Request von `sprint-<N>` nach `main` — GitHub zeigt auf github.com direkt nach dem Pushen eines neuen Branches ein "Compare & pull request"-Banner an, oder ihr nutzt das **GitHub Pull Requests**-Panel in VS Code. Skim den Diff als Team, und mergt ihn selbst — keine Freigabe nötig. Den nächsten Schritt startet ihr, indem ihr `sprint-<N+1>` vom dann aktualisierten `main` abzweigt.
 
 Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
-Um zu vermeiden, dass zwei Personen dieselbe Datei gleichzeitig bearbeiten, **teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. verwaltet eine Person `agents.yaml`, eine andere `tasks.yaml`. `DESIGN.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch dabei ab, oder committet und synct alle paar Minuten, statt lange parallel in derselben Datei zu arbeiten. Falls trotzdem ein Konflikt auftritt, zeigt VS Code eine Merge-Ansicht mit anklickbaren Buttons ("Accept Current / Incoming / Both") — bittet eure Lehrperson einmal um eine kurze Live-Demo davon, damit es niemanden mitten in einer Deadline überrascht.
+**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 3 aus und schreibt diesen Abschnitt in `EVALUATION.md`, eine andere Schritt 4. `EVALUATION.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
 
-Für schnelle Änderungen (z. B. einen `DESIGN.md`-Eintrag) könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon, bearbeitet sie im Browser und klickt unten auf **"Commit changes"**.
+Für schnelle Änderungen könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
 
 ## Abgabepaket
 
-Bei jeder Abgabe-Deadline (Zwischenabgabe: Ende von Sprint 3, Abschluss: Ende von Sprint 5) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
+Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 3, Abschluss: nach Schritt 5) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Lauffähige Crew-Konfiguration | `src/research_crew/config/agents.yaml` + `tasks.yaml` (+ `crew.py`, sobald Tools/RAG/Prozess sich ändern) | Die buchstäbliche, lauffähige Version eures Entwurfs |
-| Design-Dokument | `DESIGN.md` — Architektur (Agenten/Tasks/Tools/RAG), Risiken, Grenzen, Sicherheit, Produktions-Aspekte, Design-Historie | Eure vollständige, kritisch geprüfte Entwurfsbegründung, in einem sich entwickelnden Bericht |
-| Backlog | GitHub Issues (nach Epic gelabelt) + ein Projects-Board | Eure User Stories und euer Fortschritt — lebt auf GitHub, nichts zu exportieren |
-| Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein klarer, prüfbarer Diff von genau dem, was sich in jedem Sprint geändert hat, und warum (nutzt die PR-Beschreibung) |
+| Evaluierungsdokument | `EVALUATION.md` — schrittweise Beobachtungen, Vergleiche, abschließende Empfehlung | Eure tatsächliche vergleichende Analyse, spezifisch auf euer Thema bezogen |
+| Code-Änderungen | Änderungen an den Übungsskripten (z. B. TOPIC, eigene Knowledge-Sources) | Was ihr tatsächlich ausgeführt habt |
+| Schritt-Historie | ein gemergter Pull Request pro Schritt (`sprint-<N>` → `main`) | Ein prüfbarer Diff, was sich in jedem Schritt verändert hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
-| Optionaler Bonus | ein funktionierendes `crew.py` + ein erfolgreiches `uv run research_crew` | Nur Zusatzpunkte — nie Pflicht |
 
-Zur Deadline selbst ist eure Abgabe **der Zustand des `main`-Branchs eures Team-Repos** — teilt eure Repo-URL einmal, am Anfang. Die Kette der gemergten Sprint-PRs davor ist das, was eure Lehrperson tatsächlich liest, um zu verfolgen, wie sich euer Entwurf entwickelt hat, statt die rohe Commit-Historie von Hand zu vergleichen.
+Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr ausgeführt und was ihr festgestellt habt.
 
 ## Bewertung
 
-Dieselben Gewichtungen gelten für Zwischen- und Abschlussabgabe, bewertet anhand dessen, was bis zur jeweiligen Deadline tatsächlich fertig ist:
+Dieselben Gewichtungen gelten bei Zwischen- und Abschlussabgabe, bewertet gegen das, was bis zu dieser Deadline abgeschlossen ist:
 
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
-| Architektur & Entwurf | 25 % | `agents.yaml`/`tasks.yaml` + `DESIGN.md` §1–2 — passt der Rollensplit wirklich zu eurem Anwendungsfall, statt ein umbenannter Standard zu sein? |
-| Risiko- und Grenzenanalyse | 30 % | `DESIGN.md` §3–4 — spezifisch zu eurem Entwurf, wächst über die Sprints, nicht generisch |
-| Sicherheit & Produktions-Aspekte | 15 % | `DESIGN.md` §5–6 — ein konkretes Threat Model und ein Monitoring-Plan für *euren* Entwurf, nicht das generische Beispiel aus Sprint 5 |
-| Prozess: Backlog & Epics | 15 % | GitHub Issues/Projects-Board — echte User Stories mit Akzeptanzkriterien, Definition of Done tatsächlich genutzt, nicht nur abgehakt |
-| Design-Historie & Retrospektive | 15 % | Ehrliche Entwicklung des Denkens über die Sprints hinweg, nicht eine einzige, am Ende glattgeschriebene Antwort |
+| Evaluierungsqualität | 40% | `EVALUATION.md` — sind die Schrittvergleiche spezifisch und ehrlich? Werden echte Unterschiede identifiziert, nicht nur "es ist besser"? |
+| Kritische Reflexion | 30% | Versteht das Team *warum* sich jeder Schritt unterscheidet? Wird es auf das spezifische Thema bezogen statt generisch beantwortet? |
+| Abschließende Empfehlung | 20% | Ist die Empfehlung für den eigenen Anwendungsfall begründet und spezifisch — nicht "RAG + Tools ist immer das Beste"? |
+| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Schritt, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde |
 
-**Optionaler Bonus:** ein funktionierendes `crew.py` + ein erfolgreiches `uv run research_crew` — bis zu **+10 %** Zusatzpunkte oben auf das Obige. Nie Pflicht, nie ein Ersatz für eine dünne Risikoanalyse.
+**Optionaler Bonus:** ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.
 
-**Individuelle Anpassung innerhalb der Teamnote:** Der Anteil jedes Studierenden an der Teamnote kann anhand der vertraulichen [Peer Evaluation](assignment-templates.md#peer-evaluation-vertraulich--nicht-ins-repo-committen) um bis zu **±15 %** verschoben werden — direkt an eure Lehrperson geschickt, nie ins Repo committed, damit Feedback ehrlich sein kann.
-
-Jede Sprint-Seite selbst enthält die konkreten Fragen, die in dieser Phase bewertet werden — beantwortet direkt in `DESIGN.md`, nicht als separate "kritisches Denken"-Übung.
-
-## Agile Praxis: Backlog und User Stories
-
-Führt euren Entwurfsprozess wie ein echtes Produkt-Backlog:
-- Die neue Fähigkeit jedes Sprints ist ein **Epic**. Brecht es in 2–4 **User Stories** herunter: *"Als [Stakeholder des Crew-Ergebnisses] möchte ich [Fähigkeit], damit [Nutzen]."*
-- Schreibt **Akzeptanzkriterien** für jede Story als testbare Bedingungen — diese sind zugleich ein Entwurf für das `expected_output`-Feld des Tasks, sobald ihr beim YAML angelangt seid, was an sich schon eine nützliche Beobachtung ist.
-- Fügt jedem Epic "Risiko identifiziert und dokumentiert" zur Definition of Done hinzu, damit Risikoanalyse eine Gewohnheit wird, kein einmaliger Aufsatz.
-- Ist euer Team größer als zwei, rotiert die Facilitator-Rolle jeden Sprint.
-
-Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-templates.md). Sprint Planning, Definition of Done und Review sind direkt im "Aufgabe"-Abschnitt jeder Sprint-Seite eingebaut — öffnet die jeweilige Sprint-Seite, wenn ihr sie planen wollt, statt eine separate Sprint-Plan-Datei.
+**Individuelle Anpassung innerhalb der Teamnote:** der Anteil jedes Studierenden an der Teamnote kann sich um bis zu **±15%** verschieben, basierend auf der privaten [Peer Evaluation](assignment-templates.md#peer-evaluation-privat--nicht-in-das-repo-committen) — direkt an eure Lehrperson eingereicht, nie ins Repo committed.
 
 ## Für Lehrende
 
-Das ist die einmalige Einrichtung hinter allem oben. GitHub Classroom nimmt seit Mai 2026 keine neuen Anmeldungen mehr an — das hier ersetzt es durch reine GitHub-Organisation-Funktionen, der Free-Plan deckt alles ab (unbegrenzte Mitglieder, unbegrenzte private Repos).
+Das ist das einmalige Setup hinter allem oben. GitHub Classroom hat im Mai 2026 keine neuen Anmeldungen mehr aufgenommen, daher ersetzt dies es durch einfache GitHub-Organisations-Features — Free-Plan deckt alles ab.
 
 ### 1. Organisation und Teams anlegen
 
-Legt eine kostenlose Organisation an, dann **Settings → Teams → New team** einmal pro Projektgruppe (z. B. `team-a`, `team-b`, ...). Optional könnt ihr alle unter einem Parent-Team verschachteln (z. B. `students`), falls ihr ein gemeinsames Ressourcen-Repo wollt, das automatisch für alle sichtbar ist — Child-Teams erben alles, was das Parent-Team sehen kann.
+Free-Organisation anlegen, dann **Settings → Teams → New team** einmal pro Projektgruppe (z. B. `team-a`, `team-b`, ...). Optional alle unter einem übergeordneten Team verschachteln (z. B. `students`), damit ein gemeinsames Ressourcen-Repo automatisch für alle sichtbar ist.
 
-### 2. Dieses Repo als Vorlage markieren, dann ein Repo pro Team erzeugen
+### 2. Repo als Template markieren, dann eines pro Team erzeugen
 
-Dieses Repo: **Settings → "Template repository" anhaken**. Dann pro Team:
+**Settings → "Template repository" ankreuzen**. Dann pro Team:
 ```bash
-gh repo create <org>/<team-slug>-crew --template <org>/<dieses-repo> --private
+gh repo create <org>/<team-slug>-crew --template <org>/<this-repo> --private
 gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
 ```
-**Admin** (nicht nur Write) ist hier wichtig — das Verwalten der Secrets eines Repos braucht Admin, und ihr wollt, dass jedes Team seine API-Schlüssel selbst einrichten kann, ohne dass ihr dazwischen müsst.
+**Admin** (nicht nur Write) ist wichtig — Repo-Secrets zu verwalten erfordert Admin, und ihr wollt, dass jedes Team seine eigenen API-Keys ohne eure Beteiligung einrichten kann.
 
 ### 3. Codespaces für die Organisation aktivieren
 
-**Org Settings → Codespaces → General** → für alle Repositories aktivieren (oder gezielt die Team-Repos auswählen). Im Free-Plan rechnet Codespaces-Nutzung gegen das persönliche kostenlose Kontingent jedes Studierenden, nicht gegen die Organisation — kein Spending-Limit einzurichten.
+**Org Settings → Codespaces → General** → für alle Repositories aktivieren (oder speziell für die Team-Repos). Im Free-Plan wird die Codespaces-Nutzung dem persönlichen kostenlosen Kontingent jedes Studierenden in Rechnung gestellt, nicht der Organisation.
 
 ### 4. Team-Einschreibung einrichten: Studierende reichen ein, ihr entscheidet, ein Workflow führt aus
 
-Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) auf diesem Repo ein. Das allein bewirkt nichts außer einer Benachrichtigung an euch — **ihr entscheidet die Team-Zuweisung selbst**, indem ihr ein Label vergebt, und ein [Workflow](../../.github/workflows/add-to-team.yml) übernimmt den mechanischen Teil (zum Team hinzufügen, antworten, Issue schließen).
+Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) ein. Das allein tut nichts außer euch zu benachrichtigen — **ihr entscheidet die Team-Zuweisung selbst**, indem ihr ein Label anwendet, und ein [Workflow](../../.github/workflows/add-to-team.yml) erledigt den mechanischen Teil.
 
-1. **Erstellt ein Label pro Team**, exakt benannt `team:<team-slug>` (z. B. `team:team-a`) — **Issues → Labels → New label**, einmal pro Team.
-2. **Erstellt das Token für die Automatisierung**: ein Personal Access Token mit **Organization → Members: Read and write** und **Repository → Issues: Read and write** (fine-grained), oder `admin:org` + `repo` (classic) — nötig, weil Team-Mitgliedschaft eine Organisations-Berechtigung ist, die der Standard-`GITHUB_TOKEN` nicht vergeben kann.
-3. Fügt es als Secret namens `ORG_ADMIN_TOKEN` hinzu — entweder auf diesem Repo selbst (**Settings → Secrets and variables → Actions**) oder auf Organisationsebene, beschränkt auf dieses Repo (**Org Settings → Secrets and variables → Actions**).
-4. **Bei jeder neuen Anmeldung**: Das Issue bekommt automatisch einen Kommentar, der euch erinnert, das passende Team-Label zu vergeben. Öffnet das Issue, findet anhand der E-Mail heraus, wer das in eurer eigenen Team-Liste ist, und vergebt `team:<deren-Team-Slug>` — dieses Label *ist* der Auslöser; der Workflow liest es, fügt den Benutzernamen hinzu, antwortet und schließt das Issue. Falscher Benutzername oder Label-Tippfehler? Korrigieren und das Label erneut vergeben, um es noch einmal zu versuchen.
+1. **Erstellt ein Label pro Team**, genau benannt `team:<team-slug>` — **Issues → Labels → New label**, einmal pro Team.
+2. **Erstellt das Token der Automatisierung**: ein Personal Access Token mit **organization → Members: Read and write** und **repository → Issues: Read and write** Scopes (fine-grained), oder `admin:org` + `repo` (classic).
+3. Als Secret namens `ORG_ADMIN_TOKEN` hinzufügen.
+4. **Issues triagieren**: Issue öffnen, `team:<team-slug>` anwenden — der Workflow fügt den Benutzernamen hinzu, antwortet und schließt das Issue.
 
-### 5. Laufend: Abgaben prüfen
+### 5. Laufend: Abgaben bewerten
 
-Jedes Team merget einen Pull Request pro Sprint (`sprint-<N>` → `main`) — prüft diesen PR-Diff direkt auf GitHub (**Pull requests → Closed**, im jeweiligen Repo) auf das, was sich geändert hat und warum, statt selbst die rohe Commit-Historie zu vergleichen. Bewertet zu jeder Deadline (Zwischenabgabe: Sprint 3, Abschluss: Sprint 5) gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als sprintweisem Protokoll dahinter. Musterlösungen sind bewusst nicht enthalten, wie im Rest dieser Reihe.
+Jedes Team mergt einen Pull Request pro Schritt (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**). Bewertet zum Deadline-Zeitpunkt gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis. Musterlösungen sind bewusst nicht enthalten.
