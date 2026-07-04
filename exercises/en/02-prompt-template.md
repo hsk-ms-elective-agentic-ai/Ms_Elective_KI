@@ -32,7 +32,12 @@ Two or three input/output example pairs appear in the prompt before the real que
 ### 2b — Prompt Template
 [src/exercises/step_02b_prompt_template.py](../../src/exercises/step_02b_prompt_template.py)
 
-The prompt is split into named components (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`, `data`) concatenated into a single query. One API call, no examples, no reasoning instruction.
+One API call, no examples, no reasoning instruction — but now the message is split across two *roles*:
+
+- **`system`**: background instructions the end user never sees — `persona`, `instruction`, `context`, `data_format`, `audience`, `tone`. This tells the model who it is and how it should behave for every response in the conversation.
+- **`user`**: the actual question — just the topic you want answered.
+
+This is the standard structure of the OpenAI Chat Completions API (and any model that follows it). The `system` role is a first-class concept in the protocol, not just a formatting convention. Try removing individual system components to see what each one actually controls.
 
 ### 2c — Chain Prompting
 [src/exercises/step_02c_chain_prompting.py](../../src/exercises/step_02c_chain_prompting.py)

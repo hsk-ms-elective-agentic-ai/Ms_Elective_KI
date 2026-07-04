@@ -204,9 +204,12 @@ with tab_prompting:
     # ── Step 2b ───────────────────────────────────────────────────────────────
     elif step == "2b — Prompt Template":
         st.markdown(
-            "Same API call as step 1, but the prompt is broken into named components. "
-            "Try leaving some blank to see what each one actually does."
+            "Same question as step 1, but split across two roles: "
+            "a **system** message (who the model is, how it should behave) "
+            "and a **user** message (the actual question). "
+            "Try leaving some system fields blank to see what each one does."
         )
+        st.markdown("**System message** — background instructions, not shown to the end user")
         c1, c2 = st.columns(2)
         with c1:
             persona     = st.text_input("Persona — who is the model?")
@@ -216,24 +219,31 @@ with tab_prompting:
             data_format = st.text_input("Data format — what should the output look like?")
             audience    = st.text_input("Audience — who will read the output?")
             tone        = st.text_input("Tone — what tone should it use?")
-        text = st.text_area("Text / topic", height=80)
+        st.markdown("**User message** — the actual question")
+        text = st.text_area("Your topic / question", height=80)
 
         if st.button("Run", type="primary", key="run_2b"):
             if not text.strip():
                 st.warning("Enter a topic first.")
             else:
                 parts = [p + "\n" for p in [persona, instruction, context, data_format, audience, tone] if p.strip()]
-                query = "".join(parts) + f"Topic: {text}\n"
-                with st.expander("Assembled prompt"):
-                    st.code(query)
+                system_message = "".join(parts)
+                with st.expander("System message"):
+                    st.code(system_message or "(empty)")
+                with st.expander("User message"):
+                    st.code(text)
                 with st.spinner("Calling model…"):
                     try:
                         resp = completion(
                             model=_model,
-                            messages=[{"role": "user", "content": query}],
+                            messages=[
+                                {"role": "system", "content": system_message},
+                                {"role": "user",   "content": text},
+                            ],
                         )
                         output = resp.choices[0].message.content
-                        path = save_output("02b", query, output, topic=text[:80])
+                        combined = f"SYSTEM:\n{system_message.strip()}\n\nUSER:\n{text}"
+                        path = save_output("02b", combined, output, topic=text[:80])
                         st.caption(f"Saved to `{path}`")
                         st.markdown("**Output**")
                         st.markdown(output)

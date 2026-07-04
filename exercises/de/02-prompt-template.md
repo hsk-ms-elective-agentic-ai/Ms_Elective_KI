@@ -32,7 +32,12 @@ Zwei oder drei Eingabe-/Ausgabe-Beispielpaare erscheinen im Prompt vor der eigen
 ### 2b — Prompt-Vorlage
 [src/exercises/step_02b_prompt_template.py](../../src/exercises/step_02b_prompt_template.py)
 
-Der Prompt ist in benannte Komponenten aufgeteilt (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`, `data`), die zu einer einzigen Query zusammengefügt werden. Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung.
+Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung — aber die Nachricht ist jetzt auf zwei *Rollen* aufgeteilt:
+
+- **`system`**: Hintergrundanweisungen, die der Endnutzer nie sieht — `persona`, `instruction`, `context`, `data_format`, `audience`, `tone`. Das sagt dem Modell, wer es ist und wie es sich bei jeder Antwort verhalten soll.
+- **`user`**: die eigentliche Frage — nur das Thema, das beantwortet werden soll.
+
+Dies ist die Standardstruktur der OpenAI Chat Completions API (und jedes Modells, das ihr folgt). Die `system`-Rolle ist ein erstklassiges Konzept im Protokoll, keine bloße Formatierungskonvention. Versucht, einzelne System-Komponenten zu entfernen, um zu sehen, was jede tatsächlich steuert.
 
 ### 2c — Chain Prompting
 [src/exercises/step_02c_chain_prompting.py](../../src/exercises/step_02c_chain_prompting.py)

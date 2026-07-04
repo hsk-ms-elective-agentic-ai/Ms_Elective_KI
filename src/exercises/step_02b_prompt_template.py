@@ -1,10 +1,12 @@
 """
 Step 2b — Prompt Template
 -------------------------
-Same API call as step 1, but the prompt is broken into named components.
-Each component shapes a different aspect of the output.
+Same question as step 1, but the prompt is split into two roles:
+- "system": tells the model who it is and how to behave (persona, rules, format)
+- "user":   the actual question — what you want answered
 
-Try removing individual components from query to see what each one actually does.
+The system message is invisible to the end user but shapes every response.
+Try removing individual components to see what each one actually does.
 
 Run:
     uv run python src/exercises/step_02b_prompt_template.py
@@ -16,7 +18,10 @@ from litellm import completion
 
 load_dotenv()
 
-# ── Prompt components — fill in each one, then try removing some ──────────────
+os.makedirs("output", exist_ok=True)
+
+# ── System message — who the model is and how it should behave ───────────────
+# These components are sent as background instructions, not as a question.
 persona       = "TODO: who is the model?\n"
 instruction   = "TODO: what should it do?\n"
 context       = "TODO: what background does it need to do it well?\n"
@@ -24,17 +29,17 @@ data_format   = "TODO: what should the output look like?\n"
 audience      = "TODO: who will read the output?\n"
 tone          = "TODO: what tone should it use?\n"
 
-text          = "TODO: your topic here"
-data          = f"Topic: {text}\n"
+system_message = persona + instruction + context + data_format + audience + tone
 
-# The full prompt — remove and add components to observe the impact
-query = persona + instruction + context + data_format + audience + tone + data
-
-os.makedirs("output", exist_ok=True)
+# ── User message — the actual question ───────────────────────────────────────
+text = "TODO: your topic here"
 
 response = completion(
     model=os.getenv("MODEL", "gpt-4o-mini"),
-    messages=[{"role": "user", "content": query}],
+    messages=[
+        {"role": "system", "content": system_message},
+        {"role": "user",   "content": text},
+    ],
 )
 
 output = response.choices[0].message.content
@@ -44,6 +49,7 @@ with open("output/step_02b.md", "w", encoding="utf-8") as f:
     f.write(
         f"# Step 2b — Prompt Template\n\n"
         f"**Topic:** {text}\n\n"
-        f"## Prompt\n\n```\n{query}\n```\n\n"
+        f"## System message\n\n```\n{system_message.strip()}\n```\n\n"
+        f"## User message\n\n```\n{text}\n```\n\n"
         f"## Output\n\n{output}\n"
     )
