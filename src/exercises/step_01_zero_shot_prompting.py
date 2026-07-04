@@ -17,9 +17,9 @@ load_dotenv()
 os.makedirs("output", exist_ok=True)
 
 # Change this to your team's topic. Keep it the same across all 5 steps.
-TOPIC = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
+TOPIC = "TODO: your topic here"
 
-message = TOPIC
+message = "TODO: write your question about the topic"
 
 response = completion(
     model=os.getenv("MODEL", "gpt-4o-mini"),
