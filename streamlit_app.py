@@ -33,10 +33,11 @@ os.makedirs("output", exist_ok=True)
 def save_output(step_id: str, prompt: str, output: str, topic: str = "") -> str:
     """Overwrite output/step_<id>.md with the latest run and return the file path."""
     label = {
-        "01": "Step 1 — Simple Prompting",
-        "02a": "Step 2a — Prompt Template",
-        "02b": "Step 2b — Chain of Thought",
+        "01":  "Step 1 — Simple Prompting",
+        "02a": "Step 2a — Few-Shot Prompting",
+        "02b": "Step 2b — Prompt Template",
         "02c": "Step 2c — Chain Prompting",
+        "02d": "Step 2d — Chain of Thought",
     }.get(step_id, f"Step {step_id}")
     path = f"output/step_{step_id}.md"
     model = os.getenv("MODEL", "gpt-4o-mini")
@@ -119,10 +120,10 @@ with tab_prompting:
         "Step",
         [
             "1 — Simple Prompting",
-            "2a — Prompt Template",
-            "2b — Chain of Thought",
+            "2a — Few-Shot Prompting",
+            "2b — Prompt Template",
             "2c — Chain Prompting",
-            "2d — Few-Shot Prompting",
+            "2d — Chain of Thought",
         ],
         horizontal=True,
     )
@@ -152,7 +153,56 @@ with tab_prompting:
                         st.error(str(exc))
 
     # ── Step 2a ───────────────────────────────────────────────────────────────
-    elif step == "2a — Prompt Template":
+    elif step == "2a — Few-Shot Prompting":
+        st.markdown(
+            "Provide 2–3 input/output examples before your real question. "
+            "The model learns format and style from the examples — no training, just context (Brown et al., 2020)."
+        )
+        st.markdown("**Example 1**")
+        c1, c2 = st.columns(2)
+        with c1:
+            ex1_in  = st.text_area("Input", height=80, key="ex1_in")
+        with c2:
+            ex1_out = st.text_area("Output", height=80, key="ex1_out")
+
+        st.markdown("**Example 2**")
+        c1, c2 = st.columns(2)
+        with c1:
+            ex2_in  = st.text_area("Input", height=80, key="ex2_in")
+        with c2:
+            ex2_out = st.text_area("Output", height=80, key="ex2_out")
+
+        text = st.text_area("Your actual question / topic", height=80, key="fewshot_text")
+
+        if st.button("Run", type="primary", key="run_2a"):
+            if not text.strip():
+                st.warning("Enter your actual question first.")
+            else:
+                parts = []
+                if ex1_in.strip() and ex1_out.strip():
+                    parts.append(f"Input: {ex1_in}\nOutput: {ex1_out}")
+                if ex2_in.strip() and ex2_out.strip():
+                    parts.append(f"Input: {ex2_in}\nOutput: {ex2_out}")
+                parts.append(f"Input: {text}\nOutput:")
+                prompt = "\n\n".join(parts)
+                with st.expander("Assembled prompt"):
+                    st.code(prompt)
+                with st.spinner("Calling model…"):
+                    try:
+                        resp = completion(
+                            model=_model,
+                            messages=[{"role": "user", "content": prompt}],
+                        )
+                        output = resp.choices[0].message.content
+                        path = save_output("02a", prompt, output, topic=text[:80])
+                        st.caption(f"Saved to `{path}`")
+                        st.markdown("**Output**")
+                        st.markdown(output)
+                    except Exception as exc:
+                        st.error(str(exc))
+
+    # ── Step 2b ───────────────────────────────────────────────────────────────
+    elif step == "2b — Prompt Template":
         st.markdown(
             "Same API call as step 1, but the prompt is broken into named components. "
             "Try leaving some blank to see what each one actually does."
@@ -168,51 +218,11 @@ with tab_prompting:
             tone        = st.text_input("Tone — what tone should it use?")
         text = st.text_area("Text / topic", height=80)
 
-        if st.button("Run", type="primary", key="run_2a"):
-            if not text.strip():
-                st.warning("Enter a topic first.")
-            else:
-                parts = [p + "\n" for p in [persona, instruction, context, data_format, audience, tone] if p.strip()]
-                query = "".join(parts) + f"Topic: {text}\n"
-                with st.expander("Assembled prompt"):
-                    st.code(query)
-                with st.spinner("Calling model…"):
-                    try:
-                        resp = completion(
-                            model=_model,
-                            messages=[{"role": "user", "content": query}],
-                        )
-                        output = resp.choices[0].message.content
-                        path = save_output("02a", query, output, topic=text[:80])
-                        st.caption(f"Saved to `{path}`")
-                        st.markdown("**Output**")
-                        st.markdown(output)
-                    except Exception as exc:
-                        st.error(str(exc))
-
-    # ── Step 2b ───────────────────────────────────────────────────────────────
-    elif step == "2b — Chain of Thought":
-        st.markdown(
-            "Same structure as 2a, with one extra component: an explicit reasoning instruction. "
-            "Ask the model to think through the problem before giving its answer."
-        )
-        c1, c2 = st.columns(2)
-        with c1:
-            persona     = st.text_input("Persona — who is the model?")
-            instruction = st.text_input("Instruction — what should it do?")
-            context     = st.text_input("Context — what background does it need?")
-        with c2:
-            data_format = st.text_input("Data format — what should the output look like?")
-            audience    = st.text_input("Audience — who will read the output?")
-            tone        = st.text_input("Tone — what tone should it use?")
-        reasoning = st.text_input("Reasoning — how should the model think before answering?")
-        text = st.text_area("Text / topic", height=80)
-
         if st.button("Run", type="primary", key="run_2b"):
             if not text.strip():
                 st.warning("Enter a topic first.")
             else:
-                parts = [p + "\n" for p in [persona, instruction, context, data_format, audience, tone, reasoning] if p.strip()]
+                parts = [p + "\n" for p in [persona, instruction, context, data_format, audience, tone] if p.strip()]
                 query = "".join(parts) + f"Topic: {text}\n"
                 with st.expander("Assembled prompt"):
                     st.code(query)
@@ -292,48 +302,39 @@ with tab_prompting:
                             st.error(str(exc))
 
     # ── Step 2d ───────────────────────────────────────────────────────────────
-    elif step == "2d — Few-Shot Prompting":
+    elif step == "2d — Chain of Thought":
         st.markdown(
-            "Provide 2–3 input/output examples before your real question. "
-            "The model learns format and style from the examples — no training, just context (Brown et al., 2020)."
+            "Same structure as 2b, with one extra component: an explicit reasoning instruction. "
+            "Ask the model to think through the problem before giving its answer (Kojima et al., 2022)."
         )
-        st.markdown("**Example 1**")
         c1, c2 = st.columns(2)
         with c1:
-            ex1_in  = st.text_area("Input", height=80, key="ex1_in")
+            persona     = st.text_input("Persona — who is the model?", key="cot_persona")
+            instruction = st.text_input("Instruction — what should it do?", key="cot_instruction")
+            context     = st.text_input("Context — what background does it need?", key="cot_context")
         with c2:
-            ex1_out = st.text_area("Output", height=80, key="ex1_out")
-
-        st.markdown("**Example 2**")
-        c1, c2 = st.columns(2)
-        with c1:
-            ex2_in  = st.text_area("Input", height=80, key="ex2_in")
-        with c2:
-            ex2_out = st.text_area("Output", height=80, key="ex2_out")
-
-        text = st.text_area("Your actual question / topic", height=80, key="fewshot_text")
+            data_format = st.text_input("Data format — what should the output look like?", key="cot_format")
+            audience    = st.text_input("Audience — who will read the output?", key="cot_audience")
+            tone        = st.text_input("Tone — what tone should it use?", key="cot_tone")
+        reasoning = st.text_input("Reasoning — how should the model think before answering?", key="cot_reasoning")
+        text = st.text_area("Text / topic", height=80, key="cot_text")
 
         if st.button("Run", type="primary", key="run_2d"):
             if not text.strip():
-                st.warning("Enter your actual question first.")
+                st.warning("Enter a topic first.")
             else:
-                parts = []
-                if ex1_in.strip() and ex1_out.strip():
-                    parts.append(f"Input: {ex1_in}\nOutput: {ex1_out}")
-                if ex2_in.strip() and ex2_out.strip():
-                    parts.append(f"Input: {ex2_in}\nOutput: {ex2_out}")
-                parts.append(f"Input: {text}\nOutput:")
-                prompt = "\n\n".join(parts)
+                parts = [p + "\n" for p in [persona, instruction, context, data_format, audience, tone, reasoning] if p.strip()]
+                query = "".join(parts) + f"Topic: {text}\n"
                 with st.expander("Assembled prompt"):
-                    st.code(prompt)
+                    st.code(query)
                 with st.spinner("Calling model…"):
                     try:
                         resp = completion(
                             model=_model,
-                            messages=[{"role": "user", "content": prompt}],
+                            messages=[{"role": "user", "content": query}],
                         )
                         output = resp.choices[0].message.content
-                        path = save_output("02d", prompt, output, topic=text[:80])
+                        path = save_output("02d", query, output, topic=text[:80])
                         st.caption(f"Saved to `{path}`")
                         st.markdown("**Output**")
                         st.markdown(output)

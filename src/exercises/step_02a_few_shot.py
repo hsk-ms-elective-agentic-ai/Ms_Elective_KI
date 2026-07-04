@@ -1,5 +1,5 @@
 """
-Step 2d — Few-Shot Prompting
+Step 2a — Few-Shot Prompting
 -----------------------------
 Provide the model with 2–3 examples of input→output pairs before asking
 your real question. The model learns the expected format and style from
@@ -8,11 +8,11 @@ the examples — no training, no fine-tuning, just context.
 This is "in-context learning": the examples are part of the prompt, not
 part of the model weights.
 
-Compare to step 1 (zero examples) and step 2a (structure, but no examples):
-does showing the model what good output looks like change what it produces?
+Compare to step 1 (zero examples): does showing the model what good
+output looks like change what it produces?
 
 Run:
-    uv run python src/exercises/step_02d_few_shot.py
+    uv run python src/exercises/step_02a_few_shot.py
 """
 import os
 
@@ -52,9 +52,9 @@ response = completion(
 output = response.choices[0].message.content
 print(output)
 
-with open("output/step_02d.md", "w", encoding="utf-8") as f:
+with open("output/step_02a.md", "w", encoding="utf-8") as f:
     f.write(
-        f"# Step 2d — Few-Shot Prompting\n\n"
+        f"# Step 2a — Few-Shot Prompting\n\n"
         f"**Topic:** {text}\n\n"
         f"## Prompt\n\n```\n{prompt}\n```\n\n"
         f"## Output\n\n{output}\n"
