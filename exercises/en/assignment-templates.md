@@ -23,7 +23,7 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 
 Run each step with the same topic. Fill in right after running.
 
-### Step 1 — Simple Prompting
+### Step 1 — Zero-Shot Prompting
 **Date run:**
 **What the output looks like (2–3 sentences):**
 **One thing that surprised you:**

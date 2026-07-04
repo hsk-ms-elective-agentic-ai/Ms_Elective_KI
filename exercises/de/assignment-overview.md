@@ -12,7 +12,7 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer
 
 | Schritt | Fügt hinzu |
 | --- | --- |
-| [1 — Einfaches Prompting](01-simple-prompting.md) | Der bloße API-Aufruf — eure Ausgangsbasis |
+| [1 — Zero-Shot-Prompting](01-zero-shot-prompting.md) | Der bloße API-Aufruf — eure Ausgangsbasis |
 | [2 — Prompt-Vorlage](02-prompt-template.md) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
 | [3 — Einzelner Agent](03-single-agent.md) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
 | [4 — Multi-Agent](04-multi-agent.md) | Rollenspezialisierung + Task-Verkettung |

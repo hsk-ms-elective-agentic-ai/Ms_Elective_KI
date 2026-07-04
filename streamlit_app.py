@@ -33,7 +33,7 @@ os.makedirs("output", exist_ok=True)
 def save_output(step_id: str, prompt: str, output: str, topic: str = "") -> str:
     """Overwrite output/step_<id>.md with the latest run and return the file path."""
     label = {
-        "01":  "Step 1 — Simple Prompting",
+        "01":  "Step 1 — Zero-Shot Prompting",
         "02a": "Step 2a — Few-Shot Prompting",
         "02b": "Step 2b — Prompt Template",
         "02c": "Step 2c — Chain Prompting",
@@ -119,7 +119,7 @@ with tab_prompting:
     step = st.radio(
         "Step",
         [
-            "1 — Simple Prompting",
+            "1 — Zero-Shot Prompting",
             "2a — Few-Shot Prompting",
             "2b — Prompt Template",
             "2c — Chain Prompting",
@@ -131,8 +131,8 @@ with tab_prompting:
     st.divider()
 
     # ── Step 1 ────────────────────────────────────────────────────────────────
-    if step == "1 — Simple Prompting":
-        st.markdown("One message, one response. No structure, no persona — a raw question to the model.")
+    if step == "1 — Zero-Shot Prompting":
+        st.markdown("One message, one response. No structure, no examples, no persona — the model answers from training data alone.")
         message = st.text_area("Your message", height=120)
         if st.button("Run", type="primary", key="run_1"):
             if not message.strip():

@@ -96,7 +96,7 @@ A fund manager, analyst, or corporate strategy team needs to assess the environm
 
 ---
 
-Start at [Step 1 — Simple Prompting](exercises/en/01-simple-prompting.md) once you have the repo running.
+Start at [Step 1 — Zero-Shot Prompting](exercises/en/01-zero-shot-prompting.md) once you have the repo running.
 
 ## 3. Exercises & Tools
 

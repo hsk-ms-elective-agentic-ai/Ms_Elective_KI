@@ -1,10 +1,11 @@
 """
-Step 1 — Simple Prompting
--------------------------
-One API call, one message, one response. No role, no structure, no framework.
+Step 1 — Zero-Shot Prompting
+-----------------------------
+One API call, one message, one response. No role, no structure, no framework,
+no examples. The model answers from training data alone — this is the baseline.
 
 Run:
-    uv run python src/exercises/step_01_simple_prompting.py
+    uv run python src/exercises/step_01_zero_shot_prompting.py
 """
 import os
 
@@ -30,7 +31,7 @@ print(output)
 
 with open("output/step_01.md", "w", encoding="utf-8") as f:
     f.write(
-        f"# Step 1 — Simple Prompting\n\n"
+        f"# Step 1 — Zero-Shot Prompting\n\n"
         f"**Topic:** {TOPIC}\n\n"
         f"## Prompt\n\n```\n{message}\n```\n\n"
         f"## Output\n\n{output}\n"

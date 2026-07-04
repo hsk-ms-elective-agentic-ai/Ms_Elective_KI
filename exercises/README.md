@@ -12,7 +12,7 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 
 | # | Title | What it adds |
 | --- | --- | --- |
-| [1](en/01-simple-prompting.md) | Simple Prompting | The bare API call — your baseline (`src/exercises/`) |
+| [1](en/01-zero-shot-prompting.md) | Zero-Shot Prompting | The bare API call — your baseline (`src/exercises/`) |
 | [2](en/02-prompt-template.md) | Prompt Template | A role + output structure, same call (`src/exercises/`) |
 | [3](en/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
 | [4](en/04-multi-agent.md) | Multi-Agent | Two agents with task chaining via `context:` |

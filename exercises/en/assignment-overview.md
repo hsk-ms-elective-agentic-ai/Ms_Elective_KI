@@ -12,7 +12,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 | Step | Adds |
 | --- | --- |
-| [1 — Simple Prompting](01-simple-prompting.md) | The bare API call — your baseline |
+| [1 — Zero-Shot Prompting](01-zero-shot-prompting.md) | The bare API call — your baseline |
 | [2 — Prompt Template](02-prompt-template.md) | A role + output structure, same call |
 | [3 — Single Agent](03-single-agent.md) | The CrewAI framework loop *(interim submission due)* |
 | [4 — Multi-Agent](04-multi-agent.md) | Role specialization + task chaining |

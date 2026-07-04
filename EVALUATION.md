@@ -17,7 +17,7 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 
 ## Step-by-step observations
 
-### Step 1 — Simple Prompting
+### Step 1 — Zero-Shot Prompting
 **Date run:**
 **What the output looks like (2–3 sentences):**
 **One thing that surprised you:**

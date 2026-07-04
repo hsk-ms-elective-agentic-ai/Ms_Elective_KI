@@ -1,24 +1,26 @@
-# Schritt 1 — Einfaches Prompting
+# Schritt 1 — Zero-Shot-Prompting
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/01-simple-prompting.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/01-zero-shot-prompting.md)
 
-Der direkteste Weg von Frage zu Antwort: ein API-Aufruf, eine Nachricht, eine Antwort. Keine Rollendefinition, kein Ausgabeformat, kein Framework — nur das Modell und euer Text. Das ist die Ausgangsbasis, auf der alle weiteren Schritte aufbauen. Ihr könnt erst dann beurteilen, was ein Framework hinzufügt, wenn ihr gesehen habt, was ihr ohne es bekommt.
+Der direkteste Weg von Frage zu Antwort: ein API-Aufruf, eine Nachricht, eine Antwort. Keine Rollendefinition, kein Ausgabeformat, keine Beispiele, kein Framework — nur das Modell und euer Text. Das ist die Ausgangsbasis, auf der alle weiteren Schritte aufbauen. Ihr könnt erst dann beurteilen, was eine Technik hinzufügt, wenn ihr gesehen habt, was ihr ohne sie bekommt.
 
 ## Hintergrund
 
+„Zero-Shot" bedeutet, dass das Modell keine Beispiele für die erwartete Ausgabe erhält — es muss ausschließlich aus dem antworten, was es während des Trainings gelernt hat. Das ist der Standardmodus für die meisten Menschen, die LLMs nutzen: eine Frage tippen, eine Antwort bekommen.
+
 Ein Large Language Model ist auf der untersten Ebene eine Funktion, die das wahrscheinlichste nächste Token vorhersagt, gegeben einem Kontextfenster mit vorherigen Tokens. Wenn ihr eine einfache Nutzernachricht sendet, bekommt ihr zurück, was das Modell auf Basis seiner Trainingsdaten für am wahrscheinlichsten hält — das ist mächtig, aber vollständig davon abhängig, wie das Thema in den Trainingsdaten vertreten ist.
 
-Kein Zitat nötig. Der Punkt ist empirisch: beobachtet, was ihr bekommt, bevor ihr irgendeine Struktur hinzufügt.
+Kein Zitat nötig. Der Punkt ist empirisch: beobachtet, was ihr bekommt, bevor irgendeine Technik angewendet wird.
 
 ## Der Code
 
-Öffnet [src/exercises/step_01_simple_prompting.py](../../src/exercises/step_01_simple_prompting.py). Die Datei hat ca. 15 Zeilen:
+Öffnet [src/exercises/step_01_zero_shot_prompting.py](../../src/exercises/step_01_zero_shot_prompting.py). Die Datei hat ca. 15 Zeilen:
 
-1. Lädt `.env` (für `GROQ_API_KEY` und `MODEL`)
+1. Lädt `.env` (für den API-Key und `MODEL`)
 2. Ruft `litellm.completion()` mit einer einzigen Nutzernachricht auf
-3. Gibt die Antwort aus
+3. Gibt die Antwort aus und speichert sie in `output/step_01.md`
 
-`litellm` ist bereits eine Abhängigkeit dieses Projekts (es ist die Routing-Schicht, die denselben Code mit Groq, DeepSeek, OpenAI und anderen arbeiten lässt) — keine neue Installation nötig.
+`litellm` ist bereits eine Abhängigkeit dieses Projekts — keine neue Installation nötig.
 
 ## Aufgabe
 
@@ -28,7 +30,7 @@ Kein Zitat nötig. Der Punkt ist empirisch: beobachtet, was ihr bekommt, bevor i
 
 3. Führt es aus:
    ```bash
-   uv run python src/exercises/step_01_simple_prompting.py
+   uv run python src/exercises/step_01_zero_shot_prompting.py
    ```
 
 4. Lest die Ausgabe sorgfältig. Notiert:
