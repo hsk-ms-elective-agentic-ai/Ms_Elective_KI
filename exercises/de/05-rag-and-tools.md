@@ -2,64 +2,70 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/05-rag-and-tools.md)
 
-Fügt der Crew aus Schritt 4 zwei Formen externer Verankerung hinzu. **Tools** (`SerperDevTool`) ermöglichen dem Agenten, zur Laufzeit aktuelle Informationen aus dem Web abzurufen. **RAG** (eine `TextFileKnowledgeSource`) ermöglicht der Crew, aus einem von euch bereitgestellten Dokument zur Abfragezeit zu retrieven. Beide adressieren dieselbe grundlegende Einschränkung in Schritten 1–4: Das Wissen des LLMs ist zum Trainingszeitpunkt eingefroren und kennt eure spezifischen Dokumente nicht.
+Fügt der Crew aus Schritt 4 zwei Formen externer Verankerung hinzu. **Tools** ermöglichen einem Agenten, zur Laufzeit aktuelle Informationen abzurufen; der Agent entscheidet selbst, wann und mit welcher Abfrage er das Tool aufruft. **RAG** ermöglicht der Crew, aus einem von euch bereitgestellten Dokument zu retrieven; Abschnitte werden eingebettet und die relevantesten automatisch in den Kontext injiziert. Beide adressieren dieselbe Grundeinschränkung aus Schritten 1–4: das Wissen des LLMs ist zum Trainingszeitpunkt eingefroren.
 
 ## Hintergrund
 
 ### Tools
 
-Die Demonstration, dass ein Sprachmodell lernen kann, *wann* es ein Tool aufrufen soll, *welches* Tool, und *mit welchen Argumenten* — anstatt dass ein Mensch jeden Aufruf fest codiert — war:
-
 > Schick, T., Dwivedi-Yu, J., Dessì, R., Raileanu, R., Lomeli, M., Zettlemoyer, L., Cancedda, N., & Scialom, T. (2023). *Toolformer: Language Models Can Teach Themselves to Use Tools*. [arXiv:2302.04761](https://arxiv.org/abs/2302.04761)
 
-![Toolformer: das Modell fügt API-Aufrufe in seinen eigenen generierten Text ein](../assets/toolformer-schick2023-fig1.png)
-*Abbildung 1 aus Schick et al. (2023): Toolformer fügt eigenständig Tool-Aufrufe ein. Reproduziert für Bildungszwecke in diesem Kurs.*
+![Toolformer fügt eigenständig API-Aufrufe in den eigenen Text ein](../assets/toolformer-schick2023-fig1.png)
+*Abbildung 1 aus Schick et al. (2023). Reproduziert für Bildungszwecke in diesem Kurs.*
 
 ### RAG
 
-Retrieval-Augmented Generation: ein Dokument in Abschnitte aufteilen, jeden Abschnitt in einen Vektor einbetten, die Vektoren speichern und die ähnlichsten Abschnitte für eine Abfrage abrufen, um sie in den LLM-Kontext einzuspeisen. Das Originalpaper:
+> Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
 
-> Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020, 9459–9474. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+![RAG: Query Encoder + Retriever speisen Top-k-Dokumente in einen Generator](../assets/rag-lewis2020-fig1.png)
+*Abbildung 1 aus Lewis et al. (2020). Reproduziert für Bildungszwecke in diesem Kurs.*
 
-![RAG-Architektur: Query Encoder + Retriever speisen Top-k-Dokumente in einen Generator](../assets/rag-lewis2020-fig1.png)
-*Abbildung 1 aus Lewis et al. (2020): RAG-Architektur. Reproduziert für Bildungszwecke in diesem Kurs.*
+**Ein praktischer Hinweis**: Embeddings nutzen ein separates Modell vom Chat-LLM. Diese Crew verwendet Groq für Chat und Gemini für Embeddings — zwei verschiedene Dienste, zwei verschiedene API-Keys, zwei verschiedene Rate-Limits. Der `embedder`-Block in `crew.py` ist bereits konfiguriert; ihr braucht nur `GEMINI_API_KEY` gesetzt.
 
-**Eine praktische Falle**: Embeddings nutzen ein separates Modell vom Chat-LLM. Diese Crew verwendet Groq für Chat (kostenlos) und Gemini für Embeddings (ebenfalls kostenlos) — zwei verschiedene API-Keys, zwei verschiedene Rate-Limits. Deshalb gibt es `GEMINI_API_KEY` in `.env.example`.
+## In diesem Repo
 
-## Der Code
-
-Öffnet [src/exercises/step_05_rag_and_tools.py](../../src/exercises/step_05_rag_and_tools.py). Ergänzungen gegenüber Schritt 4:
-
-| Hinzugefügt | Was es bewirkt |
+| Datei | Was ihr ändert |
 | --- | --- |
-| `SerperDevTool()` | Live-Websuche — der Agent entscheidet, wann er sie aufruft |
-| `tools=[web_search]` am Researcher | Registriert das Tool beim Agenten |
-| `TextFileKnowledgeSource(...)` | Bettet `knowledge/user_preference.txt` in einen Vektorspeicher ein |
-| `knowledge_sources=[...]` an Crew | Stellt die Knowledge-Sources allen Agenten zur Abfragezeit zur Verfügung |
-| `embedder={...}` an Crew | Leitet Embedding-Aufrufe an Gemini statt an das Standard-OpenAI weiter |
+| [src/research_crew/crew.py](../../src/research_crew/crew.py) | `tools=[SerperDevTool()]` zum relevanten Agenten hinzufügen; `knowledge_sources=[...]` zur `Crew` |
+| [src/research_crew/knowledge_source_example.py](../../src/research_crew/knowledge_source_example.py) | Vorlage für `build_knowledge_sources()` — importieren und in `crew.py` aufrufen |
+| `knowledge/` | Euer eigenes Dokument hier ablegen (`.txt` oder `.pdf`) |
+
+Der `embedder`-Block ist bereits in `crew.py` — er ist das, was RAG ohne OpenAI-Key funktionieren lässt.
 
 ## Aufgabe
 
-1. Setzt `TOPIC` auf dasselbe Thema wie in den vorherigen Schritten.
+1. Legt ein Wissensdokument in `knowledge/` ab, das für euer Thema relevant ist — eine `.txt`-Datei mit Hintergrundinformationen reicht für den Anfang.
 
-2. Führt es aus:
-   ```bash
-   uv run python src/exercises/step_05_rag_and_tools.py
+2. Importiert in `crew.py` `build_knowledge_sources` aus `knowledge_source_example.py` (oder schreibt die Source direkt), zeigt sie auf eure Datei und übergebt sie an den `Crew`-Konstruktor:
+   ```python
+   knowledge_sources=build_knowledge_sources()
    ```
 
-3. Vergleicht die Ausgabe mit Schritt 4:
-   - Enthält die Ausgabe des Researchers Informationen, die erkennbar aktueller oder spezifischer sind als in Schritt 4?
-   - Taucht das Wissen aus `user_preference.txt` irgendwo in der Ausgabe auf?
-   - Prüft das verbose-Log: Könnt ihr den Moment sehen, in dem der Agent das Such-Tool aufruft, und welche Abfrage er dabei verwendet?
+3. Fügt `SerperDevTool()` dem Agenten hinzu, der nach Informationen sucht, in `crew.py`:
+   ```python
+   tools=[SerperDevTool()]
+   ```
 
-4. **Fügt eure eigene Knowledge-Source hinzu**: Erstellt ein relevantes Dokument in `knowledge/` (eine `.txt`-Zusammenfassung von etwas zu eurem Thema) und fügt es als zweite `TextFileKnowledgeSource` hinzu. Stellt im Task-Description eine Frage, die nur aus diesem Dokument beantwortet werden kann. Bestätigt, dass das Retrieval funktioniert hat — führt ohne das Dokument aus und prüft, ob der Agent die Frage trotzdem beantwortet oder jetzt eingesteht, es nicht zu wissen.
+4. Aktualisiert die Task-Beschreibung dieses Agenten in `tasks.yaml` so, dass sie eine Frage enthält, die nur aus eurem Wissensdokument beantwortet werden kann. Führt aus:
+   ```bash
+   uv run research_crew
+   ```
 
-5. Füllt den **Schritt 5**-Abschnitt in `EVALUATION.md` aus und eure abschließende Empfehlung.
+5. Führt erneut aus **ohne** die Knowledge-Source (kommentiert sie aus). Beantwortet der Agent die dokumentspezifische Frage trotzdem richtig, oder gibt er zu, es nicht zu wissen? Dieser Vergleich ist der Sinn von RAG.
+
+6. Prüft das verbose-Log: Könnt ihr sehen, wann der Agent das Such-Tool aufruft und welche Abfrage er dabei verwendet?
+
+7. Füllt den **Schritt 5**-Abschnitt in `EVALUATION.md` aus und eure abschließende Empfehlung.
 
 ## Zusatzaufgabe
 
-Fügt eine PDF-Datei statt einer Textdatei hinzu: `from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource`. Nutzt ein echtes, themenbezogenes Dokument (ein Policy-Paper, eine Forschungszusammenfassung, ein Produktbriefing). Testet dann das Retrieval, indem ihr eine Frage stellt, deren Antwort auf einer bestimmten Seite der PDF steht — retrievet der Agent sie?
+Fügt eine PDF-Datei statt einer Textdatei hinzu:
+```python
+from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
+PDFKnowledgeSource(file_paths=["your_document.pdf"])
+```
+Stellt eine Frage, deren Antwort auf einer bestimmten Seite steht. Retrievet der Agent sie?
 
 ---
 
-**Das ist eure Abschlussabgabe.** Siehe [Überblick zur Aufgabe](assignment-overview.md) für das vollständige Bewertungsschema und genaue Abgabeanforderungen.
+**Das ist eure Abschlussabgabe.** Siehe [Überblick zur Aufgabe](assignment-overview.md) für das vollständige Bewertungsschema.

@@ -12,11 +12,11 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 
 | # | Title | What it adds |
 | --- | --- | --- |
-| [1](en/01-simple-prompting.md) | Simple Prompting | The bare API call — your baseline |
-| [2](en/02-prompt-template.md) | Prompt Template | A role + output structure, same call |
-| [3](en/03-single-agent.md) | Single Agent | The CrewAI framework loop *(interim submission due)* |
-| [4](en/04-multi-agent.md) | Multi-Agent | Role specialization + task chaining |
-| [5](en/05-rag-and-tools.md) | RAG + Tools | External grounding: web search + document retrieval *(final submission due)* |
+| [1](en/01-simple-prompting.md) | Simple Prompting | The bare API call — your baseline (`src/exercises/`) |
+| [2](en/02-prompt-template.md) | Prompt Template | A role + output structure, same call (`src/exercises/`) |
+| [3](en/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
+| [4](en/04-multi-agent.md) | Multi-Agent | Two agents with task chaining via `context:` |
+| [5](en/05-rag-and-tools.md) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
 
 All five steps use the **same topic** — you pick it once at step 1 and keep it. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters (or doesn't) for your use case.
 

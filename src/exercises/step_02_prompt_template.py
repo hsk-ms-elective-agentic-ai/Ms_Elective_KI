@@ -1,11 +1,10 @@
 """
 Step 2 — Prompt Template
 ------------------------
-Same model, same single API call — but now with a system prompt that defines a role
-and enforces an output structure. No framework, just two messages.
+Same API call as step 1, but now with a system prompt that defines a role
+and a user prompt with a specific structure.
 
-The question: how much of the quality difference between step 1 and step 2 comes from
-the model itself, and how much from what you tell it to be?
+Compare the output to step 1: what changed, and why?
 
 Run:
     uv run python src/exercises/step_02_prompt_template.py
@@ -17,19 +16,12 @@ from litellm import completion
 
 load_dotenv()
 
-TOPIC = "Artificial Intelligence in Healthcare"
+TOPIC = "TODO: same topic as step 1"
 
-SYSTEM_PROMPT = """You are a senior research analyst specializing in technology and business strategy.
-Structure every response with these four sections:
-## Overview
-## Key Developments (3–5 bullet points)
-## Practical Implications
-## Open Questions"""
+SYSTEM_PROMPT = """TODO: write a system prompt that gives the model a role
+and specifies the structure of the output"""
 
-USER_PROMPT = f"""Research and summarize the following topic for a professional audience.
-Be specific and include concrete examples where possible.
-
-Topic: {TOPIC}"""
+USER_PROMPT = f"""TODO: write a user message for the topic: {TOPIC}"""
 
 response = completion(
     model=os.getenv("MODEL", "groq/llama-3.3-70b-versatile"),

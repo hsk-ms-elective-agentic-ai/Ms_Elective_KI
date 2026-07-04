@@ -12,11 +12,11 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 
 | # | Titel | Was hinzukommt |
 | --- | --- | --- |
-| [1](01-simple-prompting.md) | Einfaches Prompting | Der bloße API-Aufruf — eure Ausgangsbasis |
-| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf |
-| [3](03-single-agent.md) | Einzelner Agent | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| [4](04-multi-agent.md) | Multi-Agent | Rollenspezialisierung + Task-Verkettung |
-| [5](05-rag-and-tools.md) | RAG + Tools | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
+| [1](01-simple-prompting.md) | Einfaches Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (`src/exercises/`) |
+| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (`src/exercises/`) |
+| [3](03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
+| [4](04-multi-agent.md) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
+| [5](05-rag-and-tools.md) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
 
 Alle fünf Schritte verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 1 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein schrittweiser Vergleich, was sich verändert hat und warum das für euren Anwendungsfall wichtig ist (oder nicht).
 

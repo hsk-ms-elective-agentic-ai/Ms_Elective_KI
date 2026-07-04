@@ -2,50 +2,49 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/03-single-agent.md)
 
-Wrap the prompt in a CrewAI `Agent` and `Task`. The `role`, `goal`, and `backstory` are still just a system prompt under the hood — CrewAI assembles it for you from those three fields — and a `Task` is still just a user-side instruction. What the framework adds is the loop: the agent can reason in multiple steps before producing output, call tools (step 5), and retry on failure. One agent, one task.
+Move from a hand-written prompt to a CrewAI `Agent` and `Task`. The `role`, `goal`, and `backstory` you write in `agents.yaml` are still just a system prompt under the hood — CrewAI assembles it for you. What the framework adds is the loop: the agent reasons in steps before producing output, can call tools (step 5), and retries on failure. One agent, one task.
 
 ## Background
 
-The observation that LLM-based agents benefit from an explicit module structure — profile (who this agent is), memory (what it has access to), planning (how it breaks down work), and action (what it can do) — was systematized in:
+The observation that LLM-based agents benefit from an explicit module structure — profile (who the agent is), memory, planning, action — was systematized in:
 
 > Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., & Wen, J. (2023). *A Survey on Large Language Model based Autonomous Agents*. [arXiv:2308.11432](https://arxiv.org/abs/2308.11432)
 
-![Unified framework for the architecture design of LLM-based autonomous agents: Profile, Memory, Planning, Action modules](../assets/agentsurvey-wang2023-fig2.png)
-*Figure 2 from Wang et al. (2023): a unified LLM-agent architecture. Reproduced for educational use in this course.*
+![Unified framework for LLM-based autonomous agents: Profile, Memory, Planning, Action modules](../assets/agentsurvey-wang2023-fig2.png)
+*Figure 2 from Wang et al. (2023). Reproduced for educational use in this course.*
 
-In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` map to **Profile**; `tools` plus the task loop map to **Action**. Planning and Memory are present but implicit at this step (single-turn reasoning, no persistent memory yet).
+In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` = **Profile**; `tools` + the task loop = **Action**.
 
-## The code
+## In this repo
 
-Open [src/exercises/step_03_single_agent.py](../../src/exercises/step_03_single_agent.py). Map each piece to the concepts above:
-
-| Code | What it is |
+| File | What to change |
 | --- | --- |
-| `Agent(role=..., goal=..., backstory=...)` | The Profile module — assembled into a system prompt by CrewAI |
-| `Task(description=..., expected_output=...)` | The assignment the agent works on |
-| `Crew(agents=[...], tasks=[...])` | The runtime that runs the loop |
-| `verbose=True` | Shows the agent's internal reasoning — read this, it's the point |
+| [src/research_crew/config/agents.yaml](../../src/research_crew/config/agents.yaml) | Define ONE agent for your topic — role, goal, backstory |
+| [src/research_crew/config/tasks.yaml](../../src/research_crew/config/tasks.yaml) | Define ONE task — description, expected_output, agent |
+| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Keep only one `@agent` and one `@task` method |
+
+The template already has two agents (`researcher` and `analyst`). For this step, reduce it to one — comment out or remove the analyst agent and its task.
 
 ## Your task
 
-1. Set `TOPIC` to the same topic as steps 1 and 2.
+1. Open `agents.yaml`. Replace the existing agent with your own: give it a `role`, `goal`, and `backstory` suited to your topic.
 
-2. Run it:
+2. Open `tasks.yaml`. Replace the existing task with one that fits your agent and topic: write a `description` and an `expected_output`.
+
+3. In `crew.py`, keep only one `@agent` and one `@task` method (remove or comment out the analyst).
+
+4. Run:
    ```bash
-   uv run python src/exercises/step_03_single_agent.py
+   uv run research_crew
    ```
 
-3. Watch the verbose output carefully — this is the first step where you can see the model's *internal reasoning*, not just its final answer. Note:
-   - Does the agent break the task into sub-steps?
-   - Does the final answer look different from what step 2 produced? In what specific way?
+5. Read the verbose output — this is the first time you can see the agent's internal reasoning, not just the final answer. Does the agent break the task into sub-steps? Does the output feel different from what step 2 produced?
 
-4. **Experiment**: change `backstory` to something minimal (one sentence) vs. rich (three sentences with concrete specialization). Does backstory depth change the output quality, or does the model mostly use `role` and `goal`?
-
-5. Fill in the **Step 3** section of `EVALUATION.md`.
+6. Fill in the **Step 3** section of `EVALUATION.md`.
 
 ## Stretch goal
 
-Look at the verbose log's "Final Answer" alongside the agent's intermediate thinking. Find one place where the agent's reasoning and its conclusion seem inconsistent — where it reasons toward one thing and writes something slightly different. What does this tell you about trusting the chain-of-thought?
+Look at the verbose log's "Final Answer" alongside the agent's intermediate reasoning. Find one place where the reasoning and the conclusion seem inconsistent — where the agent reasons toward one thing and writes something slightly different. What does this tell you about trusting chain-of-thought?
 
 ---
 
