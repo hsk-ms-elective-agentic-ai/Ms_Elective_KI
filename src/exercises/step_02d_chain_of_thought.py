@@ -33,7 +33,7 @@ query = persona + instruction + context + data_format + audience + tone + reason
 os.makedirs("output", exist_ok=True)
 
 response = completion(
-    model=os.getenv("MODEL", "gpt-4o-mini"),
+    model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
     messages=[{"role": "user", "content": query}],
 )
 

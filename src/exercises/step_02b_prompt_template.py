@@ -35,7 +35,7 @@ system_message = persona + instruction + context + data_format + audience + tone
 text = "TODO: your topic here"
 
 response = completion(
-    model=os.getenv("MODEL", "gpt-4o-mini"),
+    model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
     messages=[
         {"role": "system", "content": system_message},
         {"role": "user",   "content": text},

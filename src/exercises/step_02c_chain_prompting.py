@@ -26,7 +26,7 @@ TOPIC = "TODO: same topic as steps 2a and 2b"
 prompt_1 = f"TODO: write a first prompt that extracts or prepares something from the topic: {TOPIC}"
 
 response_1 = completion(
-    model=os.getenv("MODEL", "gpt-4o-mini"),
+    model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
     messages=[{"role": "user", "content": prompt_1}],
 )
 output_1 = response_1.choices[0].message.content
@@ -38,7 +38,7 @@ print(output_1)
 prompt_2 = f"TODO: write a second prompt that uses the output below to produce the final answer\n\n{output_1}"
 
 response_2 = completion(
-    model=os.getenv("MODEL", "gpt-4o-mini"),
+    model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
     messages=[{"role": "user", "content": prompt_2}],
 )
 

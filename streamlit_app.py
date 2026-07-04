@@ -40,7 +40,7 @@ def save_output(step_id: str, prompt: str, output: str, topic: str = "") -> str:
         "02d": "Step 2d — Chain of Thought",
     }.get(step_id, f"Step {step_id}")
     path = f"output/step_{step_id}.md"
-    model = os.getenv("MODEL", "gpt-4o-mini")
+    model = os.getenv("MODEL", "gemini/gemini-2.5-flash")
     content = (
         f"# {label}\n\n"
         f"**Model:** `{model}`  \n"
@@ -113,7 +113,7 @@ tab_prompting, tab_crew = st.tabs(["Prompting — Steps 1 & 2", "Research Crew �
 # ── Tab 1: Prompting exercises ────────────────────────────────────────────────
 
 with tab_prompting:
-    _model = os.getenv("MODEL", "gpt-4o-mini")
+    _model = os.getenv("MODEL", "gemini/gemini-2.5-flash")
     st.caption(f"Model: `{_model}`  ·  Set `MODEL` in `.env` to change it.")
 
     step = st.radio(

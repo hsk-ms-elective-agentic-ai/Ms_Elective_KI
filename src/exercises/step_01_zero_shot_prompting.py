@@ -22,7 +22,7 @@ TOPIC = "TODO: your topic here"
 message = "TODO: write your question about the topic"
 
 response = completion(
-    model=os.getenv("MODEL", "gpt-4o-mini"),
+    model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
     messages=[{"role": "user", "content": message}],
 )
 
