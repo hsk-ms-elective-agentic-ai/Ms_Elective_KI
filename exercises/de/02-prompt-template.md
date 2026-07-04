@@ -16,15 +16,19 @@ Der Kerngedanke: Ein Prompt ist ein Programm. Die Rolle, die Formatanweisungen u
 
 ## Der Code
 
-Öffnet [src/exercises/step_02_prompt_template.py](../../src/exercises/step_02_prompt_template.py). Vergleicht es mit Schritt 1 — die einzigen Ergänzungen sind:
+Öffnet [src/exercises/step_02_prompt_template.py](../../src/exercises/step_02_prompt_template.py). Der Prompt ist in benannte Komponenten aufgeteilt, die zu einer einzigen Query zusammengefügt werden:
 
-| Hinzugefügt | Was es bewirkt |
+| Komponente | Steuert |
 | --- | --- |
-| `SYSTEM_PROMPT` | Weist eine Rolle zu ("senior research analyst") und schreibt vier Ausgabeabschnitte vor |
-| `USER_PROMPT` | Formatierter String mit eingesetztem Thema |
-| Zwei Nachrichten statt einer | System-Nachricht setzt Kontext; Nutzer-Nachricht stellt die Frage |
+| `persona` | Wer das Modell ist |
+| `instruction` | Was es tun soll |
+| `context` | Hintergrundwissen, das es braucht, um es gut zu tun |
+| `data_format` | Wie die Ausgabe aussehen soll |
+| `audience` | Wer die Ausgabe liest |
+| `tone` | Wie sie klingen soll |
+| `data` | Das eigentliche Thema oder den Text |
 
-Keine neuen Abhängigkeiten, kein Framework.
+Keine neuen Abhängigkeiten, kein Framework — nur String-Verkettung.
 
 ## Aufgabe
 
@@ -36,13 +40,13 @@ Keine neuen Abhängigkeiten, kein Framework.
    ```
 
 3. Vergleicht die Ausgabe mit Schritt 1:
-   - Sind die vier Abschnitte aus `SYSTEM_PROMPT` tatsächlich erschienen?
+   - Welche Komponenten hatten den sichtbarsten Einfluss auf die Ausgabe?
    - Ist die Ausgabe für euer spezifisches Thema nützlicher — oder nur anders formatiert?
-   - Was macht das Modell mit dem "Open Questions"-Abschnitt — erzeugt es echte offene Fragen oder Fülltext?
 
-4. **Experimentiert**: versucht mindestens eins davon und beobachtet, was sich verändert:
-   - Entfernt die Abschnittsüberschriften aus `SYSTEM_PROMPT` — verschwindet das Format, oder behält das Modell es trotzdem bei?
-   - Ändert die Rolle von "senior research analyst" auf etwas anderes (z. B. "skeptischer Journalist", "Erstjahresstudent"). Verändert sich die Ausgabe so, wie ihr es erwartet habt?
+4. **Experimentiert**: Entfernt nacheinander eine Komponente aus `query` und beobachtet, was sich verändert. Versucht mindestens:
+   - Entfernt `data_format` — verschwindet die Struktur vollständig?
+   - Entfernt `persona` — verändert sich Ton oder Expertenniveau?
+   - Entfernt `audience` — ändert sich etwas merklich?
 
 5. Füllt den **Schritt 2**-Abschnitt in `EVALUATION.md` aus.
 

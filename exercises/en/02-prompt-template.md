@@ -16,15 +16,19 @@ The core idea: a prompt is a program. The role, format instructions, and constra
 
 ## The code
 
-Open [src/exercises/step_02_prompt_template.py](../../src/exercises/step_02_prompt_template.py). Compare it to step 1 — the only additions are:
+Open [src/exercises/step_02_prompt_template.py](../../src/exercises/step_02_prompt_template.py). The prompt is split into named components that are concatenated into a single query:
 
-| Added | What it does |
+| Component | Controls |
 | --- | --- |
-| `SYSTEM_PROMPT` | Assigns a role ("senior research analyst") and mandates four output sections |
-| `USER_PROMPT` | Formatted string with the topic substituted in |
-| Two messages instead of one | System message sets context; user message poses the question |
+| `persona` | Who the model is |
+| `instruction` | What it should do |
+| `context` | Background it needs to perform well |
+| `data_format` | What the output should look like |
+| `audience` | Who will read the output |
+| `tone` | How it should sound |
+| `data` | The actual topic or text to work on |
 
-No new dependencies, no framework.
+No new dependencies, no framework — just string concatenation.
 
 ## Your task
 
@@ -36,13 +40,13 @@ No new dependencies, no framework.
    ```
 
 3. Compare the output to step 1:
-   - Did the four sections from `SYSTEM_PROMPT` actually appear?
+   - Which components had the most visible effect on the output?
    - Is the output more or less useful for your specific topic — or just differently formatted?
-   - What does the model do with the "Open Questions" section — does it generate genuine open questions, or filler?
 
-4. **Experiment**: try at least one of these and observe what changes:
-   - Remove the section headings from `SYSTEM_PROMPT` — does the format disappear, or does the model keep it anyway?
-   - Change the role from "senior research analyst" to something different (e.g. "skeptical journalist", "first-year student"). Does the output change in the way you'd expect?
+4. **Experiment**: remove one component at a time from `query` and observe what changes. Try at least:
+   - Remove `data_format` — does the structure disappear entirely?
+   - Remove `persona` — does the tone or expertise level change?
+   - Remove `audience` — does anything noticeably shift?
 
 5. Fill in the **Step 2** section of `EVALUATION.md`.
 
