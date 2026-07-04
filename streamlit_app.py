@@ -29,21 +29,16 @@ load_dotenv()
 os.makedirs("output", exist_ok=True)
 
 
-def _slug(text: str, max_len: int = 40) -> str:
-    import re
-    return re.sub(r"[^a-z0-9]+", "_", text.lower().strip())[:max_len].strip("_")
-
 
 def save_output(step_id: str, prompt: str, output: str, topic: str = "") -> str:
-    """Write a run to output/step_<id>_<topic>.md and return the file path."""
+    """Overwrite output/step_<id>.md with the latest run and return the file path."""
     label = {
         "01": "Step 1 — Simple Prompting",
         "02a": "Step 2a — Prompt Template",
         "02b": "Step 2b — Chain of Thought",
         "02c": "Step 2c — Chain Prompting",
     }.get(step_id, f"Step {step_id}")
-    slug = _slug(topic or prompt)
-    path = f"output/step_{step_id}_{slug}.md"
+    path = f"output/step_{step_id}.md"
     model = os.getenv("MODEL", "gpt-4o-mini")
     content = (
         f"# {label}\n\n"
