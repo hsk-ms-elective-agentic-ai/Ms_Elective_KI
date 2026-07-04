@@ -17,24 +17,33 @@ from litellm import completion
 load_dotenv()
 
 # ── Prompt components — fill in each one, then try removing some ──────────────
-persona       = "TODO: who is the model?\n"
-instruction   = "TODO: what should it do?\n"
-context       = "TODO: what background does it need to do it well?\n"
-data_format   = "TODO: what should the output look like?\n"
-audience      = "TODO: who will read the output?\n"
-tone          = "TODO: what tone should it use?\n"
+persona       = "You are a helpful assistant.\n"
+instruction   = "You are an expert in EU AI Act compliance.\n"
+context       = "You are assisting a B2B SaaS company that uses LLMs in its product.\n"
+data_format   = "Provide your response in bullet points.\n"
+audience      = "The output will be read by legal professionals and compliance officers.\n"
+tone          = "Be professional and concise.\n"
 
-text          = "TODO: your topic or text here"
+text          = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
 data          = f"Topic: {text}\n"
 
 # The full prompt — remove and add components to observe the impact
 query = persona + instruction + context + data_format + audience + tone + data
 
+os.makedirs("output", exist_ok=True)
+
 response = completion(
     model=os.getenv("MODEL", "gpt-4o-mini"),
-    messages=[
-        {"role": "user", "content": query},
-    ],
+    messages=[{"role": "user", "content": query}],
 )
 
-print(response.choices[0].message.content)
+output = response.choices[0].message.content
+print(output)
+
+with open("output/step_02a.md", "w", encoding="utf-8") as f:
+    f.write(
+        f"# Step 2a — Prompt Template\n\n"
+        f"**Topic:** {text}\n\n"
+        f"## Prompt\n\n```\n{query}\n```\n\n"
+        f"## Output\n\n{output}\n"
+    )

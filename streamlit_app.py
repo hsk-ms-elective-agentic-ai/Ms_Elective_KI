@@ -26,6 +26,37 @@ from research_crew.crew import ResearchCrew
 
 load_dotenv()
 
+os.makedirs("output", exist_ok=True)
+
+
+def _slug(text: str, max_len: int = 40) -> str:
+    import re
+    return re.sub(r"[^a-z0-9]+", "_", text.lower().strip())[:max_len].strip("_")
+
+
+def save_output(step_id: str, prompt: str, output: str, topic: str = "") -> str:
+    """Write a run to output/step_<id>_<topic>.md and return the file path."""
+    label = {
+        "01": "Step 1 — Simple Prompting",
+        "02a": "Step 2a — Prompt Template",
+        "02b": "Step 2b — Chain of Thought",
+        "02c": "Step 2c — Chain Prompting",
+    }.get(step_id, f"Step {step_id}")
+    slug = _slug(topic or prompt)
+    path = f"output/step_{step_id}_{slug}.md"
+    model = os.getenv("MODEL", "gpt-4o-mini")
+    content = (
+        f"# {label}\n\n"
+        f"**Model:** `{model}`  \n"
+        f"**Topic:** {topic or '—'}\n\n"
+        f"## Prompt\n\n```\n{prompt.strip()}\n```\n\n"
+        f"## Output\n\n{output.strip()}\n"
+    )
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return path
+
+
 ICONS = {
     "task_started": "📋",
     "task_completed": "✅",
@@ -116,8 +147,11 @@ with tab_prompting:
                             model=_model,
                             messages=[{"role": "user", "content": message}],
                         )
+                        output = resp.choices[0].message.content
+                        path = save_output("01", message, output, topic=message[:80])
+                        st.caption(f"Saved to `{path}`")
                         st.markdown("**Output**")
-                        st.markdown(resp.choices[0].message.content)
+                        st.markdown(output)
                     except Exception as exc:
                         st.error(str(exc))
 
@@ -152,8 +186,11 @@ with tab_prompting:
                             model=_model,
                             messages=[{"role": "user", "content": query}],
                         )
+                        output = resp.choices[0].message.content
+                        path = save_output("02a", query, output, topic=text[:80])
+                        st.caption(f"Saved to `{path}`")
                         st.markdown("**Output**")
-                        st.markdown(resp.choices[0].message.content)
+                        st.markdown(output)
                     except Exception as exc:
                         st.error(str(exc))
 
@@ -189,8 +226,11 @@ with tab_prompting:
                             model=_model,
                             messages=[{"role": "user", "content": query}],
                         )
+                        output = resp.choices[0].message.content
+                        path = save_output("02b", query, output, topic=text[:80])
+                        st.caption(f"Saved to `{path}`")
                         st.markdown("**Output**")
-                        st.markdown(resp.choices[0].message.content)
+                        st.markdown(output)
                     except Exception as exc:
                         st.error(str(exc))
 
@@ -242,8 +282,16 @@ with tab_prompting:
                                 model=_model,
                                 messages=[{"role": "user", "content": full_prompt_2}],
                             )
+                            output = resp.choices[0].message.content
+                            combined = (
+                                f"FIRST PROMPT:\n{prompt_1}\n\n"
+                                f"FIRST OUTPUT:\n{st.session_state.chain_output_1}\n\n"
+                                f"SECOND PROMPT:\n{full_prompt_2}"
+                            )
+                            path = save_output("02c", combined, output, topic=prompt_1[:80])
+                            st.caption(f"Saved to `{path}`")
                             st.markdown("**Final output**")
-                            st.markdown(resp.choices[0].message.content)
+                            st.markdown(output)
                         except Exception as exc:
                             st.error(str(exc))
 

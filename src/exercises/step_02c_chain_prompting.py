@@ -42,5 +42,17 @@ response_2 = completion(
     messages=[{"role": "user", "content": prompt_2}],
 )
 
+output_2 = response_2.choices[0].message.content
 print("\n=== Final output ===")
-print(response_2.choices[0].message.content)
+print(output_2)
+
+os.makedirs("output", exist_ok=True)
+with open("output/step_02c.md", "w", encoding="utf-8") as f:
+    f.write(
+        f"# Step 2c — Chain Prompting\n\n"
+        f"**Topic:** {TOPIC}\n\n"
+        f"## First prompt\n\n```\n{prompt_1}\n```\n\n"
+        f"## First output\n\n{output_1}\n\n"
+        f"## Second prompt\n\n```\n{prompt_2}\n```\n\n"
+        f"## Final output\n\n{output_2}\n"
+    )

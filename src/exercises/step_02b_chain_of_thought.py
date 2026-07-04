@@ -17,24 +17,33 @@ from litellm import completion
 
 load_dotenv()
 
-persona       = "TODO: who is the model?\n"
-instruction   = "TODO: what should it do?\n"
-context       = "TODO: what background does it need?\n"
-data_format   = "TODO: what should the output look like?\n"
-audience      = "TODO: who will read the output?\n"
-tone          = "TODO: what tone should it use?\n"
-reasoning     = "TODO: add an instruction that asks the model to reason step by step before answering\n"
+persona       = "You are a helpful assistant.\n"
+instruction   = "You are an expert in EU AI Act compliance.\n"
+context       = "You are assisting a B2B SaaS company that uses LLMs in its product.\n"
+data_format   = "Provide your response in bullet points.\n"
+audience      = "The output will be read by legal professionals and compliance officers.\n"
+tone          = "Be professional and concise.\n"
+reasoning     = "First, think through the problem step by step. Then, provide your final answer.\n"
 
-text          = "TODO: same topic as step 2a"
+text          = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
 data          = f"Topic: {text}\n"
 
 query = persona + instruction + context + data_format + audience + tone + reasoning + data
 
+os.makedirs("output", exist_ok=True)
+
 response = completion(
     model=os.getenv("MODEL", "gpt-4o-mini"),
-    messages=[
-        {"role": "user", "content": query},
-    ],
+    messages=[{"role": "user", "content": query}],
 )
 
-print(response.choices[0].message.content)
+output = response.choices[0].message.content
+print(output)
+
+with open("output/step_02b.md", "w", encoding="utf-8") as f:
+    f.write(
+        f"# Step 2b — Chain of Thought\n\n"
+        f"**Topic:** {text}\n\n"
+        f"## Prompt\n\n```\n{query}\n```\n\n"
+        f"## Output\n\n{output}\n"
+    )
