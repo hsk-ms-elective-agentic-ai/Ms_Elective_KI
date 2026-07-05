@@ -32,14 +32,24 @@ tone          = "TODO: what tone should it use?\n"
 system_message = persona + instruction + context + data_format + audience + tone
 
 # ── User message — the actual question ───────────────────────────────────────
-text = "TODO: your topic here"
+user_message = "TODO: your topic here"
+
+# ── Assistant — left empty; no prior turns or examples in this step ──────────
+assistant_message = ""
+
+messages = [
+    {"role": role, "content": content}
+    for role, content in [
+        ("system", system_message),
+        ("user", user_message),
+        ("assistant", assistant_message),
+    ]
+    if content
+]
 
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=[
-        {"role": "system", "content": system_message},
-        {"role": "user",   "content": text},
-    ],
+    messages=messages,
 )
 
 output = response.choices[0].message.content
@@ -48,8 +58,8 @@ print(output)
 with open("output/step_02b.md", "w", encoding="utf-8") as f:
     f.write(
         f"# Step 2b — Prompt Template\n\n"
-        f"**Topic:** {text}\n\n"
+        f"**Topic:** {user_message}\n\n"
         f"## System message\n\n```\n{system_message.strip()}\n```\n\n"
-        f"## User message\n\n```\n{text}\n```\n\n"
+        f"## User message\n\n```\n{user_message}\n```\n\n"
         f"## Output\n\n{output}\n"
     )

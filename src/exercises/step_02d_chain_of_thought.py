@@ -17,6 +17,8 @@ from litellm import completion
 
 load_dotenv()
 
+# ── System message — same components as step 2b, plus an explicit reasoning
+# instruction telling the model to think step by step before answering ────────
 persona       = "You are a helpful assistant.\n"
 instruction   = "You are an expert in EU AI Act compliance.\n"
 context       = "You are assisting a B2B SaaS company that uses LLMs in its product.\n"
@@ -25,16 +27,30 @@ audience      = "The output will be read by legal professionals and compliance o
 tone          = "Be professional and concise.\n"
 reasoning     = "First, think through the problem step by step. Then, provide your final answer.\n"
 
-text          = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
-data          = f"Topic: {text}\n"
+system_message = persona + instruction + context + data_format + audience + tone + reasoning
 
-query = persona + instruction + context + data_format + audience + tone + reasoning + data
+# ── User message — the actual question ───────────────────────────────────────
+text = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
+user_message = f"Topic: {text}\n"
+
+# ── Assistant — left empty; no prior turns or examples in this step ──────────
+assistant_message = ""
+
+messages = [
+    {"role": role, "content": content}
+    for role, content in [
+        ("system", system_message),
+        ("user", user_message),
+        ("assistant", assistant_message),
+    ]
+    if content
+]
 
 os.makedirs("output", exist_ok=True)
 
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=[{"role": "user", "content": query}],
+    messages=messages,
 )
 
 output = response.choices[0].message.content
@@ -44,6 +60,7 @@ with open("output/step_02d.md", "w", encoding="utf-8") as f:
     f.write(
         f"# Step 2d — Chain of Thought\n\n"
         f"**Topic:** {text}\n\n"
-        f"## Prompt\n\n```\n{query}\n```\n\n"
+        f"## System message\n\n```\n{system_message.strip()}\n```\n\n"
+        f"## User message\n\n```\n{user_message.strip()}\n```\n\n"
         f"## Output\n\n{output}\n"
     )
