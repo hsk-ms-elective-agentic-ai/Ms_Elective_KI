@@ -1,3 +1,8 @@
+# CrewAI turns role + goal + backstory into the "system" message it sends the
+# model for every step this agent takes — the same system role you assembled
+# by hand from persona/instruction/context/audience/tone in step 2b/2d.
+# role/backstory ≈ persona + context (who the agent is, what background it has);
+# goal ≈ instruction (what it's trying to do).
 researcher:
   role: >
     {topic} Senior Data Researcher

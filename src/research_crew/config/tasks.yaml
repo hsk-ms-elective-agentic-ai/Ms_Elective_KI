@@ -1,4 +1,9 @@
 # src/research_crew/config/tasks.yaml
+#
+# `description` plays the role of the "user" message in step 2 — the actual
+# question/instruction, sent per task rather than once for the whole agent.
+# `expected_output` plays the role of step 2b's data_format component (what
+# the output should look like) — it's just scoped per task instead of per agent.
 research_task:
   description: >
     Conduct thorough research on {topic}. Focus on:
@@ -29,6 +34,8 @@ analysis_task:
     findings with added analysis and insights. The report should be well-structured
     with an executive summary, main sections, and conclusion.
   agent: analyst
+  # Same idea as step 2c's chain prompting: research_task's output is fed in
+  # as context for this task, instead of you pasting it into the next prompt by hand.
   context:
     - research_task
   output_file: output/report.md

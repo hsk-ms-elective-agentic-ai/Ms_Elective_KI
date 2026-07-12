@@ -28,7 +28,11 @@ from typing import List
 
 @CrewBase
 class ResearchCrew():
-    """Research crew for comprehensive topic analysis and reporting"""
+    """Research crew for comprehensive topic analysis and reporting
+
+    See agents.yaml/tasks.yaml for how each field maps back to the prompting
+    building blocks from step 2 (system/user roles, chain prompting via `context:`).
+    """
 
     agents: List[BaseAgent]
     tasks: List[Task]
