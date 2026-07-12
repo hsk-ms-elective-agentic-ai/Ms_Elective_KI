@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Six scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all six and compare the outputs.
+Five scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all five and compare the outputs.
 
 ## Background
 
@@ -26,7 +26,7 @@ Wei et al. (2022) showed separately that including full worked reasoning chains 
 
 > Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023). *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. NeurIPS 2023. [arXiv:2305.10601](https://arxiv.org/abs/2305.10601)
 
-## The six scripts
+## The five scripts
 
 ### 2a — Few-Shot Prompting
 [src/exercises/step_02a_few_shot.py](../../src/exercises/step_02a_few_shot.py)
@@ -53,19 +53,14 @@ Two sequential API calls: the first extracts or prepares something from the topi
 
 Same component structure as 2b, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. This is the zero-shot CoT pattern from Kojima et al. (2022) — no examples needed, just the instruction.
 
-### 2f — Structured Output (JSON Mode)
-[src/exercises/step_02f_structured_output.py](../../src/exercises/step_02f_structured_output.py)
-
-Same persona/instruction pattern as 2b, but the API call adds `response_format={"type": "json_object"}`. This constrains the model to emit valid JSON syntax — the prompt still has to describe the exact shape you want, but the output is now something your code can parse directly (`result["field"]`) instead of a paragraph you'd have to scrape.
-
-### 2g — Tree of Thought
-[src/exercises/step_02g_tree_of_thought.py](../../src/exercises/step_02g_tree_of_thought.py)
+### 2e — Tree of Thought
+[src/exercises/step_02e_tree_of_thought.py](../../src/exercises/step_02e_tree_of_thought.py)
 
 One user message asks several "experts" to reason in parallel: each writes down one step, shares it with the group, then all move on to the next step together — and any expert whose reasoning turns out to be wrong drops out. This is a zero-shot, single-prompt approximation of the tree-of-thought idea (Yao et al., 2023) — it explores multiple reasoning paths at once instead of committing to a single chain like 2d, without the full search-and-backtrack procedure from the paper.
 
 ## Your task
 
-1. Set your topic in all six scripts — same topic as step 1, same topic across 2a–2g.
+1. Set your topic in all five scripts — same topic as step 1, same topic across 2a–2e.
 
 2. Fill in the `TODO` fields and run each script:
    ```bash
@@ -73,17 +68,15 @@ One user message asks several "experts" to reason in parallel: each writes down 
    uv run python src/exercises/step_02b_prompt_template.py
    uv run python src/exercises/step_02c_chain_prompting.py
    uv run python src/exercises/step_02d_chain_of_thought.py
-   uv run python src/exercises/step_02f_structured_output.py
-   uv run python src/exercises/step_02g_tree_of_thought.py
+   uv run python src/exercises/step_02e_tree_of_thought.py
    ```
 
-3. Compare the six outputs (each is saved to `output/step_02*.md`):
+3. Compare the five outputs (each is saved to `output/step_02*.md`):
    - In 2a, do the examples steer the model toward a specific format or conclusion? What happens if you change just one example?
    - Which components in 2b had the most visible effect? Try removing one at a time.
    - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
    - Does the `reasoning` instruction in 2d produce noticeably different conclusions — or just more text?
-   - In 2f, try asking for a shape the model can't cleanly fill from the question you gave it — does it fill fields with guesses, or leave them empty/null?
-   - In 2g, compare to 2d — do the "experts" actually disagree and drop out, or do they converge immediately on the same answer? Try changing `num_experts`.
+   - In 2e, compare to 2d — do the "experts" actually disagree and drop out, or do they converge immediately on the same answer? Try changing `num_experts`.
 
 4. Fill in the **Step 2** section of `EVALUATION.md`.
 

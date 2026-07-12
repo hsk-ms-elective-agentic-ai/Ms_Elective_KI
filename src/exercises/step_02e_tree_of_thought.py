@@ -1,5 +1,5 @@
 """
-Step 2g — Tree of Thought
+Step 2e — Tree of Thought
 ---------------------------
 Instead of committing to one line of reasoning, ask several "experts" to
 reason in parallel: each writes down one step, shares it with the group,
@@ -14,7 +14,7 @@ Compare to step 2d (chain of thought): does exploring several reasoning
 paths in parallel change the final answer, or just add discussion around it?
 
 Run:
-    uv run python src/exercises/step_02g_tree_of_thought.py
+    uv run python src/exercises/step_02e_tree_of_thought.py
 """
 import os
 
@@ -47,9 +47,9 @@ response = completion(
 output = response.choices[0].message.content
 print(output)
 
-with open("output/step_02g.md", "w", encoding="utf-8") as f:
+with open("output/step_02e.md", "w", encoding="utf-8") as f:
     f.write(
-        f"# Step 2g — Tree of Thought\n\n"
+        f"# Step 2e — Tree of Thought\n\n"
         f"**Question:** {question}\n\n"
         f"## User message\n\n```\n{user_message}\n```\n\n"
         f"## Output\n\n{output}\n"
