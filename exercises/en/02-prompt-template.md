@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Seven scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all seven and compare the outputs.
+Six scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all six and compare the outputs.
 
 ## Background
 
@@ -26,11 +26,7 @@ Wei et al. (2022) showed separately that including full worked reasoning chains 
 
 > Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023). *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. NeurIPS 2023. [arXiv:2305.10601](https://arxiv.org/abs/2305.10601)
 
-**Retrieval-augmented generation** — grounding a response in retrieved text instead of relying only on what the model memorized during training — was introduced in the same paper cited in step 5:
-
-> Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
-
-## The seven scripts
+## The six scripts
 
 ### 2a — Few-Shot Prompting
 [src/exercises/step_02a_few_shot.py](../../src/exercises/step_02a_few_shot.py)
@@ -57,11 +53,6 @@ Two sequential API calls: the first extracts or prepares something from the topi
 
 Same component structure as 2b, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. This is the zero-shot CoT pattern from Kojima et al. (2022) — no examples needed, just the instruction.
 
-### 2e — Retrieval-Augmented Generation (RAG)
-[src/exercises/step_02e_rag.py](../../src/exercises/step_02e_rag.py)
-
-Upload a `.txt` or `.pdf` file with background on your topic to `knowledge/`. The script chunks it, indexes it in a local vector store (`chromadb`, fully local — no API key needed for this part), retrieves the chunks most similar to your question, and stuffs them into the system message before asking. This is RAG done by hand — step 5 does the same thing automatically via CrewAI's `knowledge_sources`.
-
 ### 2f — Structured Output (JSON Mode)
 [src/exercises/step_02f_structured_output.py](../../src/exercises/step_02f_structured_output.py)
 
@@ -74,7 +65,7 @@ One user message asks several "experts" to reason in parallel: each writes down 
 
 ## Your task
 
-1. Set your topic in all seven scripts — same topic as step 1, same topic across 2a–2g.
+1. Set your topic in all six scripts — same topic as step 1, same topic across 2a–2g.
 
 2. Fill in the `TODO` fields and run each script:
    ```bash
@@ -82,17 +73,15 @@ One user message asks several "experts" to reason in parallel: each writes down 
    uv run python src/exercises/step_02b_prompt_template.py
    uv run python src/exercises/step_02c_chain_prompting.py
    uv run python src/exercises/step_02d_chain_of_thought.py
-   uv run python src/exercises/step_02e_rag.py
    uv run python src/exercises/step_02f_structured_output.py
    uv run python src/exercises/step_02g_tree_of_thought.py
    ```
 
-3. Compare the seven outputs (each is saved to `output/step_02*.md`):
+3. Compare the six outputs (each is saved to `output/step_02*.md`):
    - In 2a, do the examples steer the model toward a specific format or conclusion? What happens if you change just one example?
    - Which components in 2b had the most visible effect? Try removing one at a time.
    - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
    - Does the `reasoning` instruction in 2d produce noticeably different conclusions — or just more text?
-   - In 2e, ask the same question with the knowledge file removed (or renamed) — does the model admit it doesn't know, or guess?
    - In 2f, try asking for a shape the model can't cleanly fill from the question you gave it — does it fill fields with guesses, or leave them empty/null?
    - In 2g, compare to 2d — do the "experts" actually disagree and drop out, or do they converge immediately on the same answer? Try changing `num_experts`.
 
