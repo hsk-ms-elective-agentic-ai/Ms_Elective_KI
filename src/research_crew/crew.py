@@ -1,6 +1,13 @@
 # src/research_crew/crew.py
 import os
 
+from dotenv import load_dotenv
+
+# Load .env before the setdefault calls below — otherwise MODEL's fallback would
+# already be set by the time crewai's own internal load_dotenv() (override=False)
+# runs on import, and .env's MODEL would silently never take effect.
+load_dotenv()
+
 # CrewAI's telemetry tries to register OS signal handlers, which only works in the
 # main thread — fails (harmlessly) when run from Streamlit's worker thread otherwise.
 os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
