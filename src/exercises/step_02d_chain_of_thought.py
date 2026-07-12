@@ -19,18 +19,18 @@ load_dotenv()
 
 # ── System message — same components as step 2b, plus an explicit reasoning
 # instruction telling the model to think step by step before answering ────────
-persona       = "You are a helpful assistant.\n"
-instruction   = "You are an expert in EU AI Act compliance.\n"
-context       = "You are assisting a B2B SaaS company that uses LLMs in its product.\n"
-data_format   = "Provide your response in bullet points.\n"
-audience      = "The output will be read by legal professionals and compliance officers.\n"
-tone          = "Be professional and concise.\n"
+persona       = "TODO: who is the model?\n"
+instruction   = "TODO: what should it do?\n"
+context       = "TODO: what background does it need to do it well?\n"
+data_format   = "TODO: what should the output look like?\n"
+audience      = "TODO: who will read the output?\n"
+tone          = "TODO: what tone should it use?\n"
 reasoning     = "First, think through the problem step by step. Then, provide your final answer.\n"
 
 system_message = persona + instruction + context + data_format + audience + tone + reasoning
 
 # ── User message — the actual question ───────────────────────────────────────
-text = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
+text = "TODO: same topic as previous steps"
 user_message = f"Topic: {text}\n"
 
 os.makedirs("output", exist_ok=True)
