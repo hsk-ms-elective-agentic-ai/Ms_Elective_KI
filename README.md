@@ -215,7 +215,7 @@ Once that's done, continue with [Run the crew](#run-the-crew) below.
 - Modify `src/research_crew/crew.py` to add your own logic, tools and specific args
 - Modify `src/research_crew/main.py` to add custom inputs for your agents and tasks
 
-**Using Gemini free tier instead of OpenAI (optional)**: switch to Google's free-tier model by setting `MODEL=gemini/gemini-2.0-flash` in your `.env`. You only need one key (`GEMINI_API_KEY`) because the same key covers both the chat model and embeddings — no credit card required. Get a key at [ai.google.dev](https://ai.google.dev). The `MODEL` env var works with any provider `litellm` supports, so you can also swap in other models (e.g. `deepseek/deepseek-chat` with `DEEPSEEK_API_KEY`) without touching the code.
+**Using Gemini free tier instead of OpenAI (optional)**: switch to Google's free-tier model by setting `MODEL=gemini/gemini-2.0-flash` in your `.env`. You only need one key (`GEMINI_API_KEY`) because the same key covers both the chat model and embeddings — no credit card required. Get a key at [ai.google.dev](https://ai.google.dev). The `MODEL` env var works with any provider `litellm` supports, so you can also swap in other models (e.g. `deepseek/deepseek-chat` with `DEEPSEEK_API_KEY`, or `cohere/command-r-plus` with `COHERE_API_KEY` — Cohere's free trial key is capped at 1,000 calls/month and chat only, embeddings still need `GEMINI_API_KEY`) without touching the code.
 
 ### Run the crew
 
