@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Four scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all four and compare the outputs.
+Seven scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all seven and compare the outputs.
 
 ## Background
 
@@ -22,7 +22,15 @@ Wei et al. (2022) showed separately that including full worked reasoning chains 
 
 > Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou, D. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. NeurIPS 2022. [arXiv:2201.11903](https://arxiv.org/abs/2201.11903)
 
-## The four scripts
+**Tree of thought** — exploring multiple reasoning paths instead of a single chain, with the ability to compare, backtrack, or discard a path partway through — was introduced in:
+
+> Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023). *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. NeurIPS 2023. [arXiv:2305.10601](https://arxiv.org/abs/2305.10601)
+
+**Retrieval-augmented generation** — grounding a response in retrieved text instead of relying only on what the model memorized during training — was introduced in the same paper cited in step 5:
+
+> Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
+
+## The seven scripts
 
 ### 2a — Few-Shot Prompting
 [src/exercises/step_02a_few_shot.py](../../src/exercises/step_02a_few_shot.py)
@@ -49,9 +57,24 @@ Two sequential API calls: the first extracts or prepares something from the topi
 
 Same component structure as 2b, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. This is the zero-shot CoT pattern from Kojima et al. (2022) — no examples needed, just the instruction.
 
+### 2e — Retrieval-Augmented Generation (RAG)
+[src/exercises/step_02e_rag.py](../../src/exercises/step_02e_rag.py)
+
+Upload a `.txt` or `.pdf` file with background on your topic to `knowledge/`. The script chunks it, indexes it in a local vector store (`chromadb`, fully local — no API key needed for this part), retrieves the chunks most similar to your question, and stuffs them into the system message before asking. This is RAG done by hand — step 5 does the same thing automatically via CrewAI's `knowledge_sources`.
+
+### 2f — Structured Output (JSON Mode)
+[src/exercises/step_02f_structured_output.py](../../src/exercises/step_02f_structured_output.py)
+
+Same persona/instruction pattern as 2b, but the API call adds `response_format={"type": "json_object"}`. This constrains the model to emit valid JSON syntax — the prompt still has to describe the exact shape you want, but the output is now something your code can parse directly (`result["field"]`) instead of a paragraph you'd have to scrape.
+
+### 2g — Tree of Thought
+[src/exercises/step_02g_tree_of_thought.py](../../src/exercises/step_02g_tree_of_thought.py)
+
+One user message asks several "experts" to reason in parallel: each writes down one step, shares it with the group, then all move on to the next step together — and any expert whose reasoning turns out to be wrong drops out. This is a zero-shot, single-prompt approximation of the tree-of-thought idea (Yao et al., 2023) — it explores multiple reasoning paths at once instead of committing to a single chain like 2d, without the full search-and-backtrack procedure from the paper.
+
 ## Your task
 
-1. Set your topic in all four scripts — same topic as step 1, same topic across 2a/2b/2c/2d.
+1. Set your topic in all seven scripts — same topic as step 1, same topic across 2a–2g.
 
 2. Fill in the `TODO` fields and run each script:
    ```bash
@@ -59,13 +82,19 @@ Same component structure as 2b, with one addition: a `reasoning` component that 
    uv run python src/exercises/step_02b_prompt_template.py
    uv run python src/exercises/step_02c_chain_prompting.py
    uv run python src/exercises/step_02d_chain_of_thought.py
+   uv run python src/exercises/step_02e_rag.py
+   uv run python src/exercises/step_02f_structured_output.py
+   uv run python src/exercises/step_02g_tree_of_thought.py
    ```
 
-3. Compare the four outputs (each is saved to `output/step_02*.md`):
+3. Compare the seven outputs (each is saved to `output/step_02*.md`):
    - In 2a, do the examples steer the model toward a specific format or conclusion? What happens if you change just one example?
    - Which components in 2b had the most visible effect? Try removing one at a time.
    - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
    - Does the `reasoning` instruction in 2d produce noticeably different conclusions — or just more text?
+   - In 2e, ask the same question with the knowledge file removed (or renamed) — does the model admit it doesn't know, or guess?
+   - In 2f, try asking for a shape the model can't cleanly fill from the question you gave it — does it fill fields with guesses, or leave them empty/null?
+   - In 2g, compare to 2d — do the "experts" actually disagree and drop out, or do they converge immediately on the same answer? Try changing `num_experts`.
 
 4. Fill in the **Step 2** section of `EVALUATION.md`.
 

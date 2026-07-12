@@ -8,6 +8,8 @@ dependencies = [
     "crewai[google-genai,litellm,tools]==1.9.3",
     "google-generativeai>=0.8.6",
     "streamlit>=1.38",
+    "pymupdf>=1.26",
+    "chromadb>=1.1",
 ]
 
 [project.scripts]
