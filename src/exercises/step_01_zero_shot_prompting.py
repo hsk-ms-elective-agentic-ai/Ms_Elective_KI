@@ -17,26 +17,14 @@ load_dotenv()
 os.makedirs("output", exist_ok=True)
 
 # Change this to your team's topic. Keep it the same across all 5 steps.
-TOPIC = "TODO: your topic here"
+TOPIC = "Explain the EU AI Act in simple terms for a 10-year-old in a short paragraph."
 
-# ── Roles — zero-shot uses only "user"; system and assistant stay empty ──────
-system_message    = ""  # no persona, no rules — nothing to steer the model
-user_message      = "TODO: write your question about the topic"
-assistant_message = ""  # no prior turns, no examples
-
-messages = [
-    {"role": role, "content": content}
-    for role, content in [
-        ("system", system_message),
-        ("user", user_message),
-        ("assistant", assistant_message),
-    ]
-    if content
-]
+# ── Zero-shot uses only "user" — no system persona, no assistant turns ───────
+user_message = "Explain the EU AI Act in simple terms for a 10-year-old in a short paragraph."
 
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=messages,
+    messages=[{"role": "user", "content": user_message}],
 )
 
 output = response.choices[0].message.content

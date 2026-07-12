@@ -33,24 +33,14 @@ system_message = persona + instruction + context + data_format + audience + tone
 text = "EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"
 user_message = f"Topic: {text}\n"
 
-# ── Assistant — left empty; no prior turns or examples in this step ──────────
-assistant_message = ""
-
-messages = [
-    {"role": role, "content": content}
-    for role, content in [
-        ("system", system_message),
-        ("user", user_message),
-        ("assistant", assistant_message),
-    ]
-    if content
-]
-
 os.makedirs("output", exist_ok=True)
 
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=messages,
+    messages=[
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_message},
+    ],
 )
 
 output = response.choices[0].message.content

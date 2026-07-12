@@ -40,24 +40,17 @@ example_2_output = "TODO: ideal output for example 2"
 # ── The actual question — the final "user" turn, left for the model to complete ──
 user_message = "TODO: same topic as previous steps"
 
-# ── Roles — no persona needed, so "system" stays empty; "assistant" is used
+# ── Roles — no persona needed, so "system" is left out; "assistant" is used
 # for real this time, holding the ideal answer to each example "user" turn ────
-system_message = ""
-
-messages = []
-if system_message:
-    messages.append({"role": "system", "content": system_message})
-messages += [
-    {"role": "user", "content": example_1_input},
-    {"role": "assistant", "content": example_1_output},
-    {"role": "user", "content": example_2_input},
-    {"role": "assistant", "content": example_2_output},
-    {"role": "user", "content": user_message},
-]
-
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=messages,
+    messages=[
+        {"role": "user", "content": example_1_input},
+        {"role": "assistant", "content": example_1_output},
+        {"role": "user", "content": example_2_input},
+        {"role": "assistant", "content": example_2_output},
+        {"role": "user", "content": user_message},
+    ],
 )
 
 output = response.choices[0].message.content

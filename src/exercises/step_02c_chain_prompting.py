@@ -22,27 +22,15 @@ load_dotenv()
 
 TOPIC = "TODO: same topic as steps 2a and 2b"
 
-
-def build_messages(system_message: str, user_message: str, assistant_message: str) -> list[dict]:
-    """Only "user" is populated in this step — system and assistant stay empty
-    because each call is independent; no history carries over between them."""
-    return [
-        {"role": role, "content": content}
-        for role, content in [
-            ("system", system_message),
-            ("user", user_message),
-            ("assistant", assistant_message),
-        ]
-        if content
-    ]
-
+# ── Roles — only "user" is populated in this step; system and assistant are
+# left out because each call is independent and no history carries over ──────
 
 # ── First call — extract, plan, or prepare ────────────────────────────────────
 prompt_1 = f"TODO: write a first prompt that extracts or prepares something from the topic: {TOPIC}"
 
 response_1 = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=build_messages(system_message="", user_message=prompt_1, assistant_message=""),
+    messages=[{"role": "user", "content": prompt_1}],
 )
 output_1 = response_1.choices[0].message.content
 
@@ -56,7 +44,7 @@ prompt_2 = f"TODO: write a second prompt that uses the output below to produce t
 
 response_2 = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=build_messages(system_message="", user_message=prompt_2, assistant_message=""),
+    messages=[{"role": "user", "content": prompt_2}],
 )
 
 output_2 = response_2.choices[0].message.content

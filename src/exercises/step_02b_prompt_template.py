@@ -34,22 +34,15 @@ system_message = persona + instruction + context + data_format + audience + tone
 # ── User message — the actual question ───────────────────────────────────────
 user_message = "TODO: your topic here"
 
-# ── Assistant — left empty; no prior turns or examples in this step ──────────
 assistant_message = ""
-
-messages = [
-    {"role": role, "content": content}
-    for role, content in [
-        ("system", system_message),
-        ("user", user_message),
-        ("assistant", assistant_message),
-    ]
-    if content
-]
 
 response = completion(
     model=os.getenv("MODEL", "gemini/gemini-2.5-flash"),
-    messages=messages,
+    messages=[
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": user_message},
+        {"role": "assistant", "content": assistant_message},
+    ],
 )
 
 output = response.choices[0].message.content
