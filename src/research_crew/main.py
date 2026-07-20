@@ -34,9 +34,7 @@ def check_setup():
     for name in missing:
         print(f"  {name}: {REQUIRED_ENV_VARS[name]}")
     print(
-        "\nIf you're in a Codespace, add these as Codespaces secrets in your GitHub "
-        "account settings (Settings -> Codespaces -> Secrets) and restart the codespace.\n"
-        "If you're running locally, copy .env.example to .env and fill them in.\n"
+        "\nCopy .env.example to .env and fill them in.\n"
     )
     sys.exit(1)
 

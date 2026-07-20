@@ -96,7 +96,7 @@ A fund manager, analyst, or corporate strategy team needs to assess the environm
 
 ---
 
-Start at [Step 1 — Zero-Shot Prompting](exercises/en/01-zero-shot-prompting.md) once you have the repo running.
+Start at [Step 1 — Zero-Shot Prompting](exercises/en/step_01_zero_shot_prompting.ipynb) once you have the repo running.
 
 ## 3. Exercises & Tools
 
@@ -123,7 +123,7 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (see Step 5) |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (see Step 5) |
-| [src/exercises/](src/exercises/) | Standalone scripts for Steps 1–5 — the main exercise entry points |
+| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–2 (`src/exercises/` has the placeholder scripts for Steps 3–5) |
 
 ### Exercise steps
 
@@ -159,34 +159,16 @@ WebsiteSearchTool(config={
 
 This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/05-rag-and-tools.md).
 
-## 4. Technical Setup: Codespaces or Local
+## 4. Technical Setup
 
-### Getting started — choose one option
+### IDE
 
-There are two independent ways to get this project running. Pick **one**. (If you're a student: do this in your team's own repo, not here.)
+Use [VS Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/) (Cursor is based on VS Code). Install two extensions:
 
-- **Option A — GitHub Codespaces:** run entirely in the browser, nothing installed on your machine.
-- **Option B — Run locally:** clone the repo and run it with Python/uv on your own computer.
+- **Python** (`ms-python.python`)
+- **Jupyter** (`ms-toolsai.jupyter`) — needed to open and run the `.ipynb` notebooks in Steps 1–2
 
-Both options end up running the exact same code; only the setup step differs. Everything below "Run the crew" applies regardless of which option you picked.
-
-#### Option A: GitHub Codespaces (no local install)
-
-No local install needed. Open your team's repo on github.com → **Code → Create codespace on master**.
-
-The container automatically installs `uv` and runs `uv sync`.
-
-**API keys are set up once per team, not per student**: at least one team member gets the keys and adds them as **repository secrets** on your team's repo (`Settings → Secrets and variables → Codespaces`) — `OPENAI_API_KEY` (or `GEMINI_API_KEY` if using the free tier), `SERPER_API_KEY`, and `GEMINI_API_KEY`. Once set, every teammate gets them automatically in any Codespace opened on that repo — nobody else needs to do this step. See [Assignment Overview](exercises/en/assignment-overview.md#team-setup-repos-and-accounts) for exactly how this works.
-
-<details>
-<summary>Alternative: local <code>.env</code> file inside the codespace (only if you can't use Codespaces secrets)</summary>
-
-Copy `.env.example` to `.env` inside the codespace and fill in your keys — **edit `.env`, not `.env.example`** (the latter is the committed template and stays empty; real keys belong only in `.env`, which is gitignored).
-</details>
-
-Once that's done, skip ahead to [Run the crew](#run-the-crew) below.
-
-#### Option B: Run locally
+### Getting started
 
 Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
 
@@ -196,13 +178,23 @@ First, if you haven't already, install uv:
 pip install uv
 ```
 
-Clone the repo, then from its root install the dependencies:
+Clone your team's repo, then from its root install the dependencies:
 
 ```bash
 uv sync
 ```
 
-Copy `.env.example` to `.env` and fill in your API keys (`OPENAI_API_KEY` or `GEMINI_API_KEY`, plus `SERPER_API_KEY` and `GEMINI_API_KEY`) — ask your team for the keys they already set up as repository secrets (see Option A) rather than signing up again locally, unless you specifically want your own.
+Copy `.env.example` to `.env` and fill in your API keys (`OPENAI_API_KEY` or `GEMINI_API_KEY`, plus `SERPER_API_KEY` and `GEMINI_API_KEY`) — ask your team if someone already has keys to share rather than signing up again, unless you specifically want your own.
+
+#### Register the Jupyter kernel
+
+Steps 1–2 are Jupyter notebooks. To make this project's virtual environment (and its dependencies) available inside them, register it as a kernel once:
+
+```bash
+uv run python -m ipykernel install --user --name research_crew --display-name "research_crew"
+```
+
+Now, when you open a notebook in VS Code/Cursor, pick **"research_crew"** from the kernel picker in the top-right corner (or **Kernel → Change kernel**).
 
 Once that's done, continue with [Run the crew](#run-the-crew) below.
 
@@ -219,23 +211,13 @@ Once that's done, continue with [Run the crew](#run-the-crew) below.
 
 ### Run the crew
 
-This applies whether you set up via Codespaces or locally. From the project root:
+From the project root:
 
 ```bash
 uv run research_crew
 ```
 
 This initializes the research_crew Crew, assembling the agents and assigning them tasks as defined in your configuration, and saves the report to `output/report.md`.
-
-### Live demo UI (Streamlit)
-
-For a classroom-friendly view of the agents working, run the Streamlit app instead of the plain CLI. It shows each agent/task/tool event live in the browser, then renders the final report.
-
-```bash
-uv run streamlit run streamlit_app.py
-```
-
-Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is auto-forwarded and a preview tab opens automatically (configured in `.devcontainer/devcontainer.json`).
 
 ## Support
 

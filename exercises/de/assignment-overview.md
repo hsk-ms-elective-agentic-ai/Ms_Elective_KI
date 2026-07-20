@@ -31,7 +31,7 @@ Dieser Kurs läuft in einer GitHub-Organisation, mit **einem privaten Repository
 Ein Branch pro Schritt, ein Pull Request, um ihn abzuschließen — darüber hinaus ist die tägliche Arbeit derselbe einfache Ablauf wie direktes Committen auf `main`:
 
 1. **Zu Beginn jedes Schritts** erstellt ihr einen Branch namens `sprint-<N>` (z. B. `sprint-2`): klickt auf den Branch-Namen unten links in VS Code → **Create new branch...**. Das ganze Team arbeitet für den Rest des Schritts auf diesem einen Branch.
-2. Bearbeitet eine Datei wie gewohnt (in eurem Codespace).
+2. Bearbeitet eine Datei wie gewohnt (in VS Code/Cursor).
 3. Öffnet das **Source-Control-Panel** (das Verzweigungs-Icon in der Seitenleiste).
 4. Schreibt eine kurze Commit-Nachricht, klickt auf **✓ Commit**.
 5. Klickt auf **Sync Changes** — das holt in einem Schritt die Änderungen eurer Teammitglieder und schiebt eure eigenen hoch.
@@ -41,7 +41,7 @@ Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
 **Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 3 aus und schreibt diesen Abschnitt in `EVALUATION.md`, eine andere Schritt 4. `EVALUATION.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
 
-Für schnelle Änderungen könnt ihr Codespaces ganz überspringen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
+Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
 
 ## Abgabepaket
 
@@ -88,11 +88,7 @@ gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
 ```
 **Admin** (nicht nur Write) ist wichtig — Repo-Secrets zu verwalten erfordert Admin, und ihr wollt, dass jedes Team seine eigenen API-Keys ohne eure Beteiligung einrichten kann.
 
-### 3. Codespaces für die Organisation aktivieren
-
-**Org Settings → Codespaces → General** → für alle Repositories aktivieren (oder speziell für die Team-Repos). Im Free-Plan wird die Codespaces-Nutzung dem persönlichen kostenlosen Kontingent jedes Studierenden in Rechnung gestellt, nicht der Organisation.
-
-### 4. Team-Einschreibung einrichten: Studierende reichen ein, ihr entscheidet, ein Workflow führt aus
+### 3. Team-Einschreibung einrichten: Studierende reichen ein, ihr entscheidet, ein Workflow führt aus
 
 Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) ein. Das allein tut nichts außer euch zu benachrichtigen — **ihr entscheidet die Team-Zuweisung selbst**, indem ihr ein Label anwendet, und ein [Workflow](../../.github/workflows/add-to-team.yml) erledigt den mechanischen Teil.
 
@@ -101,6 +97,6 @@ Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Te
 3. Als Secret namens `ORG_ADMIN_TOKEN` hinzufügen.
 4. **Issues triagieren**: Issue öffnen, `team:<team-slug>` anwenden — der Workflow fügt den Benutzernamen hinzu, antwortet und schließt das Issue.
 
-### 5. Laufend: Abgaben bewerten
+### 4. Laufend: Abgaben bewerten
 
 Jedes Team mergt einen Pull Request pro Schritt (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**). Bewertet zum Deadline-Zeitpunkt gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis. Musterlösungen sind bewusst nicht enthalten.

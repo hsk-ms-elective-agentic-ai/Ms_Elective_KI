@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
-Five scripts, same topic, same model. Each is a different strategy for shaping what the model produces — without a framework, without agents. Run all five and compare the outputs.
+Five notebooks, same topic, same model throughout. Each is a different strategy for shaping what the model produces — without a framework, without agents. Work through them in order and compare the outputs.
 
 ## Background
 
@@ -10,75 +10,25 @@ A prompt is a program. The strategies you apply — providing examples, structur
 
 > Liu, P., Yuan, W., Fu, J., Jiang, Z., Hayashi, H., & Neubig, G. (2023). *Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing*. ACM Computing Surveys, 55(9), 1–35. [arXiv:2107.13586](https://arxiv.org/abs/2107.13586)
 
-**Few-shot prompting** — providing input/output examples in the prompt so the model learns the expected format and style from context alone, without any weight updates — was the central finding of:
+Each notebook below includes the specific citation for its technique.
 
-> Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., … Amodei, D. (2020). *Language Models are Few-Shot Learners*. NeurIPS 2020. [arXiv:2005.14165](https://arxiv.org/abs/2005.14165)
+## The five notebooks
 
-**Zero-shot chain-of-thought** — adding a short instruction asking the model to reason step by step before answering, with no worked examples — was demonstrated in:
-
-> Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., & Iwasawa, Y. (2022). *Large Language Models are Zero-Shot Reasoners*. NeurIPS 2022. [arXiv:2205.11916](https://arxiv.org/abs/2205.11916)
-
-Wei et al. (2022) showed separately that including full worked reasoning chains as few-shot examples also improves performance — the two results are complementary:
-
-> Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., & Zhou, D. (2022). *Chain-of-Thought Prompting Elicits Reasoning in Large Language Models*. NeurIPS 2022. [arXiv:2201.11903](https://arxiv.org/abs/2201.11903)
-
-**Tree of thought** — exploring multiple reasoning paths instead of a single chain, with the ability to compare, backtrack, or discard a path partway through — was introduced in:
-
-> Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T. L., Cao, Y., & Narasimhan, K. (2023). *Tree of Thoughts: Deliberate Problem Solving with Large Language Models*. NeurIPS 2023. [arXiv:2305.10601](https://arxiv.org/abs/2305.10601)
-
-## The five scripts
-
-### 2a — Few-Shot Prompting
-[src/exercises/step_02a_few_shot.py](../../src/exercises/step_02a_few_shot.py)
-
-Two or three input/output example pairs appear in the prompt before the real question. The model learns the expected format and style from those examples — this is in-context learning (Brown et al., 2020). No structure, no reasoning instruction, just patterns.
-
-### 2b — Prompt Template
-[src/exercises/step_02b_prompt_template.py](../../src/exercises/step_02b_prompt_template.py)
-
-One API call, no examples, no reasoning instruction — but now the message is split across two *roles*:
-
-- **`system`**: background instructions the end user never sees — `persona`, `instruction`, `context`, `data_format`, `audience`, `tone`. This tells the model who it is and how it should behave for every response in the conversation.
-- **`user`**: the actual question — just the topic you want answered.
-
-This is the standard structure of the OpenAI Chat Completions API (and any model that follows it). The `system` role is a first-class concept in the protocol, not just a formatting convention. Try removing individual system components to see what each one actually controls.
-
-### 2c — Chain Prompting
-[src/exercises/step_02c_chain_prompting.py](../../src/exercises/step_02c_chain_prompting.py)
-
-Two sequential API calls: the first extracts or prepares something from the topic; the second receives that output and produces the final answer. The task is deliberately split across calls.
-
-### 2d — Chain of Thought
-[src/exercises/step_02d_chain_of_thought.py](../../src/exercises/step_02d_chain_of_thought.py)
-
-Same component structure as 2b, with one addition: a `reasoning` component that asks the model to think through the problem before giving its answer. This is the zero-shot CoT pattern from Kojima et al. (2022) — no examples needed, just the instruction.
-
-### 2e — Tree of Thought
-[src/exercises/step_02e_tree_of_thought.py](../../src/exercises/step_02e_tree_of_thought.py)
-
-One user message asks several "experts" to reason in parallel: each writes down one step, shares it with the group, then all move on to the next step together — and any expert whose reasoning turns out to be wrong drops out. This is a zero-shot, single-prompt approximation of the tree-of-thought idea (Yao et al., 2023) — it explores multiple reasoning paths at once instead of committing to a single chain like 2d, without the full search-and-backtrack procedure from the paper.
+| # | Notebook | What it adds |
+| --- | --- | --- |
+| 2a | [step_02a_few_shot.ipynb](step_02a_few_shot.ipynb) | Few-shot examples (Brown et al., 2020) |
+| 2b | [step_02b_prompt_template.ipynb](step_02b_prompt_template.ipynb) | `system`/`user` role split, structured components |
+| 2c | [step_02c_chain_prompting.ipynb](step_02c_chain_prompting.ipynb) | Two sequential calls, output chained into the next prompt |
+| 2d | [step_02d_chain_of_thought.ipynb](step_02d_chain_of_thought.ipynb) | Explicit reasoning instruction (Kojima et al., 2022) |
+| 2e | [step_02e_tree_of_thought.ipynb](step_02e_tree_of_thought.ipynb) | Parallel "expert" reasoning paths (Yao et al., 2023) |
 
 ## Your task
 
-1. Set your topic in all five scripts — same topic as step 1, same topic across 2a–2e.
+1. Open each notebook in VS Code/Cursor, select the **"research_crew"** kernel, and set your topic — same topic as step 1, same topic across 2a–2e.
 
-2. Fill in the `TODO` fields and run each script:
-   ```bash
-   uv run python src/exercises/step_02a_few_shot.py
-   uv run python src/exercises/step_02b_prompt_template.py
-   uv run python src/exercises/step_02c_chain_prompting.py
-   uv run python src/exercises/step_02d_chain_of_thought.py
-   uv run python src/exercises/step_02e_tree_of_thought.py
-   ```
+2. Fill in the `TODO` fields and run the cells in each notebook (Setup cell first, then the exercise cell). Each notebook's own "Your task" section has the specific comparison question for that technique.
 
-3. Compare the five outputs (each is saved to `output/step_02*.md`):
-   - In 2a, do the examples steer the model toward a specific format or conclusion? What happens if you change just one example?
-   - Which components in 2b had the most visible effect? Try removing one at a time.
-   - In 2c, does the two-step split improve the final output, or does the model produce something similar in one shot?
-   - Does the `reasoning` instruction in 2d produce noticeably different conclusions — or just more text?
-   - In 2e, compare to 2d — do the "experts" actually disagree and drop out, or do they converge immediately on the same answer? Try changing `num_experts`.
-
-4. Fill in the **Step 2** section of `EVALUATION.md`.
+3. Fill in the **Step 2** section of `EVALUATION.md` as you go.
 
 ## Stretch goal
 

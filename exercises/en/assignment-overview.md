@@ -12,7 +12,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 | Step | Adds |
 | --- | --- |
-| [1 — Zero-Shot Prompting](01-zero-shot-prompting.md) | The bare API call — your baseline |
+| [1 — Zero-Shot Prompting](step_01_zero_shot_prompting.ipynb) | The bare API call — your baseline |
 | [2 — Prompt Template](02-prompt-template.md) | A role + output structure, same call |
 | [3 — Single Agent](03-single-agent.md) | The CrewAI framework loop *(interim submission due)* |
 | [4 — Multi-Agent](04-multi-agent.md) | Role specialization + task chaining |
@@ -31,7 +31,7 @@ This course runs in a GitHub Organization, with **one private repository per tea
 One branch per step, one pull request to close it out — beyond that, day-to-day work is the same simple loop as committing straight to `main`:
 
 1. **At the start of each step**, create a branch named `sprint-<N>` (e.g. `sprint-2`): click the branch name in the bottom-left corner of VS Code → **Create new branch...**. Everyone on the team works on this same branch for the rest of the step.
-2. Edit a file normally (in your Codespace).
+2. Edit a file normally (in VS Code/Cursor).
 3. Open the **Source Control** panel (the branching-lines icon in the sidebar).
 4. Type a one-line commit message, click **✓ Commit**.
 5. Click **Sync Changes** — this pulls any teammate's changes and pushes yours, in one step.
@@ -41,7 +41,7 @@ No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
 **Divide files between teammates** where you can — e.g. one person runs step 3 and writes that section of `EVALUATION.md`, another runs step 4. `EVALUATION.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
 
-For quick edits, you can skip Codespaces entirely: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
+For quick edits without opening your local setup: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
 
 ## Submission package
 
@@ -88,11 +88,7 @@ gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
 ```
 **Admin** (not just Write) matters — managing a repo's secrets requires Admin, and you want each team able to set up their own API keys without you in the loop.
 
-### 3. Enable Codespaces for the organization
-
-**Org Settings → Codespaces → General** → enable for all repositories (or select the team repos specifically). On the Free plan, Codespaces usage bills to each student's own personal free quota, not the organization.
-
-### 4. Set up team enrollment: students submit, you decide, a workflow executes
+### 3. Set up team enrollment: students submit, you decide, a workflow executes
 
 Students submit their **email and GitHub username** via a [team sign-up issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) on this repo. That alone does nothing except notify you — **you decide the team assignment yourself**, by applying a label, and a [workflow](../../.github/workflows/add-to-team.yml) does the mechanical part.
 
@@ -101,6 +97,6 @@ Students submit their **email and GitHub username** via a [team sign-up issue](.
 3. Add it as a secret named `ORG_ADMIN_TOKEN`.
 4. **Triage as sign-ups arrive**: open the issue, apply `team:<their-team-slug>` — the workflow adds the username, replies, and closes the issue.
 
-### 5. Ongoing: review submissions
+### 4. Ongoing: review submissions
 
 Each team merges one pull request per step (`sprint-<N>` → `main`) — review that PR's diff on GitHub (**Pull requests → Closed**) for what was run and what was observed. Grade against the state of `main` at each deadline, using the chain of merged sprint PRs as the step-by-step record. Solutions aren't included on purpose.

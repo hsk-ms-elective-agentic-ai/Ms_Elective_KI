@@ -12,8 +12,8 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 
 | # | Titel | Was hinzukommt |
 | --- | --- | --- |
-| [1](01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (`src/exercises/`) |
-| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (`src/exercises/`) |
+| [1](01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
+| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
 | [3](03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
 | [4](04-multi-agent.md) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
 | [5](05-rag-and-tools.md) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
