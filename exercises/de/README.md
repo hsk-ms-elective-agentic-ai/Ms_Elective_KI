@@ -13,6 +13,7 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 | # | Titel | Was hinzukommt |
 | --- | --- | --- |
 | [0](../en/step_00_setup_and_python_basics.ipynb) | Setup & Python-Grundlagen | Git/GitHub, `uv`, Jupyter und eine Python-Auffrischung *(optional, falls neu für euch; auf Englisch)* |
+| [0b](../en/step_00b_test_setup_and_first_agent.ipynb) | Setup testen & erster Agent | Prüft, ob eure Umgebung funktioniert, Projekt-Tour, ein eigenständiger `Agent` *(optional; auf Englisch)* |
 | [1](prompting/01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
 | [2](prompting/02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
 | [3](agents/03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
