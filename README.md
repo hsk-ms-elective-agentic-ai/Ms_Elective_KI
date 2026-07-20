@@ -96,7 +96,7 @@ A fund manager, analyst, or corporate strategy team needs to assess the environm
 
 ---
 
-Start at [Step 1 — Zero-Shot Prompting](exercises/en/prompting/step_01_zero_shot_prompting.ipynb) once you have the repo running.
+Start at [Step 1 — Zero-Shot Prompting](exercises/en/prompting/step_01_zero_shot_prompting.ipynb) once you have the repo running — or [Step 0](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, Jupyter, or Python itself are new to you.
 
 ## 3. Exercises & Tools
 

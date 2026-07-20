@@ -6,12 +6,13 @@ Das sind die praktischen Schritte zu **Aktuelle Fallstudien der Digitalökonomie
 
 Das Prinzip ist einfach: Ihr führt fünf Versionen derselben Sache mit demselben Thema aus, wobei jede Version eine Schicht hinzufügt. Dann bewertet ihr, was jede Schicht tatsächlich verändert hat. Das Lernen entsteht aus dem Vergleich, nicht aus einem einzelnen Schritt.
 
-Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** funktionsfähig haben, bevor Schritt 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt.
+Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** funktionsfähig haben, bevor Schritt 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt. Falls Git, `uv`, Jupyter oder Python selbst für euch neu sind, startet zuerst mit [Schritt 0](../en/step_00_setup_and_python_basics.ipynb) (auf Englisch).
 
 ## Schritte
 
 | # | Titel | Was hinzukommt |
 | --- | --- | --- |
+| [0](../en/step_00_setup_and_python_basics.ipynb) | Setup & Python-Grundlagen | Git/GitHub, `uv`, Jupyter und eine Python-Auffrischung *(optional, falls neu für euch; auf Englisch)* |
 | [1](prompting/01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
 | [2](prompting/02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
 | [3](agents/03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |

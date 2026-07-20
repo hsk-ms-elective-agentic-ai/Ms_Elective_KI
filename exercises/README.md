@@ -6,12 +6,13 @@ These are the hands-on steps for **Aktuelle Fallstudien der Digitalökonomie und
 
 The premise is simple: you'll run five versions of the same thing on the same topic, with each version adding one layer. Then you evaluate what each layer actually changed. The learning comes from the comparison, not from any single step.
 
-You should have [Run the crew](../README.md#run-the-crew) working in **your team's own repo** before Step 1 — see the main [README's "Getting access"](../README.md#getting-access-students) section if you don't have that yet.
+You should have [Run the crew](../README.md#run-the-crew) working in **your team's own repo** before Step 1 — see the main [README's "Getting access"](../README.md#getting-access-students) section if you don't have that yet. If Git, `uv`, Jupyter, or Python itself are new to you, start with [Step 0](en/step_00_setup_and_python_basics.ipynb) first.
 
 ## Steps
 
 | # | Title | What it adds |
 | --- | --- | --- |
+| [0](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, Jupyter, and a Python refresher *(optional, if any of this is new to you)* |
 | [1](en/prompting/step_01_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline (Jupyter notebook) |
 | [2](en/prompting/02-prompt-template.md) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
 | [3](en/agents/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
