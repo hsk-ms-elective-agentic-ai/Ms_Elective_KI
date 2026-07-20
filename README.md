@@ -96,7 +96,7 @@ A fund manager, analyst, or corporate strategy team needs to assess the environm
 
 ---
 
-Start at [Step 1 — Zero-Shot Prompting](exercises/en/prompting/step_01_zero_shot_prompting.ipynb) once you have the repo running — or [Step 0](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, Jupyter, or Python itself are new to you.
+Start at [Step 1 — Zero-Shot Prompting](exercises/en/step_01_zero_shot_prompting.ipynb) once you have the repo running — or [Step 0](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, Jupyter, or Python itself are new to you.
 
 ## 3. Exercises & Tools
 
@@ -123,8 +123,7 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (see Step 5) |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (see Step 5) |
-| [exercises/en/prompting/](exercises/en/prompting/) | Jupyter notebooks for Steps 1–2 |
-| [exercises/en/agents/](exercises/en/agents/) | Docs for Steps 3–5 (`src/exercises/` has the placeholder scripts) |
+| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–2, docs for Steps 3–5 (`src/exercises/` has the placeholder scripts) |
 
 ### Exercise steps
 
@@ -158,7 +157,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/agents/05-rag-and-tools.md).
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/05-rag-and-tools.md).
 
 ## 4. Technical Setup
 

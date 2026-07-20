@@ -1,6 +1,6 @@
 # Step 2 — Prompting Techniques
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../../de/prompting/02-prompt-template.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-prompt-template.md)
 
 Five notebooks, same topic, same model throughout. Each is a different strategy for shaping what the model produces — no agents yet, just CrewAI's `LLM` class called directly. Work through them in order and compare the outputs.
 

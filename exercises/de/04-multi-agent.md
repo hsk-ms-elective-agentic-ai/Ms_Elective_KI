@@ -1,6 +1,6 @@
 # Schritt 4 — Multi-Agent
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../../en/agents/04-multi-agent.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/04-multi-agent.md)
 
 Fügt einen zweiten Agenten mit einer anderen, ergänzenden Rolle hinzu. Die Ausgabe des ersten Agenten wird über `context:` in `tasks.yaml` an den zweiten weitergegeben. Das ist Multi-Agent im einfachsten Sinne: Rollenspezialisierung mit Task-Verkettung, keine dynamische Delegation.
 
@@ -10,16 +10,16 @@ Ein einzelner Agent kann mehrere Dinge tun, aber er kann nicht gleichzeitig zwei
 
 > Wu, Q., Bansal, G., Zhang, J., Wu, Y., Li, B., Zhu, E., Jiang, L., Zhang, X., Zhang, S., Liu, J., Awadallah, A. H., White, R. W., Burger, D., & Wang, C. (2023). *AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation*. [arXiv:2308.08155](https://arxiv.org/abs/2308.08155)
 
-![AutoGen: konversierbare Agenten, die Aufgaben in gemeinsamen oder hierarchischen Mustern lösen](../../assets/autogen-wu2023-fig1.png)
+![AutoGen: konversierbare Agenten, die Aufgaben in gemeinsamen oder hierarchischen Mustern lösen](../assets/autogen-wu2023-fig1.png)
 *Abbildung 1 aus Wu et al. (2023). Reproduziert für Bildungszwecke in diesem Kurs.*
 
 ## In diesem Repo
 
 | Datei | Was ihr ändert |
 | --- | --- |
-| [src/research_crew/config/agents.yaml](../../../src/research_crew/config/agents.yaml) | Fügt einen zweiten Agenten hinzu, der den ersten ergänzt |
-| [src/research_crew/config/tasks.yaml](../../../src/research_crew/config/tasks.yaml) | Fügt einen zweiten Task hinzu; verknüpft ihn mit `context:` |
-| [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Fügt eine zweite `@agent`- und `@task`-Methode hinzu |
+| [src/research_crew/config/agents.yaml](../../src/research_crew/config/agents.yaml) | Fügt einen zweiten Agenten hinzu, der den ersten ergänzt |
+| [src/research_crew/config/tasks.yaml](../../src/research_crew/config/tasks.yaml) | Fügt einen zweiten Task hinzu; verknüpft ihn mit `context:` |
+| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Fügt eine zweite `@agent`- und `@task`-Methode hinzu |
 
 Das `context:`-Feld in `tasks.yaml` ist der Weg, auf dem der zweite Agent die Ausgabe des ersten erhält:
 
@@ -40,7 +40,7 @@ second_task:
 
 3. Fügt in `crew.py` eine zweite `@agent`- und `@task`-Methode hinzu.
 
-4. Führt es aus — entweder öffnet [step_04_multi_agent.ipynb](../../en/agents/step_04_multi_agent.ipynb) (auf Englisch) und führt die Zelle aus, oder im Terminal:
+4. Führt es aus — entweder öffnet [step_04_multi_agent.ipynb](../en/step_04_multi_agent.ipynb) (auf Englisch) und führt die Zelle aus, oder im Terminal:
    ```bash
    uv run research_crew
    ```

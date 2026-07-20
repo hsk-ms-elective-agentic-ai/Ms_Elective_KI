@@ -14,11 +14,11 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 | --- | --- | --- |
 | [0](../en/step_00_setup_and_python_basics.ipynb) | Setup & Python-Grundlagen | Git/GitHub, `uv`, Jupyter und eine Python-Auffrischung *(optional, falls neu für euch; auf Englisch)* |
 | [0b](../en/step_00b_test_setup_and_first_agent.ipynb) | Setup testen & erster Agent | Prüft, ob eure Umgebung funktioniert, Projekt-Tour, ein eigenständiger `Agent` *(optional; auf Englisch)* |
-| [1](prompting/01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
-| [2](prompting/02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
-| [3](agents/03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
-| [4](agents/04-multi-agent.md) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
-| [5](agents/05-rag-and-tools.md) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
+| [1](01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
+| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
+| [3](03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
+| [4](04-multi-agent.md) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
+| [5](05-rag-and-tools.md) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
 
 Alle fünf Schritte verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 1 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein schrittweiser Vergleich, was sich verändert hat und warum das für euren Anwendungsfall wichtig ist (oder nicht).
 

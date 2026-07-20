@@ -1,6 +1,6 @@
 # Step 3 — Single Agent
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../../de/agents/03-single-agent.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/03-single-agent.md)
 
 Move from a hand-written prompt to a CrewAI `Agent` and `Task`. The `role`, `goal`, and `backstory` you write in `agents.yaml` are still just a system prompt under the hood — CrewAI assembles it for you. What the framework adds is the loop: the agent reasons in steps before producing output, can call tools (step 5), and retries on failure. One agent, one task.
 
@@ -16,7 +16,7 @@ The broader observation that LLM-based agents benefit from an explicit module st
 
 > Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., & Wen, J. (2023). *A Survey on Large Language Model based Autonomous Agents*. [arXiv:2308.11432](https://arxiv.org/abs/2308.11432)
 
-![Unified framework for LLM-based autonomous agents: Profile, Memory, Planning, Action modules](../../assets/agentsurvey-wang2023-fig2.png)
+![Unified framework for LLM-based autonomous agents: Profile, Memory, Planning, Action modules](../assets/agentsurvey-wang2023-fig2.png)
 *Figure 2 from Wang et al. (2023). Reproduced for educational use in this course.*
 
 In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` = **Profile**; `tools` + the ReAct task loop = **Action**.
@@ -25,9 +25,9 @@ In CrewAI terms: `role`/`goal`/`backstory` in `agents.yaml` = **Profile**; `tool
 
 | File | What to change |
 | --- | --- |
-| [src/research_crew/config/agents.yaml](../../../src/research_crew/config/agents.yaml) | Define ONE agent for your topic — role, goal, backstory |
-| [src/research_crew/config/tasks.yaml](../../../src/research_crew/config/tasks.yaml) | Define ONE task — description, expected_output, agent |
-| [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Keep only one `@agent` and one `@task` method |
+| [src/research_crew/config/agents.yaml](../../src/research_crew/config/agents.yaml) | Define ONE agent for your topic — role, goal, backstory |
+| [src/research_crew/config/tasks.yaml](../../src/research_crew/config/tasks.yaml) | Define ONE task — description, expected_output, agent |
+| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Keep only one `@agent` and one `@task` method |
 | [step_03_single_agent.ipynb](step_03_single_agent.ipynb) | Run the crew and view the result — nothing to edit here |
 
 The template already has two agents (`researcher` and `analyst`). For this step, reduce it to one — comment out or remove the analyst agent and its task.
@@ -55,4 +55,4 @@ Look at the verbose log's "Final Answer" alongside the agent's intermediate reas
 
 ---
 
-**→ Interim submission is due after this step.** Submit the state of `main` after merging `sprint-3`. See [Assignment Overview](../assignment-overview.md) for exactly what's expected.
+**→ Interim submission is due after this step.** Submit the state of `main` after merging `sprint-3`. See [Assignment Overview](assignment-overview.md) for exactly what's expected.

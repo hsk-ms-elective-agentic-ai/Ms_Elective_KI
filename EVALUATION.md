@@ -6,7 +6,7 @@
 > don't wait until the end. The comparison between steps is what gets graded, so "it's
 > more accurate" scores less than "the analyst in step 4 flagged X as overstated, which
 > the researcher in step 3 didn't question." See each step's page (e.g.
-> [exercises/en/prompting/step_01_zero_shot_prompting.ipynb](exercises/en/prompting/step_01_zero_shot_prompting.ipynb)) for what
+> [exercises/en/step_01_zero_shot_prompting.ipynb](exercises/en/step_01_zero_shot_prompting.ipynb)) for what
 > to fill in at each stage.
 
 ## Your topic

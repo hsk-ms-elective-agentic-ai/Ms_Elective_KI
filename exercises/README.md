@@ -14,11 +14,11 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 | --- | --- | --- |
 | [0](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, Jupyter, and a Python refresher *(optional, if any of this is new to you)* |
 | [0b](en/step_00b_test_setup_and_first_agent.ipynb) | Test Your Setup & First Agent | Verify your environment works, tour the project, meet a standalone `Agent` *(optional)* |
-| [1](en/prompting/step_01_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline (Jupyter notebook) |
-| [2](en/prompting/02-prompt-template.md) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
-| [3](en/agents/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
-| [4](en/agents/04-multi-agent.md) | Multi-Agent | Two agents with task chaining via `context:` |
-| [5](en/agents/05-rag-and-tools.md) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
+| [1](en/step_01_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline (Jupyter notebook) |
+| [2](en/02-prompt-template.md) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
+| [3](en/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
+| [4](en/04-multi-agent.md) | Multi-Agent | Two agents with task chaining via `context:` |
+| [5](en/05-rag-and-tools.md) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
 
 All five steps use the **same topic** — you pick it once at step 1 and keep it. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters (or doesn't) for your use case.
 
