@@ -14,6 +14,11 @@ load_dotenv()
 os.environ.setdefault('MODEL', 'gpt-4o-mini')
 os.environ.setdefault('EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME', 'gemini-embedding-001')
 
+# CrewAI's telemetry tries to reach its backend over the network on import; on a
+# restricted/firewalled connection this can hang for a long time with no error.
+# Disable it before crewai is imported.
+os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
