@@ -4,7 +4,7 @@
 
 **Hinweis:** Dieser Schritt ist jetzt ein Jupyter-Notebook (auf Englisch) statt eines Python-Skripts — siehe [step_01_zero_shot_prompting.ipynb](../../en/prompting/step_01_zero_shot_prompting.ipynb). Diese Seite beschreibt weiterhin Hintergrund und Aufgabe auf Deutsch; die deutsche Notebook-Version folgt noch.
 
-Der direkteste Weg von Frage zu Antwort: ein API-Aufruf, eine Nachricht, eine Antwort. Keine Rollendefinition, kein Ausgabeformat, keine Beispiele, kein Framework — nur das Modell und euer Text. Das ist die Ausgangsbasis, auf der alle weiteren Schritte aufbauen. Ihr könnt erst dann beurteilen, was eine Technik hinzufügt, wenn ihr gesehen habt, was ihr ohne sie bekommt.
+Der direkteste Weg von Frage zu Antwort: ein API-Aufruf, eine Nachricht, eine Antwort. Keine Rollendefinition, kein Ausgabeformat, keine Beispiele, kein Agent — nur das Modell und euer Text, direkt über CrewAIs `LLM`-Klasse aufgerufen (dieselbe Klasse, die auch die Agenten in Schritt 3 intern nutzen, nur ohne die Agent/Task/Crew-Schicht darüber). Das ist die Ausgangsbasis, auf der alle weiteren Schritte aufbauen. Ihr könnt erst dann beurteilen, was eine Technik hinzufügt, wenn ihr gesehen habt, was ihr ohne sie bekommt.
 
 ## Hintergrund
 
@@ -19,10 +19,10 @@ Kein Zitat nötig. Der Punkt ist empirisch: beobachtet, was ihr bekommt, bevor i
 Öffnet [step_01_zero_shot_prompting.ipynb](../../en/prompting/step_01_zero_shot_prompting.ipynb) in VS Code/Cursor und wählt den Kernel **"research_crew"** (siehe Haupt-README, Abschnitt "Register the Jupyter kernel"). Die Code-Zelle:
 
 1. Lädt `.env` (für den API-Key und `MODEL`)
-2. Ruft `litellm.completion()` mit einer einzigen Nutzernachricht auf
+2. Ruft `crewai.LLM.call()` mit einer einzigen Nutzernachricht auf
 3. Gibt die Antwort aus und speichert sie in `output/step_01.md`
 
-`litellm` ist bereits eine Abhängigkeit dieses Projekts — keine neue Installation nötig.
+`crewai` ist bereits eine Abhängigkeit dieses Projekts — keine neue Installation nötig. `LLM` ist dieselbe Klasse, die auch die Agenten in Schritt 3–5 intern verwenden — auch Schritt 1 nutzt also schon CrewAI, nur direkt statt über einen Agenten.
 
 ## Aufgabe
 

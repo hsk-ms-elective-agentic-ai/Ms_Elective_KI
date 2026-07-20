@@ -4,7 +4,7 @@
 
 **Hinweis:** Dieser Schritt besteht jetzt aus fünf Jupyter-Notebooks (auf Englisch) statt einzelner Python-Skripte — siehe [step_02a_few_shot.ipynb](../../en/prompting/step_02a_few_shot.ipynb) bis [step_02e_tree_of_thought.ipynb](../../en/prompting/step_02e_tree_of_thought.ipynb). Diese Seite beschreibt Hintergrund und Aufgabe weiterhin auf Deutsch; die deutschen Notebook-Versionen folgen noch.
 
-Fünf Notebooks, dasselbe Thema, dasselbe Modell. Jedes ist eine andere Strategie, um die Ausgabe des Modells zu formen — ohne Framework, ohne Agenten. Führt alle fünf aus und vergleicht die Ausgaben.
+Fünf Notebooks, dasselbe Thema, dasselbe Modell. Jedes ist eine andere Strategie, um die Ausgabe des Modells zu formen — noch keine Agenten, nur CrewAIs `LLM`-Klasse direkt aufgerufen. Führt alle fünf aus und vergleicht die Ausgaben.
 
 ## Hintergrund
 
