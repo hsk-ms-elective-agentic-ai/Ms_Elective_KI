@@ -47,6 +47,8 @@ Dies ist die Standardstruktur der OpenAI Chat Completions API (und jedes Modells
 
 Die Persona-Komponente allein kann die gesamte Antwort verändern: „Du bist ein geduldiger Gymnasiallehrer" versus „Du bist ein leitender Machine-Learning-Engineer, der einen Pull Request reviewt" führt bei derselben Frage und demselben Thema zu sehr unterschiedlichem Ton, Vokabular und Tiefe.
 
+In seiner extremsten Form zeigt sich das an einem Homogramm wie „crane" (Englisch für sowohl „Kran" als auch „Kranich"): Ein Engineer-Persona antwortet auf „What is a crane?" mit der Baumaschine, eine Biologist-Persona mit dem Vogel — dieselbe Nutzerfrage, aber die System-Nachricht allein entscheidet, welche Bedeutung das Modell wählt. Das Notebook enthält dazu eine kurze Demo-Zelle vor der eigentlichen Übung.
+
 ### 2c — Chain Prompting
 [step_02c_chain_prompting.ipynb](../../en/prompting/step_02c_chain_prompting.ipynb)
 
