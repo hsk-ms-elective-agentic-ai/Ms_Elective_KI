@@ -33,7 +33,7 @@ Everything from section 4 onward in this README applies to **your team's repo**,
 
 ### Team assignment
 
-Teams of **3–5 students** work through five versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each of the 5 steps below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters for your use case. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** work through five versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each of the 5 steps below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters for your use case. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 
@@ -157,7 +157,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/05-rag-and-tools.md).
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/step_05_rag_and_tools.ipynb).
 
 ## 4. Technical Setup
 

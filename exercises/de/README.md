@@ -6,23 +6,25 @@ Das sind die praktischen Schritte zu **Aktuelle Fallstudien der Digitalökonomie
 
 Das Prinzip ist einfach: Ihr führt fünf Versionen derselben Sache mit demselben Thema aus, wobei jede Version eine Schicht hinzufügt. Dann bewertet ihr, was jede Schicht tatsächlich verändert hat. Das Lernen entsteht aus dem Vergleich, nicht aus einem einzelnen Schritt.
 
-Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** funktionsfähig haben, bevor Schritt 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt. Falls Git, `uv`, Jupyter oder Python selbst für euch neu sind, startet zuerst mit [Schritt 0](../en/step_00_setup_and_python_basics.ipynb) (auf Englisch).
+Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** funktionsfähig haben, bevor Schritt 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt. Falls Git, `uv`, Jupyter oder Python selbst für euch neu sind, startet zuerst mit [Schritt 0](../en/step_00_setup_and_python_basics.ipynb).
+
+**Hinweis:** Alle Notebooks unten sind aktuell nur auf Englisch verfügbar (Code-Kommentare, Markdown-Zellen, alles) — es gibt keine deutsche Übersetzung der Notebooks selbst.
 
 ## Schritte
 
 | # | Titel | Was hinzukommt |
 | --- | --- | --- |
-| [0](../en/step_00_setup_and_python_basics.ipynb) | Setup & Python-Grundlagen | Git/GitHub, `uv`, Jupyter und eine Python-Auffrischung *(optional, falls neu für euch; auf Englisch)* |
-| [0b](../en/step_00b_test_setup_and_first_agent.ipynb) | Setup testen & erster Agent | Prüft, ob eure Umgebung funktioniert, Projekt-Tour, ein eigenständiger `Agent` *(optional; auf Englisch)* |
-| [1](01-zero-shot-prompting.md) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis (Jupyter-Notebook) |
-| [2](02-prompt-template.md) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (Jupyter-Notebook) |
-| [3](03-single-agent.md) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
-| [4](04-multi-agent.md) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
-| [5](05-rag-and-tools.md) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
+| [0](../en/step_00_setup_and_python_basics.ipynb) | Setup & Python-Grundlagen | Git/GitHub, `uv`, Jupyter und eine Python-Auffrischung *(optional)* |
+| [0b](../en/step_00b_test_setup_and_first_agent.ipynb) | Setup testen & erster Agent | Prüft, ob eure Umgebung funktioniert, Projekt-Tour, ein eigenständiger `Agent` *(optional)* |
+| [1](../en/step_01_zero_shot_prompting.ipynb) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis |
+| [2](../en/step_02a_few_shot.ipynb) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (5 Notebooks) |
+| [3](../en/step_03_single_agent.ipynb) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
+| [4](../en/step_04_multi_agent.ipynb) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
+| [5](../en/step_05_rag_and_tools.ipynb) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
 
 Alle fünf Schritte verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 1 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein schrittweiser Vergleich, was sich verändert hat und warum das für euren Anwendungsfall wichtig ist (oder nicht).
 
-Was bewertet wird, das Abgabepaket, Team-Setup und Vorlagen (`EVALUATION.md`, `TEAM.md`, Peer Evaluation) sind im [Überblick zur Aufgabe](assignment-overview.md) beschrieben (Deutsch / [English](../en/assignment-overview.md)).
+Was bewertet wird, das Abgabepaket, Team-Setup und Vorlagen (`EVALUATION.md`, `TEAM.md`, Peer Evaluation) sind im [Überblick zur Aufgabe](../../team_assignment/de/assignment-overview.md) beschrieben (Deutsch / [English](../../team_assignment/en/assignment-overview.md)).
 
 ## Selbstständig weiterlernen
 
@@ -32,4 +34,4 @@ Der "Hintergrund"-Abschnitt jedes Schritts gibt euch gerade genug, um das Konzep
 
 ## Für Lehrende
 
-Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die gemergten Sprint-Pull-Requests jedes Teams direkt prüft.
+Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](../../team_assignment/de/assignment-overview.md#für-lehrende) für die vollständige Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die gemergten Sprint-Pull-Requests jedes Teams direkt prüft.

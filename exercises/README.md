@@ -15,14 +15,14 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 | [0](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, Jupyter, and a Python refresher *(optional, if any of this is new to you)* |
 | [0b](en/step_00b_test_setup_and_first_agent.ipynb) | Test Your Setup & First Agent | Verify your environment works, tour the project, meet a standalone `Agent` *(optional)* |
 | [1](en/step_01_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline (Jupyter notebook) |
-| [2](en/02-prompt-template.md) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
-| [3](en/03-single-agent.md) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
-| [4](en/04-multi-agent.md) | Multi-Agent | Two agents with task chaining via `context:` |
-| [5](en/05-rag-and-tools.md) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
+| [2](en/step_02a_few_shot.ipynb) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
+| [3](en/step_03_single_agent.ipynb) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
+| [4](en/step_04_multi_agent.ipynb) | Multi-Agent | Two agents with task chaining via `context:` |
+| [5](en/step_05_rag_and_tools.ipynb) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
 
 All five steps use the **same topic** — you pick it once at step 1 and keep it. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters (or doesn't) for your use case.
 
-For what's graded, the submission package, team setup, and templates (`EVALUATION.md`, `TEAM.md`, peer evaluation), see [Assignment Overview](en/assignment-overview.md) (English / [Deutsch](de/assignment-overview.md)).
+For what's graded, the submission package, team setup, and templates (`EVALUATION.md`, `TEAM.md`, peer evaluation), see [Assignment Overview](../team_assignment/en/assignment-overview.md) (English / [Deutsch](../team_assignment/de/assignment-overview.md)).
 
 ## Learn more on your own
 
@@ -32,4 +32,4 @@ Each step's "Background" section gives you just enough to place the concept — 
 
 ## For instructors
 
-Students work in their own team's repo (one per team, provisioned from this template under your course organization) — see the main [README's "Getting access"](../README.md#getting-access-students) for the student-facing enrollment flow, and the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for the full org/team/repo provisioning and the automated sign-up workflow. Solutions aren't included on purpose; review submissions by checking each team's merged sprint pull requests directly.
+Students work in their own team's repo (one per team, provisioned from this template under your course organization) — see the main [README's "Getting access"](../README.md#getting-access-students) for the student-facing enrollment flow, and the "For instructors" section in the [Assignment Overview](../team_assignment/en/assignment-overview.md#for-instructors) for the full org/team/repo provisioning and the automated sign-up workflow. Solutions aren't included on purpose; review submissions by checking each team's merged sprint pull requests directly.
