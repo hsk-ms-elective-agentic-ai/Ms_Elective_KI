@@ -8,14 +8,9 @@ from dotenv import load_dotenv
 # runs on import, and .env's MODEL would silently never take effect.
 load_dotenv()
 
-# CrewAI's telemetry tries to register OS signal handlers, which only works in the
-# main thread — fails (harmlessly) when run from Streamlit's worker thread otherwise.
-os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
-
-# Codespaces secrets bypass .env entirely, so .env.example's defaults never apply there —
-# set them here instead. Also: the Gemini embedder's model_name field shares a "model"
-# validation alias with the MODEL var above, so it silently inherits MODEL's value unless
-# pinned via this more specific env var — set both defensively, before crewai is imported.
+# The Gemini embedder's model_name field shares a "model" validation alias with the
+# MODEL var above, so it silently inherits MODEL's value unless pinned via this more
+# specific env var — set both defensively, before crewai is imported.
 os.environ.setdefault('MODEL', 'gpt-4o-mini')
 os.environ.setdefault('EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME', 'gemini-embedding-001')
 
