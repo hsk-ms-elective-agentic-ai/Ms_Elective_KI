@@ -26,7 +26,7 @@ Each notebook below includes the specific citation for its technique.
 
 1. Open each notebook in VS Code/Cursor, select the **"research_crew"** kernel, and set your topic — same topic as step 1, same topic across 2a–2e.
 
-2. Run the cells in each notebook (Setup cell first, then the exercise cell) — 2b runs two worked examples directly; 2a, 2c, 2d, and 2e have `TODO` fields to fill in first. Each notebook's own "Your task" section has the specific comparison question for that technique.
+2. Run the cells in each notebook (Setup cell first, then the exercise cell) — 2b runs one worked example directly; 2a, 2c, 2d, and 2e have `TODO` fields to fill in first. Each notebook's own "Your task" section has the specific comparison question for that technique.
 
 3. Fill in the **Step 2** section of `EVALUATION.md` as you go.
 
