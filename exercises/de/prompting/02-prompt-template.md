@@ -45,7 +45,7 @@ Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung — aber die Nachrich
 
 Dies ist die Standardstruktur der OpenAI Chat Completions API (und jedes Modells, das ihr folgt). Die `system`-Rolle ist ein erstklassiges Konzept im Protokoll, keine bloße Formatierungskonvention. Versucht, einzelne System-Komponenten zu entfernen, um zu sehen, was jede tatsächlich steuert.
 
-Die Persona-Komponente allein kann die gesamte Antwort verändern: „Du bist ein geduldiger Gymnasiallehrer" versus „Du bist ein leitender Machine-Learning-Engineer, der einen Pull Request reviewt" führt bei derselben Frage und demselben Thema zu sehr unterschiedlichem Ton, Vokabular und Tiefe. Das Notebook enthält dazu keine leeren `TODO`-Felder — alle sechs Komponenten (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`) sind mit einem konkreten Beispiel (Lehrer-Persona) vorausgefüllt. Entfernt einzelne Komponenten oder tauscht die Persona aus, um ihren jeweiligen Effekt zu sehen.
+Die Persona-Komponente allein kann die gesamte Antwort verändern: „Du bist ein geduldiger Gymnasiallehrer" versus „Du bist ein leitender Machine-Learning-Engineer, der einen Pull Request reviewt" führt bei derselben Frage und demselben Thema zu sehr unterschiedlichem Ton, Vokabular und Tiefe. Das Notebook enthält dazu keine leeren `TODO`-Felder — alle sechs Komponenten (`persona`, `instruction`, `context`, `data_format`, `audience`, `tone`) sind zweimal mit derselben Frage vorausgefüllt: einmal als Lehrer-Persona, einmal als Engineer-Persona. Vergleicht die beiden Ausgaben, entfernt einzelne Komponenten oder tauscht Werte aus, um ihren jeweiligen Effekt zu sehen.
 
 ### 2c — Chain Prompting
 [step_02c_chain_prompting.ipynb](../../en/prompting/step_02c_chain_prompting.ipynb)
@@ -66,7 +66,7 @@ Statt sich auf eine einzelne Reasoning-Kette festzulegen, bittet ihr mehrere "Ex
 
 1. Setzt euer Thema in jedem Notebook — dasselbe Thema wie in Schritt 1, dasselbe Thema für 2a–2e.
 
-2. Öffnet jedes Notebook einzeln in VS Code/Cursor, wählt den Kernel **"research_crew"** und führt die Zellen der Reihe nach aus (zuerst die "Setup"-Zelle) — 2b führt direkt ein ausformuliertes Beispiel aus; 2a, 2c, 2d und 2e haben `TODO`-Felder zum Ausfüllen.
+2. Öffnet jedes Notebook einzeln in VS Code/Cursor, wählt den Kernel **"research_crew"** und führt die Zellen der Reihe nach aus (zuerst die "Setup"-Zelle) — 2b führt direkt zwei ausformulierte Beispiele aus (Lehrer- vs. Engineer-Persona); 2a, 2c, 2d und 2e haben `TODO`-Felder zum Ausfüllen.
 
 3. Vergleicht die Ausgaben:
    - Lenken die Beispiele in 2a das Modell auf ein bestimmtes Format oder eine bestimmte Schlussfolgerung? Was passiert, wenn ihr nur ein Beispiel ändert?
