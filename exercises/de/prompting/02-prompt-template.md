@@ -45,6 +45,8 @@ Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung — aber die Nachrich
 
 Dies ist die Standardstruktur der OpenAI Chat Completions API (und jedes Modells, das ihr folgt). Die `system`-Rolle ist ein erstklassiges Konzept im Protokoll, keine bloße Formatierungskonvention. Versucht, einzelne System-Komponenten zu entfernen, um zu sehen, was jede tatsächlich steuert.
 
+Die Persona-Komponente allein kann die gesamte Antwort verändern: „Du bist ein geduldiger Gymnasiallehrer" versus „Du bist ein leitender Machine-Learning-Engineer, der einen Pull Request reviewt" führt bei derselben Frage und demselben Thema zu sehr unterschiedlichem Ton, Vokabular und Tiefe.
+
 ### 2c — Chain Prompting
 [step_02c_chain_prompting.ipynb](../../en/prompting/step_02c_chain_prompting.ipynb)
 
