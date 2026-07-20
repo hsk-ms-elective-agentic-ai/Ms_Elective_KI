@@ -20,7 +20,7 @@ Kein Zitat nötig. Der Punkt ist empirisch: beobachtet, was ihr bekommt, bevor i
 
 1. Lädt `.env` (für den API-Key und `MODEL`)
 2. Ruft `crewai.LLM.call()` mit einer einzigen Nutzernachricht auf
-3. Gibt die Antwort aus und speichert sie in `output/step_01.md`
+3. Zeigt die Antwort formatiert als Markdown im Notebook an
 
 `crewai` ist bereits eine Abhängigkeit dieses Projekts — keine neue Installation nötig. `LLM` ist dieselbe Klasse, die auch die Agenten in Schritt 3–5 intern verwenden — auch Schritt 1 nutzt also schon CrewAI, nur direkt statt über einen Agenten.
 

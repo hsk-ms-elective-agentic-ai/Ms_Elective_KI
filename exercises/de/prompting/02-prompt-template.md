@@ -66,7 +66,7 @@ Statt sich auf eine einzelne Reasoning-Kette festzulegen, bittet ihr mehrere "Ex
 
 2. Öffnet jedes Notebook einzeln in VS Code/Cursor, wählt den Kernel **"research_crew"**, füllt die `TODO`-Felder aus und führt die Zellen der Reihe nach aus (zuerst die "Setup"-Zelle).
 
-3. Vergleicht die Ausgaben (jede wird in `output/step_02*.md` gespeichert):
+3. Vergleicht die Ausgaben:
    - Lenken die Beispiele in 2a das Modell auf ein bestimmtes Format oder eine bestimmte Schlussfolgerung? Was passiert, wenn ihr nur ein Beispiel ändert?
    - Welche Komponenten in 2b hatten den sichtbarsten Einfluss? Versucht, eine nach der anderen zu entfernen.
    - Verbessert die Zwei-Schritt-Aufteilung in 2c die finale Ausgabe, oder produziert das Modell in einem Schritt etwas Ähnliches?
