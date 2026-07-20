@@ -20,6 +20,7 @@ A single agent can do multiple things, but it can't hold two genuinely different
 | [src/research_crew/config/agents.yaml](../../../src/research_crew/config/agents.yaml) | Add a second agent with a role that complements the first |
 | [src/research_crew/config/tasks.yaml](../../../src/research_crew/config/tasks.yaml) | Add a second task; link it to the first with `context:` |
 | [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Add a second `@agent` and `@task` method |
+| [step_04_multi_agent.ipynb](step_04_multi_agent.ipynb) | Run the crew and view the result — nothing to edit here |
 
 The `context:` field in `tasks.yaml` is how the second agent receives the first agent's output:
 
@@ -40,7 +41,7 @@ second_task:
 
 3. In `crew.py`, add a second `@agent` method and a second `@task` method.
 
-4. Run:
+4. Run it — either open [step_04_multi_agent.ipynb](step_04_multi_agent.ipynb) and run its cell, or from the terminal:
    ```bash
    uv run research_crew
    ```

@@ -39,7 +39,7 @@ Das Template hat bereits zwei Agenten (`researcher` und `analyst`). Für diesen 
 
 3. Behaltet in `crew.py` nur eine `@agent`- und eine `@task`-Methode (entfernt oder kommentiert den Analysten aus).
 
-4. Führt aus:
+4. Führt es aus — entweder öffnet [step_03_single_agent.ipynb](../../en/agents/step_03_single_agent.ipynb) (auf Englisch) und führt die Zelle aus, oder im Terminal:
    ```bash
    uv run research_crew
    ```

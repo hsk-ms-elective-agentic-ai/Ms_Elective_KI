@@ -40,7 +40,7 @@ second_task:
 
 3. Fügt in `crew.py` eine zweite `@agent`- und `@task`-Methode hinzu.
 
-4. Führt aus:
+4. Führt es aus — entweder öffnet [step_04_multi_agent.ipynb](../../en/agents/step_04_multi_agent.ipynb) (auf Englisch) und führt die Zelle aus, oder im Terminal:
    ```bash
    uv run research_crew
    ```

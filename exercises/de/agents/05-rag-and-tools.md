@@ -46,7 +46,7 @@ Der `embedder`-Block ist bereits in `crew.py` — er ist das, was RAG ohne OpenA
    tools=[SerperDevTool()]
    ```
 
-4. Aktualisiert die Task-Beschreibung dieses Agenten in `tasks.yaml` so, dass sie eine Frage enthält, die nur aus eurem Wissensdokument beantwortet werden kann. Führt aus:
+4. Aktualisiert die Task-Beschreibung dieses Agenten in `tasks.yaml` so, dass sie eine Frage enthält, die nur aus eurem Wissensdokument beantwortet werden kann. Führt es aus — entweder öffnet [step_05_rag_and_tools.ipynb](../../en/agents/step_05_rag_and_tools.ipynb) (auf Englisch) und führt die Zelle aus, oder im Terminal:
    ```bash
    uv run research_crew
    ```

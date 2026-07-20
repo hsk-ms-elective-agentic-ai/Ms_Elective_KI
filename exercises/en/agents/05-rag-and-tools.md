@@ -28,6 +28,7 @@ Add two forms of external grounding to your step 4 crew. **Tools** let an agent 
 | --- | --- |
 | [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Add `tools=[SerperDevTool()]` to the relevant agent; add `knowledge_sources=[...]` to the `Crew` |
 | [src/research_crew/knowledge_source_example.py](../../../src/research_crew/knowledge_source_example.py) | Template for `build_knowledge_sources()` — import and call it in `crew.py` |
+| [step_05_rag_and_tools.ipynb](step_05_rag_and_tools.ipynb) | Run the crew and view the result — nothing to edit here |
 | `knowledge/` | Add your own document here (`.txt` or `.pdf`) |
 
 The `embedder` block is already in `crew.py` — it's what makes RAG work without an OpenAI key.
@@ -46,7 +47,7 @@ The `embedder` block is already in `crew.py` — it's what makes RAG work withou
    tools=[SerperDevTool()]
    ```
 
-4. Update that agent's task description in `tasks.yaml` to include a question only answerable from your knowledge document. Run:
+4. Update that agent's task description in `tasks.yaml` to include a question only answerable from your knowledge document. Run it — either open [step_05_rag_and_tools.ipynb](step_05_rag_and_tools.ipynb) and run its cell, or from the terminal:
    ```bash
    uv run research_crew
    ```
