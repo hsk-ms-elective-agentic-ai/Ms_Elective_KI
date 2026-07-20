@@ -1,8 +1,8 @@
 # Schritt 2 — Prompting-Techniken
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/02-prompt-template.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../../en/prompting/02-prompt-template.md)
 
-**Hinweis:** Dieser Schritt besteht jetzt aus fünf Jupyter-Notebooks (auf Englisch) statt einzelner Python-Skripte — siehe [step_02a_few_shot.ipynb](../en/step_02a_few_shot.ipynb) bis [step_02e_tree_of_thought.ipynb](../en/step_02e_tree_of_thought.ipynb). Diese Seite beschreibt Hintergrund und Aufgabe weiterhin auf Deutsch; die deutschen Notebook-Versionen folgen noch.
+**Hinweis:** Dieser Schritt besteht jetzt aus fünf Jupyter-Notebooks (auf Englisch) statt einzelner Python-Skripte — siehe [step_02a_few_shot.ipynb](../../en/prompting/step_02a_few_shot.ipynb) bis [step_02e_tree_of_thought.ipynb](../../en/prompting/step_02e_tree_of_thought.ipynb). Diese Seite beschreibt Hintergrund und Aufgabe weiterhin auf Deutsch; die deutschen Notebook-Versionen folgen noch.
 
 Fünf Notebooks, dasselbe Thema, dasselbe Modell. Jedes ist eine andere Strategie, um die Ausgabe des Modells zu formen — ohne Framework, ohne Agenten. Führt alle fünf aus und vergleicht die Ausgaben.
 
@@ -31,12 +31,12 @@ Wei et al. (2022) haben separat gezeigt, dass das Einbinden vollständig ausgear
 ## Die fünf Notebooks
 
 ### 2a — Few-Shot-Prompting
-[step_02a_few_shot.ipynb](../en/step_02a_few_shot.ipynb)
+[step_02a_few_shot.ipynb](../../en/prompting/step_02a_few_shot.ipynb)
 
 Zwei oder drei Eingabe-/Ausgabe-Beispielpaare erscheinen im Prompt vor der eigentlichen Frage. Das Modell lernt das erwartete Format und den Stil aus diesen Beispielen — das ist In-Context-Learning (Brown et al., 2020). Keine Struktur, keine Reasoning-Anweisung, nur Muster.
 
 ### 2b — Prompt-Vorlage
-[step_02b_prompt_template.ipynb](../en/step_02b_prompt_template.ipynb)
+[step_02b_prompt_template.ipynb](../../en/prompting/step_02b_prompt_template.ipynb)
 
 Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung — aber die Nachricht ist jetzt auf zwei *Rollen* aufgeteilt:
 
@@ -46,17 +46,17 @@ Ein API-Aufruf, keine Beispiele, keine Reasoning-Anweisung — aber die Nachrich
 Dies ist die Standardstruktur der OpenAI Chat Completions API (und jedes Modells, das ihr folgt). Die `system`-Rolle ist ein erstklassiges Konzept im Protokoll, keine bloße Formatierungskonvention. Versucht, einzelne System-Komponenten zu entfernen, um zu sehen, was jede tatsächlich steuert.
 
 ### 2c — Chain Prompting
-[step_02c_chain_prompting.ipynb](../en/step_02c_chain_prompting.ipynb)
+[step_02c_chain_prompting.ipynb](../../en/prompting/step_02c_chain_prompting.ipynb)
 
 Zwei sequentielle API-Aufrufe: Der erste extrahiert oder bereitet etwas aus dem Thema vor; der zweite erhält diese Ausgabe und produziert die finale Antwort. Die Aufgabe wird bewusst aufgeteilt.
 
 ### 2d — Chain of Thought
-[step_02d_chain_of_thought.ipynb](../en/step_02d_chain_of_thought.ipynb)
+[step_02d_chain_of_thought.ipynb](../../en/prompting/step_02d_chain_of_thought.ipynb)
 
 Dieselbe Komponentenstruktur wie 2b, mit einer Ergänzung: eine `reasoning`-Komponente, die das Modell bittet, das Problem durchzudenken, bevor es antwortet. Dies ist das Zero-Shot-CoT-Muster von Kojima et al. (2022) — keine Beispiele nötig, nur die Anweisung.
 
 ### 2e — Tree of Thought
-[step_02e_tree_of_thought.ipynb](../en/step_02e_tree_of_thought.ipynb)
+[step_02e_tree_of_thought.ipynb](../../en/prompting/step_02e_tree_of_thought.ipynb)
 
 Statt sich auf eine einzelne Reasoning-Kette festzulegen, bittet ihr mehrere "Experten", parallel zu denken: jeder schreibt einen Schritt auf, teilt ihn mit der Gruppe, dann geht es gemeinsam zum nächsten Schritt. Jeder Experte, dessen Reasoning sich als falsch herausstellt, scheidet unterwegs aus.
 

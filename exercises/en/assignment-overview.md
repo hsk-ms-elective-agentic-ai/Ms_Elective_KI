@@ -12,11 +12,11 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 | Step | Adds |
 | --- | --- |
-| [1 — Zero-Shot Prompting](step_01_zero_shot_prompting.ipynb) | The bare API call — your baseline |
-| [2 — Prompt Template](02-prompt-template.md) | A role + output structure, same call |
-| [3 — Single Agent](03-single-agent.md) | The CrewAI framework loop *(interim submission due)* |
-| [4 — Multi-Agent](04-multi-agent.md) | Role specialization + task chaining |
-| [5 — RAG + Tools](05-rag-and-tools.md) | External grounding: web search + document retrieval *(final submission due)* |
+| [1 — Zero-Shot Prompting](prompting/step_01_zero_shot_prompting.ipynb) | The bare API call — your baseline |
+| [2 — Prompt Template](prompting/02-prompt-template.md) | A role + output structure, same call |
+| [3 — Single Agent](agents/03-single-agent.md) | The CrewAI framework loop *(interim submission due)* |
+| [4 — Multi-Agent](agents/04-multi-agent.md) | Role specialization + task chaining |
+| [5 — RAG + Tools](agents/05-rag-and-tools.md) | External grounding: web search + document retrieval *(final submission due)* |
 
 You don't redesign anything between steps — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 3 and a **final submission** after Step 5.
 

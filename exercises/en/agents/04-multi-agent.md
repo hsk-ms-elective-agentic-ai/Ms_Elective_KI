@@ -1,6 +1,6 @@
 # Step 4 — Multi-Agent
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/04-multi-agent.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../../de/agents/04-multi-agent.md)
 
 Add a second agent with a different, complementary role. The first agent's output is passed to the second via `context:` in `tasks.yaml`. This is multi-agent in the simplest sense: role specialization with task chaining, not dynamic delegation.
 
@@ -10,16 +10,16 @@ A single agent can do multiple things, but it can't hold two genuinely different
 
 > Wu, Q., Bansal, G., Zhang, J., Wu, Y., Li, B., Zhu, E., Jiang, L., Zhang, X., Zhang, S., Liu, J., Awadallah, A. H., White, R. W., Burger, D., & Wang, C. (2023). *AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation*. [arXiv:2308.08155](https://arxiv.org/abs/2308.08155)
 
-![AutoGen: conversable agents solving tasks in joint or hierarchical patterns](../assets/autogen-wu2023-fig1.png)
+![AutoGen: conversable agents solving tasks in joint or hierarchical patterns](../../assets/autogen-wu2023-fig1.png)
 *Figure 1 from Wu et al. (2023). Reproduced for educational use in this course.*
 
 ## In this repo
 
 | File | What to change |
 | --- | --- |
-| [src/research_crew/config/agents.yaml](../../src/research_crew/config/agents.yaml) | Add a second agent with a role that complements the first |
-| [src/research_crew/config/tasks.yaml](../../src/research_crew/config/tasks.yaml) | Add a second task; link it to the first with `context:` |
-| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Add a second `@agent` and `@task` method |
+| [src/research_crew/config/agents.yaml](../../../src/research_crew/config/agents.yaml) | Add a second agent with a role that complements the first |
+| [src/research_crew/config/tasks.yaml](../../../src/research_crew/config/tasks.yaml) | Add a second task; link it to the first with `context:` |
+| [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Add a second `@agent` and `@task` method |
 
 The `context:` field in `tasks.yaml` is how the second agent receives the first agent's output:
 

@@ -1,6 +1,6 @@
 # Schritt 3 — Einzelner Agent
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/03-single-agent.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../../en/agents/03-single-agent.md)
 
 Wechselt von einem handgeschriebenen Prompt zu einem CrewAI-`Agent` und einem `Task`. `role`, `goal` und `backstory` in `agents.yaml` sind unter der Haube immer noch ein System-Prompt — CrewAI setzt ihn aus diesen drei Feldern für euch zusammen. Was das Framework hinzufügt, ist die Schleife: Der Agent denkt in mehreren Schritten, bevor er eine Ausgabe produziert, kann Tools aufrufen (Schritt 5) und bei Fehlern erneut versuchen. Ein Agent, ein Task.
 
@@ -16,7 +16,7 @@ Die weitergehende Beobachtung, dass LLM-basierte Agenten von einer expliziten Mo
 
 > Wang, L., Ma, C., Feng, X., Zhang, Z., Yang, H., Zhang, J., Chen, Z., Tang, J., Chen, X., Lin, Y., Zhao, W. X., Wei, Z., & Wen, J. (2023). *A Survey on Large Language Model based Autonomous Agents*. [arXiv:2308.11432](https://arxiv.org/abs/2308.11432)
 
-![Einheitliches Framework für LLM-basierte autonome Agenten: Profil-, Gedächtnis-, Planungs- und Handlungsmodule](../assets/agentsurvey-wang2023-fig2.png)
+![Einheitliches Framework für LLM-basierte autonome Agenten: Profil-, Gedächtnis-, Planungs- und Handlungsmodule](../../assets/agentsurvey-wang2023-fig2.png)
 *Abbildung 2 aus Wang et al. (2023). Reproduziert für Bildungszwecke in diesem Kurs.*
 
 In CrewAI-Begriffen: `role`/`goal`/`backstory` in `agents.yaml` = **Profil**; `tools` + die ReAct-Task-Schleife = **Handlung**.
@@ -25,9 +25,9 @@ In CrewAI-Begriffen: `role`/`goal`/`backstory` in `agents.yaml` = **Profil**; `t
 
 | Datei | Was ihr ändert |
 | --- | --- |
-| [src/research_crew/config/agents.yaml](../../src/research_crew/config/agents.yaml) | Definiert EINEN Agenten für euer Thema — role, goal, backstory |
-| [src/research_crew/config/tasks.yaml](../../src/research_crew/config/tasks.yaml) | Definiert EINEN Task — description, expected_output, agent |
-| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Behaltet nur eine `@agent`- und eine `@task`-Methode |
+| [src/research_crew/config/agents.yaml](../../../src/research_crew/config/agents.yaml) | Definiert EINEN Agenten für euer Thema — role, goal, backstory |
+| [src/research_crew/config/tasks.yaml](../../../src/research_crew/config/tasks.yaml) | Definiert EINEN Task — description, expected_output, agent |
+| [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Behaltet nur eine `@agent`- und eine `@task`-Methode |
 
 Das Template hat bereits zwei Agenten (`researcher` und `analyst`). Für diesen Schritt reduziert auf einen — kommentiert den Analysten und seinen Task aus oder entfernt sie.
 
@@ -54,4 +54,4 @@ Schaut euch im verbose-Log die "Final Answer" zusammen mit dem zwischenzeitliche
 
 ---
 
-**→ Die Zwischenabgabe ist nach diesem Schritt fällig.** Gebt den Zustand von `main` nach dem Mergen von `sprint-3` ab. Seht [Überblick zur Aufgabe](assignment-overview.md) für genaue Erwartungen.
+**→ Die Zwischenabgabe ist nach diesem Schritt fällig.** Gebt den Zustand von `main` nach dem Mergen von `sprint-3` ab. Seht [Überblick zur Aufgabe](../assignment-overview.md) für genaue Erwartungen.

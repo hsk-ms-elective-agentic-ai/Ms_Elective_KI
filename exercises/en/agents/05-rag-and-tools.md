@@ -1,6 +1,6 @@
 # Step 5 — RAG + Tools
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/05-rag-and-tools.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../../de/agents/05-rag-and-tools.md)
 
 Add two forms of external grounding to your step 4 crew. **Tools** let an agent retrieve live information at runtime; the agent decides when and with what query to call the tool. **RAG** lets the crew retrieve from a document you provide; chunks are embedded and the most relevant ones are injected into context automatically. Both address the same root limitation in steps 1–4: the LLM's knowledge is frozen at training time.
 
@@ -10,14 +10,14 @@ Add two forms of external grounding to your step 4 crew. **Tools** let an agent 
 
 > Schick, T., Dwivedi-Yu, J., Dessì, R., Raileanu, R., Lomeli, M., Zettlemoyer, L., Cancedda, N., & Scialom, T. (2023). *Toolformer: Language Models Can Teach Themselves to Use Tools*. [arXiv:2302.04761](https://arxiv.org/abs/2302.04761)
 
-![Toolformer inserting API calls into its own generated text](../assets/toolformer-schick2023-fig1.png)
+![Toolformer inserting API calls into its own generated text](../../assets/toolformer-schick2023-fig1.png)
 *Figure 1 from Schick et al. (2023). Reproduced for educational use in this course.*
 
 ### RAG
 
 > Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V., Goyal, N., Küttler, H., Lewis, M., Yih, W., Rocktäschel, T., Riedel, S., & Kiela, D. (2020). *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020. [arXiv:2005.11401](https://arxiv.org/abs/2005.11401)
 
-![RAG: query encoder and retriever feed top-k documents into a generator](../assets/rag-lewis2020-fig1.png)
+![RAG: query encoder and retriever feed top-k documents into a generator](../../assets/rag-lewis2020-fig1.png)
 *Figure 1 from Lewis et al. (2020). Reproduced for educational use in this course.*
 
 **One practical detail**: embeddings use a separate model from the chat LLM. This crew uses Groq for chat and Gemini for embeddings — two different services, two different API keys, two different rate limits. The `embedder` block in `crew.py` is already configured; you just need `GEMINI_API_KEY` set.
@@ -26,8 +26,8 @@ Add two forms of external grounding to your step 4 crew. **Tools** let an agent 
 
 | File | What to change |
 | --- | --- |
-| [src/research_crew/crew.py](../../src/research_crew/crew.py) | Add `tools=[SerperDevTool()]` to the relevant agent; add `knowledge_sources=[...]` to the `Crew` |
-| [src/research_crew/knowledge_source_example.py](../../src/research_crew/knowledge_source_example.py) | Template for `build_knowledge_sources()` — import and call it in `crew.py` |
+| [src/research_crew/crew.py](../../../src/research_crew/crew.py) | Add `tools=[SerperDevTool()]` to the relevant agent; add `knowledge_sources=[...]` to the `Crew` |
+| [src/research_crew/knowledge_source_example.py](../../../src/research_crew/knowledge_source_example.py) | Template for `build_knowledge_sources()` — import and call it in `crew.py` |
 | `knowledge/` | Add your own document here (`.txt` or `.pdf`) |
 
 The `embedder` block is already in `crew.py` — it's what makes RAG work without an OpenAI key.
@@ -68,4 +68,4 @@ Ask a question whose answer appears on a specific page. Does the agent retrieve 
 
 ---
 
-**This is your final submission.** See [Assignment Overview](assignment-overview.md) for the full grading rubric and exactly what to submit.
+**This is your final submission.** See [Assignment Overview](../assignment-overview.md) for the full grading rubric and exactly what to submit.

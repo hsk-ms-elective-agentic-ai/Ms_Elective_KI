@@ -12,11 +12,11 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer
 
 | Schritt | Fügt hinzu |
 | --- | --- |
-| [1 — Zero-Shot-Prompting](01-zero-shot-prompting.md) | Der bloße API-Aufruf — eure Ausgangsbasis |
-| [2 — Prompt-Vorlage](02-prompt-template.md) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
-| [3 — Einzelner Agent](03-single-agent.md) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| [4 — Multi-Agent](04-multi-agent.md) | Rollenspezialisierung + Task-Verkettung |
-| [5 — RAG + Tools](05-rag-and-tools.md) | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
+| [1 — Zero-Shot-Prompting](prompting/01-zero-shot-prompting.md) | Der bloße API-Aufruf — eure Ausgangsbasis |
+| [2 — Prompt-Vorlage](prompting/02-prompt-template.md) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
+| [3 — Einzelner Agent](agents/03-single-agent.md) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
+| [4 — Multi-Agent](agents/04-multi-agent.md) | Rollenspezialisierung + Task-Verkettung |
+| [5 — RAG + Tools](agents/05-rag-and-tools.md) | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
 
 Ihr entwerft zwischen den Schritten nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 3 und eine **Abschlussabgabe** nach Schritt 5.
 
