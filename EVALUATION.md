@@ -4,9 +4,9 @@
 
 > Run each step with the same topic and fill in your observations right after running —
 > don't wait until the end. The comparison between steps is what gets graded, so "it's
-> more accurate" scores less than "the analyst in step 4 flagged X as overstated, which
-> the researcher in step 3 didn't question." See each step's page (e.g.
-> [exercises/en/step_01_zero_shot_prompting.ipynb](exercises/en/step_01_zero_shot_prompting.ipynb)) for what
+> more accurate" scores less than "the analyst in step 10 flagged X as overstated, which
+> the researcher in step 09 didn't question." See each step's page (e.g.
+> [exercises/en/step_03_zero_shot_prompting.ipynb](exercises/en/step_03_zero_shot_prompting.ipynb)) for what
 > to fill in at each stage.
 
 ## Your topic
@@ -17,51 +17,68 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 
 ## Step-by-step observations
 
-### Step 1 — Zero-Shot Prompting
+### Step 03 — Zero-Shot Prompting
 **Date run:**
 **What the output looks like (2–3 sentences):**
 **One thing that surprised you:**
 
-### Step 2 — Prompting Techniques
+### Step 04 — Few-Shot Prompting
 **Date run:**
-**2a (Few-Shot) — what changed vs Step 1; did the examples steer the output noticeably:**
-**2b (Prompt Template) — what changed vs 2a:**
-**2c (Chain Prompting) — what changed vs 2a/2b:**
-**2d (Chain of Thought) — what changed vs 2b; did explicit reasoning change the conclusion or just add text:**
-**Which technique worked best for your topic, and why:**
+**What changed vs Step 03; did the examples steer the output noticeably:**
 **One thing that surprised you:**
 
-### Step 3 — Single Agent
+### Step 05 — Prompt Template
 **Date run:**
-**What changed vs Step 2 (be specific):**
+**What changed vs Step 04:**
+**One thing that surprised you:**
+
+### Step 06 — Chain Prompting
+**Date run:**
+**What changed vs Steps 04/05:**
+**One thing that surprised you:**
+
+### Step 07 — Chain of Thought
+**Date run:**
+**What changed vs Step 05; did explicit reasoning change the conclusion or just add text:**
+**One thing that surprised you:**
+
+### Step 08 — Tree of Thought
+**Date run:**
+**What changed vs Step 07; did exploring multiple reasoning paths change the answer, or just add discussion around it:**
+**Which prompting technique (Steps 04–08) worked best for your topic, and why:**
+**One thing that surprised you:**
+
+### Step 09 — Single Agent
+**Date run:**
+**What changed vs Step 08 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 4 — Multi-Agent
+### Step 10 — Multi-Agent
 **Date run:**
-**What changed vs Step 3 (be specific):**
+**What changed vs Step 09 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 5a — Tools
+### Step 11 — Tools
 **Date run:**
-**What changed vs Step 4 (be specific):**
+**What changed vs Step 10 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 5b — MCP
+### Step 12 — MCP
 **Date run:**
-**What changed vs 5a (be specific):**
+**What changed vs Step 11 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 5c — RAG
+### Step 13 — RAG
 **Date run:**
-**What changed vs 5a/5b (be specific):**
+**What changed vs Steps 11/12 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**

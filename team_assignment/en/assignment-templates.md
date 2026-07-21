@@ -6,7 +6,7 @@
 
 ## `EVALUATION.md`
 
-This is the main deliverable: a comparative analysis of what each step added, grounded specifically in your topic. Fill in each step's section as you run it — write observations right after running, not at the end. The comparison *is* the assignment; generic answers ("it's more accurate") score less than specific ones ("the analyst in step 4 flagged X as overstated, which the researcher in step 3 didn't question").
+This is the main deliverable: a comparative analysis of what each step added, grounded specifically in your topic. Fill in each step's section as you run it — write observations right after running, not at the end. The comparison *is* the assignment; generic answers ("it's more accurate") score less than specific ones ("the analyst in step 10 flagged X as overstated, which the researcher in step 09 didn't question").
 
 ```markdown
 # Step Evaluation
@@ -23,36 +23,68 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 
 Run each step with the same topic. Fill in right after running.
 
-### Step 1 — Zero-Shot Prompting
+### Step 03 — Zero-Shot Prompting
 **Date run:**
 **What the output looks like (2–3 sentences):**
 **One thing that surprised you:**
 
-### Step 2 — Prompting Techniques
+### Step 04 — Few-Shot Prompting
 **Date run:**
-**2a (Prompt Template) — what changed vs Step 1:**
-**2b (Chain of Thought) — what changed vs 2a:**
-**2c (Chain Prompting) — what changed vs 2a/2b:**
-**Which technique worked best for your topic, and why:**
+**What changed vs Step 03; did the examples steer the output noticeably:**
 **One thing that surprised you:**
 
-### Step 3 — Single Agent
+### Step 05 — Prompt Template
 **Date run:**
-**What changed vs Step 2 (be specific):**
+**What changed vs Step 04:**
+**One thing that surprised you:**
+
+### Step 06 — Chain Prompting
+**Date run:**
+**What changed vs Steps 04/05:**
+**One thing that surprised you:**
+
+### Step 07 — Chain of Thought
+**Date run:**
+**What changed vs Step 05; did explicit reasoning change the conclusion or just add text:**
+**One thing that surprised you:**
+
+### Step 08 — Tree of Thought
+**Date run:**
+**What changed vs Step 07; did exploring multiple reasoning paths change the answer, or just add discussion around it:**
+**Which prompting technique (Steps 04–08) worked best for your topic, and why:**
+**One thing that surprised you:**
+
+### Step 09 — Single Agent
+**Date run:**
+**What changed vs Step 08 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 4 — Multi-Agent
+### Step 10 — Multi-Agent
 **Date run:**
-**What changed vs Step 3 (be specific):**
+**What changed vs Step 09 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 5 — RAG + Tools
+### Step 11 — Tools
 **Date run:**
-**What changed vs Step 4 (be specific):**
+**What changed vs Step 10 (be specific):**
+**What's better:**
+**What's harder or more fragile:**
+**One thing that surprised you:**
+
+### Step 12 — MCP
+**Date run:**
+**What changed vs Step 11 (be specific):**
+**What's better:**
+**What's harder or more fragile:**
+**One thing that surprised you:**
+
+### Step 13 — RAG
+**Date run:**
+**What changed vs Steps 11/12 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**

@@ -33,70 +33,70 @@ Everything from section 4 onward in this README applies to **your team's repo**,
 
 ### Team assignment
 
-Teams of **3–5 students** work through five versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each of the 5 steps below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters for your use case. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** work through a sequence of versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each step below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters for your use case. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 
-Pick one of the five use cases below. Each is designed so that the five steps produce **noticeably different output**: a simple prompt gives a broad starting point, structured prompting adds focus and format, a single agent adds a consistent perspective, a second agent transforms the research into a recommendation, and web search + RAG grounds the output in current, specific evidence. The quality of your evaluation depends on how well your team knows the subject — pick a topic you can actually judge.
+Pick one of the five use cases below. Each is designed so that the steps produce **noticeably different output**: a simple prompt gives a broad starting point, structured prompting adds focus and format, a single agent adds a consistent perspective, a second agent transforms the research into a recommendation, and web search + RAG grounds the output in current, specific evidence. The quality of your evaluation depends on how well your team knows the subject — pick a topic you can actually judge.
 
 ---
 
 **1. Competitive Landscape Analysis**
 
-A product manager or founder entering a new market needs to know who the dominant players are, how they differentiate, and where the genuine gaps are — not a Wikipedia summary, but analysis sharp enough to inform a market-entry decision. *Step 1* gives you a list of names with surface-level descriptions. *Step 2* adds a SWOT frame, an analyst persona, and investor-friendly language — immediately more structured. *Step 3* gives you a researcher agent whose role keeps it consistently focused on competitive signals rather than generic industry background. *Step 4* adds a positioning strategist who takes the raw competitive data and converts it into a differentiation recommendation — the two agents together produce something neither produces alone. *Step 5* closes the information gap: web search adds current funding rounds and product launches; a market brief or investor memo as a RAG source ties the analysis to a specific entry thesis rather than the general market.
+A product manager or founder entering a new market needs to know who the dominant players are, how they differentiate, and where the genuine gaps are — not a Wikipedia summary, but analysis sharp enough to inform a market-entry decision. *Step 03* gives you a list of names with surface-level descriptions. *Steps 04–08* add a SWOT frame, an analyst persona, and investor-friendly language — immediately more structured. *Step 09* gives you a researcher agent whose role keeps it consistently focused on competitive signals rather than generic industry background. *Step 10* adds a positioning strategist who takes the raw competitive data and converts it into a differentiation recommendation — the two agents together produce something neither produces alone. *Steps 11–13* close the information gap: web search adds current funding rounds and product launches; a market brief or investor memo as a RAG source ties the analysis to a specific entry thesis rather than the general market.
 
 - **Topic example:** `"Competitive landscape for [product category] targeting [customer segment] in [region]"`
-- **Agents (steps 3–4):** Market Intelligence Researcher → Positioning Strategist
-- **Tool (step 5):** `SerperDevTool` — current news, funding announcements, product launches
-- **RAG source (step 5):** Market positioning brief or investor memo (PDF)
+- **Agents (steps 09–10):** Market Intelligence Researcher → Positioning Strategist
+- **Tool (step 11):** `SerperDevTool` — current news, funding announcements, product launches
+- **RAG source (step 13):** Market positioning brief or investor memo (PDF)
 
 ---
 
 **2. Regulatory Impact Briefing**
 
-A compliance officer or product team needs to understand what a specific regulation — EU AI Act, GDPR, Digital Markets Act — actually requires of their product, and what concrete actions to take before the compliance deadline. *Step 1* produces a generic regulation summary that could have come from a news article. *Step 2* adds a compliance-officer persona and an action-checklist output format — the same information becomes immediately actionable. *Step 3* gives you a policy-tracker agent that stays focused on the obligations relevant to a specific company type, not the regulation in general. *Step 4* adds a compliance strategist who converts those obligations into a prioritized remediation plan — the tracker surfaces what's required; the strategist says what to do about it and in what order. *Step 5* is where it gets specific: web search surfaces recent enforcement decisions and implementation guidance; the actual regulation text as a RAG source lets agents quote specific articles rather than paraphrase from training data.
+A compliance officer or product team needs to understand what a specific regulation — EU AI Act, GDPR, Digital Markets Act — actually requires of their product, and what concrete actions to take before the compliance deadline. *Step 03* produces a generic regulation summary that could have come from a news article. *Steps 04–08* add a compliance-officer persona and an action-checklist output format — the same information becomes immediately actionable. *Step 09* gives you a policy-tracker agent that stays focused on the obligations relevant to a specific company type, not the regulation in general. *Step 10* adds a compliance strategist who converts those obligations into a prioritized remediation plan — the tracker surfaces what's required; the strategist says what to do about it and in what order. *Steps 11–13* are where it gets specific: web search surfaces recent enforcement decisions and implementation guidance; the actual regulation text as a RAG source lets agents quote specific articles rather than paraphrase from training data.
 
 - **Topic example:** `"EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"`
-- **Agents (steps 3–4):** Policy Tracker → Compliance Strategist
-- **Tool (step 5):** `SerperDevTool` — enforcement decisions, recent regulatory guidance
-- **RAG source (step 5):** The regulation text (PDF — available from EUR-Lex)
+- **Agents (steps 09–10):** Policy Tracker → Compliance Strategist
+- **Tool (step 11):** `SerperDevTool` — enforcement decisions, recent regulatory guidance
+- **RAG source (step 13):** The regulation text (PDF — available from EUR-Lex)
 
 ---
 
 **3. Talent and Skills Gap Analysis**
 
-An HR director or team lead at a tech company needs to know which AI/ML skills are genuinely in demand right now, how the current team stacks up, and whether to hire, retrain, or partner. *Step 1* produces a generic "top skills in AI" list — exactly what any search engine returns. *Step 2* adds an HR-manager persona and a skills-gap-table format, making the output directly usable in a team meeting. *Step 3* gives you a labor-market researcher agent focused on demand signals from real job postings rather than general trends. *Step 4* adds a workforce strategist who takes the research and proposes a concrete hiring or upskilling plan — researcher provides the market picture; strategist provides the response. *Step 5* makes it current: web search pulls live job postings and salary benchmarks; a team skills inventory or competency framework as a RAG source makes the gap analysis specific to the actual team rather than a hypothetical one.
+An HR director or team lead at a tech company needs to know which AI/ML skills are genuinely in demand right now, how the current team stacks up, and whether to hire, retrain, or partner. *Step 03* produces a generic "top skills in AI" list — exactly what any search engine returns. *Steps 04–08* add an HR-manager persona and a skills-gap-table format, making the output directly usable in a team meeting. *Step 09* gives you a labor-market researcher agent focused on demand signals from real job postings rather than general trends. *Step 10* adds a workforce strategist who takes the research and proposes a concrete hiring or upskilling plan — researcher provides the market picture; strategist provides the response. *Steps 11–13* make it current: web search pulls live job postings and salary benchmarks; a team skills inventory or competency framework as a RAG source makes the gap analysis specific to the actual team rather than a hypothetical one.
 
 - **Topic example:** `"In-demand AI engineering and MLOps skills for product teams at European fintechs (2025)"`
-- **Agents (steps 3–4):** Labor Market Researcher → Workforce Strategist
-- **Tool (step 5):** `SerperDevTool` — job boards, hiring trends, salary benchmarks
-- **RAG source (step 5):** Team skills inventory or competency framework (text file)
+- **Agents (steps 09–10):** Labor Market Researcher → Workforce Strategist
+- **Tool (step 11):** `SerperDevTool` — job boards, hiring trends, salary benchmarks
+- **RAG source (step 13):** Team skills inventory or competency framework (text file)
 
 ---
 
 **4. Startup Due-Diligence Memo**
 
-An angel investor or early-stage VC evaluating a pre-seed startup needs a structured view of the market opportunity, competitive threats, team credibility, and key risks — produced quickly from public information. *Step 1* gives you a generic "how to evaluate a startup" framework, not an evaluation of any specific startup. *Step 2* adds a VC analyst persona and a standard memo structure (market / competition / team / risks / verdict) — suddenly it reads like an actual first draft. *Step 3* gives you a diligence researcher who stays focused on gathering factual signals for a specific startup type rather than explaining due diligence in general. *Step 4* adds an investment analyst who takes the research and writes the memo with an explicit recommendation — the researcher gathers evidence; the analyst makes the call. *Step 5* makes it grounded: web search surfaces recent press, competitor funding, and market context; the startup's pitch deck as a RAG source lets the analysis engage directly with what the founders claim rather than what the model assumes.
+An angel investor or early-stage VC evaluating a pre-seed startup needs a structured view of the market opportunity, competitive threats, team credibility, and key risks — produced quickly from public information. *Step 03* gives you a generic "how to evaluate a startup" framework, not an evaluation of any specific startup. *Steps 04–08* add a VC analyst persona and a standard memo structure (market / competition / team / risks / verdict) — suddenly it reads like an actual first draft. *Step 09* gives you a diligence researcher who stays focused on gathering factual signals for a specific startup type rather than explaining due diligence in general. *Step 10* adds an investment analyst who takes the research and writes the memo with an explicit recommendation — the researcher gathers evidence; the analyst makes the call. *Steps 11–13* make it grounded: web search surfaces recent press, competitor funding, and market context; the startup's pitch deck as a RAG source lets the analysis engage directly with what the founders claim rather than what the model assumes.
 
 - **Topic example:** `"Due diligence on an early-stage startup building AI-powered legal document review for SMEs"`
-- **Agents (steps 3–4):** Diligence Researcher → Investment Analyst
-- **Tool (step 5):** `SerperDevTool` — recent news, competitor signals, market sizing
-- **RAG source (step 5):** Startup pitch deck or product one-pager (PDF)
+- **Agents (steps 09–10):** Diligence Researcher → Investment Analyst
+- **Tool (step 11):** `SerperDevTool` — recent news, competitor signals, market sizing
+- **RAG source (step 13):** Startup pitch deck or product one-pager (PDF)
 
 ---
 
 **5. ESG and Sustainability Risk Briefing**
 
-A fund manager, analyst, or corporate strategy team needs to assess the environmental, social, and governance risks of a company or sector — for investment screening, stakeholder reporting, or strategic planning. *Step 1* produces a surface-level summary of ESG topics that applies to almost any company — not useful for any specific one. *Step 2* adds an ESG analyst persona and a risk-rating output format, making the output look and read like a proper briefing section. *Step 3* gives you an ESG researcher agent focused on material risks for a specific sector, not ESG in general. *Step 4* adds a risk strategist who converts the research into a risk rating with concrete mitigation recommendations — the researcher surfaces the exposure; the strategist says what to do about it. *Step 5* is where generic output becomes specific: web search surfaces recent controversies, regulatory fines, and third-party ESG ratings; the company's own sustainability report as a RAG source lets the agents compare what the company claims against what is publicly documented.
+A fund manager, analyst, or corporate strategy team needs to assess the environmental, social, and governance risks of a company or sector — for investment screening, stakeholder reporting, or strategic planning. *Step 03* produces a surface-level summary of ESG topics that applies to almost any company — not useful for any specific one. *Steps 04–08* add an ESG analyst persona and a risk-rating output format, making the output look and read like a proper briefing section. *Step 09* gives you an ESG researcher agent focused on material risks for a specific sector, not ESG in general. *Step 10* adds a risk strategist who converts the research into a risk rating with concrete mitigation recommendations — the researcher surfaces the exposure; the strategist says what to do about it. *Steps 11–13* are where generic output becomes specific: web search surfaces recent controversies, regulatory fines, and third-party ESG ratings; the company's own sustainability report as a RAG source lets the agents compare what the company claims against what is publicly documented.
 
 - **Topic example:** `"ESG risk profile for fast-fashion retailers: labor practices, Tier-2 supply chain, and end-of-life circularity"`
-- **Agents (steps 3–4):** ESG Researcher → Risk & Strategy Analyst
-- **Tool (step 5):** `SerperDevTool` — controversies, regulatory actions, ESG ratings
-- **RAG source (step 5):** Company sustainability report (PDF)
+- **Agents (steps 09–10):** ESG Researcher → Risk & Strategy Analyst
+- **Tool (step 11):** `SerperDevTool` — controversies, regulatory actions, ESG ratings
+- **RAG source (step 13):** Company sustainability report (PDF)
 
 ---
 
-Start at [Step 1 — Zero-Shot Prompting](exercises/en/step_01_zero_shot_prompting.ipynb) once you have the repo running — or [Step 0](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, Jupyter, or Python itself are new to you.
+Start at [Step 03 — Zero-Shot Prompting](exercises/en/step_03_zero_shot_prompting.ipynb) once you have the repo running — or [Step 00](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, Jupyter, or Python itself are new to you.
 
 ## 3. Exercises & Tools
 
@@ -113,7 +113,7 @@ CrewAI's signature choice — demonstrated across the exercise steps — is that
 
 ### The template code
 
-The exercise notebooks (Steps 3–5) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks:
+The exercise notebooks (Steps 09–13) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks:
 
 | File | What it is |
 | --- | --- |
@@ -123,11 +123,11 @@ The exercise notebooks (Steps 3–5) are standalone — each defines its own `Ag
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG |
-| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–5 |
+| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 00–13 |
 
 ### Exercise steps
 
-5 steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
+These steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
 
 ### Adding more tools or RAG (for students)
 
@@ -159,7 +159,7 @@ WebsiteSearchTool(config={
 
 This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt` — see `knowledge_source_example.py` for an unwired template) will embed via Gemini automatically.
 
-[Step 5c](exercises/en/step_05c_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 5c for details).
+[Step 13](exercises/en/step_13_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 13 for details).
 
 ## 4. Technical Setup
 
@@ -168,7 +168,7 @@ This crew's `embedder` (see `crew.py`) is already configured the same way at the
 Use [VS Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/) (Cursor is based on VS Code). Install two extensions:
 
 - **Python** (`ms-python.python`)
-- **Jupyter** (`ms-toolsai.jupyter`) — needed to open and run the `.ipynb` notebooks in Steps 1–2
+- **Jupyter** (`ms-toolsai.jupyter`) — needed to open and run the `.ipynb` notebooks used throughout the exercises
 
 ### Getting started
 
@@ -190,7 +190,7 @@ Copy `.env.example` to `.env` and fill in your API keys (`OPENAI_API_KEY` or `GE
 
 #### Register the Jupyter kernel
 
-Steps 1–2 are Jupyter notebooks. To make this project's virtual environment (and its dependencies) available inside them, register it as a kernel once:
+All steps are Jupyter notebooks. To make this project's virtual environment (and its dependencies) available inside them, register it as a kernel once:
 
 ```bash
 uv run python -m ipykernel install --user --name research_crew --display-name "research_crew"

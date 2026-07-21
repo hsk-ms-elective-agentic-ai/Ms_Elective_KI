@@ -6,7 +6,7 @@
 
 ## `EVALUATION.md`
 
-Das ist das Hauptabgabeprodukt: eine vergleichende Analyse dessen, was jeder Schritt hinzugefügt hat, spezifisch für euer Thema verankert. Füllt den Abschnitt jedes Schritts aus, sobald ihr ihn durchführt — schreibt Beobachtungen direkt nach dem Ausführen, nicht am Ende. Der Vergleich *ist* die Aufgabe; generische Antworten ("es ist genauer") erzielen weniger Punkte als spezifische ("der Analyst in Schritt 4 hat X als übertrieben markiert, was der Researcher in Schritt 3 nicht hinterfragt hatte").
+Das ist das Hauptabgabeprodukt: eine vergleichende Analyse dessen, was jeder Schritt hinzugefügt hat, spezifisch für euer Thema verankert. Füllt den Abschnitt jedes Schritts aus, sobald ihr ihn durchführt — schreibt Beobachtungen direkt nach dem Ausführen, nicht am Ende. Der Vergleich *ist* die Aufgabe; generische Antworten ("es ist genauer") erzielen weniger Punkte als spezifische ("der Analyst in Schritt 10 hat X als übertrieben markiert, was der Researcher in Schritt 09 nicht hinterfragt hatte").
 
 ```markdown
 # Schritt-Evaluierung
@@ -23,36 +23,68 @@ wird, gerichtet an Radiologen, die diagnostische Unterstützungstools evaluieren
 
 Führt jeden Schritt mit demselben Thema aus. Füllt direkt nach dem Ausführen aus.
 
-### Schritt 1 — Einfaches Prompting
+### Schritt 03 — Zero-Shot-Prompting
 **Ausführungsdatum:**
 **Wie die Ausgabe aussieht (2–3 Sätze):**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 2 — Prompting-Techniken
+### Schritt 04 — Few-Shot-Prompting
 **Ausführungsdatum:**
-**2a (Prompt-Vorlage) — was sich gegenüber Schritt 1 verändert hat:**
-**2b (Chain of Thought) — was sich gegenüber 2a verändert hat:**
-**2c (Chain Prompting) — was sich gegenüber 2a/2b verändert hat:**
-**Welche Technik hat für euer Thema am besten funktioniert, und warum:**
+**Was sich gegenüber Schritt 03 verändert hat; haben die Beispiele die Ausgabe merklich gelenkt:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 3 — Einzelner Agent
+### Schritt 05 — Prompt-Vorlage
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 2 verändert hat (konkret):**
+**Was sich gegenüber Schritt 04 verändert hat:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 06 — Chain Prompting
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 04/05 verändert hat:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 07 — Chain of Thought
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 05 verändert hat; hat explizites Schlussfolgern das Ergebnis verändert oder nur mehr Text erzeugt:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 08 — Tree of Thought
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 07 verändert hat; hat das parallele Erkunden mehrerer Gedankenpfade die Antwort verändert, oder nur die Diskussion drumherum:**
+**Welche Prompting-Technik (Schritte 04–08) hat für euer Thema am besten funktioniert, und warum:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 09 — Einzelner Agent
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 08 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 4 — Multi-Agent
+### Schritt 10 — Multi-Agent
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 3 verändert hat (konkret):**
+**Was sich gegenüber Schritt 09 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 5 — RAG + Tools
+### Schritt 11 — Tools
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 4 verändert hat (konkret):**
+**Was sich gegenüber Schritt 10 verändert hat (konkret):**
+**Was besser ist:**
+**Was schwieriger oder fragiler ist:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 12 — MCP
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 11 verändert hat (konkret):**
+**Was besser ist:**
+**Was schwieriger oder fragiler ist:**
+**Eine Sache, die euch überrascht hat:**
+
+### Schritt 13 — RAG
+**Ausführungsdatum:**
+**Was sich gegenüber Schritt 11/12 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
