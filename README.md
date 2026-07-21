@@ -157,7 +157,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/step_03_05_agents.ipynb).
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/step_05_rag_and_tools.ipynb).
 
 ## 4. Technical Setup
 

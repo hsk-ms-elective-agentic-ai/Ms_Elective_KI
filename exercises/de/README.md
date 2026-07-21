@@ -18,9 +18,9 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 | [0b](../en/step_00b_test_setup_and_first_agent.ipynb) | Setup testen & erster Agent | Prüft, ob eure Umgebung funktioniert, Projekt-Tour, ein eigenständiger `Agent` *(optional)* |
 | [1](../en/step_01_zero_shot_prompting.ipynb) | Zero-Shot-Prompting | Der bloße API-Aufruf — eure Ausgangsbasis |
 | [2](../en/step_02a_few_shot.ipynb) | Prompt-Vorlage | Eine Rolle + Ausgabeformat, derselbe Aufruf (5 Notebooks) |
-| [3](../en/step_03_05_agents.ipynb) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
-| [4](../en/step_03_05_agents.ipynb) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
-| [5](../en/step_03_05_agents.ipynb) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
+| [3](../en/step_03_single_agent.ipynb) | Einzelner Agent | Ein Agent in `agents.yaml` + `crew.py` *(Zwischenabgabe fällig)* |
+| [4](../en/step_04_multi_agent.ipynb) | Multi-Agent | Zwei Agenten mit Task-Verkettung via `context:` |
+| [5](../en/step_05_rag_and_tools.ipynb) | RAG + Tools | `SerperDevTool` + Knowledge-Source hinzufügen *(Abschlussabgabe fällig)* |
 
 Alle fünf Schritte verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 1 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein schrittweiser Vergleich, was sich verändert hat und warum das für euren Anwendungsfall wichtig ist (oder nicht).
 
