@@ -45,9 +45,23 @@ aimed at radiologists evaluating diagnostic support tools" is the right level of
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 5 — RAG + Tools
+### Step 5a — Tools
 **Date run:**
 **What changed vs Step 4 (be specific):**
+**What's better:**
+**What's harder or more fragile:**
+**One thing that surprised you:**
+
+### Step 5b — MCP
+**Date run:**
+**What changed vs 5a (be specific):**
+**What's better:**
+**What's harder or more fragile:**
+**One thing that surprised you:**
+
+### Step 5c — RAG
+**Date run:**
+**What changed vs 5a/5b (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**

@@ -113,7 +113,7 @@ CrewAI's signature choice — demonstrated across the exercise steps — is that
 
 ### The template code
 
-This repo's working crew (`researcher` → `analyst`, sequential) is the running example for every exercise:
+The exercise notebooks (Steps 3–5) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks:
 
 | File | What it is |
 | --- | --- |
@@ -121,13 +121,13 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/config/agents.yaml](src/research_crew/config/agents.yaml) | Each agent's `role`/`goal`/`backstory` |
 | [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
-| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (see Step 5) |
-| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (see Step 5) |
+| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool |
+| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG |
 | [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–5 |
 
 ### Exercise steps
 
-5 steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → RAG + tools, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
+5 steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
 
 ### Adding more tools or RAG (for students)
 
@@ -157,7 +157,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5](exercises/en/step_05_rag_and_tools.ipynb).
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is demonstrated in [Step 5c](exercises/en/step_05c_rag.ipynb).
 
 ## 4. Technical Setup
 
