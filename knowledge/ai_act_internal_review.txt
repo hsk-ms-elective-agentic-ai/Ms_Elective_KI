@@ -1,0 +1,21 @@
+Internal AI System Review — Talent Acquisition, confidential draft (June 2026)
+
+System under review: "Resume Triage Assistant" — automatically screens and ranks
+job applicant resumes before a human recruiter looks at them. In production for
+our EU offices since March 2024.
+
+Classification note (internal, not yet confirmed by Legal): under the EU AI Act's
+Annex III, AI systems used in the "recruitment or selection of natural persons"
+are listed as high-risk. The Resume Triage Assistant likely falls into this
+category, since it materially influences which candidates a human ever sees.
+
+Open compliance gaps identified in this review:
+- No conformity assessment has been completed for this system yet.
+- The system is not yet registered in the EU high-risk AI database.
+- No human reviewer currently signs off before a candidate is auto-rejected;
+  this needs to change to satisfy the human oversight requirement.
+- Candidates are not currently informed that an AI system is involved in
+  screening their application.
+
+Recommended next step: pause auto-rejection (route all borderline cases to a
+human recruiter) until the conformity assessment and registration are complete.
