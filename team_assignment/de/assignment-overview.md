@@ -14,9 +14,9 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer
 | --- | --- |
 | [1 — Zero-Shot-Prompting](../../exercises/en/step_01_zero_shot_prompting.ipynb) | Der bloße API-Aufruf — eure Ausgangsbasis |
 | [2 — Prompt-Vorlage](../../exercises/en/step_02a_few_shot.ipynb) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
-| [3 — Einzelner Agent](../../exercises/en/step_03_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| [4 — Multi-Agent](../../exercises/en/step_04_multi_agent.ipynb) | Rollenspezialisierung + Task-Verkettung |
-| [5 — RAG + Tools](../../exercises/en/step_05_rag_and_tools.ipynb) | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
+| [3 — Einzelner Agent](../../exercises/en/step_03_05_agents.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
+| [4 — Multi-Agent](../../exercises/en/step_03_05_agents.ipynb) | Rollenspezialisierung + Task-Verkettung |
+| [5 — RAG + Tools](../../exercises/en/step_03_05_agents.ipynb) | Externe Verankerung: Websuche + Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
 
 Ihr entwerft zwischen den Schritten nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 3 und eine **Abschlussabgabe** nach Schritt 5.
 

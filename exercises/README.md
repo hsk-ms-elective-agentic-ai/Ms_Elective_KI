@@ -16,9 +16,9 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 | [0b](en/step_00b_test_setup_and_first_agent.ipynb) | Test Your Setup & First Agent | Verify your environment works, tour the project, meet a standalone `Agent` *(optional)* |
 | [1](en/step_01_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline (Jupyter notebook) |
 | [2](en/step_02a_few_shot.ipynb) | Prompt Template | A role + output structure, same call (5 Jupyter notebooks) |
-| [3](en/step_03_single_agent.ipynb) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
-| [4](en/step_04_multi_agent.ipynb) | Multi-Agent | Two agents with task chaining via `context:` |
-| [5](en/step_05_rag_and_tools.ipynb) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
+| [3](en/step_03_05_agents.ipynb) | Single Agent | One agent in `agents.yaml` + `crew.py` *(interim submission due)* |
+| [4](en/step_03_05_agents.ipynb) | Multi-Agent | Two agents with task chaining via `context:` |
+| [5](en/step_03_05_agents.ipynb) | RAG + Tools | Add `SerperDevTool` + a knowledge source *(final submission due)* |
 
 All five steps use the **same topic** — you pick it once at step 1 and keep it. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters (or doesn't) for your use case.
 
