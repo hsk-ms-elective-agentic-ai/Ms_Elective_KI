@@ -123,7 +123,7 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (see Step 5) |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (see Step 5) |
-| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–2, docs for Steps 3–5 (`src/exercises/` has the placeholder scripts) |
+| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 1–5 |
 
 ### Exercise steps
 
