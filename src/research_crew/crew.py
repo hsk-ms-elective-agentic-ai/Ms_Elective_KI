@@ -73,6 +73,9 @@ class ResearchCrew():
             tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
+            # Prints a free, no-signup shareable trace URL (agent reasoning, task
+            # timing, tool calls) to app.crewai.com after each run.
+            tracing=True,
             embedder={
                 "provider": "google-generativeai",
                 "config": {
