@@ -6,7 +6,7 @@
 
 ## `EVALUATION.md`
 
-Das ist das Hauptabgabeprodukt: eine vergleichende Analyse dessen, was jeder Schritt hinzugefügt hat, spezifisch für euer Thema verankert. Füllt den Abschnitt jedes Schritts aus, sobald ihr ihn durchführt — schreibt Beobachtungen direkt nach dem Ausführen, nicht am Ende. Der Vergleich *ist* die Aufgabe; generische Antworten ("es ist genauer") erzielen weniger Punkte als spezifische ("der Analyst in Schritt 10 hat X als übertrieben markiert, was der Researcher in Schritt 09 nicht hinterfragt hatte").
+Das ist das Hauptabgabeprodukt: eine vergleichende Analyse dessen, was jeder Schritt hinzugefügt hat, spezifisch für euer Thema verankert. Füllt den Abschnitt jedes Schritts aus, sobald ihr ihn durchführt — schreibt Beobachtungen direkt nach dem Ausführen, nicht am Ende. Der Vergleich *ist* die Aufgabe; generische Antworten ("es ist genauer") erzielen weniger Punkte als spezifische ("der Analyst in Schritt 13 hat X als übertrieben markiert, was der Researcher in Schritt 09 nicht hinterfragt hatte").
 
 ```markdown
 # Schritt-Evaluierung
@@ -61,30 +61,30 @@ Führt jeden Schritt mit demselben Thema aus. Füllt direkt nach dem Ausführen 
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 10 — Multi-Agent
+### Schritt 10 — Tools
 **Ausführungsdatum:**
 **Was sich gegenüber Schritt 09 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 11 — Tools
+### Schritt 11 — MCP
 **Ausführungsdatum:**
 **Was sich gegenüber Schritt 10 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 12 — MCP
+### Schritt 12 — RAG
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 11 verändert hat (konkret):**
+**Was sich gegenüber Schritt 10/11 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**
 
-### Schritt 13 — RAG
+### Schritt 13 — Multi-Agent
 **Ausführungsdatum:**
-**Was sich gegenüber Schritt 11/12 verändert hat (konkret):**
+**Was sich gegenüber Schritt 09 verändert hat (konkret):**
 **Was besser ist:**
 **Was schwieriger oder fragiler ist:**
 **Eine Sache, die euch überrascht hat:**

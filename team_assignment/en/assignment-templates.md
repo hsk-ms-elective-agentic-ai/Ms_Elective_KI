@@ -6,7 +6,7 @@
 
 ## `EVALUATION.md`
 
-This is the main deliverable: a comparative analysis of what each step added, grounded specifically in your topic. Fill in each step's section as you run it — write observations right after running, not at the end. The comparison *is* the assignment; generic answers ("it's more accurate") score less than specific ones ("the analyst in step 10 flagged X as overstated, which the researcher in step 09 didn't question").
+This is the main deliverable: a comparative analysis of what each step added, grounded specifically in your topic. Fill in each step's section as you run it — write observations right after running, not at the end. The comparison *is* the assignment; generic answers ("it's more accurate") score less than specific ones ("the analyst in step 13 flagged X as overstated, which the researcher in step 09 didn't question").
 
 ```markdown
 # Step Evaluation
@@ -61,30 +61,30 @@ Run each step with the same topic. Fill in right after running.
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 10 — Multi-Agent
+### Step 10 — Tools
 **Date run:**
 **What changed vs Step 09 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 11 — Tools
+### Step 11 — MCP
 **Date run:**
 **What changed vs Step 10 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 12 — MCP
+### Step 12 — RAG
 **Date run:**
-**What changed vs Step 11 (be specific):**
+**What changed vs Steps 10/11 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**
 
-### Step 13 — RAG
+### Step 13 — Multi-Agent
 **Date run:**
-**What changed vs Steps 11/12 (be specific):**
+**What changed vs Step 09 (be specific):**
 **What's better:**
 **What's harder or more fragile:**
 **One thing that surprised you:**

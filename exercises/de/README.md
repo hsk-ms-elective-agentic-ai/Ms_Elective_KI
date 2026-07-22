@@ -24,12 +24,12 @@ Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) i
 | [07](../en/step_07_chain_of_thought.ipynb) | Chain of Thought | Explizites Schlussfolgern vor der finalen Antwort |
 | [08](../en/step_08_tree_of_thought.ipynb) | Tree of Thought | Mehrere Gedankenpfade parallel erkundet |
 | [09](../en/step_09_single_agent.ipynb) | Einzelner Agent | Ein eigenständiger `Agent`, kein Framework-Projekt nötig *(Zwischenabgabe fällig)* |
-| [10](../en/step_10_multi_agent.ipynb) | Multi-Agent | Zwei Agenten, verkettet durch Weitergabe der Ausgabe |
-| [11](../en/step_11_tools.ipynb) | Tools | Live-Websuche über ein CrewAI-Tool |
-| [12](../en/step_12_mcp.ipynb) | MCP | Ein externer Tool-Server über das Model Context Protocol |
-| [13](../en/step_13_rag.ipynb) | RAG | Retrieval aus eurer eigenen Knowledge-Source *(Abschlussabgabe fällig)* |
+| [10](../en/step_10_tools.ipynb) | Tools | Live-Websuche über ein CrewAI-Tool |
+| [11](../en/step_11_mcp.ipynb) | MCP | Ein externer Tool-Server über das Model Context Protocol |
+| [12](../en/step_12_rag.ipynb) | RAG | Retrieval aus eurer eigenen Knowledge-Source |
+| [13](../en/step_13_multi_agent.ipynb) | Multi-Agent | Zwei Agenten, verkettet durch Weitergabe der Ausgabe *(Abschlussabgabe fällig)* |
 
-Die Schritte 03–13 verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 03 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein schrittweiser Vergleich, was sich verändert hat und warum das für euren Anwendungsfall wichtig ist (oder nicht).
+Die Schritte 03–13 verwenden dasselbe **Thema** — ihr wählt es einmal bei Schritt 03 und behaltet es. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein vollständiger Projektbericht — Architektur, Implementierung, Evaluierung, Ethik — für den Agenten, den euer Team entwirft und baut, informiert davon, was sich bei jedem Schritt verändert hat.
 
 Was bewertet wird, das Abgabepaket, Team-Setup und Vorlagen (`EVALUATION.md`, `TEAM.md`, Peer Evaluation) sind im [Überblick zur Aufgabe](../../team_assignment/de/assignment-overview.md) beschrieben (Deutsch / [English](../../team_assignment/en/assignment-overview.md)).
 

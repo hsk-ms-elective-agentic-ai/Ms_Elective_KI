@@ -22,12 +22,12 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 | [07](en/step_07_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
 | [08](en/step_08_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
 | [09](en/step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(interim submission due)* |
-| [10](en/step_10_multi_agent.ipynb) | Multi-Agent | Two agents, chained by passing one's output into the next |
-| [11](en/step_11_tools.ipynb) | Tools | Live web search via a CrewAI tool |
-| [12](en/step_12_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
-| [13](en/step_13_rag.ipynb) | RAG | Retrieval from your own knowledge source *(final submission due)* |
+| [10](en/step_10_tools.ipynb) | Tools | Live web search via a CrewAI tool |
+| [11](en/step_11_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
+| [12](en/step_12_rag.ipynb) | RAG | Retrieval from your own knowledge source |
+| [13](en/step_13_multi_agent.ipynb) | Multi-Agent | Two agents, chained by passing one's output into the next *(final submission due)* |
 
-Steps 03–13 use the **same topic** — you pick it once at step 03 and keep it. The primary deliverable is `EVALUATION.md`: a step-by-step comparison of what changed and why it matters (or doesn't) for your use case.
+Steps 03–13 use the **same topic** — you pick it once at step 03 and keep it. The primary deliverable is `EVALUATION.md`: a full project report — architecture, implementation, evaluation, ethics — on the agent your team designs and builds, informed by what changed at each step.
 
 For what's graded, the submission package, team setup, and templates (`EVALUATION.md`, `TEAM.md`, peer evaluation), see [Assignment Overview](../team_assignment/en/assignment-overview.md) (English / [Deutsch](../team_assignment/de/assignment-overview.md)).
 
