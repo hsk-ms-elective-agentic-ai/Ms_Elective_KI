@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in fünf Sprints, fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `EVALUATION.md`: eine vergleichende Analyse dessen, was ihr beobachtet habt und was das für euren Anwendungsfall bedeutet.
+Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in fünf Sprints, fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
 
 **Teamgröße:** 3–5 Studierende.
 
@@ -15,8 +15,8 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer
 | 1 | [Schritt 03 — Zero-Shot-Prompting](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf — eure Ausgangsbasis |
 | 2 | [Schritte 04–08 — Prompting-Techniken](../../exercises/en/step_04_few_shot.ipynb) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
 | 3 | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| 4 | [Schritt 10 — Multi-Agent](../../exercises/en/step_10_multi_agent.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung |
-| 5 | [Schritte 11–13 — Tools, MCP & RAG](../../exercises/en/step_11_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval *(Abschlussabgabe fällig)* |
+| 4 | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
+| 5 | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
 
 Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 3) und eine **Abschlussabgabe** nach Schritt 13 (Sprint 5).
 
@@ -39,9 +39,44 @@ Ein Branch pro Sprint, ein Pull Request, um ihn abzuschließen — darüber hina
 
 Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
-**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und schreibt diesen Abschnitt in `EVALUATION.md`, eine andere Schritt 10. `EVALUATION.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
+**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und entwirft den Architektur-Abschnitt von `EVALUATION.md`, eine andere Schritt 10 und den Tools-Unterabschnitt. `EVALUATION.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
 
 Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
+
+## Agil arbeiten als Team: Sprints, Epics, User Stories & Issues
+
+*(Falls eure separate Agile-Vorlesung Scrum/Kanban-Theorie schon behandelt hat, springt direkt zu "Einmaliges Setup" unten — dieser Abschnitt ist nur das "Wie" in GitHub.)*
+
+Über die Git-Mechanik oben hinaus muss euer Team auch planen und nachverfolgen, *was* ihr in jedem Sprint baut — nicht nur Code pushen. Ihr führt diesen Kurs bereits als fünf Sprints durch (Tabelle oben) — dieser Abschnitt zeigt, wie ihr jeden davon so durchführt, wie es ein agiles Team tun würde, mit GitHubs eigenem Issue-Tracker statt einem separaten Tool.
+
+Ein kurzer Begriffs-Brückenschlag, falls die Vorlesung das noch nicht behandelt hat:
+
+- **Epic** — ein Arbeitspaket, das zu groß ist, um es in einer Sitzung zu erledigen. In diesem Kurs *ist* jeder **Sprint** euer Epic — seine "Fügt hinzu"-Zelle in der Tabelle oben ist das Epic-Ziel.
+- **User Story** — ein konkretes, abschließbares Stück Arbeit innerhalb eines Epics, idealerweise formuliert als *"Als ___ möchte ich ___, damit ___."* Ein Sprint zerfällt in ungefähr 3–6 davon.
+- **Backlog** — alles, was noch nicht erledigt ist: offene Issues, die noch nicht in Arbeit sind.
+- **Board** — eine visuelle Ansicht, wie Stories durch Zustände wandern (To do → In progress → Done).
+
+Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Aufteilen von Stories oder Schätzungen behandelt die separate Agile-Vorlesung. Hier geht es nur darum, das auf GitHub-Features zu verdrahten, die ihr schon habt:
+
+| Agile-Konzept | GitHub-Feature | So nutzt ihr es |
+| --- | --- | --- |
+| Epic (= ein Sprint) | Milestone | Ein Milestone pro Sprint: `Sprint 1` … `Sprint 5` |
+| User Story | Issue | Ein Issue pro konkreter Aufgabe; formuliert den Titel als Story, wo es passt |
+| Sprint-Backlog & Board | Project (Board-Ansicht) | Spalten: Backlog → To do → In progress → In review → Done |
+| "Dieser Code schließt diese Story ab" | PR-Beschreibung | `Closes #12` in eurem `sprint-<N>`-PR — Mergen schließt das Issue automatisch |
+
+### Einmaliges Setup (macht das zu Beginn von Sprint 1)
+
+1. **Milestones** — **Issues → Milestones → New milestone**, einmal pro Sprint: `Sprint 1` … `Sprint 5`. Fügt die "Fügt hinzu"-Zelle des jeweiligen Sprints aus der Tabelle oben als Beschreibung ein.
+2. **Project-Board** — **Projects → New project → Board**. Fügt die Spalten `Backlog`, `To do`, `In progress`, `In review`, `Done` hinzu.
+3. **Issue-Vorlage** — dieses Repo bringt bereits eine *User story*-Issue-Vorlage mit (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). Sie füllt die Als/möchte ich/damit-Form plus Akzeptanzkriterien vor.
+
+### Einen Sprint durchführen
+
+1. **Sprint Planning** (Sprint-Beginn, ~15 Min., ganzes Team): lest die "Fügt hinzu"-Zelle des Sprints aus der Tabelle oben noch einmal, und teilt sie in 3–6 Issues mit der *User story*-Vorlage auf. Setzt bei jedem den Milestone auf den aktuellen Sprint, weist eine verantwortliche Person zu und legt es in "To do".
+2. **Während des Sprints**: bewegt eure eigenen Issues beim Arbeiten über das Board (`To do` → `In progress` → `In review` → `Done`) und referenziert die Issue-Nummer in Commits (`#12`), damit die Historie nachvollziehbar bleibt.
+3. **Sprint Review** (Sprint-Ende, direkt vor dem Öffnen des PRs): geht das Board gemeinsam als Team durch — alles in `Done` sollte im Diff sichtbar sein, den ihr gleich mergt; alles Unfertige wandert ins Backlog des nächsten Sprints, statt den PR zu blockieren.
+4. **Kreis schließen**: schreibt `Closes #12` (und weitere) in die Beschreibung eures `sprint-<N>` → `main`-PRs — das Mergen schließt diese Issues automatisch und komplettiert den Milestone.
 
 ## Abgabepaket
 
@@ -49,7 +84,7 @@ Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schr
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Evaluierungsdokument | `EVALUATION.md` — schrittweise Beobachtungen, Vergleiche, abschließende Empfehlung | Eure tatsächliche vergleichende Analyse, spezifisch auf euer Thema bezogen |
+| Evaluierungsdokument | `EVALUATION.md` — Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
 | Code-Änderungen | Änderungen an den Übungsskripten (z. B. TOPIC, eigene Knowledge-Sources) | Was ihr tatsächlich ausgeführt habt |
 | Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, was sich in jedem Sprint verändert hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
@@ -62,9 +97,9 @@ Dieselben Gewichtungen gelten bei Zwischen- und Abschlussabgabe, bewertet gegen 
 
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
-| Evaluierungsqualität | 40% | `EVALUATION.md` — sind die Schrittvergleiche spezifisch und ehrlich? Werden echte Unterschiede identifiziert, nicht nur "es ist besser"? |
-| Kritische Reflexion | 30% | Versteht das Team *warum* sich jeder Schritt unterscheidet? Wird es auf das spezifische Thema bezogen statt generisch beantwortet? |
-| Abschließende Empfehlung | 20% | Ist die Empfehlung für den eigenen Anwendungsfall begründet und spezifisch — nicht "RAG + Tools ist immer das Beste"? |
+| Evaluierungsqualität | 40% | `EVALUATION.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
+| Kritische Reflexion | 30% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
+| Design & Fazit | 20% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
 | Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde |
 
 **Optionaler Bonus:** ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.

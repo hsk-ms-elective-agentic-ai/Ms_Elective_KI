@@ -1,0 +1,41 @@
+name: User story
+description: One small, closeable piece of work for one sprint.
+title: "As a ..., I want ..."
+labels: ["story"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One story = one small piece of work you can finish and close within the sprint — not the whole sprint itself. Split anything bigger into several of these. After creating the issue, set its **Milestone** (right-hand sidebar) to the matching `Sprint <N>` and add it to the team's Project board.
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      description: "As a ..., I want ..., so that ..."
+      placeholder: |
+        As a user of our agent, I want it to cite its sources, so that I can verify its claims.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How will you know this is done? A short checklist is fine.
+      placeholder: |
+        - [ ] Agent includes a "Sources" section in its output
+        - [ ] Each claim links back to a retrieved document
+    validations:
+      required: false
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      description: Which sprint does this belong to? (Also set the matching Milestone after creating the issue — this field alone doesn't do that.)
+      options:
+        - "Sprint 1 — Zero-Shot baseline"
+        - "Sprint 2 — Prompting techniques"
+        - "Sprint 3 — Single Agent"
+        - "Sprint 4 — Tools, MCP & RAG"
+        - "Sprint 5 — Multi-Agent"
+    validations:
+      required: true

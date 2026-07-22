@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into five sprints, adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `EVALUATION.md`: a comparative analysis of what you observed and what it means for your use case.
+This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into five sprints, adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `EVALUATION.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
 
 **Team size:** 3–5 students.
 
@@ -15,8 +15,8 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 | 1 | [Step 03 — Zero-Shot Prompting](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call — your baseline |
 | 2 | [Steps 04–08 — Prompting Techniques](../../exercises/en/step_04_few_shot.ipynb) | A role + output structure, same call |
 | 3 | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
-| 4 | [Step 10 — Multi-Agent](../../exercises/en/step_10_multi_agent.ipynb) | Role specialization + output chaining |
-| 5 | [Steps 11–13 — Tools, MCP & RAG](../../exercises/en/step_11_tools.ipynb) | External grounding: web search, an MCP server, document retrieval *(final submission due)* |
+| 4 | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
+| 5 | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent.ipynb) | Role specialization + output chaining *(final submission due)* |
 
 You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 3) and a **final submission** after Step 13 (sprint 5).
 
@@ -39,9 +39,44 @@ One branch per sprint, one pull request to close it out — beyond that, day-to-
 
 No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
-**Divide files between teammates** where you can — e.g. one person runs Step 09 and writes that section of `EVALUATION.md`, another runs Step 10. `EVALUATION.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
+**Divide files between teammates** where you can — e.g. one person runs Step 09 and drafts the Architecture section of `EVALUATION.md`, another runs Step 10 and drafts the Tools subsection. `EVALUATION.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
 
 For quick edits without opening your local setup: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
+
+## Working like an agile team: sprints, epics, user stories & issues
+
+*(If your separate Agile lecture already covered Scrum/Kanban theory, skip straight to "One-time setup" below — this section is only the "how" in GitHub.)*
+
+Beyond the git mechanics above, your team also needs to plan and track *what* you're building each sprint, not just push code. You're already running this course as five sprints (the table at the top) — this section is about running each one the way an agile team would, using GitHub's own issue tracker instead of a separate tool.
+
+A quick vocabulary bridge, in case the lecture hasn't reached this yet:
+
+- **Epic** — a chunk of work too big to finish in one sitting. In this course, each **sprint** *is* your epic — its "Adds" cell in the table at the top is the epic-level goal.
+- **User story** — one concrete, closeable piece of work inside an epic, ideally phrased as *"As a ___, I want ___, so that ___."* A sprint breaks down into roughly 3–6 of these.
+- **Backlog** — everything not yet done: open issues not yet in progress.
+- **Board** — a visual view of stories moving through states (To do → In progress → Done).
+
+That's the whole vocabulary — the reasoning behind sprints, story-splitting, or estimation is what the separate Agile lecture covers. Here, it's just wiring these onto GitHub features you already have:
+
+| Agile concept | GitHub feature | Use it like this |
+| --- | --- | --- |
+| Epic (= one sprint) | Milestone | One milestone per sprint: `Sprint 1` … `Sprint 5` |
+| User story | Issue | One issue per concrete task; phrase the title as a story where it fits |
+| Sprint backlog & board | Project (board view) | Columns: Backlog → To do → In progress → In review → Done |
+| "This code closes that story" | PR description | `Closes #12` in your `sprint-<N>` PR — merging auto-closes the issue |
+
+### One-time setup (do this at the start of Sprint 1)
+
+1. **Milestones** — **Issues → Milestones → New milestone**, once per sprint: `Sprint 1` … `Sprint 5`. Paste that sprint's "Adds" cell from the table at the top as the description.
+2. **Project board** — **Projects → New project → Board**. Add columns `Backlog`, `To do`, `In progress`, `In review`, `Done`.
+3. **Issue template** — this repo already ships a *User story* issue template (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). It pre-fills the As a/I want/so that shape plus acceptance criteria.
+
+### Running each sprint
+
+1. **Sprint planning** (start of sprint, ~15 min, whole team): re-read that sprint's "Adds" cell from the table at the top, and break it into 3–6 issues using the *User story* template. Set each one's milestone to the current sprint, assign an owner, and put it in "To do."
+2. **During the sprint**: as you work, move your own issues across the board (`To do` → `In progress` → `In review` → `Done`) and reference the issue number in commits (`#12`) so the history stays traceable.
+3. **Sprint review** (end of sprint, right before opening the PR): walk the board together as a team — everything in `Done` should be visible in the diff you're about to merge; anything unfinished rolls into next sprint's backlog rather than blocking the PR.
+4. **Close the loop**: put `Closes #12` (and any others) in your `sprint-<N>` → `main` PR description — merging it auto-closes those issues and completes the milestone.
 
 ## Submission package
 
@@ -49,7 +84,7 @@ At each submission deadline (interim: after Step 09, final: after Step 13), your
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |
-| Evaluation document | `EVALUATION.md` — step-by-step observations, comparisons, final recommendation | Your actual comparative analysis, specifically grounded in your topic |
+| Evaluation document | `EVALUATION.md` — architecture, implementation, evaluation, and ethics of your own agent | Your actual project report, specifically grounded in your topic |
 | Code edits | Any changes you made to the exercise scripts (e.g. TOPIC, custom knowledge sources) | What you actually ran |
 | Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A reviewable diff of what changed each sprint |
 | Team notes | `TEAM.md` | Members and who contributed what |
@@ -62,9 +97,9 @@ The same weights apply at both the interim and final submission, scored against 
 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
-| Evaluation quality | 40% | `EVALUATION.md` — are the step-by-step comparisons specific and honest? Do they identify real differences, not just "it's better"? |
-| Critical reflection | 30% | Does the team understand *why* each step differs? Do they connect it to their specific topic rather than giving generic answers? |
-| Final recommendation | 20% | Is the recommendation for their use case reasoned and specific — not "RAG + Tools is always best"? |
+| Evaluation quality | 40% | `EVALUATION.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
+| Critical reflection | 30% | Does the team understand *why* each design choice matters? Do they connect it to their specific topic and agent rather than giving generic answers? |
+| Design & conclusion | 20% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
 | Process (PRs, team) | 10% | One clean PR per sprint, all team members contributing, PR descriptions say what was run |
 
 **Optional bonus:** a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit. Never required, never a substitute for a thin evaluation.
