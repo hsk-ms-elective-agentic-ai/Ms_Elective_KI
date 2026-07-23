@@ -84,7 +84,7 @@ Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schr
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Evaluierungsdokument | `EVALUATION.md` — Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
+| Evaluierungsdokument | `EVALUATION.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
 | Code-Änderungen | Änderungen an den Übungsskripten (z. B. TOPIC, eigene Knowledge-Sources) | Was ihr tatsächlich ausgeführt habt |
 | Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, was sich in jedem Sprint verändert hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
@@ -100,7 +100,7 @@ Dieselben Gewichtungen gelten bei Zwischen- und Abschlussabgabe, bewertet gegen 
 | Evaluierungsqualität | 40% | `EVALUATION.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
 | Kritische Reflexion | 30% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
 | Design & Fazit | 20% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
-| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde |
+| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `EVALUATION.md` wird sprintweise aktuell gehalten |
 
 **Optionaler Bonus:** ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.
 

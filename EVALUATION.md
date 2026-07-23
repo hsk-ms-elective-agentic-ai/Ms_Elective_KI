@@ -12,6 +12,20 @@
 
 ---
 
+## Sprint Progression
+
+_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 5 — in depth.)_
+
+| Sprint | Added | What changed, concretely — and one surprise |
+| --- | --- | --- |
+| 1 — Step 03 | Baseline zero-shot prompt | |
+| 2 — Steps 04–08 | Prompting techniques | |
+| 3 — Step 09 *(interim)* | First `Agent` | |
+| 4 — Steps 10–12 | Tools, MCP, RAG | |
+| 5 — Step 13 *(final)* | Second agent, `Process` | |
+
+---
+
 ## 1. Executive Summary
 
 _(**Purpose:** To provide a high-level, managerial overview. Motivate your solution.)_
@@ -85,7 +99,7 @@ _(This is a critical section. Show your work.)_
   - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 07](exercises/en/step_07_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature? Show where. How did this change the verbose log or the final answer?
   - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/en/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
   - **Tree of Thought (ToT):** CrewAI has no built-in equivalent ([Step 08](exercises/en/step_08_tree_of_thought.ipynb) simulates it via a single prompt). Did you implement anything like this — e.g., prompting one agent to reason as multiple experts in parallel, or running several agents on the same `Task` and having a final agent compare and synthesize their outputs?
-- **Prompt Evolution:** (Optional but recommended) Briefly describe how your agents' `backstory`/`Task` descriptions changed. What was your first, simple version, and what did you have to add to fix errors or improve behavior?
+- **Prompt Evolution:** How did your agents' `backstory`/`Task` descriptions change between sprints, specifically? The Sprint Progression table above has the high-level version — this is where you go into the actual wording, e.g. what you added to a `backstory` to fix a specific failure.
 
 ### 4.4. Context Engineering
 
