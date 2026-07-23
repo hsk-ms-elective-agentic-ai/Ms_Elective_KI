@@ -165,10 +165,22 @@ This crew's `embedder` (see `crew.py`) is already configured the same way at the
 
 ### IDE
 
-Use [VS Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/) (Cursor is based on VS Code). Install two extensions:
+Use [VS Code](https://code.visualstudio.com/) or [Cursor](https://cursor.com/) (Cursor is based on VS Code). Install these extensions:
 
 - **Python** (`ms-python.python`)
 - **Jupyter** (`ms-toolsai.jupyter`) — needed to open and run the `.ipynb` notebooks used throughout the exercises
+- **GitHub Pull Requests and Issues** (`GitHub.vscode-pull-request-github`) — lets you create and review pull requests from within VS Code
+
+### Git & GitHub setup
+
+You'll need Git installed and the GitHub Pull Requests extension configured before you can push changes and open pull requests.
+
+1. **Install Git** (skip if `git --version` in a terminal already works):
+   - Mac: run `git --version` in Terminal — if it's missing, it'll prompt you to install the Xcode Command Line Tools, or install via [git-scm.com](https://git-scm.com/downloads).
+   - Windows: download and install from [git-scm.com/downloads](https://git-scm.com/downloads) (default options are fine).
+2. **Install the GitHub Pull Requests and Issues extension**: open the Extensions view (`Cmd+Shift+X` / `Ctrl+Shift+X`), search for **"GitHub Pull Requests and Issues"**, and click **Install**.
+3. **Sign in**: click the new GitHub icon in the Activity Bar and sign in with your GitHub account when prompted.
+4. **Verify**: open your cloned repo in VS Code, go to Source Control (`Cmd+Shift+G` / `Ctrl+Shift+G`) — you should see your branch and be able to commit/push. The GitHub Pull Requests view lets you create and view pull requests directly.
 
 ### Getting started
 
