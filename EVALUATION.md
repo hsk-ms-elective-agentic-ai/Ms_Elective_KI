@@ -99,7 +99,16 @@ _(This is a critical section. Show your work.)_
   - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 07](exercises/en/step_07_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature? Show where. How did this change the verbose log or the final answer?
   - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/en/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
   - **Tree of Thought (ToT):** CrewAI has no built-in equivalent ([Step 08](exercises/en/step_08_tree_of_thought.ipynb) simulates it via a single prompt). Did you implement anything like this — e.g., prompting one agent to reason as multiple experts in parallel, or running several agents on the same `Task` and having a final agent compare and synthesize their outputs?
-- **Prompt Evolution:** How did your agents' `backstory`/`Task` descriptions change between sprints, specifically? The Sprint Progression table above has the high-level version — this is where you go into the actual wording, e.g. what you added to a `backstory` to fix a specific failure.
+- **Prompt Evolution:** How did your agents' `backstory`/`Task` descriptions change, specifically — what did you add to fix a failure or sharpen behavior?
+
+  Sprints 1–2 are purely about this — no agent exists yet — so recap them here before the story shifts to agent architecture in Section 3:
+
+  | Sprint | Prompting technique | What changed, concretely |
+  | --- | --- | --- |
+  | 1 — Step 03 | None (zero-shot baseline) | |
+  | 2 — Steps 04–08 | Few-shot / template / chaining / CoT / ToT | |
+
+  The full five-sprint arc — including where agents take over — is in the **Sprint Progression** table at the top of this report.
 
 ### 4.4. Context Engineering
 
