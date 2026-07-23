@@ -2,112 +2,13 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-templates.md)
 
-**`EVALUATION.md` and `TEAM.md` already exist at your repo root** — every team's copy starts with them already in place. Fill them in directly; they're reproduced below for reference. See [Assignment Overview](assignment-overview.md) for how they're used, and each step's own page for what to write at each stage.
+**`REPORT.md` and `TEAM.md` already exist at your repo root** — every team's copy starts with them already in place. Fill them in directly. See [Assignment Overview](assignment-overview.md) for how they're used, and each step's own page for what to write at each stage.
 
-## `EVALUATION.md`
+## `REPORT.md`
 
-This is the main deliverable: a comparative analysis of what each step added, grounded specifically in your topic. Fill in each step's section as you run it — write observations right after running, not at the end. The comparison *is* the assignment; generic answers ("it's more accurate") score less than specific ones ("the analyst in step 13 flagged X as overstated, which the researcher in step 09 didn't question").
+This is the main deliverable: a full project report on the agent your team designs and builds — architecture, implementation choices, evaluation, and ethical considerations — not a step-by-step log. It's not reproduced here since it's long enough that a second copy would just drift out of sync with the real one; `REPORT.md` at your repo root has the actual section-by-section prompts, from Executive Summary through Individual Contribution Log.
 
-```markdown
-# Step Evaluation
-
-**Team:** [team name] · **Topic:** [your topic] · **Last updated:** [step N, YYYY-MM-DD]
-
-## Your topic
-
-[One or two sentences: what specific problem does your topic address, and who would use the output?
-"AI in healthcare" is too broad. "How AI is being used for early cancer detection in radiology, 
-aimed at radiologists evaluating diagnostic support tools" is the right level of specificity.]
-
-## Step-by-step observations
-
-Run each step with the same topic. Fill in right after running.
-
-### Step 03 — Zero-Shot Prompting
-**Date run:**
-**What the output looks like (2–3 sentences):**
-**One thing that surprised you:**
-
-### Step 04 — Few-Shot Prompting
-**Date run:**
-**What changed vs Step 03; did the examples steer the output noticeably:**
-**One thing that surprised you:**
-
-### Step 05 — Prompt Template
-**Date run:**
-**What changed vs Step 04:**
-**One thing that surprised you:**
-
-### Step 06 — Chain Prompting
-**Date run:**
-**What changed vs Steps 04/05:**
-**One thing that surprised you:**
-
-### Step 07 — Chain of Thought
-**Date run:**
-**What changed vs Step 05; did explicit reasoning change the conclusion or just add text:**
-**One thing that surprised you:**
-
-### Step 08 — Tree of Thought
-**Date run:**
-**What changed vs Step 07; did exploring multiple reasoning paths change the answer, or just add discussion around it:**
-**Which prompting technique (Steps 04–08) worked best for your topic, and why:**
-**One thing that surprised you:**
-
-### Step 09 — Single Agent
-**Date run:**
-**What changed vs Step 08 (be specific):**
-**What's better:**
-**What's harder or more fragile:**
-**One thing that surprised you:**
-
-### Step 10 — Tools
-**Date run:**
-**What changed vs Step 09 (be specific):**
-**What's better:**
-**What's harder or more fragile:**
-**One thing that surprised you:**
-
-### Step 11 — MCP
-**Date run:**
-**What changed vs Step 10 (be specific):**
-**What's better:**
-**What's harder or more fragile:**
-**One thing that surprised you:**
-
-### Step 12 — RAG
-**Date run:**
-**What changed vs Steps 10/11 (be specific):**
-**What's better:**
-**What's harder or more fragile:**
-**One thing that surprised you:**
-
-### Step 13 — Multi-Agent
-**Date run:**
-**What changed vs Step 09 (be specific):**
-**What's better:**
-**What's harder or more fragile:**
-**One thing that surprised you:**
-
-## Your recommendation
-
-For your specific topic and use case: which step's level of complexity would you actually
-deploy, and why? What would you lose by going one step simpler? What would you gain
-by going one step more complex — and is that gain worth the added fragility?
-
-[150–250 words. Specific to your topic, not generic.]
-
-## Alternatives you tried
-
-What else did you experiment with? (A different topic formulation, a different role 
-definition in the agent backstory, a different knowledge document, a tool that didn't 
-work as expected?) What did you find?
-
-## What you'd add next
-
-If you had two more weeks and one more API key, what specifically would you change, 
-add, or test? Why that, and not something else?
-```
+One section worth calling out specifically: **Sprint Progression**, right after Team Members, is a required table — one row per sprint, filled in right after that sprint's PR, not reconstructed at the end. Generic answers ("it's more accurate") score less than specific ones ("the analyst in step 13 flagged X as overstated, which the researcher in step 09 didn't question") — that specificity is what the rest of the report is graded on too.
 
 ## `TEAM.md`
 

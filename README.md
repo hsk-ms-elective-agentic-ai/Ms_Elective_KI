@@ -33,7 +33,7 @@ Everything from section 4 onward in this README applies to **your team's repo**,
 
 ### Team assignment
 
-Teams of **3–5 students** work through a sequence of versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each step below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `EVALUATION.md`: a full project report on the agent your team designs and builds, informed by what changed at each step. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** work through a sequence of versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each step below both teaches a concept and produces output you compare directly to the previous step. The primary deliverable is `REPORT.md`: a full project report on the agent your team designs and builds, informed by what changed at each step. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 

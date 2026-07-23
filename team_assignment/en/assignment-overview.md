@@ -2,11 +2,11 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into five sprints, adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `EVALUATION.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
+This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into five sprints, adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
 
 **Team size:** 3–5 students.
 
-See [Assignment Templates](assignment-templates.md) for the documents you'll fill in (`EVALUATION.md`, `TEAM.md`, peer evaluation).
+See [Assignment Templates](assignment-templates.md) for the documents you'll fill in (`REPORT.md`, `TEAM.md`, peer evaluation).
 
 ## How this works: one sprint, one layer, one comparison
 
@@ -39,7 +39,7 @@ One branch per sprint, one pull request to close it out — beyond that, day-to-
 
 No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
-**Divide files between teammates** where you can — e.g. one person runs Step 09 and drafts the Architecture section of `EVALUATION.md`, another runs Step 10 and drafts the Tools subsection. `EVALUATION.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
+**Divide files between teammates** where you can — e.g. one person runs Step 09 and drafts the Architecture section of `REPORT.md`, another runs Step 10 and drafts the Tools subsection. `REPORT.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
 
 For quick edits without opening your local setup: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
 
@@ -84,7 +84,7 @@ At each submission deadline (interim: after Step 09, final: after Step 13), your
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |
-| Evaluation document | `EVALUATION.md` — sprint progression, architecture, implementation, evaluation, and ethics of your own agent | Your actual project report, specifically grounded in your topic |
+| Report document | `REPORT.md` — sprint progression, architecture, implementation, evaluation, and ethics of your own agent | Your actual project report, specifically grounded in your topic |
 | Code edits | Any changes you made to the exercise scripts (e.g. TOPIC, custom knowledge sources) | What you actually ran |
 | Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A reviewable diff of what changed each sprint |
 | Team notes | `TEAM.md` | Members and who contributed what |
@@ -97,10 +97,10 @@ The same weights apply at both the interim and final submission, scored against 
 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
-| Evaluation quality | 40% | `EVALUATION.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
+| Report quality | 40% | `REPORT.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
 | Critical reflection | 30% | Does the team understand *why* each design choice matters? Do they connect it to their specific topic and agent rather than giving generic answers? |
 | Design & conclusion | 20% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
-| Process (PRs, team) | 10% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `EVALUATION.md`'s Sprint Progression table kept current sprint-by-sprint |
+| Process (PRs, team) | 10% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `REPORT.md`'s Sprint Progression table kept current sprint-by-sprint |
 
 **Optional bonus:** a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit. Never required, never a substitute for a thin evaluation.
 

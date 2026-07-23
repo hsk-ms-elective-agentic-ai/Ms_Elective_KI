@@ -2,11 +2,11 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in fünf Sprints, fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `EVALUATION.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
+Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in fünf Sprints, fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `REPORT.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
 
 **Teamgröße:** 3–5 Studierende.
 
-Vorlagen für die Dokumente, die ihr ausfüllt (`EVALUATION.md`, `TEAM.md`, Peer Evaluation), sind im [Vorlagen-Dokument](assignment-templates.md) enthalten.
+Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Evaluation), sind im [Vorlagen-Dokument](assignment-templates.md) enthalten.
 
 ## So funktioniert es: ein Sprint, eine Schicht, ein Vergleich
 
@@ -39,7 +39,7 @@ Ein Branch pro Sprint, ein Pull Request, um ihn abzuschließen — darüber hina
 
 Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
-**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und entwirft den Architektur-Abschnitt von `EVALUATION.md`, eine andere Schritt 10 und den Tools-Unterabschnitt. `EVALUATION.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
+**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und entwirft den Architektur-Abschnitt von `REPORT.md`, eine andere Schritt 10 und den Tools-Unterabschnitt. `REPORT.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
 
 Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
 
@@ -84,7 +84,7 @@ Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schr
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Evaluierungsdokument | `EVALUATION.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
+| Berichtsdokument | `REPORT.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
 | Code-Änderungen | Änderungen an den Übungsskripten (z. B. TOPIC, eigene Knowledge-Sources) | Was ihr tatsächlich ausgeführt habt |
 | Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, was sich in jedem Sprint verändert hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
@@ -97,10 +97,10 @@ Dieselben Gewichtungen gelten bei Zwischen- und Abschlussabgabe, bewertet gegen 
 
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
-| Evaluierungsqualität | 40% | `EVALUATION.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
+| Berichtsqualität | 40% | `REPORT.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
 | Kritische Reflexion | 30% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
 | Design & Fazit | 20% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
-| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `EVALUATION.md` wird sprintweise aktuell gehalten |
+| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `REPORT.md` wird sprintweise aktuell gehalten |
 
 **Optionaler Bonus:** ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.
 
