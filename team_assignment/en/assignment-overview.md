@@ -91,16 +91,28 @@ At each submission deadline (interim: after Step 09, final: after Step 13), your
 
 The chain of merged sprint PRs is what your instructor reads to follow how the work progressed, rather than diffing raw commit history by hand. Use the PR description to note what you ran and what you found at each step.
 
+The Presentation (see Grading below) isn't a repo artifact — it's a live talk in the final course session, nothing to commit for it.
+
 ## Grading
 
-The same weights apply at both the interim and final submission, scored against whatever's complete by that deadline:
+The final grade has three components:
 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
-| Report quality | 40% | `REPORT.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
-| Critical reflection | 30% | Does the team understand *why* each design choice matters? Do they connect it to their specific topic and agent rather than giving generic answers? |
-| Design & conclusion | 20% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
-| Process (PRs, team) | 10% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `REPORT.md`'s Sprint Progression table kept current sprint-by-sprint |
+| Code | 10% | Does the code actually run end-to-end (`crew.kickoff()` completes without errors)? Is it reasonably organized — clear agent/task definitions, no dead code left over from experimentation? Does it match what `REPORT.md` describes, with no gap between the claimed and the actual implementation? |
+| Report (`REPORT.md`) | 70% | See the breakdown below. |
+| Presentation | 20% | A live, in-class walkthrough of your agent — what it does, why you built it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
+
+The Report's 70% breaks down further into four sub-criteria:
+
+| Sub-criterion | Weight (of total grade) | What's assessed |
+| --- | --- | --- |
+| Report quality | 28% | `REPORT.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
+| Critical reflection | 21% | Does the team understand *why* each design choice matters? Do they connect it to their specific topic and agent rather than giving generic answers? |
+| Design & conclusion | 14% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
+| Process (PRs, team) | 7% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `REPORT.md`'s Sprint Progression table kept current sprint-by-sprint |
+
+The Code and Report weights above apply at both the interim and final submission, scored against whatever's complete by that deadline — Presentation is assessed once, as part of the final grade, after Step 13.
 
 **Optional bonus:** a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit. Never required, never a substitute for a thin evaluation.
 

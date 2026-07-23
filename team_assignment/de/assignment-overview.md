@@ -91,16 +91,28 @@ Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schr
 
 Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr ausgeführt und was ihr festgestellt habt.
 
+Die Präsentation (siehe Bewertung unten) ist kein Repo-Artefakt — sie ist ein Live-Vortrag in der letzten Kurssitzung, dafür wird nichts committed.
+
 ## Bewertung
 
-Dieselben Gewichtungen gelten bei Zwischen- und Abschlussabgabe, bewertet gegen das, was bis zu dieser Deadline abgeschlossen ist:
+Die Abschlussnote setzt sich aus drei Komponenten zusammen:
 
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
-| Berichtsqualität | 40% | `REPORT.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
-| Kritische Reflexion | 30% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
-| Design & Fazit | 20% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
-| Prozess (PRs, Team) | 10% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `REPORT.md` wird sprintweise aktuell gehalten |
+| Code | 10% | Läuft der Code tatsächlich durchgängig (`crew.kickoff()` schließt ohne Fehler ab)? Ist er einigermaßen sauber strukturiert — klare Agent-/Task-Definitionen, kein toter Code aus Experimenten? Stimmt er mit dem überein, was `REPORT.md` beschreibt, ohne Lücke zwischen behaupteter und tatsächlicher Implementierung? |
+| Bericht (`REPORT.md`) | 70% | Siehe Aufschlüsselung unten. |
+| Präsentation | 20% | Ein Live-Rundgang durch euren Agenten im Kurs — was er macht, warum ihr ihn so gebaut habt, und eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Kein separates File zum Einreichen — das passiert live in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
+
+Die 70% des Berichts schlüsseln sich weiter in vier Unterkriterien auf:
+
+| Unterkriterium | Gewicht (der Gesamtnote) | Was bewertet wird |
+| --- | --- | --- |
+| Berichtsqualität | 28% | `REPORT.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
+| Kritische Reflexion | 21% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
+| Design & Fazit | 14% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
+| Prozess (PRs, Team) | 7% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `REPORT.md` wird sprintweise aktuell gehalten |
+
+Die Gewichtungen für Code und Bericht oben gelten bei Zwischen- und Abschlussabgabe, bewertet gegen das, was bis zu dieser Deadline abgeschlossen ist — die Präsentation wird einmalig bewertet, als Teil der Abschlussnote, nach Schritt 13.
 
 **Optionaler Bonus:** ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.
 
