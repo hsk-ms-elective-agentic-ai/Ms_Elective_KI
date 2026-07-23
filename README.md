@@ -41,58 +41,58 @@ Pick one of the five use cases below. Each is designed so that the steps produce
 
 ---
 
-**1. Competitive Landscape Analysis**
+**1. Job Application Tailoring Assistant**
 
-A product manager or founder entering a new market needs to know who the dominant players are, how they differentiate, and where the genuine gaps are — not a Wikipedia summary, but analysis sharp enough to inform a market-entry decision. *Step 03* gives you a list of names with surface-level descriptions. *Steps 04–08* add a SWOT frame, an analyst persona, and investor-friendly language — immediately more structured. *Step 09* gives you a researcher agent whose role keeps it consistently focused on competitive signals rather than generic industry background. *Steps 10–12* close the information gap: web search adds current funding rounds and product launches; a market brief or investor memo as a RAG source ties the analysis to a specific entry thesis rather than the general market. *Step 13* adds a positioning strategist who takes the now-grounded competitive data and converts it into a differentiation recommendation — the two agents together produce something neither produces alone.
+A student applying to internships or working-student roles needs each application tailored to the specific posting — recruiters and applicant-tracking systems filter out generic, copy-pasted applications fast. *Step 03* gives you generic "how to write a cover letter" advice that could apply to any job anywhere. *Steps 04–08* add a career-coach persona and a structured bullet-point format — immediately more usable, but still generic to the role type, not the actual posting. *Step 09* gives you a job-posting analyst agent whose role keeps it focused on extracting the specific requirements and keywords from one real posting, not general career advice. *Steps 10–12* close the information gap: web search adds current company news, culture signals, and interview-process reports; the applicant's own CV as a RAG source grounds every suggestion in experience they actually have, not invented achievements. *Step 13* adds an application strategist who takes the now-grounded requirements and CV and writes a tailored pitch, mapping specific experience to specific requirements — the two agents together produce something neither produces alone.
 
-- **Topic example:** `"Competitive landscape for [product category] targeting [customer segment] in [region]"`
-- **Agents (Step 09, Step 13):** Market Intelligence Researcher → Positioning Strategist
-- **Tool (step 10):** `SerperDevTool` — current news, funding announcements, product launches
-- **RAG source (step 12):** Market positioning brief or investor memo (PDF)
-
----
-
-**2. Regulatory Impact Briefing**
-
-A compliance officer or product team needs to understand what a specific regulation — EU AI Act, GDPR, Digital Markets Act — actually requires of their product, and what concrete actions to take before the compliance deadline. *Step 03* produces a generic regulation summary that could have come from a news article. *Steps 04–08* add a compliance-officer persona and an action-checklist output format — the same information becomes immediately actionable. *Step 09* gives you a policy-tracker agent that stays focused on the obligations relevant to a specific company type, not the regulation in general. *Steps 10–12* are where it gets specific: web search surfaces recent enforcement decisions and implementation guidance; the actual regulation text as a RAG source lets agents quote specific articles rather than paraphrase from training data. *Step 13* adds a compliance strategist who converts those now-grounded obligations into a prioritized remediation plan — the tracker surfaces what's required; the strategist says what to do about it and in what order.
-
-- **Topic example:** `"EU AI Act compliance requirements for a B2B SaaS company that uses LLMs in its product"`
-- **Agents (Step 09, Step 13):** Policy Tracker → Compliance Strategist
-- **Tool (step 10):** `SerperDevTool` — enforcement decisions, recent regulatory guidance
-- **RAG source (step 12):** The regulation text (PDF — available from EUR-Lex)
+- **Topic example:** `"Tailor an application for a [Working Student — Data Analytics] role at [Company] in [City]"`
+- **Agents (Step 09, Step 13):** Job-Posting Analyst → Application Strategist
+- **Tool (step 10):** `SerperDevTool` — company news, culture, interview-process reports
+- **RAG source (step 12):** The applicant's own CV/resume (PDF)
 
 ---
 
-**3. Talent and Skills Gap Analysis**
+**2. Exam Prep Coach**
 
-An HR director or team lead at a tech company needs to know which AI/ML skills are genuinely in demand right now, how the current team stacks up, and whether to hire, retrain, or partner. *Step 03* produces a generic "top skills in AI" list — exactly what any search engine returns. *Steps 04–08* add an HR-manager persona and a skills-gap-table format, making the output directly usable in a team meeting. *Step 09* gives you a labor-market researcher agent focused on demand signals from real job postings rather than general trends. *Steps 10–12* make it current: web search pulls live job postings and salary benchmarks; a team skills inventory or competency framework as a RAG source makes the gap analysis specific to the actual team rather than a hypothetical one. *Step 13* adds a workforce strategist who takes the now-grounded research and proposes a concrete hiring or upskilling plan — researcher provides the market picture; strategist provides the response.
+A student preparing for an exam needs active recall practice — testing what they actually remember — not another pass of re-reading slides, which feels productive but barely improves retention. *Step 03* gives you a generic "how to study effectively" list, useful for no exam in particular. *Steps 04–08* add a tutor persona and a structured quiz-question format — closer to something usable, but still built from the model's general knowledge of the subject, not the actual course. *Step 09* gives you a content-reviewer agent whose role keeps it focused on identifying the key concepts likely to matter for this exam, not explaining the subject from scratch. *Steps 10–12* close the information gap: web search adds a clearer explanation or worked example for a concept the notes only mention briefly; the student's own lecture notes as a RAG source ground every question in what was actually taught, not a generic textbook version. *Step 13* adds a quiz master who takes the now-grounded key concepts and runs an actual practice round — asking questions, checking the answer, and flagging what's still shaky — the two agents together produce something neither produces alone.
 
-- **Topic example:** `"In-demand AI engineering and MLOps skills for product teams at European fintechs (2025)"`
-- **Agents (Step 09, Step 13):** Labor Market Researcher → Workforce Strategist
-- **Tool (step 10):** `SerperDevTool` — job boards, hiring trends, salary benchmarks
-- **RAG source (step 12):** Team skills inventory or competency framework (text file)
-
----
-
-**4. Startup Due-Diligence Memo**
-
-An angel investor or early-stage VC evaluating a pre-seed startup needs a structured view of the market opportunity, competitive threats, team credibility, and key risks — produced quickly from public information. *Step 03* gives you a generic "how to evaluate a startup" framework, not an evaluation of any specific startup. *Steps 04–08* add a VC analyst persona and a standard memo structure (market / competition / team / risks / verdict) — suddenly it reads like an actual first draft. *Step 09* gives you a diligence researcher who stays focused on gathering factual signals for a specific startup type rather than explaining due diligence in general. *Steps 10–12* make it grounded: web search surfaces recent press, competitor funding, and market context; the startup's pitch deck as a RAG source lets the analysis engage directly with what the founders claim rather than what the model assumes. *Step 13* adds an investment analyst who takes the now-grounded research and writes the memo with an explicit recommendation — the researcher gathers evidence; the analyst makes the call.
-
-- **Topic example:** `"Due diligence on an early-stage startup building AI-powered legal document review for SMEs"`
-- **Agents (Step 09, Step 13):** Diligence Researcher → Investment Analyst
-- **Tool (step 10):** `SerperDevTool` — recent news, competitor signals, market sizing
-- **RAG source (step 12):** Startup pitch deck or product one-pager (PDF)
+- **Topic example:** `"Prepare me for the [Course Name] midterm, covering [Topic A, B, C]"`
+- **Agents (Step 09, Step 13):** Content Reviewer → Quiz Master
+- **Tool (step 10):** `SerperDevTool` — supplementary explanations, worked examples for tricky concepts
+- **RAG source (step 12):** The student's own lecture notes or slides (PDF/text)
 
 ---
 
-**5. ESG and Sustainability Risk Briefing**
+**3. Personalized Study & Semester Planner**
 
-A fund manager, analyst, or corporate strategy team needs to assess the environmental, social, and governance risks of a company or sector — for investment screening, stakeholder reporting, or strategic planning. *Step 03* produces a surface-level summary of ESG topics that applies to almost any company — not useful for any specific one. *Steps 04–08* add an ESG analyst persona and a risk-rating output format, making the output look and read like a proper briefing section. *Step 09* gives you an ESG researcher agent focused on material risks for a specific sector, not ESG in general. *Steps 10–12* are where generic output becomes specific: web search surfaces recent controversies, regulatory fines, and third-party ESG ratings; the company's own sustainability report as a RAG source lets the agents compare what the company claims against what is publicly documented. *Step 13* adds a risk strategist who converts the now-grounded research into a risk rating with concrete mitigation recommendations — the researcher surfaces the exposure; the strategist says what to do about it.
+A student staring at a syllabus and an exam date needs a realistic day-by-day plan — not vague "study a bit every day" advice, but a schedule that actually accounts for how much time is left and how much material there is. *Step 03* gives you generic study-planning advice, the same for a two-week sprint or a full semester. *Steps 04–08* add a planner persona and a day-by-day table format — immediately more concrete, but still guessing at what the course actually covers. *Step 09* gives you a curriculum-analyst agent whose role keeps it focused on prioritizing the topics in one specific course by weight and difficulty, not studying in general. *Steps 10–12* close the information gap: web search adds effective study techniques for the specific subject (spaced repetition for vocabulary vs. worked problems for math); the course syllabus as a RAG source grounds the prioritization in what the course actually covers and how it's graded, not a generic curriculum. *Step 13* adds a study scheduler who takes the now-grounded priorities and turns them into an actual day-by-day plan that fits the available time — the two agents together produce something neither produces alone.
 
-- **Topic example:** `"ESG risk profile for fast-fashion retailers: labor practices, Tier-2 supply chain, and end-of-life circularity"`
-- **Agents (Step 09, Step 13):** ESG Researcher → Risk & Strategy Analyst
-- **Tool (step 10):** `SerperDevTool` — controversies, regulatory actions, ESG ratings
-- **RAG source (step 12):** Company sustainability report (PDF)
+- **Topic example:** `"4-week study plan for the [Course Name] final exam on [date], ~1.5h on weekdays"`
+- **Agents (Step 09, Step 13):** Curriculum Analyst → Study Scheduler
+- **Tool (step 10):** `SerperDevTool` — effective study techniques for the specific subject
+- **RAG source (step 12):** The course syllabus or module handbook (PDF)
+
+---
+
+**4. Inbox Triage & Draft-Reply Assistant**
+
+Anyone running a shared inbox — a student club, a TA mailbox, a part-time job — needs incoming emails read, understood, and answered consistently, without every reply being reinvented from scratch. *Step 03* gives you a generic reply to a generic email, ignoring who's actually asking or what they actually need. *Steps 04–08* add an assistant persona and a structured reply format — sounds more consistent, but still can't tell a meeting request from a complaint. *Step 09* gives you an email-triager agent whose role keeps it focused on classifying intent and extracting the actual ask, not producing a reply yet. *Steps 10–12* close the information gap: web search looks up something the email references — a company, an event, a policy change; a personal FAQ or past-reply document as a RAG source keeps every answer consistent with actual policy and tone, not invented on the spot. *Step 13* adds a reply drafter who takes the now-grounded classification and context and writes an actual reply, flagging anything that needs a human rather than guessing — the two agents together produce something neither produces alone.
+
+- **Topic example:** `"Triage and draft replies for incoming emails to [a student club / TA inbox]"`
+- **Agents (Step 09, Step 13):** Email Triager → Reply Drafter
+- **Tool (step 10):** `SerperDevTool` — look up something the email references
+- **RAG source (step 12):** A personal FAQ, policy doc, or past reply examples (text file)
+
+---
+
+**5. Student Budget & Savings Planner**
+
+A student managing rent, part-time income, and irregular expenses needs an actual plan — not "spend less," but a concrete monthly budget that accounts for what's coming in and going out. *Step 03* gives you generic budgeting advice that ignores anyone's actual numbers. *Steps 04–08* add a financial-coach persona and a structured budget-table format — looks like a real budget, but the numbers are invented. *Step 09* gives you a spending-analyst agent whose role keeps it focused on reviewing actual income and spending patterns, not general financial advice. *Steps 10–12* close the information gap: web search adds current student discounts, grants, or cost-of-living figures for a specific city; a budget spreadsheet or bank statement as a RAG source grounds every recommendation in actual spending, not a hypothetical student's. *Step 13* adds a budget advisor who takes the now-grounded spending picture and proposes a concrete monthly plan with explicit trade-offs — the two agents together produce something neither produces alone.
+
+- **Topic example:** `"Monthly budget for a student earning [income], saving for [goal]"`
+- **Agents (Step 09, Step 13):** Spending Analyst → Budget Advisor
+- **Tool (step 10):** `SerperDevTool` — current student discounts, grants, cost-of-living data
+- **RAG source (step 12):** A sample budget spreadsheet or bank statement, exported as text (a synthetic one works fine — no need to use real financial data)
 
 ---
 
