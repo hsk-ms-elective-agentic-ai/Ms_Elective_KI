@@ -43,7 +43,7 @@ No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
 For quick edits without opening your local setup: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
 
-## Working like an agile team: sprints, epics, user stories & issues
+## Working like an agile team: sprints, user stories & issues
 
 *(If your separate Agile lecture already covered Scrum/Kanban theory, skip straight to "One-time setup" below — this section is only the "how" in GitHub.)*
 
@@ -51,8 +51,7 @@ Beyond the git mechanics above, your team also needs to plan and track *what* yo
 
 A quick vocabulary bridge, in case the lecture hasn't reached this yet:
 
-- **Epic** — a chunk of work too big to finish in one sitting. In this course, each **sprint** *is* your epic — its "Adds" cell in the table at the top is the epic-level goal.
-- **User story** — one concrete, closeable piece of work inside an epic, ideally phrased as *"As a ___, I want ___, so that ___."* A sprint breaks down into roughly 3–6 of these.
+- **User story** — one concrete, closeable piece of work, ideally phrased as *"As a ___, I want ___, so that ___."* A sprint breaks down into roughly 3–6 of these.
 - **Backlog** — everything not yet done: open issues not yet in progress.
 - **Board** — a visual view of stories moving through states (To do → In progress → Done).
 
@@ -60,7 +59,7 @@ That's the whole vocabulary — the reasoning behind sprints, story-splitting, o
 
 | Agile concept | GitHub feature | Use it like this |
 | --- | --- | --- |
-| Epic (= one sprint) | Milestone | One milestone per sprint: `Sprint 1` … `Sprint 5` |
+| Sprint | Milestone | One milestone per sprint: `Sprint 1` … `Sprint 5` |
 | User story | Issue | One issue per concrete task; phrase the title as a story where it fits |
 | Sprint backlog & board | Project (board view) | Columns: Backlog → To do → In progress → In review → Done |
 | "This code closes that story" | PR description | `Closes #12` in your `sprint-<N>` PR — merging auto-closes the issue |

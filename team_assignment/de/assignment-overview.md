@@ -43,7 +43,7 @@ Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
 Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
 
-## Agil arbeiten als Team: Sprints, Epics, User Stories & Issues
+## Agil arbeiten als Team: Sprints, User Stories & Issues
 
 *(Falls eure separate Agile-Vorlesung Scrum/Kanban-Theorie schon behandelt hat, springt direkt zu "Einmaliges Setup" unten — dieser Abschnitt ist nur das "Wie" in GitHub.)*
 
@@ -51,8 +51,7 @@ Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Dat
 
 Ein kurzer Begriffs-Brückenschlag, falls die Vorlesung das noch nicht behandelt hat:
 
-- **Epic** — ein Arbeitspaket, das zu groß ist, um es in einer Sitzung zu erledigen. In diesem Kurs *ist* jeder **Sprint** euer Epic — seine "Fügt hinzu"-Zelle in der Tabelle oben ist das Epic-Ziel.
-- **User Story** — ein konkretes, abschließbares Stück Arbeit innerhalb eines Epics, idealerweise formuliert als *"Als ___ möchte ich ___, damit ___."* Ein Sprint zerfällt in ungefähr 3–6 davon.
+- **User Story** — ein konkretes, abschließbares Stück Arbeit, idealerweise formuliert als *"Als ___ möchte ich ___, damit ___."* Ein Sprint zerfällt in ungefähr 3–6 davon.
 - **Backlog** — alles, was noch nicht erledigt ist: offene Issues, die noch nicht in Arbeit sind.
 - **Board** — eine visuelle Ansicht, wie Stories durch Zustände wandern (To do → In progress → Done).
 
@@ -60,7 +59,7 @@ Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Auft
 
 | Agile-Konzept | GitHub-Feature | So nutzt ihr es |
 | --- | --- | --- |
-| Epic (= ein Sprint) | Milestone | Ein Milestone pro Sprint: `Sprint 1` … `Sprint 5` |
+| Sprint | Milestone | Ein Milestone pro Sprint: `Sprint 1` … `Sprint 5` |
 | User Story | Issue | Ein Issue pro konkreter Aufgabe; formuliert den Titel als Story, wo es passt |
 | Sprint-Backlog & Board | Project (Board-Ansicht) | Spalten: Backlog → To do → In progress → In review → Done |
 | "Dieser Code schließt diese Story ab" | PR-Beschreibung | `Closes #12` in eurem `sprint-<N>`-PR — Mergen schließt das Issue automatisch |

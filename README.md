@@ -6,7 +6,7 @@ Lecture theory is delivered via slides in class. This repository is the hands-on
 
 ## Communication
 
-**All course communication goes through Discord — [join here](https://discord.gg/c89VTuMRQ).** Questions about setup, exercises, the team assignment, or anything else in this repo: ask there, not via GitHub Issues (Issues on *this* shared course repo are reserved for the team sign-up flow only — your own team's repo is different, see ["Working like an agile team"](team_assignment/en/assignment-overview.md#working-like-an-agile-team-sprints-epics-user-stories--issues) for how you'll use Issues there) or any other channel.
+**All course communication goes through Discord — [join here](https://discord.gg/c89VTuMRQ).** Questions about setup, exercises, the team assignment, or anything else in this repo: ask there, not via GitHub Issues (Issues on *this* shared course repo are reserved for the team sign-up flow only — your own team's repo is different, see ["Working like an agile team"](team_assignment/en/assignment-overview.md#working-like-an-agile-team-sprints-user-stories--issues) for how you'll use Issues there) or any other channel.
 
 Each team can spin up its **own thread** off the relevant channel for internal team coordination — any member can start one, no special permission needed.
 
