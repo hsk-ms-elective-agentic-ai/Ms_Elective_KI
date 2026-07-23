@@ -16,7 +16,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 | 2 | [Steps 04–08 — Prompting Techniques](../../exercises/en/step_04_few_shot.ipynb) | A role + output structure, same call |
 | 3 | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
 | 4 | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
-| 5 | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent.ipynb) | Role specialization + output chaining *(final submission due)* |
+| 5 | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
 
 You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 3) and a **final submission** after Step 13 (sprint 5).
 

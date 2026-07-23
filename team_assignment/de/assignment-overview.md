@@ -16,7 +16,7 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Eva
 | 2 | [Schritte 04–08 — Prompting-Techniken](../../exercises/en/step_04_few_shot.ipynb) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
 | 3 | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
 | 4 | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
-| 5 | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
+| 5 | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
 
 Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 3) und eine **Abschlussabgabe** nach Schritt 13 (Sprint 5).
 
