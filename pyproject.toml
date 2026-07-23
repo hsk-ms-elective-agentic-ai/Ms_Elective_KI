@@ -14,10 +14,6 @@ dependencies = [
 [project.scripts]
 research_crew = "research_crew.main:run"
 run_crew = "research_crew.main:run"
-train = "research_crew.main:train"
-replay = "research_crew.main:replay"
-test = "research_crew.main:test"
-run_with_trigger = "research_crew.main:run_with_trigger"
 
 [build-system]
 requires = ["hatchling"]
