@@ -18,7 +18,7 @@ _(Fill in one row per sprint, right after that sprint's PR — not retroactively
 
 | Sprint | Added | What changed, concretely — and one surprise |
 | --- | --- | --- |
-| 1 — Step 03 | Baseline zero-shot prompt | |
+| 1 — Step 03 | Baseline zero-shot prompt | Accuracy already with one prompt surprised me |
 | 2 — Steps 04–08 | Prompting techniques | |
 | 3 — Step 09 *(interim)* | First `Agent` | |
 | 4 — Steps 10–12 | Tools, MCP, RAG | |
