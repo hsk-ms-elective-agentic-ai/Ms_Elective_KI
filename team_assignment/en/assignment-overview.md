@@ -12,7 +12,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 | Sprint | Dates | Steps | Adds |
 | --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | — | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
+| 0 | 08.10.–22.10. | [Steps 00–02 — Setup, Python Basics & Intro to CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
 | 1 | 22.10.–05.11. | [Steps 03–08 — Zero-Shot & Prompting Techniques](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call through a role + output structure — your baseline through prompting |
 | 2 | 05.11.–19.11. | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
 | 3 | 19.11.–03.12. | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
@@ -23,7 +23,7 @@ You don't redesign anything between sprints — you add one piece each time, run
 **Sprint 0 checklist** — before Sprint 1 starts, as a team:
 
 - [ ] Every member has a GitHub account and access to your team repo ([Getting access](../../README.md#getting-access-students))
-- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started))
+- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started)) — if Git, `uv`, Jupyter, or Python itself are new to you, work through [Steps 00–02](../../exercises/en/step_00_setup_and_python_basics.ipynb) first
 - [ ] Set up your Milestones, Project board, and draft your team's initial product backlog as *User story* issues in your repo's Issues tab, covering what you want your agent to eventually do (see [One-time setup](#one-time-setup-do-this-during-sprint-0) below)
 
 Nothing to merge for Sprint 0 — it's setup, not a sprint deliverable.

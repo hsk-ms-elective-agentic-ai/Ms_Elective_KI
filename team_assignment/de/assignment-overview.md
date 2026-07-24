@@ -12,7 +12,7 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Eva
 
 | Sprint | Termin | Schritte | Fügt hinzu |
 | --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | — | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
+| 0 | 08.10.–22.10. | [Schritte 00–02 — Setup, Python-Grundlagen & Einführung in CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
 | 1 | 22.10.–05.11. | [Schritte 03–08 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu Rolle + Ausgabeformat — eure Ausgangsbasis durchs Prompting |
 | 2 | 05.11.–19.11. | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
 | 3 | 19.11.–03.12. | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
@@ -23,7 +23,7 @@ Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hi
 **Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
 
 - [ ] Jedes Mitglied hat einen GitHub-Account und Zugang zu eurem Team-Repo ([Zugang erhalten](../../README.md#getting-access-students))
-- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started))
+- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started)) — falls Git, `uv`, Jupyter oder Python selbst neu für euch sind, arbeitet zuerst [Schritte 00–02](../../exercises/en/step_00_setup_and_python_basics.ipynb) durch
 - [ ] Richtet eure Milestones und euer Project-Board ein und entwerft euren initialen Product Backlog als *User story*-Issues im Issues-Tab eures Repos, der abdeckt, was euer Agent am Ende können soll (siehe [Einmaliges Setup](#einmaliges-setup-macht-das-während-sprint-0) unten)
 
 Für Sprint 0 gibt es nichts zu mergen — das ist Setup, kein Sprint-Abgabeprodukt.
