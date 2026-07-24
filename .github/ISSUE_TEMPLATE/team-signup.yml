@@ -23,3 +23,35 @@ body:
       placeholder: octocat
     validations:
       required: true
+  - type: dropdown
+    id: gender
+    attributes:
+      label: Gender
+      description: Used only for balancing team composition.
+      options:
+        - Female
+        - Male
+        - Non-binary
+        - Prefer not to say
+    validations:
+      required: true
+  - type: dropdown
+    id: coding_experience
+    attributes:
+      label: Coding experience
+      description: Used only for balancing team composition.
+      options:
+        - None / just starting out
+        - Some (a course or two)
+        - Comfortable (personal projects, internships)
+        - Extensive (professional experience)
+    validations:
+      required: true
+  - type: input
+    id: semester
+    attributes:
+      label: Which semester are you in?
+      description: Used only for balancing team composition.
+      placeholder: e.g. 2
+    validations:
+      required: true
