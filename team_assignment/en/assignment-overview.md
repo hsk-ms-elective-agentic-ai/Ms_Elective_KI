@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into five sprints, adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
+This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into four sprints (preceded by a Sprint 0 setup phase), adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
 
 **Team size:** 3–5 students.
 
@@ -10,15 +10,23 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 ## How this works: one sprint, one layer, one comparison
 
-| Sprint | Steps | Adds |
-| --- | --- | --- |
-| 1 | [Step 03 — Zero-Shot Prompting](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call — your baseline |
-| 2 | [Steps 04–08 — Prompting Techniques](../../exercises/en/step_04_few_shot.ipynb) | A role + output structure, same call |
-| 3 | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
-| 4 | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
-| 5 | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
+| Sprint | Dates | Steps | Adds |
+| --- | --- | --- | --- |
+| 0 | 08.10.–22.10. | — | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
+| 1 | 22.10.–05.11. | [Steps 03–08 — Zero-Shot & Prompting Techniques](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call through a role + output structure — your baseline through prompting |
+| 2 | 05.11.–19.11. | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
+| 3 | 19.11.–03.12. | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
+| 4 | 03.12.–17.12. | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
 
-You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 3), which includes a short interim presentation, and a **final submission** after Step 13 (sprint 5).
+You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 2), which includes a short interim presentation, and a **final submission** after Step 13 (sprint 4).
+
+**Sprint 0 checklist** — before Sprint 1 starts, as a team:
+
+- [ ] Every member has a GitHub account and access to your team repo ([Getting access](../../README.md#getting-access-students))
+- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started))
+- [ ] Set up your Milestones, Project board, and draft your team's initial product backlog as *User story* issues in your repo's Issues tab, covering what you want your agent to eventually do (see [One-time setup](#one-time-setup-do-this-during-sprint-0) below)
+
+Nothing to merge for Sprint 0 — it's setup, not a sprint deliverable.
 
 ## Team setup: repos and accounts
 
@@ -47,7 +55,7 @@ For quick edits without opening your local setup: open the file on github.com, s
 
 *(If your separate Agile lecture already covered Scrum/Kanban theory, skip straight to "One-time setup" below — this section is only the "how" in GitHub.)*
 
-Beyond the git mechanics above, your team also needs to plan and track *what* you're building each sprint, not just push code. You're already running this course as five sprints (the table at the top) — this section is about running each one the way an agile team would, using GitHub's own issue tracker instead of a separate tool.
+Beyond the git mechanics above, your team also needs to plan and track *what* you're building each sprint, not just push code. You're already running this course as four sprints (the table at the top) — this section is about running each one the way an agile team would, using GitHub's own issue tracker instead of a separate tool.
 
 A quick vocabulary bridge, in case the lecture hasn't reached this yet:
 
@@ -59,14 +67,14 @@ That's the whole vocabulary — the reasoning behind sprints, story-splitting, o
 
 | Agile concept | GitHub feature | Use it like this |
 | --- | --- | --- |
-| Sprint | Milestone | One milestone per sprint: `Sprint 1` … `Sprint 5` |
+| Sprint | Milestone | One milestone per sprint: `Sprint 1` … `Sprint 4` |
 | User story | Issue | One issue per concrete task; phrase the title as a story where it fits |
 | Sprint backlog & board | Project (board view) | Columns: Backlog → To do → In progress → In review → Done |
 | "This code closes that story" | PR description | `Closes #12` in your `sprint-<N>` PR — merging auto-closes the issue |
 
-### One-time setup (do this at the start of Sprint 1)
+### One-time setup (do this during Sprint 0)
 
-1. **Milestones** — **Issues → Milestones → New milestone**, once per sprint: `Sprint 1` … `Sprint 5`. Paste that sprint's "Adds" cell from the table at the top as the description.
+1. **Milestones** — **Issues → Milestones → New milestone**, once per sprint: `Sprint 1` … `Sprint 4`. Paste that sprint's "Adds" cell from the table at the top as the description.
 2. **Project board** — **Projects → New project → Board**. Add columns `Backlog`, `To do`, `In progress`, `In review`, `Done`.
 3. **Issue template** — this repo already ships a *User story* issue template (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). It pre-fills the As a/I want/so that shape plus acceptance criteria.
 
@@ -98,7 +106,7 @@ The final grade has three components:
 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
-| Interim Presentation | 10% | A short live walkthrough of progress so far, given at the interim submission (after Step 09, sprint 3) — what you've built, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
+| Interim Presentation | 10% | A short live walkthrough of progress so far, given at the interim submission (after Step 09, sprint 2) — what you've built, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
 | Report (`REPORT.md`) | 70% | See the breakdown below. Assessed once, at the final submission. |
 | Final Presentation | 20% | A live, in-class walkthrough of your agent — what it does, why you built it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
 

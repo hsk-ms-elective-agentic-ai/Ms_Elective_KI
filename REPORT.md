@@ -14,15 +14,14 @@
 
 ## Sprint Progression
 
-_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 5 — in depth.)_
+_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 4 — in depth.)_
 
 | Sprint | Added | What changed, concretely — and one surprise |
 | --- | --- | --- |
-| 1 — Step 03 | Baseline zero-shot prompt | Accuracy already with one prompt surprised me |
-| 2 — Steps 04–08 | Prompting techniques | |
-| 3 — Step 09 *(interim)* | First `Agent` | |
-| 4 — Steps 10–12 | Tools, MCP, RAG | |
-| 5 — Step 13 *(final)* | Second agent, `Process` | |
+| 1 — Steps 03–08 | Baseline zero-shot prompt, then prompting techniques | Accuracy already with one prompt surprised me |
+| 2 — Step 09 *(interim)* | First `Agent` | |
+| 3 — Steps 10–12 | Tools, MCP, RAG | |
+| 4 — Step 13 *(final)* | Second agent, `Process` | |
 
 ---
 

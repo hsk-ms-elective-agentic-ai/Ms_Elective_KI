@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in fünf Sprints, fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `REPORT.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
+Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in vier Sprints (mit einer vorgeschalteten Sprint-0-Setup-Phase), fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `REPORT.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
 
 **Teamgröße:** 3–5 Studierende.
 
@@ -10,15 +10,23 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Eva
 
 ## So funktioniert es: ein Sprint, eine Schicht, ein Vergleich
 
-| Sprint | Schritte | Fügt hinzu |
-| --- | --- | --- |
-| 1 | [Schritt 03 — Zero-Shot-Prompting](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf — eure Ausgangsbasis |
-| 2 | [Schritte 04–08 — Prompting-Techniken](../../exercises/en/step_04_few_shot.ipynb) | Eine Rolle + Ausgabeformat, derselbe Aufruf |
-| 3 | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| 4 | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
-| 5 | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
+| Sprint | Termin | Schritte | Fügt hinzu |
+| --- | --- | --- | --- |
+| 0 | 08.10.–22.10. | — | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
+| 1 | 22.10.–05.11. | [Schritte 03–08 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu Rolle + Ausgabeformat — eure Ausgangsbasis durchs Prompting |
+| 2 | 05.11.–19.11. | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
+| 3 | 19.11.–03.12. | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
+| 4 | 03.12.–17.12. | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
 
-Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 3), die eine kurze Zwischenpräsentation enthält, und eine **Abschlussabgabe** nach Schritt 13 (Sprint 5).
+Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 2), die eine kurze Zwischenpräsentation enthält, und eine **Abschlussabgabe** nach Schritt 13 (Sprint 4).
+
+**Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
+
+- [ ] Jedes Mitglied hat einen GitHub-Account und Zugang zu eurem Team-Repo ([Zugang erhalten](../../README.md#getting-access-students))
+- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started))
+- [ ] Richtet eure Milestones und euer Project-Board ein und entwerft euren initialen Product Backlog als *User story*-Issues im Issues-Tab eures Repos, der abdeckt, was euer Agent am Ende können soll (siehe [Einmaliges Setup](#einmaliges-setup-macht-das-während-sprint-0) unten)
+
+Für Sprint 0 gibt es nichts zu mergen — das ist Setup, kein Sprint-Abgabeprodukt.
 
 ## Team-Setup: Repos und Accounts
 
@@ -47,7 +55,7 @@ Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Dat
 
 *(Falls eure separate Agile-Vorlesung Scrum/Kanban-Theorie schon behandelt hat, springt direkt zu "Einmaliges Setup" unten — dieser Abschnitt ist nur das "Wie" in GitHub.)*
 
-Über die Git-Mechanik oben hinaus muss euer Team auch planen und nachverfolgen, *was* ihr in jedem Sprint baut — nicht nur Code pushen. Ihr führt diesen Kurs bereits als fünf Sprints durch (Tabelle oben) — dieser Abschnitt zeigt, wie ihr jeden davon so durchführt, wie es ein agiles Team tun würde, mit GitHubs eigenem Issue-Tracker statt einem separaten Tool.
+Über die Git-Mechanik oben hinaus muss euer Team auch planen und nachverfolgen, *was* ihr in jedem Sprint baut — nicht nur Code pushen. Ihr führt diesen Kurs bereits als vier Sprints durch (Tabelle oben) — dieser Abschnitt zeigt, wie ihr jeden davon so durchführt, wie es ein agiles Team tun würde, mit GitHubs eigenem Issue-Tracker statt einem separaten Tool.
 
 Ein kurzer Begriffs-Brückenschlag, falls die Vorlesung das noch nicht behandelt hat:
 
@@ -59,14 +67,14 @@ Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Auft
 
 | Agile-Konzept | GitHub-Feature | So nutzt ihr es |
 | --- | --- | --- |
-| Sprint | Milestone | Ein Milestone pro Sprint: `Sprint 1` … `Sprint 5` |
+| Sprint | Milestone | Ein Milestone pro Sprint: `Sprint 1` … `Sprint 4` |
 | User Story | Issue | Ein Issue pro konkreter Aufgabe; formuliert den Titel als Story, wo es passt |
 | Sprint-Backlog & Board | Project (Board-Ansicht) | Spalten: Backlog → To do → In progress → In review → Done |
 | "Dieser Code schließt diese Story ab" | PR-Beschreibung | `Closes #12` in eurem `sprint-<N>`-PR — Mergen schließt das Issue automatisch |
 
-### Einmaliges Setup (macht das zu Beginn von Sprint 1)
+### Einmaliges Setup (macht das während Sprint 0)
 
-1. **Milestones** — **Issues → Milestones → New milestone**, einmal pro Sprint: `Sprint 1` … `Sprint 5`. Fügt die "Fügt hinzu"-Zelle des jeweiligen Sprints aus der Tabelle oben als Beschreibung ein.
+1. **Milestones** — **Issues → Milestones → New milestone**, einmal pro Sprint: `Sprint 1` … `Sprint 4`. Fügt die "Fügt hinzu"-Zelle des jeweiligen Sprints aus der Tabelle oben als Beschreibung ein.
 2. **Project-Board** — **Projects → New project → Board**. Fügt die Spalten `Backlog`, `To do`, `In progress`, `In review`, `Done` hinzu.
 3. **Issue-Vorlage** — dieses Repo bringt bereits eine *User story*-Issue-Vorlage mit (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). Sie füllt die Als/möchte ich/damit-Form plus Akzeptanzkriterien vor.
 
@@ -98,7 +106,7 @@ Die Abschlussnote setzt sich aus drei Komponenten zusammen:
 
 | Komponente | Gewicht | Was bewertet wird |
 | --- | --- | --- |
-| Zwischenpräsentation | 10% | Ein kurzer Live-Rundgang durch den bisherigen Fortschritt, gehalten bei der Zwischenabgabe (nach Schritt 09, Sprint 3) — was ihr gebaut habt, was ihr gelernt habt, und was für die verbleibenden Sprints geplant ist. Jedes Teammitglied sollte mindestens einen Teil vortragen. |
+| Zwischenpräsentation | 10% | Ein kurzer Live-Rundgang durch den bisherigen Fortschritt, gehalten bei der Zwischenabgabe (nach Schritt 09, Sprint 2) — was ihr gebaut habt, was ihr gelernt habt, und was für die verbleibenden Sprints geplant ist. Jedes Teammitglied sollte mindestens einen Teil vortragen. |
 | Bericht (`REPORT.md`) | 70% | Siehe Aufschlüsselung unten. Wird einmalig bei der Abschlussabgabe bewertet. |
 | Abschlusspräsentation | 20% | Ein Live-Rundgang durch euren Agenten im Kurs — was er macht, warum ihr ihn so gebaut habt, und eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Kein separates File zum Einreichen — das passiert live in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
 

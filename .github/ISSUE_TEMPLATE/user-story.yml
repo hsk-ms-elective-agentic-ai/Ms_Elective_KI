@@ -32,10 +32,9 @@ body:
       label: Sprint
       description: Which sprint does this belong to? (Also set the matching Milestone after creating the issue — this field alone doesn't do that.)
       options:
-        - "Sprint 1 — Zero-Shot baseline"
-        - "Sprint 2 — Prompting techniques"
-        - "Sprint 3 — Single Agent"
-        - "Sprint 4 — Tools, MCP & RAG"
-        - "Sprint 5 — Multi-Agent"
+        - "Sprint 1 — Zero-Shot & Prompting"
+        - "Sprint 2 — Single Agent"
+        - "Sprint 3 — Tools, MCP & RAG"
+        - "Sprint 4 — Multi-Agent"
     validations:
       required: true
