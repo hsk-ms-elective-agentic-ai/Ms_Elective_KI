@@ -18,7 +18,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 | 4 | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
 | 5 | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
 
-You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 3) and a **final submission** after Step 13 (sprint 5).
+You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 3), which includes a short interim presentation, and a **final submission** after Step 13 (sprint 5).
 
 ## Team setup: repos and accounts
 
@@ -90,7 +90,7 @@ At each submission deadline (interim: after Step 09, final: after Step 13), your
 
 The chain of merged sprint PRs is what your instructor reads to follow how the work progressed, rather than diffing raw commit history by hand. Use the PR description to note what you ran and what you found at each step.
 
-The Presentation (see Grading below) isn't a repo artifact — it's a live talk in the final course session, nothing to commit for it.
+The Interim and Final Presentations (see Grading below) aren't repo artifacts — they're live talks, nothing to commit for them.
 
 ## Grading
 
@@ -98,9 +98,9 @@ The final grade has three components:
 
 | Component | Weight | What's assessed |
 | --- | --- | --- |
-| Code | 10% | Does the code actually run end-to-end (`crew.kickoff()` completes without errors)? Is it reasonably organized — clear agent/task definitions, no dead code left over from experimentation? Does it match what `REPORT.md` describes, with no gap between the claimed and the actual implementation? |
-| Report (`REPORT.md`) | 70% | See the breakdown below. |
-| Presentation | 20% | A live, in-class walkthrough of your agent — what it does, why you built it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
+| Interim Presentation | 10% | A short live walkthrough of progress so far, given at the interim submission (after Step 09, sprint 3) — what you've built, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
+| Report (`REPORT.md`) | 70% | See the breakdown below. Assessed once, at the final submission. |
+| Final Presentation | 20% | A live, in-class walkthrough of your agent — what it does, why you built it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
 
 The Report's 70% breaks down further into four sub-criteria:
 
@@ -111,9 +111,7 @@ The Report's 70% breaks down further into four sub-criteria:
 | Design & conclusion | 14% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
 | Process (PRs, team) | 7% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `REPORT.md`'s Sprint Progression table kept current sprint-by-sprint |
 
-The Code and Report weights above apply at both the interim and final submission, scored against whatever's complete by that deadline — Presentation is assessed once, as part of the final grade, after Step 13.
-
-**Optional bonus:** a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit. Never required, never a substitute for a thin evaluation.
+**Optional bonus:** a working implementation that actually runs end-to-end (`crew.kickoff()` completes without errors, code is reasonably organized, and matches what `REPORT.md` describes), and/or a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit combined. Never required, never a substitute for a thin evaluation.
 
 **Individual adjustment within the team grade:** each student's share of the team grade can move by up to **±15%** based on the private [peer evaluation](assignment-templates.md#peer-evaluation-private--do-not-commit-this-to-your-repo) — submitted directly to your instructor, never committed to the repo.
 
