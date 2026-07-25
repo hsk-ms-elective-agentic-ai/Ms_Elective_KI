@@ -1,14 +1,16 @@
 from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
+from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 
-# Template for wiring up RAG knowledge sources — not imported by crew.py yet.
+# build_knowledge_sources() is wired into crew.py's Crew(knowledge_sources=...).
 # See Step 10 (Tools) and Step 12 (RAG) in exercises/en/ for the concepts this
-# applies. To actually use this, import build_knowledge_sources() in crew.py
-# and pass its result as Crew(..., knowledge_sources=build_knowledge_sources()).
-# Add more entries to the returned list for the stretch goal (e.g.
-# StringKnowledgeSource, PDFKnowledgeSource).
+# applies. Add more entries to the returned list for the stretch goal (e.g.
+# StringKnowledgeSource).
 
 
 def build_knowledge_sources() -> list:
     return [
         TextFileKnowledgeSource(file_paths=["user_preference.txt"]),
+        # crewai extracts each PDF page's text via pdfplumber (already a
+        # direct crewai dependency, no separate install needed) before chunking.
+        PDFKnowledgeSource(file_paths=["rag-data.pdf"]),
     ]

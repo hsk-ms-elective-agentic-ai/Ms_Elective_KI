@@ -113,7 +113,7 @@ CrewAI's signature choice — demonstrated across the exercise steps — is that
 
 ### The template code
 
-The exercise notebooks (Steps 09–13) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks:
+The exercise notebooks (Steps 09–13) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks. It's wired up with tools, RAG, and MCP all at once, so it doubles as a worked example of combining all three:
 
 | File | What it is |
 | --- | --- |
@@ -122,14 +122,18 @@ The exercise notebooks (Steps 09–13) are standalone — each defines its own `
 | [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool |
-| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG |
+| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | `build_knowledge_sources()`, wired into `crew.py`'s `Crew(knowledge_sources=...)` — embeds `knowledge/user_preference.txt` and `knowledge/rag-data.pdf` |
 | [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 00–13 |
+
+MCP needs no template file of its own: `crew.py`'s `researcher` agent connects directly to `mcp-server-fetch` (the official reference MCP server — an existing server, not one built for this repo) via `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]`.
+
+> **Note:** `knowledge/rag-data.pdf` is a local-only sample document (listed in `.git/info/exclude`, not tracked by git) — a real German-language T-Systems whitepaper on AI in healthcare, chosen to match the crew's default `topic`. If you clone this repo fresh, that file won't exist and the crew will fail with a missing-file error until you either add your own `knowledge/rag-data.pdf` or remove that entry from `build_knowledge_sources()`.
 
 ### Exercise steps
 
 These steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
 
-### Adding more tools or RAG (for students)
+### Adding more tools, MCP servers, or RAG (for students)
 
 `crewai_tools` ships ~90 built-in tools beyond `SerperDevTool`. The setup that matters most is whether a tool calls an external API directly (just needs a key) or does **local embedding-based search** (needs an embedder pointed at Gemini, same as below) — that split is called out per category.
 
@@ -157,9 +161,42 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt` — see `knowledge_source_example.py` for an unwired template) will embed via Gemini automatically.
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so `build_knowledge_sources()` in `knowledge_source_example.py` (wired into `Crew(knowledge_sources=...)`) embeds a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt` and a `PDFKnowledgeSource` pointing at `knowledge/rag-data.pdf` via Gemini automatically. Add or swap entries in that list for your own team's documents.
 
 [Step 12](exercises/en/step_12_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 12 for details).
+
+Connecting an agent to an MCP server works the same way, just with `Agent(mcps=[...])` instead of `Crew(knowledge_sources=[...])`: `crew.py`'s `researcher` gets `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]` directly, no separate helper file — `mcp-server-fetch` is an existing, official reference server, not something built for this repo. See [Step 11](exercises/en/step_11_mcp.ipynb) for the underlying concept.
+
+The table below covers the official [reference servers](https://github.com/modelcontextprotocol/servers) plus a few popular hosted ones — browse the [MCP Registry](https://registry.modelcontextprotocol.io/) for the full, ever-growing list. As with the tools table above, the setup that matters most is whether a server needs its own signup/API key, and — new for MCP — whether it runs locally via `uvx` (Python, no extra install, same as `mcp-server-fetch`) or `npx` (TypeScript/Node.js, **not** otherwise part of this repo's toolchain, so it needs installing separately).
+
+| Category | Needs its own account/key? | Runs via | Servers |
+| --- | --- | --- | --- |
+| Web fetch | No | `uvx` | `mcp-server-fetch` — fetch and read one specific page (already wired into `researcher`) |
+| Version control | No | `uvx` | `mcp-server-git` — read/search/diff a local git repo |
+| Time & dates | No | `uvx` | `mcp-server-time` — current time / timezone conversions |
+| Local files | No | `npx` | `@modelcontextprotocol/server-filesystem` — read/write files inside a directory you allow |
+| Persistent memory | No | `npx` | `@modelcontextprotocol/server-memory` — knowledge-graph-based memory that persists across runs (an alternative to CrewAI's own `memory=True`) |
+| Structured reasoning | No | `npx` | `@modelcontextprotocol/server-sequential-thinking` — decompose a problem into revisable thought steps |
+| Web search | **Yes** | Hosted (URL) | [Exa](https://mcp.exa.ai), [Tavily](https://tavily.com), [Brave Search](https://github.com/brave/brave-search-mcp-server) |
+| Docs, code & storage | **Yes** (OAuth/token) | Hosted or `npx` | GitHub, Google Drive, Slack — community-maintained, see the MCP Registry for current links |
+
+For a `uvx`/Python server, the wiring is exactly `mcp-server-fetch`'s pattern with a different package name:
+
+```python
+MCPServerStdio(command="uvx", args=["mcp-server-git"])
+```
+
+For an `npx`/Node.js server, swap the command (after installing Node.js — this repo doesn't require it otherwise):
+
+```python
+MCPServerStdio(command="npx", args=["-y", "@modelcontextprotocol/server-memory"])
+```
+
+For a hosted server reachable over HTTPS, `Agent.mcps` also accepts a plain URL string instead of an `MCPServerStdio` object — no local process at all, but you'll need that service's own API key:
+
+```python
+mcps=["https://mcp.exa.ai/mcp?api_key=your_key"]
+```
 
 ## 4. Technical Setup
 

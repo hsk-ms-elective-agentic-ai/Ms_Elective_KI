@@ -20,13 +20,15 @@ os.environ.setdefault('EMBEDDINGS_GOOGLE_GENERATIVE_AI_MODEL_NAME', 'gemini-embe
 os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
 
 from crewai import Agent, Crew, Process, Task
+from crewai.mcp import MCPServerStdio
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 
-# Pulled out of the Crew(...) call below so that call stays readable —
-# same embedder dict shape used throughout this repo (e.g. Step 12's RAG
+from research_crew.knowledge_source_example import build_knowledge_sources
+
+# embedder dict shape used throughout this repo (e.g. Step 12's RAG
 # notebook), just centralized here since crew.py only needs it once.
 GEMINI_EMBEDDER = {
     "provider": "google-generativeai",
@@ -63,7 +65,13 @@ class ResearchCrew():
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
             verbose=True,
-            tools=[SerperDevTool()]
+            tools=[SerperDevTool()],
+            # mcp-server-fetch: the official reference MCP server (fetches
+            # and reads web pages), run as a local subprocess via `uvx` — an
+            # existing server, nothing custom-built. Lets the researcher pull
+            # and quote a specific page directly, complementing SerperDevTool's
+            # broad search-and-summarize. See Step 11 for the concept.
+            mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])],
         )
 
     @agent
@@ -102,4 +110,7 @@ class ResearchCrew():
             # timing, tool calls) to app.crewai.com after each run.
             tracing=True,
             embedder=GEMINI_EMBEDDER,
+            # RAG (see knowledge_source_example.py / Step 12) grounds the crew
+            # in knowledge/user_preference.txt and knowledge/rag-data.pdf.
+            knowledge_sources=build_knowledge_sources(),
         )
