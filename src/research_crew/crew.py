@@ -25,7 +25,26 @@ from crewai_tools import SerperDevTool
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 
+# Pulled out of the Crew(...) call below so that call stays readable —
+# same embedder dict shape used throughout this repo (e.g. Step 12's RAG
+# notebook), just centralized here since crew.py only needs it once.
+GEMINI_EMBEDDER = {
+    "provider": "google-generativeai",
+    "config": {
+        "api_key": os.getenv("GEMINI_API_KEY"),
+        "model_name": "gemini-embedding-001",
+    },
+}
 
+
+# @CrewBase turns this plain class into a "project": on init, it reads
+# config/agents.yaml and config/tasks.yaml and exposes them as
+# self.agents_config / self.tasks_config (dicts keyed by the YAML's top-level
+# names, e.g. agents_config['researcher'] below is that whole "researcher:"
+# block). This is the notebooks-vs-project split from the README's "The
+# template code" section: Steps 09-13 build an Agent/Task inline in Python;
+# this class instead pulls role/goal/backstory and description/expected_output
+# from YAML, so changing what the crew does rarely means touching this file.
 @CrewBase
 class ResearchCrew():
     """Research crew for comprehensive topic analysis and reporting
@@ -37,6 +56,8 @@ class ResearchCrew():
     agents: List[BaseAgent]
     tasks: List[Task]
 
+    # @agent registers this method's return value into self.agents below —
+    # you never append to that list by hand, decorating the method does it.
     @agent
     def researcher(self) -> Agent:
         return Agent(
@@ -52,6 +73,8 @@ class ResearchCrew():
             verbose=True
         )
 
+    # @task does the same for self.tasks — one decorated method per Task,
+    # in the order you want them to run under Process.sequential below.
     @task
     def research_task(self) -> Task:
         return Task(
@@ -65,6 +88,8 @@ class ResearchCrew():
             output_file='output/report.md'
         )
 
+    # @crew marks the method CrewAI actually calls (via ResearchCrew().crew()
+    # in main.py) to assemble everything above into one runnable Crew.
     @crew
     def crew(self) -> Crew:
         """Creates the research crew"""
@@ -76,11 +101,5 @@ class ResearchCrew():
             # Prints a free, no-signup shareable trace URL (agent reasoning, task
             # timing, tool calls) to app.crewai.com after each run.
             tracing=True,
-            embedder={
-                "provider": "google-generativeai",
-                "config": {
-                    "api_key": os.getenv("GEMINI_API_KEY"),
-                    "model_name": "gemini-embedding-001",
-                },
-            },
+            embedder=GEMINI_EMBEDDER,
         )
