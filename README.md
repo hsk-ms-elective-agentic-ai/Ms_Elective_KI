@@ -179,6 +179,7 @@ The table below covers the official [reference servers](https://github.com/model
 | Structured reasoning | No | `npx` | `@modelcontextprotocol/server-sequential-thinking` — decompose a problem into revisable thought steps |
 | Web search | **Yes** | Hosted (URL) | [Exa](https://mcp.exa.ai), [Tavily](https://tavily.com), [Brave Search](https://github.com/brave/brave-search-mcp-server) |
 | Docs, code & storage | **Yes** (OAuth/token) | Hosted or `npx` | GitHub, Google Drive, Slack — community-maintained, see the MCP Registry for current links |
+| Job search | No (500 free calls/day) | `npx` | [JobDataLake](https://github.com/echojobsio/jdl-mcp-server) (`@jobdatalake/mcp-server`) — 1M+ job listings, filterable by skills/salary/location |
 
 For a `uvx`/Python server, the wiring is exactly `mcp-server-fetch`'s pattern with a different package name:
 

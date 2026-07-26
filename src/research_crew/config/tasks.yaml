@@ -39,3 +39,8 @@ analysis_task:
   context:
     - research_task
   output_file: output/report.md
+  # Pauses after the analyst produces its final answer and asks for a human
+  # review (accept as-is, or type feedback and it revises and asks again) —
+  # CrewAI's own mechanism for a consequential output needing a check before
+  # it ships, rather than the crew finishing fully autonomously.
+  human_input: true
