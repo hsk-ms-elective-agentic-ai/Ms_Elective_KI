@@ -43,56 +43,56 @@ Pick one of the five use cases below. Each is designed so that the steps produce
 
 **1. Job Application Tailoring Assistant**
 
-A student applying to internships or working-student roles needs each application tailored to the specific posting — recruiters and applicant-tracking systems filter out generic, copy-pasted applications fast. *Step 03* gives you generic "how to write a cover letter" advice that could apply to any job anywhere. *Steps 04–08* add a career-coach persona and a structured bullet-point format — immediately more usable, but still generic to the role type, not the actual posting. *Step 09* gives you a job-posting analyst agent whose role keeps it focused on extracting the specific requirements and keywords from one real posting, not general career advice. *Steps 10–12* close the information gap: web search adds current company news, culture signals, and interview-process reports; the applicant's own CV as a RAG source grounds every suggestion in experience they actually have, not invented achievements. *Step 13* adds an application strategist who takes the now-grounded requirements and CV and writes a tailored pitch, mapping specific experience to specific requirements — the two agents together produce something neither produces alone.
+A student applying to internships or working-student roles needs each application tailored to the specific posting — recruiters and applicant-tracking systems filter out generic, copy-pasted applications fast. *Step 03* gives you generic "how to write a cover letter" advice that could apply to any job anywhere. *Steps 04–08* add a career-coach persona and a structured bullet-point format — immediately more usable, but still generic to the role type, not the actual posting. *Step 09* gives you a job-posting analyst agent whose role keeps it focused on extracting the specific requirements and keywords from one real posting, not general career advice. *Steps 11–13* close the information gap: web search adds current company news, culture signals, and interview-process reports; the applicant's own CV as a RAG source grounds every suggestion in experience they actually have, not invented achievements. *Step 14* adds an application strategist who takes the now-grounded requirements and CV and writes a tailored pitch, mapping specific experience to specific requirements — the two agents together produce something neither produces alone.
 
 - **Topic example:** `"Tailor an application for a [Working Student — Data Analytics] role at [Company] in [City]"`
-- **Agents (Step 09, Step 13):** Job-Posting Analyst → Application Strategist
-- **Tool (step 10):** `SerperDevTool` — company news, culture, interview-process reports
-- **RAG source (step 12):** The applicant's own CV/resume (PDF)
+- **Agents (Step 09, Step 14):** Job-Posting Analyst → Application Strategist
+- **Tool (step 11):** `SerperDevTool` — company news, culture, interview-process reports
+- **RAG source (step 13):** The applicant's own CV/resume (PDF)
 
 ---
 
 **2. Exam Prep Coach**
 
-A student preparing for an exam needs active recall practice — testing what they actually remember — not another pass of re-reading slides, which feels productive but barely improves retention. *Step 03* gives you a generic "how to study effectively" list, useful for no exam in particular. *Steps 04–08* add a tutor persona and a structured quiz-question format — closer to something usable, but still built from the model's general knowledge of the subject, not the actual course. *Step 09* gives you a content-reviewer agent whose role keeps it focused on identifying the key concepts likely to matter for this exam, not explaining the subject from scratch. *Steps 10–12* close the information gap: web search adds a clearer explanation or worked example for a concept the notes only mention briefly; the student's own lecture notes as a RAG source ground every question in what was actually taught, not a generic textbook version. *Step 13* adds a quiz master who takes the now-grounded key concepts and runs an actual practice round — asking questions, checking the answer, and flagging what's still shaky — the two agents together produce something neither produces alone.
+A student preparing for an exam needs active recall practice — testing what they actually remember — not another pass of re-reading slides, which feels productive but barely improves retention. *Step 03* gives you a generic "how to study effectively" list, useful for no exam in particular. *Steps 04–08* add a tutor persona and a structured quiz-question format — closer to something usable, but still built from the model's general knowledge of the subject, not the actual course. *Step 09* gives you a content-reviewer agent whose role keeps it focused on identifying the key concepts likely to matter for this exam, not explaining the subject from scratch. *Steps 11–13* close the information gap: web search adds a clearer explanation or worked example for a concept the notes only mention briefly; the student's own lecture notes as a RAG source ground every question in what was actually taught, not a generic textbook version. *Step 14* adds a quiz master who takes the now-grounded key concepts and runs an actual practice round — asking questions, checking the answer, and flagging what's still shaky — the two agents together produce something neither produces alone.
 
 - **Topic example:** `"Prepare me for the [Course Name] midterm, covering [Topic A, B, C]"`
-- **Agents (Step 09, Step 13):** Content Reviewer → Quiz Master
-- **Tool (step 10):** `SerperDevTool` — supplementary explanations, worked examples for tricky concepts
-- **RAG source (step 12):** The student's own lecture notes or slides (PDF/text)
+- **Agents (Step 09, Step 14):** Content Reviewer → Quiz Master
+- **Tool (step 11):** `SerperDevTool` — supplementary explanations, worked examples for tricky concepts
+- **RAG source (step 13):** The student's own lecture notes or slides (PDF/text)
 
 ---
 
 **3. Personalized Study & Semester Planner**
 
-A student staring at a syllabus and an exam date needs a realistic day-by-day plan — not vague "study a bit every day" advice, but a schedule that actually accounts for how much time is left and how much material there is. *Step 03* gives you generic study-planning advice, the same for a two-week sprint or a full semester. *Steps 04–08* add a planner persona and a day-by-day table format — immediately more concrete, but still guessing at what the course actually covers. *Step 09* gives you a curriculum-analyst agent whose role keeps it focused on prioritizing the topics in one specific course by weight and difficulty, not studying in general. *Steps 10–12* close the information gap: web search adds effective study techniques for the specific subject (spaced repetition for vocabulary vs. worked problems for math); the course syllabus as a RAG source grounds the prioritization in what the course actually covers and how it's graded, not a generic curriculum. *Step 13* adds a study scheduler who takes the now-grounded priorities and turns them into an actual day-by-day plan that fits the available time — the two agents together produce something neither produces alone.
+A student staring at a syllabus and an exam date needs a realistic day-by-day plan — not vague "study a bit every day" advice, but a schedule that actually accounts for how much time is left and how much material there is. *Step 03* gives you generic study-planning advice, the same for a two-week sprint or a full semester. *Steps 04–08* add a planner persona and a day-by-day table format — immediately more concrete, but still guessing at what the course actually covers. *Step 09* gives you a curriculum-analyst agent whose role keeps it focused on prioritizing the topics in one specific course by weight and difficulty, not studying in general. *Steps 11–13* close the information gap: web search adds effective study techniques for the specific subject (spaced repetition for vocabulary vs. worked problems for math); the course syllabus as a RAG source grounds the prioritization in what the course actually covers and how it's graded, not a generic curriculum. *Step 14* adds a study scheduler who takes the now-grounded priorities and turns them into an actual day-by-day plan that fits the available time — the two agents together produce something neither produces alone.
 
 - **Topic example:** `"4-week study plan for the [Course Name] final exam on [date], ~1.5h on weekdays"`
-- **Agents (Step 09, Step 13):** Curriculum Analyst → Study Scheduler
-- **Tool (step 10):** `SerperDevTool` — effective study techniques for the specific subject
-- **RAG source (step 12):** The course syllabus or module handbook (PDF)
+- **Agents (Step 09, Step 14):** Curriculum Analyst → Study Scheduler
+- **Tool (step 11):** `SerperDevTool` — effective study techniques for the specific subject
+- **RAG source (step 13):** The course syllabus or module handbook (PDF)
 
 ---
 
 **4. Inbox Triage & Draft-Reply Assistant**
 
-Anyone running a shared inbox — a student club, a TA mailbox, a part-time job — needs incoming emails read, understood, and answered consistently, without every reply being reinvented from scratch. *Step 03* gives you a generic reply to a generic email, ignoring who's actually asking or what they actually need. *Steps 04–08* add an assistant persona and a structured reply format — sounds more consistent, but still can't tell a meeting request from a complaint. *Step 09* gives you an email-triager agent whose role keeps it focused on classifying intent and extracting the actual ask, not producing a reply yet. *Steps 10–12* close the information gap: web search looks up something the email references — a company, an event, a policy change; a personal FAQ or past-reply document as a RAG source keeps every answer consistent with actual policy and tone, not invented on the spot. *Step 13* adds a reply drafter who takes the now-grounded classification and context and writes an actual reply, flagging anything that needs a human rather than guessing — the two agents together produce something neither produces alone.
+Anyone running a shared inbox — a student club, a TA mailbox, a part-time job — needs incoming emails read, understood, and answered consistently, without every reply being reinvented from scratch. *Step 03* gives you a generic reply to a generic email, ignoring who's actually asking or what they actually need. *Steps 04–08* add an assistant persona and a structured reply format — sounds more consistent, but still can't tell a meeting request from a complaint. *Step 09* gives you an email-triager agent whose role keeps it focused on classifying intent and extracting the actual ask, not producing a reply yet. *Steps 11–13* close the information gap: web search looks up something the email references — a company, an event, a policy change; a personal FAQ or past-reply document as a RAG source keeps every answer consistent with actual policy and tone, not invented on the spot. *Step 14* adds a reply drafter who takes the now-grounded classification and context and writes an actual reply, flagging anything that needs a human rather than guessing — the two agents together produce something neither produces alone.
 
 - **Topic example:** `"Triage and draft replies for incoming emails to [a student club / TA inbox]"`
-- **Agents (Step 09, Step 13):** Email Triager → Reply Drafter
-- **Tool (step 10):** `SerperDevTool` — look up something the email references
-- **RAG source (step 12):** A personal FAQ, policy doc, or past reply examples (text file)
+- **Agents (Step 09, Step 14):** Email Triager → Reply Drafter
+- **Tool (step 11):** `SerperDevTool` — look up something the email references
+- **RAG source (step 13):** A personal FAQ, policy doc, or past reply examples (text file)
 
 ---
 
 **5. Student Budget & Savings Planner**
 
-A student managing rent, part-time income, and irregular expenses needs an actual plan — not "spend less," but a concrete monthly budget that accounts for what's coming in and going out. *Step 03* gives you generic budgeting advice that ignores anyone's actual numbers. *Steps 04–08* add a financial-coach persona and a structured budget-table format — looks like a real budget, but the numbers are invented. *Step 09* gives you a spending-analyst agent whose role keeps it focused on reviewing actual income and spending patterns, not general financial advice. *Steps 10–12* close the information gap: web search adds current student discounts, grants, or cost-of-living figures for a specific city; a budget spreadsheet or bank statement as a RAG source grounds every recommendation in actual spending, not a hypothetical student's. *Step 13* adds a budget advisor who takes the now-grounded spending picture and proposes a concrete monthly plan with explicit trade-offs — the two agents together produce something neither produces alone.
+A student managing rent, part-time income, and irregular expenses needs an actual plan — not "spend less," but a concrete monthly budget that accounts for what's coming in and going out. *Step 03* gives you generic budgeting advice that ignores anyone's actual numbers. *Steps 04–08* add a financial-coach persona and a structured budget-table format — looks like a real budget, but the numbers are invented. *Step 09* gives you a spending-analyst agent whose role keeps it focused on reviewing actual income and spending patterns, not general financial advice. *Steps 11–13* close the information gap: web search adds current student discounts, grants, or cost-of-living figures for a specific city; a budget spreadsheet or bank statement as a RAG source grounds every recommendation in actual spending, not a hypothetical student's. *Step 14* adds a budget advisor who takes the now-grounded spending picture and proposes a concrete monthly plan with explicit trade-offs — the two agents together produce something neither produces alone.
 
 - **Topic example:** `"Monthly budget for a student earning [income], saving for [goal]"`
-- **Agents (Step 09, Step 13):** Spending Analyst → Budget Advisor
-- **Tool (step 10):** `SerperDevTool` — current student discounts, grants, cost-of-living data
-- **RAG source (step 12):** A sample budget spreadsheet or bank statement, exported as text (a synthetic one works fine — no need to use real financial data)
+- **Agents (Step 09, Step 14):** Spending Analyst → Budget Advisor
+- **Tool (step 11):** `SerperDevTool` — current student discounts, grants, cost-of-living data
+- **RAG source (step 13):** A sample budget spreadsheet or bank statement, exported as text (a synthetic one works fine — no need to use real financial data)
 
 ---
 
@@ -113,7 +113,7 @@ CrewAI's signature choice — demonstrated across the exercise steps — is that
 
 ### The template code
 
-The exercise notebooks (Steps 09–13) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks. It's wired up with tools, RAG, and MCP all at once, so it doubles as a worked example of combining all three:
+The exercise notebooks (Steps 09–14) are standalone — each defines its own `Agent`(s) inline, with no dependency on a separate crew project. This repo also ships a full working crew (`researcher` → `analyst`, sequential) as a reference for the fuller CrewAI project layout (YAML-configured agents/tasks, a `Crew`, an entry point) once you're ready to go beyond the notebooks. It's wired up with tools, RAG, and MCP all at once, so it doubles as a worked example of combining all three:
 
 | File | What it is |
 | --- | --- |
@@ -123,7 +123,7 @@ The exercise notebooks (Steps 09–13) are standalone — each defines its own `
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | `build_knowledge_sources()`, wired into `crew.py`'s `Crew(knowledge_sources=...)` — embeds `knowledge/user_preference.txt` and `knowledge/rag-data.pdf` |
-| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 00–13 |
+| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 00–14 |
 
 MCP needs no template file of its own: `crew.py`'s `researcher` agent connects directly to `mcp-server-fetch` (the official reference MCP server — an existing server, not one built for this repo) via `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]`.
 
@@ -163,9 +163,9 @@ WebsiteSearchTool(config={
 
 This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so `build_knowledge_sources()` in `knowledge_source_example.py` (wired into `Crew(knowledge_sources=...)`) embeds a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt` and a `PDFKnowledgeSource` pointing at `knowledge/rag-data.pdf` via Gemini automatically. Add or swap entries in that list for your own team's documents.
 
-[Step 12](exercises/en/step_12_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 12 for details).
+[Step 13](exercises/en/step_13_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 13 for details).
 
-Connecting an agent to an MCP server works the same way, just with `Agent(mcps=[...])` instead of `Crew(knowledge_sources=[...])`: `crew.py`'s `researcher` gets `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]` directly, no separate helper file — `mcp-server-fetch` is an existing, official reference server, not something built for this repo. See [Step 11](exercises/en/step_11_mcp.ipynb) for the underlying concept.
+Connecting an agent to an MCP server works the same way, just with `Agent(mcps=[...])` instead of `Crew(knowledge_sources=[...])`: `crew.py`'s `researcher` gets `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]` directly, no separate helper file — `mcp-server-fetch` is an existing, official reference server, not something built for this repo. See [Step 12](exercises/en/step_12_mcp.ipynb) for the underlying concept.
 
 The table below covers the official [reference servers](https://github.com/modelcontextprotocol/servers) plus a few popular hosted ones — browse the [MCP Registry](https://registry.modelcontextprotocol.io/) for the full, ever-growing list. As with the tools table above, the setup that matters most is whether a server needs its own signup/API key, and — new for MCP — whether it runs locally via `uvx` (Python, no extra install, same as `mcp-server-fetch`) or `npx` (TypeScript/Node.js, **not** otherwise part of this repo's toolchain, so it needs installing separately).
 

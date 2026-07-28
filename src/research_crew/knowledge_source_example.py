@@ -2,7 +2,7 @@ from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledge
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 
 # build_knowledge_sources() is wired into crew.py's Crew(knowledge_sources=...).
-# See Step 10 (Tools) and Step 12 (RAG) in exercises/en/ for the concepts this
+# See Step 11 (Tools) and Step 13 (RAG) in exercises/en/ for the concepts this
 # applies. Add more entries to the returned list for the stretch goal (e.g.
 # StringKnowledgeSource).
 

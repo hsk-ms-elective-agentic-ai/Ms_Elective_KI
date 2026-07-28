@@ -20,8 +20,8 @@ _(Fill in one row per sprint, right after that sprint's PR — not retroactively
 | --- | --- | --- |
 | 1 — Steps 03–08 | Baseline zero-shot prompt, then prompting techniques | Accuracy already with one prompt surprised me |
 | 2 — Step 09 *(interim)* | First `Agent` | |
-| 3 — Steps 10–12 | Tools, MCP, RAG | |
-| 4 — Step 13 *(final)* | Second agent, `Process` | |
+| 3 — Steps 10–13 | Memory, Tools, MCP, RAG | |
+| 4 — Step 14 *(final)* | Second agent, `Process` | |
 
 ---
 
@@ -86,7 +86,7 @@ _(**Purpose:** To detail the "how" of your project, covering the specific techni
   - _(e.g., `SerperDevTool()`: live web search. A custom MCP server exposing `fetch_invoice(id: str) -> dict`.)_
 - **Memory:** What kind of memory does your agent have?
   - _(e.g., "We enabled CrewAI's built-in `memory=True` on our `Crew`, giving our agent short-term recall of recent interactions via semantic retrieval — see [Step 02](exercises/en/step_02_intro_to_crewai.ipynb) for how this works under the hood." Or: "We manually folded a growing transcript into each `Task`'s description, giving the agent context across turns without relying on CrewAI's built-in memory system.")_
-  - _(Or, "We implemented RAG via `knowledge_sources`. We used a `TextFileKnowledgeSource` pointed at our own document, and the `Crew`'s `embedder` retrieves the relevant chunks automatically — see [Step 12](exercises/en/step_12_rag.ipynb).")_
+  - _(Or, "We implemented RAG via `knowledge_sources`. We used a `TextFileKnowledgeSource` pointed at our own document, and the `Crew`'s `embedder` retrieves the relevant chunks automatically — see [Step 13](exercises/en/step_13_rag.ipynb).")_
 
 ### 4.3. Prompt Engineering
 
@@ -94,7 +94,7 @@ _(This is a critical section. Show your work.)_
 
 - **Agent Identity:** Include your final `role`/`goal`/`backstory` for each agent here. Explain why you wrote them this way (persona, rules, scope of responsibility) — the same components you experimented with as `persona`/`instruction`/`context`/`audience`/`tone` in [Step 05](exercises/en/step_05_prompt_template.ipynb).
 - **Prompting Techniques:** Explain how you used concepts from the exercise steps in your prompts or agent design.
-  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 04](exercises/en/step_04_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 06](exercises/en/step_06_chain_prompting.ipynb), [Step 13](exercises/en/step_13_multi_agent_seq.ipynb))?
+  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 04](exercises/en/step_04_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 06](exercises/en/step_06_chain_prompting.ipynb), [Step 14](exercises/en/step_14_multi_agent_seq.ipynb))?
   - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 07](exercises/en/step_07_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature? Show where. How did this change the verbose log or the final answer?
   - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/en/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
   - **Tree of Thought (ToT):** CrewAI has no built-in equivalent ([Step 08](exercises/en/step_08_tree_of_thought.ipynb) simulates it via a single prompt). Did you implement anything like this — e.g., prompting one agent to reason as multiple experts in parallel, or running several agents on the same `Task` and having a final agent compare and synthesize their outputs?
@@ -118,7 +118,7 @@ _(**Purpose:** To explain how you manage and structure the context that your age
 - **Context Window Management:** How do you handle context window limits? Do you truncate, summarize, or prioritize certain information?
   - _(e.g., "For our multi-turn `BaseAgent` subclass, we cap the transcript we fold into each `Task.description` at the last 5 turns, dropping older ones, to keep the prompt from growing unbounded.")_
 - **Context Retrieval:** If you use RAG or `knowledge_sources`, how do you retrieve and rank relevant context?
-  - _(e.g., "Our `TextFileKnowledgeSource` is embedded via Gemini and retrieved by CrewAI's own semantic search — we did not need to implement retrieval ourselves, see [Step 12](exercises/en/step_12_rag.ipynb).")_
+  - _(e.g., "Our `TextFileKnowledgeSource` is embedded via Gemini and retrieved by CrewAI's own semantic search — we did not need to implement retrieval ourselves, see [Step 13](exercises/en/step_13_rag.ipynb).")_
 - **Context Compression/Summarization:** Do you use any techniques to compress or summarize context to fit more information?
   - _(e.g., "We rely on `Task(context=[...])` passing only the *final output* of a prior task forward, not its full reasoning trail — this is itself a form of compression, discussed in [Step 02](exercises/en/step_02_intro_to_crewai.ipynb)'s 'What plays the role of state' section.")_
 - **Dynamic Context Selection:** Does your agent dynamically select which context to include based on the task?
@@ -190,7 +190,7 @@ _(Discuss the ethical dimensions of your agent. Consider the following aspects a
 
 ## 9. References
 
-_(List any external resources you used. This includes academic papers (like Wooldridge), key blog posts, documentation pages, or libraries. The papers cited across Steps 02–13 of this repo's exercises are a good starting point.)_
+_(List any external resources you used. This includes academic papers (like Wooldridge), key blog posts, documentation pages, or libraries. The papers cited across Steps 02–14 of this repo's exercises are a good starting point.)_
 
 - _Wooldridge, M., & Jennings, N. R. (1995). Intelligent agents: Theory and practice. The Knowledge Engineering Review, 10(2), 115–152. https://doi.org/10.1017/S0269888900008122 (Or the specific reference from your lecture)_
 - _CrewAI Documentation. https://docs.crewai.com_

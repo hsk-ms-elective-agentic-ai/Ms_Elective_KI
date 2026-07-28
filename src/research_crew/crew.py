@@ -28,7 +28,7 @@ from typing import List
 
 from research_crew.knowledge_source_example import build_knowledge_sources
 
-# embedder dict shape used throughout this repo (e.g. Step 12's RAG
+# embedder dict shape used throughout this repo (e.g. Step 13's RAG
 # notebook), just centralized here since crew.py only needs it once.
 GEMINI_EMBEDDER = {
     "provider": "google-generativeai",
@@ -44,7 +44,7 @@ GEMINI_EMBEDDER = {
 # self.agents_config / self.tasks_config (dicts keyed by the YAML's top-level
 # names, e.g. agents_config['researcher'] below is that whole "researcher:"
 # block). This is the notebooks-vs-project split from the README's "The
-# template code" section: Steps 09-13 build an Agent/Task inline in Python;
+# template code" section: Steps 09-14 build an Agent/Task inline in Python;
 # this class instead pulls role/goal/backstory and description/expected_output
 # from YAML, so changing what the crew does rarely means touching this file.
 @CrewBase
@@ -70,7 +70,7 @@ class ResearchCrew():
             # and reads web pages), run as a local subprocess via `uvx` — an
             # existing server, nothing custom-built. Lets the researcher pull
             # and quote a specific page directly, complementing SerperDevTool's
-            # broad search-and-summarize. See Step 11 for the concept.
+            # broad search-and-summarize. See Step 12 for the concept.
             mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])],
         )
 
@@ -110,7 +110,7 @@ class ResearchCrew():
             # timing, tool calls) to app.crewai.com after each run.
             tracing=True,
             embedder=GEMINI_EMBEDDER,
-            # RAG (see knowledge_source_example.py / Step 12) grounds the crew
+            # RAG (see knowledge_source_example.py / Step 13) grounds the crew
             # in knowledge/user_preference.txt and knowledge/rag-data.pdf.
             knowledge_sources=build_knowledge_sources(),
         )

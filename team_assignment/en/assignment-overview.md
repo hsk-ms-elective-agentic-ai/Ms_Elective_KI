@@ -15,10 +15,10 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 | 0 | 08.10.–22.10. | [Steps 00–02 — Setup, Python Basics & Intro to CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
 | 1 | 22.10.–05.11. | [Steps 03–08 — Zero-Shot & Prompting Techniques](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call through a role + output structure — your baseline through prompting |
 | 2 | 05.11.–19.11. | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
-| 3 | 19.11.–03.12. | [Steps 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | External grounding: web search, an MCP server, document retrieval |
-| 4 | 03.12.–17.12. | [Step 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
+| 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval |
+| 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
 
-You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 2), which includes a short interim presentation, and a **final submission** after Step 13 (sprint 4).
+You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 2), which includes a short interim presentation, and a **final submission** after Step 14 (sprint 4).
 
 **Sprint 0 checklist** — before Sprint 1 starts, as a team:
 
@@ -47,7 +47,7 @@ One branch per sprint, one pull request to close it out — beyond that, day-to-
 
 No terminal, no `git add`/`commit`/`push`/`merge` commands.
 
-**Divide files between teammates** where you can — e.g. one person runs Step 09 and drafts the Architecture section of `REPORT.md`, another runs Step 10 and drafts the Tools subsection. `REPORT.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
+**Divide files between teammates** where you can — e.g. one person runs Step 09 and drafts the Architecture section of `REPORT.md`, another runs Step 11 and drafts the Tools subsection. `REPORT.md` is one shared file everyone contributes to, so take turns, or commit-and-sync every few minutes rather than editing it in parallel for a long stretch.
 
 For quick edits without opening your local setup: open the file on github.com, switch the branch dropdown to your current `sprint-<N>` branch, click the pencil icon, edit in the browser, and click **"Commit changes"**.
 
@@ -87,7 +87,7 @@ That's the whole vocabulary — the reasoning behind sprints, story-splitting, o
 
 ## Submission package
 
-At each submission deadline (interim: after Step 09, final: after Step 13), your submission is the state of your team repo's `main` branch:
+At each submission deadline (interim: after Step 09, final: after Step 14), your submission is the state of your team repo's `main` branch:
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |

@@ -22,13 +22,14 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 | [07](en/step_07_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
 | [08](en/step_08_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
 | [09](en/step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(interim submission due)* |
-| [10](en/step_10_tools.ipynb) | Tools | Live web search via a CrewAI tool |
-| [11](en/step_11_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
-| [12](en/step_12_rag.ipynb) | RAG | Retrieval from your own knowledge source |
-| [13](en/step_13_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(final submission due)* |
-| [14](en/step_14_multi_agent_hierarchical.ipynb) | Multi-Agent (Hierarchical) | The same two agents, delegated to at runtime by a manager instead of fixed in code *(optional)* |
+| [10](en/step_10_memory.ipynb) | Memory | Recall across separate `kickoff()` calls |
+| [11](en/step_11_tools.ipynb) | Tools | Live web search via a CrewAI tool |
+| [12](en/step_12_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
+| [13](en/step_13_rag.ipynb) | RAG | Retrieval from your own knowledge source |
+| [14](en/step_14_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(final submission due)* |
+| [15](en/step_15_multi_agent_hierarchical.ipynb) | Multi-Agent (Hierarchical) | The same two agents, delegated to at runtime by a manager instead of fixed in code *(optional)* |
 
-Steps 03–13 use the **same topic** — you pick it once at step 03 and keep it. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation, evaluation, ethics — on the agent your team designs and builds, informed by what changed at each step. Step 14 is optional and not part of the graded assignment.
+Steps 03–14 use the **same topic** — you pick it once at step 03 and keep it. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation, evaluation, ethics — on the agent your team designs and builds, informed by what changed at each step. Step 15 is optional and not part of the graded assignment.
 
 For what's graded, the submission package, team setup, and templates (`REPORT.md`, `TEAM.md`, peer evaluation), see [Assignment Overview](../team_assignment/en/assignment-overview.md) (English / [Deutsch](../team_assignment/de/assignment-overview.md)).
 

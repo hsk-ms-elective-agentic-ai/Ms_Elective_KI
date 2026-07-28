@@ -15,10 +15,10 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Eva
 | 0 | 08.10.–22.10. | [Schritte 00–02 — Setup, Python-Grundlagen & Einführung in CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
 | 1 | 22.10.–05.11. | [Schritte 03–08 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu Rolle + Ausgabeformat — eure Ausgangsbasis durchs Prompting |
 | 2 | 05.11.–19.11. | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| 3 | 19.11.–03.12. | [Schritte 10–12 — Tools, MCP & RAG](../../exercises/en/step_10_tools.ipynb) | Externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
-| 4 | 03.12.–17.12. | [Schritt 13 — Multi-Agent](../../exercises/en/step_13_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
+| 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
+| 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
 
-Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 2), die eine kurze Zwischenpräsentation enthält, und eine **Abschlussabgabe** nach Schritt 13 (Sprint 4).
+Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 2), die eine kurze Zwischenpräsentation enthält, und eine **Abschlussabgabe** nach Schritt 14 (Sprint 4).
 
 **Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
 
@@ -47,7 +47,7 @@ Ein Branch pro Sprint, ein Pull Request, um ihn abzuschließen — darüber hina
 
 Kein Terminal, keine `git add`/`commit`/`push`/`merge`-Befehle.
 
-**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und entwirft den Architektur-Abschnitt von `REPORT.md`, eine andere Schritt 10 und den Tools-Unterabschnitt. `REPORT.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
+**Teilt Dateien zwischen Teammitgliedern auf**, wo es geht — z. B. führt eine Person Schritt 09 aus und entwirft den Architektur-Abschnitt von `REPORT.md`, eine andere Schritt 11 und den Tools-Unterabschnitt. `REPORT.md` ist eine gemeinsame Datei, zu der alle beitragen — wechselt euch ab, oder committet und synct alle paar Minuten, statt lange parallel daran zu arbeiten.
 
 Für schnelle Änderungen, ohne eure lokale Umgebung zu öffnen: Öffnet die Datei auf github.com, wechselt im Branch-Dropdown auf euren aktuellen `sprint-<N>`-Branch, klickt auf das Stift-Icon und bearbeitet sie im Browser.
 
@@ -87,7 +87,7 @@ Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Auft
 
 ## Abgabepaket
 
-Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schritt 13) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
+Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schritt 14) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |

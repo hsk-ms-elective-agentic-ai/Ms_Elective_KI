@@ -1,6 +1,6 @@
 # Template for a custom CrewAI tool — not imported by crew.py yet. Rename the
 # class, fill in `name`/`description` (the agent reads these to decide when to
-# call it — see Step 10 for how `SerperDevTool` does the same), and implement
+# call it — see Step 11 for how `SerperDevTool` does the same), and implement
 # `_run`. To wire it in, import the class in crew.py and add it to an agent's
 # `tools=[...]` list, the same way `researcher` already gets `SerperDevTool()`.
 
