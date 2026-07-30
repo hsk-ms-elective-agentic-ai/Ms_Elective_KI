@@ -2,28 +2,30 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe — und sie ist dasselbe wie die Übungsreihe, kein separater Strang daneben. In Teams arbeitet ihr euch durch eine Abfolge von Versionen desselben KI-Systems mit demselben Thema, organisiert in vier Sprints (mit einer vorgeschalteten Sprint-0-Setup-Phase), fügt bei jedem Sprint eine Schicht hinzu, und bewertet, was jede Schicht tatsächlich verändert. Das primäre Abgabeprodukt ist `REPORT.md`: ein vollständiger Projektbericht — Architektur, Implementierungsentscheidungen, Evaluierung und ethische Überlegungen — für den Agenten, den euer Team entwirft und baut, informiert durch alles, was ihr beim Durchlaufen der Übungs-Sprints beobachtet.
+Dies ist die benotete Aufgabe und baut direkt auf der Übungsreihe auf, aber die beiden Hälften sind anders aufgeteilt, als ihr vielleicht erwartet. Individuell arbeitet sich jede*r von euch selbst durch die Übungs-Notebooks — im Kurs oder zu Hause; sie sind nicht Teil des Team-Repos. Als Team entwerft (und baut optional) ihr dann euren eigenen Agenten zu eurem eigenen Thema, organisiert in vier Sprints (mit einer vorgeschalteten Sprint-0-Setup-Phase), wobei jeder Sprint eine neue Schicht in den Entwurf einfügt. Die benoteten Abgaben sind die Zwischenpräsentation (10%) und die Abschlusspräsentation (20%) eures Teams, ein Ethik-Report, den jede*r von euch selbst schreibt und **individuell** einreicht (70%), sowie ein optionaler Team-Bonus (+10%) für die tatsächliche Umsetzung eures Entwurfs in `src/`.
 
 **Teamgröße:** 3–5 Studierende.
 
-Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Peer Evaluation), sind im [Vorlagen-Dokument](assignment-templates.md) enthalten.
+Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Ethik-Report), sind im [Vorlagen-Dokument](assignment-templates.md) enthalten.
 
 ## So funktioniert es: ein Sprint, eine Schicht, ein Vergleich
 
-| Sprint | Termin | Schritte | Fügt hinzu |
-| --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | [Schritte 00–02 — Setup, Python-Grundlagen & Einführung in CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
-| 1 | 22.10.–05.11. | [Schritte 03–08 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_03_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu Rolle + Ausgabeformat — eure Ausgangsbasis durchs Prompting |
-| 2 | 05.11.–19.11. | [Schritt 09 — Einzelner Agent](../../exercises/en/step_09_single_agent.ipynb) | Die CrewAI-Framework-Schleife *(Zwischenabgabe fällig)* |
-| 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval |
-| 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung *(Abschlussabgabe fällig)* |
+Jeder Sprint kombiniert einen individuellen Übungs-Notebook-Bereich (macht diese selbst — sie sind nicht Teil des Team-Repos) mit einer Team-Design-Aufgabe: fügt das Konzept dieses Sprints in den Entwurf eures eigenen Agenten ein, haltet die Entscheidung in `REPORT.md` fest, und öffnet einen `sprint-<N>` → `main`-PR, bevor der nächste Sprint beginnt. Es in `src/` zu bauen ist optional — gute Praxis, und darauf wird der Team-Bonus bewertet (siehe [Bewertung](#bewertung)) — aber für den Sprint-PR selbst nicht erforderlich.
 
-Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal ein Teil hinzu und führt es mit demselben Thema aus. Zwei Abgaben: eine **Zwischenabgabe** nach Schritt 09 (Sprint 2), die eine kurze Zwischenpräsentation enthält, und eine **Abschlussabgabe** nach Schritt 14 (Sprint 4).
+| Sprint | Termin | Individuelle Übungen (Schritte) | Team-Design-Aufgabe |
+| --- | --- | --- | --- |
+| 0 | 08.10.–22.10. | [Schritte 00–01 — Setup & Python-Grundlagen](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
+| 1 | 22.10.–05.11. | [Schritte 02–07 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_02_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu mehreren Prompting-Techniken — entwerft die Ausgangsbasis-Prompts eures eigenen Agenten, bevor CrewAI ins Spiel kommt |
+| 2 | 05.11.–19.11. | [Schritte 08–09 — Einführung in CrewAI & Einzelner Agent](../../exercises/en/step_08_intro_to_crewai.ipynb) | CrewAIs `Agent`/`Task`/`Crew`, dann entwerft euren eigenen einzelnen Agenten *(Zwischenpräsentation)* |
+| 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval — entscheidet, welche davon euer eigener Agent tatsächlich braucht |
+| 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung — entwerft den zweiten Agenten, den eure Fallstudie braucht *(Abschlusspräsentation)* |
+
+Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal eine Design-Schicht hinzu, zum selben Thema durchgehend. Zwei Live-Meilensteine: die **Zwischenpräsentation** nach Sprint 2, und die **Abschlusspräsentation** nach Sprint 4. Euer individueller Ethik-Report ist separat fällig, parallel zur Abschluss-Deadline — siehe [Bewertung](#bewertung) für genau wo ihr ihn einreicht.
 
 **Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
 
 - [ ] Jedes Mitglied hat einen GitHub-Account und Zugang zu eurem Team-Repo ([Zugang erhalten](../../README.md#getting-access-students))
-- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started)) — falls Git, `uv`, Jupyter oder Python selbst neu für euch sind, arbeitet zuerst [Schritte 00–02](../../exercises/en/step_00_setup_and_python_basics.ipynb) durch
+- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started)) — falls Git, `uv` oder Jupyter neu für euch sind, arbeitet zuerst [Schritte 00–01](../../exercises/en/step_00_setup_and_python_basics.ipynb) durch
 - [ ] Richtet eure Milestones und euer Project-Board ein und entwerft euren initialen Product Backlog als *User story*-Issues im Issues-Tab eures Repos, der abdeckt, was euer Agent am Ende können soll (siehe [Einmaliges Setup](#einmaliges-setup-macht-das-während-sprint-0) unten)
 
 Für Sprint 0 gibt es nichts zu mergen — das ist Setup, kein Sprint-Abgabeprodukt.
@@ -74,54 +76,47 @@ Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Auft
 
 ### Einmaliges Setup (macht das während Sprint 0)
 
-1. **Milestones** — **Issues → Milestones → New milestone**, einmal pro Sprint: `Sprint 1` … `Sprint 4`. Fügt die "Fügt hinzu"-Zelle des jeweiligen Sprints aus der Tabelle oben als Beschreibung ein.
+1. **Milestones** — **Issues → Milestones → New milestone**, einmal pro Sprint: `Sprint 1` … `Sprint 4`. Fügt die "Team-Design-Aufgabe"-Zelle des jeweiligen Sprints aus der Tabelle oben als Beschreibung ein.
 2. **Project-Board** — **Projects → New project → Board**. Fügt die Spalten `Backlog`, `To do`, `In progress`, `In review`, `Done` hinzu.
 3. **Issue-Vorlage** — dieses Repo bringt bereits eine *User story*-Issue-Vorlage mit (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). Sie füllt die Als/möchte ich/damit-Form plus Akzeptanzkriterien vor.
 
 ### Einen Sprint durchführen
 
-1. **Sprint Planning** (Sprint-Beginn, ~15 Min., ganzes Team): lest die "Fügt hinzu"-Zelle des Sprints aus der Tabelle oben noch einmal, und teilt sie in 3–6 Issues mit der *User story*-Vorlage auf. Setzt bei jedem den Milestone auf den aktuellen Sprint, weist eine verantwortliche Person zu und legt es in "To do".
+1. **Sprint Planning** (Sprint-Beginn, ~15 Min., ganzes Team): lest die "Team-Design-Aufgabe"-Zelle des Sprints aus der Tabelle oben noch einmal, und teilt sie in 3–6 Issues mit der *User story*-Vorlage auf. Setzt bei jedem den Milestone auf den aktuellen Sprint, weist eine verantwortliche Person zu und legt es in "To do".
 2. **Während des Sprints**: bewegt eure eigenen Issues beim Arbeiten über das Board (`To do` → `In progress` → `In review` → `Done`) und referenziert die Issue-Nummer in Commits (`#12`), damit die Historie nachvollziehbar bleibt.
 3. **Sprint Review** (Sprint-Ende, direkt vor dem Öffnen des PRs): geht das Board gemeinsam als Team durch — alles in `Done` sollte im Diff sichtbar sein, den ihr gleich mergt; alles Unfertige wandert ins Backlog des nächsten Sprints, statt den PR zu blockieren.
 4. **Kreis schließen**: schreibt `Closes #12` (und weitere) in die Beschreibung eures `sprint-<N>` → `main`-PRs — das Mergen schließt diese Issues automatisch und komplettiert den Milestone.
 
 ## Abgabepaket
 
-Bei jeder Abgabe-Deadline (Zwischenabgabe: nach Schritt 09, Abschluss: nach Schritt 14) ist eure Abgabe der Zustand des `main`-Branchs eures Team-Repos:
+### Team-Repo (gemeinsam — nicht direkt benotet, aber Grundlage für eure Präsentationen und den Bonus)
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Berichtsdokument | `REPORT.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung und Ethik eures eigenen Agenten | Euer tatsächlicher Projektbericht, spezifisch auf euer Thema bezogen |
-| Code-Änderungen | Änderungen an den Übungsskripten (z. B. TOPIC, eigene Knowledge-Sources) | Was ihr tatsächlich ausgeführt habt |
-| Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, was sich in jedem Sprint verändert hat |
+| Design-Dokumentation | `REPORT.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung, Theorie | Die tatsächlichen Design-Entscheidungen eures Teams, spezifisch auf euer Thema bezogen — das Material, aus dem eure Präsentationen entstehen |
+| Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, wie sich der Entwurf in jedem Sprint weiterentwickelt hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
+| Optional: Umsetzung | Code in `src/` (Agents, Tasks, Tools, Config) | Was ihr tatsächlich ausgeführt habt — nicht erforderlich, aber worauf der +10%-Team-Bonus bewertet wird (siehe Bewertung) |
 
-Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr ausgeführt und was ihr festgestellt habt.
+Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt des Entwurfs zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr entschieden habt und warum.
 
-Die Zwischen- und Abschlusspräsentation (siehe Bewertung unten) sind keine Repo-Artefakte — sie sind Live-Vorträge, dafür wird nichts committed.
+### Individuelle Abgabe (pro Studierendem — nicht über das Repo)
+
+Jede*r von euch schreibt eine eigene Kopie von [`ethics-report-template.md`](ethics-report-template.md) und reicht sie direkt bei der Lehrperson ein (nicht ins GitHub-Repo committen) zur Abschluss-Deadline. Das ist eure wichtigste benotete Abgabe — siehe Bewertung unten.
+
+Die Zwischen- und Abschlusspräsentation sind ebenfalls keine Repo-Artefakte — sie sind Live-Vorträge, dafür wird nichts committed.
 
 ## Bewertung
 
-Die Abschlussnote setzt sich aus drei Komponenten zusammen:
+Die Abschlussnote setzt sich aus drei Komponenten zusammen — die ersten beiden sind Team-Noten, die dritte wird individuell pro Studierendem bewertet:
 
-| Komponente | Gewicht | Was bewertet wird |
-| --- | --- | --- |
-| Zwischenpräsentation | 10% | Ein kurzer Live-Rundgang durch den bisherigen Fortschritt, gehalten bei der Zwischenabgabe (nach Schritt 09, Sprint 2) — was ihr gebaut habt, was ihr gelernt habt, und was für die verbleibenden Sprints geplant ist. Jedes Teammitglied sollte mindestens einen Teil vortragen. |
-| Bericht (`REPORT.md`) | 70% | Siehe Aufschlüsselung unten. Wird einmalig bei der Abschlussabgabe bewertet. |
-| Abschlusspräsentation | 20% | Ein Live-Rundgang durch euren Agenten im Kurs — was er macht, warum ihr ihn so gebaut habt, und eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Kein separates File zum Einreichen — das passiert live in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
+| Komponente | Gewicht | Team oder individuell? | Was bewertet wird |
+| --- | --- | --- | --- |
+| Zwischenpräsentation | 10% | Team | Ein kurzer Live-Rundgang durch euren bisherigen Entwurf, gehalten nach Sprint 2 — was ihr entworfen habt, was ihr gelernt habt, und was für die verbleibenden Sprints geplant ist. Jedes Teammitglied sollte mindestens einen Teil vortragen. |
+| Abschlusspräsentation | 20% | Team | Ein Live-Rundgang durch den Entwurf eures Agenten im Kurs — was er macht, warum ihr ihn so entworfen habt, und (falls gebaut) eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, falls vorhanden, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Kein separates File zum Einreichen — das passiert live in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
+| Ethik-Report | 70% | **Individuell** | Euer eigener [`ethics-report-template.md`](ethics-report-template.md), direkt bei der Lehrperson eingereicht, nicht über GitHub (siehe Abgabepaket oben). Bewertet danach, wie spezifisch und ehrlich er sich mit jeder ethischen Dimension auseinandersetzt, verankert im tatsächlichen Agenten eures Teams und euren eigenen Beobachtungen — nicht generisch. |
 
-Die 70% des Berichts schlüsseln sich weiter in vier Unterkriterien auf:
-
-| Unterkriterium | Gewicht (der Gesamtnote) | Was bewertet wird |
-| --- | --- | --- |
-| Berichtsqualität | 28% | `REPORT.md` — ist die Analyse spezifisch und ehrlich, verankert im tatsächlichen Verhalten eures eigenen Agenten und den durchgeführten Übungsschritten, nicht generisch? |
-| Kritische Reflexion | 21% | Versteht das Team *warum* jede Design-Entscheidung wichtig ist? Wird es auf das spezifische Thema und den eigenen Agenten bezogen statt generisch beantwortet? |
-| Design & Fazit | 14% | Ist die Architektur des Agenten (Abschnitt 3) begründet und spezifisch für den eigenen Anwendungsfall — nicht "RAG + Tools ist immer das Beste" — und bewertet das Fazit (Abschnitt 8) ehrlich, ob die Ziele erreicht wurden? |
-| Prozess (PRs, Team) | 7% | Ein sauberer PR pro Sprint, alle Teammitglieder tragen bei, PR-Beschreibungen geben an, was ausgeführt wurde, die Sprint-Fortschritt-Tabelle in `REPORT.md` wird sprintweise aktuell gehalten |
-
-**Optionaler Bonus:** eine funktionierende Implementierung, die durchgängig läuft (`crew.kickoff()` schließt ohne Fehler ab, der Code ist einigermaßen sauber strukturiert und stimmt mit dem überein, was `REPORT.md` beschreibt), und/oder ein funktionierendes eigenes Setup (angepasste Agenten, eigene Knowledge-Source, verschiedene Themen-Varianten getestet) — zusammen bis zu **+10%** Zusatzpunkte. Nie Pflicht, nie Ersatz für eine dünne Evaluierung.
-
-**Individuelle Anpassung innerhalb der Teamnote:** der Anteil jedes Studierenden an der Teamnote kann sich um bis zu **±15%** verschieben, basierend auf der privaten [Peer Evaluation](assignment-templates.md#peer-evaluation-privat--nicht-in-das-repo-committen) — direkt an eure Lehrperson eingereicht, nie ins Repo committed.
+**Team-Bonus (+10%, gleich für alle Teammitglieder):** eine funktionierende Umsetzung eures Entwurfs in `src/`, die durchgängig läuft (`crew.kickoff()` schließt ohne Fehler ab, der Code ist einigermaßen sauber strukturiert und stimmt mit dem überein, was `REPORT.md` beschreibt) — bewertet anhand eurer Commit-Historie und Pull Requests. Nie Pflicht, nie Ersatz für einen dünnen Entwurf.
 
 ## Für Lehrende
 
@@ -151,4 +146,4 @@ Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Te
 
 ### 4. Laufend: Abgaben bewerten
 
-Jedes Team mergt einen Pull Request pro Sprint (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**). Bewertet zum Deadline-Zeitpunkt gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis. Musterlösungen sind bewusst nicht enthalten.
+Jedes Team mergt einen Pull Request pro Sprint (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**) darauf, was entworfen und entschieden wurde; eine `src/`-Umsetzung kann vorhanden sein oder auch nicht, da sie nur Bonus ist. Bewertet die beiden Team-Präsentationen zum Deadline-Zeitpunkt gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis. Ethik-Reports kommen separat rein, einer pro Studierendem, außerhalb von GitHub — bewertet die individuell. Musterlösungen sind bewusst nicht enthalten.

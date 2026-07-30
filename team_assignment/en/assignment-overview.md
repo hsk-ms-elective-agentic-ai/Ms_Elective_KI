@@ -2,28 +2,30 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment — and it's the same thing as the exercise series, not a separate track alongside it. In teams, you work through a sequence of versions of the same AI system on the same topic, organized into four sprints (preceded by a Sprint 0 setup phase), adding one layer at each sprint, and evaluate what each layer actually changes. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation choices, evaluation, and ethical considerations — for the agent your team designs and builds, informed by everything you observe running the exercise sprints.
+This is the graded assignment, and it builds directly on the exercise series, but the two halves are split differently than you might expect. Individually, each of you works through the exercise notebooks on your own — in class or at home; they're not part of the team repo. As a team, you then design (and optionally build) your own agent on your own topic, organized into four sprints (preceded by a Sprint 0 setup phase), folding one new layer into the design each sprint. The graded deliverables are your team's Interim Presentation (10%) and Final Presentation (20%), an Ethics Report each of you writes and submits **individually** (70%), and an optional team bonus (+10%) for actually implementing your design in `src/`.
 
 **Team size:** 3–5 students.
 
-See [Assignment Templates](assignment-templates.md) for the documents you'll fill in (`REPORT.md`, `TEAM.md`, peer evaluation).
+See [Assignment Templates](assignment-templates.md) for the documents you'll fill in (`REPORT.md`, `TEAM.md`, Ethics Report).
 
 ## How this works: one sprint, one layer, one comparison
 
-| Sprint | Dates | Steps | Adds |
-| --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | [Steps 00–02 — Setup, Python Basics & Intro to CrewAI](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
-| 1 | 22.10.–05.11. | [Steps 03–08 — Zero-Shot & Prompting Techniques](../../exercises/en/step_03_zero_shot_prompting.ipynb) | The bare API call through a role + output structure — your baseline through prompting |
-| 2 | 05.11.–19.11. | [Step 09 — Single Agent](../../exercises/en/step_09_single_agent.ipynb) | The CrewAI framework loop *(interim submission due)* |
-| 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval |
-| 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining *(final submission due)* |
+Each sprint pairs an individual exercise-notebook range (do these yourselves — they aren't part of the team repo) with a team design task: fold that sprint's concept into your own agent, capture the decision in `REPORT.md`, and open a `sprint-<N>` → `main` PR before the next sprint starts. Building it in `src/` is optional — good practice, and it's what the team bonus is judged on (see [Grading](#grading)) — but not required for the sprint PR itself.
 
-You don't redesign anything between sprints — you add one piece each time, running on the same topic throughout. Two submissions: an **interim submission** after Step 09 (sprint 2), which includes a short interim presentation, and a **final submission** after Step 14 (sprint 4).
+| Sprint | Dates | Individual exercises (Steps) | Team design task |
+| --- | --- | --- | --- |
+| 0 | 08.10.–22.10. | [Steps 00–01 — Setup & Python Basics](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
+| 1 | 22.10.–05.11. | [Steps 02–07 — Zero-Shot & Prompting Techniques](../../exercises/en/step_02_zero_shot_prompting.ipynb) | The bare API call through several prompting techniques — design your own agent's baseline prompt, before CrewAI enters the picture |
+| 2 | 05.11.–19.11. | [Steps 08–09 — Introduction to CrewAI & Single Agent](../../exercises/en/step_08_intro_to_crewai.ipynb) | CrewAI's `Agent`/`Task`/`Crew`, then design your own single agent *(Interim Presentation)* |
+| 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval — decide which of these your own agent actually needs |
+| 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining — design the second agent your own case study needs *(Final Presentation)* |
+
+You don't redesign anything between sprints — you add one design layer each time, on the same topic throughout. Two live milestones: the **Interim Presentation** after sprint 2, and the **Final Presentation** after sprint 4. Your individual Ethics Report is due separately, alongside the final deadline — see [Grading](#grading) for exactly where to submit it.
 
 **Sprint 0 checklist** — before Sprint 1 starts, as a team:
 
 - [ ] Every member has a GitHub account and access to your team repo ([Getting access](../../README.md#getting-access-students))
-- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started)) — if Git, `uv`, Jupyter, or Python itself are new to you, work through [Steps 00–02](../../exercises/en/step_00_setup_and_python_basics.ipynb) first
+- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started)) — if Git, `uv`, or Jupyter are new to you, work through [Steps 00–01](../../exercises/en/step_00_setup_and_python_basics.ipynb) first
 - [ ] Set up your Milestones, Project board, and draft your team's initial product backlog as *User story* issues in your repo's Issues tab, covering what you want your agent to eventually do (see [One-time setup](#one-time-setup-do-this-during-sprint-0) below)
 
 Nothing to merge for Sprint 0 — it's setup, not a sprint deliverable.
@@ -74,54 +76,47 @@ That's the whole vocabulary — the reasoning behind sprints, story-splitting, o
 
 ### One-time setup (do this during Sprint 0)
 
-1. **Milestones** — **Issues → Milestones → New milestone**, once per sprint: `Sprint 1` … `Sprint 4`. Paste that sprint's "Adds" cell from the table at the top as the description.
+1. **Milestones** — **Issues → Milestones → New milestone**, once per sprint: `Sprint 1` … `Sprint 4`. Paste that sprint's "Team design task" cell from the table at the top as the description.
 2. **Project board** — **Projects → New project → Board**. Add columns `Backlog`, `To do`, `In progress`, `In review`, `Done`.
 3. **Issue template** — this repo already ships a *User story* issue template (**New issue → User story**): [`.github/ISSUE_TEMPLATE/user-story.yml`](../../.github/ISSUE_TEMPLATE/user-story.yml). It pre-fills the As a/I want/so that shape plus acceptance criteria.
 
 ### Running each sprint
 
-1. **Sprint planning** (start of sprint, ~15 min, whole team): re-read that sprint's "Adds" cell from the table at the top, and break it into 3–6 issues using the *User story* template. Set each one's milestone to the current sprint, assign an owner, and put it in "To do."
+1. **Sprint planning** (start of sprint, ~15 min, whole team): re-read that sprint's "Team design task" cell from the table at the top, and break it into 3–6 issues using the *User story* template. Set each one's milestone to the current sprint, assign an owner, and put it in "To do."
 2. **During the sprint**: as you work, move your own issues across the board (`To do` → `In progress` → `In review` → `Done`) and reference the issue number in commits (`#12`) so the history stays traceable.
 3. **Sprint review** (end of sprint, right before opening the PR): walk the board together as a team — everything in `Done` should be visible in the diff you're about to merge; anything unfinished rolls into next sprint's backlog rather than blocking the PR.
 4. **Close the loop**: put `Closes #12` (and any others) in your `sprint-<N>` → `main` PR description — merging it auto-closes those issues and completes the milestone.
 
 ## Submission package
 
-At each submission deadline (interim: after Step 09, final: after Step 14), your submission is the state of your team repo's `main` branch:
+### Team repo (shared — ungraded directly, but feeds your presentations and the bonus)
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |
-| Report document | `REPORT.md` — sprint progression, architecture, implementation, evaluation, and ethics of your own agent | Your actual project report, specifically grounded in your topic |
-| Code edits | Any changes you made to the exercise scripts (e.g. TOPIC, custom knowledge sources) | What you actually ran |
-| Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A reviewable diff of what changed each sprint |
+| Design record | `REPORT.md` — sprint progression, architecture, implementation, evaluation, theory | Your team's actual design decisions, specifically grounded in your topic — the material your presentations are built from |
+| Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A reviewable diff of how the design progressed each sprint |
 | Team notes | `TEAM.md` | Members and who contributed what |
+| Optional: implementation | Code in `src/` (agents, tasks, tools, config) | What you actually ran — not required, but what the +10% team bonus is judged on (see Grading) |
 
-The chain of merged sprint PRs is what your instructor reads to follow how the work progressed, rather than diffing raw commit history by hand. Use the PR description to note what you ran and what you found at each step.
+The chain of merged sprint PRs is what your instructor reads to follow how the design progressed, rather than diffing raw commit history by hand. Use the PR description to note what you decided and why at each step.
 
-The Interim and Final Presentations (see Grading below) aren't repo artifacts — they're live talks, nothing to commit for them.
+### Individual submission (per student — not via the repo)
+
+Each of you writes your own copy of [`ethics-report-template.md`](ethics-report-template.md) and submits it directly to your instructor (not committed to GitHub) by the final deadline. This is your main graded deliverable — see Grading below.
+
+The Interim and Final Presentations aren't repo artifacts either — they're live talks, nothing to commit for them.
 
 ## Grading
 
-The final grade has three components:
+The final grade has three components — the first two are team grades, the third is graded individually per student:
 
-| Component | Weight | What's assessed |
-| --- | --- | --- |
-| Interim Presentation | 10% | A short live walkthrough of progress so far, given at the interim submission (after Step 09, sprint 2) — what you've built, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
-| Report (`REPORT.md`) | 70% | See the breakdown below. Assessed once, at the final submission. |
-| Final Presentation | 20% | A live, in-class walkthrough of your agent — what it does, why you built it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
+| Component | Weight | Team or individual? | What's assessed |
+| --- | --- | --- | --- |
+| Interim Presentation | 10% | Team | A short live walkthrough of your design so far, given after sprint 2 — what you've designed, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
+| Final Presentation | 20% | Team | A live, in-class walkthrough of your agent's design — what it does, why you designed it this way, and (if you built it) a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred if you have one, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
+| Ethics Report | 70% | **Individual** | Your own [`ethics-report-template.md`](ethics-report-template.md), submitted directly to your instructor, not via GitHub (see Submission package above). Graded on how specifically and honestly it engages with each ethical dimension, grounded in your team's actual agent and your own observations — not generic claims. |
 
-The Report's 70% breaks down further into four sub-criteria:
-
-| Sub-criterion | Weight (of total grade) | What's assessed |
-| --- | --- | --- |
-| Report quality | 28% | `REPORT.md` — is the analysis specific and honest, grounded in your own agent's actual behavior and the exercise steps you ran, not generic claims? |
-| Critical reflection | 21% | Does the team understand *why* each design choice matters? Do they connect it to their specific topic and agent rather than giving generic answers? |
-| Design & conclusion | 14% | Is the agent's architecture (Section 3) reasoned and specific to their use case — not "RAG + Tools is always best" — and does the Conclusion (Section 8) honestly assess whether they met their objectives? |
-| Process (PRs, team) | 7% | One clean PR per sprint, all team members contributing, PR descriptions say what was run, `REPORT.md`'s Sprint Progression table kept current sprint-by-sprint |
-
-**Optional bonus:** a working implementation that actually runs end-to-end (`crew.kickoff()` completes without errors, code is reasonably organized, and matches what `REPORT.md` describes), and/or a working custom setup (modified agents, custom knowledge source, different topic variations tested) — up to **+10%** extra credit combined. Never required, never a substitute for a thin evaluation.
-
-**Individual adjustment within the team grade:** each student's share of the team grade can move by up to **±15%** based on the private [peer evaluation](assignment-templates.md#peer-evaluation-private--do-not-commit-this-to-your-repo) — submitted directly to your instructor, never committed to the repo.
+**Team bonus (+10%, same for every team member):** a working implementation of your design in `src/` that actually runs end-to-end (`crew.kickoff()` completes without errors, code is reasonably organized, and matches what `REPORT.md` describes) — judged from your commit history and pull requests. Never required, never a substitute for a thin design.
 
 ## For instructors
 
@@ -151,4 +146,4 @@ Students submit their **email and GitHub username** via a [team sign-up issue](.
 
 ### 4. Ongoing: review submissions
 
-Each team merges one pull request per sprint (`sprint-<N>` → `main`) — review that PR's diff on GitHub (**Pull requests → Closed**) for what was run and what was observed. Grade against the state of `main` at each deadline, using the chain of merged sprint PRs as the step-by-step record. Solutions aren't included on purpose.
+Each team merges one pull request per sprint (`sprint-<N>` → `main`) — review that PR's diff on GitHub (**Pull requests → Closed**) for what was designed and decided; a `src/` implementation may or may not be present, since it's bonus-only. Grade the two team presentations against the state of `main` at each deadline, using the chain of merged sprint PRs as the step-by-step record. Ethics Reports arrive separately, one per student, outside GitHub — grade those individually. Solutions aren't included on purpose.

@@ -3,6 +3,8 @@
 **Course:** Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 **Team Name:** [Your Team Name]
 
+> **What this document is:** your team's shared design record — architecture, implementation choices, evaluation, theory — built up sprint by sprint. It isn't separately graded; it's the prep material behind your Interim Presentation (10%) and Final Presentation (20%). Actual `src/` code implementing your agent is optional here and graded separately as a bonus (+10%, team-wide, judged from your commit/PR history) — see [Assignment Overview](team_assignment/en/assignment-overview.md#grading). Section 7 (Ethical Considerations) is the one exception to "shared team content": it's kept here only as a reference outline — each student fills in and hands in their **own individually-graded copy** (70%) separately, see the note in that section.
+
 ## Team Members
 
 - [Student 1 Name] ([GitHub Username])
@@ -14,12 +16,13 @@
 
 ## Sprint Progression
 
-_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 4 — in depth.)_
+_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. A sprint's PR is your team's design progress on that layer, captured in this document; implementing it in `src/` is optional, see the note above. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 4 — in depth.)_
 
 | Sprint | Added | What changed, concretely — and one surprise |
 | --- | --- | --- |
-| 1 — Steps 03–08 | Baseline zero-shot prompt, then prompting techniques | Accuracy already with one prompt surprised me |
-| 2 — Step 09 *(interim)* | First `Agent` | |
+| 0 — Steps 00–01 | Environment setup, first plain `crewai.LLM` call | |
+| 1 — Steps 02–07 | Baseline zero-shot prompt, then prompting techniques | Accuracy already with one prompt surprised me |
+| 2 — Steps 08–09 *(interim)* | CrewAI itself, first `Agent` | |
 | 3 — Steps 10–13 | Memory, Tools, MCP, RAG | |
 | 4 — Step 14 *(final)* | Second agent, `Process` | |
 
@@ -52,15 +55,42 @@ _(**Purpose:** To define the context and goals of your project.)_
 
 _(**Purpose:** To explain the high-level design of your agent.)_
 
-_(Provide a high-level diagram of your agent's architecture. You can create this in a tool like draw.io, export it as a .png or .jpg, and embed it here.)_
+_(Provide a high-level diagram of your agent's architecture. You can create this in a tool like draw.io and embed it as a .png/.jpg, or write it as a [Mermaid](https://mermaid.js.org/syntax/sequenceDiagram.html) diagram in a code fence — GitHub renders Mermaid natively, no export needed. A sequence diagram works well for showing the request/response flow between the user, your `Crew`, and any tools/environment it calls; a flowchart works better if you want to show multiple agents and how work moves between them.)_
 
 `![Architecture Diagram](path/to/your/diagram.png)`
+
+_(Example — replace with your own agent's actual flow, not this one:)_
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Crew as Crew (Process.sequential)
+    participant Agent
+    participant Tool as Tool / Environment
+
+    User->>Crew: kickoff(inputs={"topic": ...})
+    Crew->>Agent: Task(description, expected_output)
+    loop Until final answer or max_iter reached
+        Agent->>Agent: Thought — decide next action
+        Agent->>Tool: Action — call tool (e.g. SerperDevTool)
+        Tool-->>Agent: Observation — tool result
+    end
+    Agent-->>Crew: Task output (result.raw)
+    Crew-->>User: CrewOutput
+```
+
+With a second agent and `context=[...]` chaining (Step 14), add another `Agent` lane and a second `Crew->>Agent` / `Agent-->>Crew` pair after the first, showing the first task's output feeding the second task's description. With `process=Process.hierarchical` (Step 15), add a `Manager` participant between `Crew` and the agents, delegating each task at runtime instead of `Crew` calling a fixed `Agent` directly.
 
 _(Explain the diagram and the overall workflow:_
 
 - _What are the main components? (e.g., Agents, Tasks, Process, Tool/MCP Layer, Memory).)_
 - _How does data flow through the system? Start with a user input (or the `topic`/inputs passed to `crew.kickoff()`) and trace its path._
-- _This is the most important place to describe your `Crew`. What are your `Agent`s (`role`/`goal`/`backstory`)? What `Task`s are they assigned, and how do they chain together (`context=[...]`)? What `Process` do you use — `sequential` or `hierarchical` — and why? If you wrote a reusable class (like `BaseAgent` in [Step 02](exercises/en/step_02_intro_to_crewai.ipynb)) or a custom tool/MCP integration, describe that structure too.)_
+- _This is the most important place to describe your `Crew`. What are your `Agent`s (`role`/`goal`/`backstory`)? What `Task`s are they assigned, and how do they chain together (`context=[...]`)? What `Process` do you use — `sequential` or `hierarchical` — and why? If you wrote a reusable class (see `src/research_crew/agents/base.py`'s `BaseAgent` for an example) or a custom tool/MCP integration, describe that structure too.)_
+
+- **Design Pattern Choice:** [Step 16](exercises/en/step_16_design_patterns.ipynb) covers seven recurring workflow patterns — prompt chaining, chain of thought, tree of thought, routing, parallelization, orchestrator-workers, evaluator-optimizer. Name which one(s) your architecture actually uses, and justify **each one individually**, not as a group:
+  - Which CrewAI mechanism implements it in your code (e.g. `Task(context=[...])`, `Agent(reasoning=True)`, `ConditionalTask`, `Task(async_execution=True)`, `Process.hierarchical`, `Task(guardrail=...)`)?
+  - Why this pattern over the simplest alternative — what would break, or measurably get worse, without it? ("It seemed more sophisticated" is not a justification.)
+  - If you use **none** of the seven, say so explicitly and explain why a single `Task`/`Agent` was enough — that's a legitimate, gradeable answer, not a gap. This is a narrower, implementation-level version of the suitability question Section 5.1 asks about the project as a whole.
 
 ---
 
@@ -85,27 +115,27 @@ _(**Purpose:** To detail the "how" of your project, covering the specific techni
 - **Tools:** List and describe each tool (also MCP servers) you defined for your agent.
   - _(e.g., `SerperDevTool()`: live web search. A custom MCP server exposing `fetch_invoice(id: str) -> dict`.)_
 - **Memory:** What kind of memory does your agent have?
-  - _(e.g., "We enabled CrewAI's built-in `memory=True` on our `Crew`, giving our agent short-term recall of recent interactions via semantic retrieval — see [Step 02](exercises/en/step_02_intro_to_crewai.ipynb) for how this works under the hood." Or: "We manually folded a growing transcript into each `Task`'s description, giving the agent context across turns without relying on CrewAI's built-in memory system.")_
+  - _(e.g., "We enabled CrewAI's built-in `memory=True` on our `Crew`, giving our agent short-term recall of recent interactions via semantic retrieval — see [Step 08](exercises/en/step_08_intro_to_crewai.ipynb) for how this works under the hood." Or: "We manually folded a growing transcript into each `Task`'s description, giving the agent context across turns without relying on CrewAI's built-in memory system.")_
   - _(Or, "We implemented RAG via `knowledge_sources`. We used a `TextFileKnowledgeSource` pointed at our own document, and the `Crew`'s `embedder` retrieves the relevant chunks automatically — see [Step 13](exercises/en/step_13_rag.ipynb).")_
 
 ### 4.3. Prompt Engineering
 
 _(This is a critical section. Show your work.)_
 
-- **Agent Identity:** Include your final `role`/`goal`/`backstory` for each agent here. Explain why you wrote them this way (persona, rules, scope of responsibility) — the same components you experimented with as `persona`/`instruction`/`context`/`audience`/`tone` in [Step 05](exercises/en/step_05_prompt_template.ipynb).
+- **Agent Identity:** Include your final `role`/`goal`/`backstory` for each agent here. Explain why you wrote them this way (persona, rules, scope of responsibility) — the same components you experimented with as `persona`/`instruction`/`context`/`audience`/`tone` in [Step 04](exercises/en/step_04_prompt_template.ipynb).
 - **Prompting Techniques:** Explain how you used concepts from the exercise steps in your prompts or agent design.
-  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 04](exercises/en/step_04_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 06](exercises/en/step_06_chain_prompting.ipynb), [Step 14](exercises/en/step_14_multi_agent_seq.ipynb))?
-  - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 07](exercises/en/step_07_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature? Show where. How did this change the verbose log or the final answer?
+  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 03](exercises/en/step_03_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 05](exercises/en/step_05_chain_prompting.ipynb), [Step 14](exercises/en/step_14_multi_agent_seq.ipynb))?
+  - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 06](exercises/en/step_06_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature ([Step 16](exercises/en/step_16_design_patterns.ipynb) Pattern 2)? Show where. How did this change the verbose log or the final answer?
   - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/en/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
-  - **Tree of Thought (ToT):** CrewAI has no built-in equivalent ([Step 08](exercises/en/step_08_tree_of_thought.ipynb) simulates it via a single prompt). Did you implement anything like this — e.g., prompting one agent to reason as multiple experts in parallel, or running several agents on the same `Task` and having a final agent compare and synthesize their outputs?
+  - **Tree of Thought (ToT):** [Step 07](exercises/en/step_07_tree_of_thought.ipynb) simulates it via a single prompt asking one model to role-play multiple experts; [Step 16](exercises/en/step_16_design_patterns.ipynb) Pattern 3 rebuilds it properly with genuinely separate, parallel `Agent`s and a judge `Task`. Did you implement anything like this — which version, and why?
 - **Prompt Evolution:** How did your agents' `backstory`/`Task` descriptions change, specifically — what did you add to fix a failure or sharpen behavior?
 
-  Sprints 1–2 are purely about this — no agent exists yet — so recap them here before the story shifts to agent architecture in Section 3:
+  Sprint 1 is purely about this — no agent exists yet — so recap it here before the story shifts to agent architecture in Section 3:
 
   | Sprint | Prompting technique | What changed, concretely |
   | --- | --- | --- |
-  | 1 — Step 03 | None (zero-shot baseline) | |
-  | 2 — Steps 04–08 | Few-shot / template / chaining / CoT / ToT | |
+  | 1 — Step 02 | None (zero-shot baseline) | |
+  | 1 — Steps 03–07 | Few-shot / template / chaining / CoT / ToT | |
 
   The full five-sprint arc — including where agents take over — is in the **Sprint Progression** table at the top of this report.
 
@@ -120,7 +150,7 @@ _(**Purpose:** To explain how you manage and structure the context that your age
 - **Context Retrieval:** If you use RAG or `knowledge_sources`, how do you retrieve and rank relevant context?
   - _(e.g., "Our `TextFileKnowledgeSource` is embedded via Gemini and retrieved by CrewAI's own semantic search — we did not need to implement retrieval ourselves, see [Step 13](exercises/en/step_13_rag.ipynb).")_
 - **Context Compression/Summarization:** Do you use any techniques to compress or summarize context to fit more information?
-  - _(e.g., "We rely on `Task(context=[...])` passing only the *final output* of a prior task forward, not its full reasoning trail — this is itself a form of compression, discussed in [Step 02](exercises/en/step_02_intro_to_crewai.ipynb)'s 'What plays the role of state' section.")_
+  - _(e.g., "We rely on `Task(context=[...])` passing only the *final output* of a prior task forward, not its full reasoning trail — this is itself a form of compression, discussed in [Step 08](exercises/en/step_08_intro_to_crewai.ipynb)'s 'What plays the role of state' section.")_
 - **Dynamic Context Selection:** Does your agent dynamically select which context to include based on the task?
   - _(e.g., "Our Researcher agent only receives `knowledge_sources` when the question relates to our internal documents; for general questions we omit it to save on embedding calls.")_
 
@@ -128,14 +158,37 @@ _(**Purpose:** To explain how you manage and structure the context that your age
 
 ## 5. Evaluation & Challenges
 
-_(**Purpose:** To critically assess your project. What worked and what didn't?)_
+_(**Purpose:** To critically assess your project through three lenses, not one: was agentic AI even the right approach, does it actually perform, and is it worth anything to the problem you picked? A technically working agent that didn't need to be an agent, or that no one would trust to use, is still a weak evaluation.)_
+
+### 5.1 Suitability: Was Agentic AI the Right Approach?
+
+_(Judge the choice itself, before judging performance. See Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents): agentic systems trade latency and cost for flexibility, and most tasks don't need that trade.)_
+
+- **Fit:** Is the task you're addressing genuinely dynamic — variable inputs, context-dependent decisions, exception handling — or fundamentally deterministic? A deterministic task is usually better served by a fixed workflow or rules than an autonomous `Agent`.
+  - _(e.g., "Our task requires deciding, case by case, which of three sources to check based on the user's phrasing — that variability is what justifies an Agent over a fixed pipeline.")_
+- **Baseline comparison:** What does your agent actually add over the Step 02 zero-shot baseline your team ran at the start of the course? Be specific and honest — "not much" is a valid, gradeable answer if that's genuinely what you found.
+- **Alternative considered:** Would a simpler workflow (fixed code path + LLM calls, no autonomous `Agent`) have solved this just as well? Why or why not?
+
+### 5.2 Performance: How Well Does It Actually Work?
+
+_(Ground this in evidence, not impressions. `Crew(tracing=True)`'s dashboard — introduced in [Step 08](exercises/en/step_08_intro_to_crewai.ipynb) — is your primary evidence source here: it's where you'll actually find *why* a run failed, not just that it did. [Step 17](exercises/en/step_17_evaluation_harness.ipynb) builds a small, reusable harness that produces the Goal Completion Rate and cost/latency numbers below directly — run it on your own agent and test cases instead of estimating these by hand.)_
 
 - **Testing & Results:** How did you test your agent? What scenarios did you use?
-  - Show 2-3 examples of your agent working **well**. (Include user input and agent output).
-  - Show 1-2 examples of your agent **failing** or struggling. Explain _why_ it failed (e.g., "The agent called the wrong tool," "A knowledge source chunk was retrieved out of context," "The LLM hallucinated a citation").
+  - Show 2-3 examples of your agent working **well**, each with its `tracing=True` dashboard link. (Include user input and agent output).
+  - Show 1-2 examples of your agent **failing** or struggling, each with its trace link. Explain _why_ it failed (e.g., "The agent called the wrong tool," "A knowledge source chunk was retrieved out of context," "The LLM hallucinated a citation") — pull this from the trace's reasoning log, not just the final answer.
+- **Goal Completion Rate:** Of the scenarios you tested, what fraction did the agent complete correctly without human intervention? ([Step 17](exercises/en/step_17_evaluation_harness.ipynb)'s LLM-judge harness gives you this directly.)
+- **Cost & latency vs. baseline:** Per `result.token_usage` and wall-clock timing ([Step 17](exercises/en/step_17_evaluation_harness.ipynb)), how much slower/more expensive is a full agent run than the Step 02 zero-shot call? Is that trade-off justified by the quality difference you observed?
 - **Challenges Faced:** What was the hardest part of this project?
   - _(e.g., "Getting `context=[...]` to reliably carry the right information between two agents took several iterations." or "Debugging why our `Crew`'s memory wasn't being recalled across kickoffs was time-consuming.")_
 - **Limitations:** What are the known limitations of your final agent?
+
+### 5.3 Business Value: Is It Worth Building?
+
+_(Step outside the code and judge the project the way a stakeholder would, not a developer.)_
+
+- **The bottleneck:** What one, specific process step does your agent actually address? ("Helps with job applications" is too vague; "extracts the specific requirements from one job posting" is not.)
+- **Blast radius:** What happens when the agent is wrong? Who bears the consequence, and how costly is a bad *answer* versus a bad *action*? (Related to Section 7's Autonomy & Control question, but framed here in business rather than ethical terms.)
+- **Adoption:** Would someone outside your team — the actual target user — trust this output enough to use it without checking every step? What would have to change for that to be true?
 
 ---
 
@@ -160,6 +213,8 @@ _(Analyze your agent's design and behavior based on Wooldridge's four characteri
 ---
 
 ## 7. Ethical Considerations
+
+> **Individual deliverable — hand in separately, not here.** Unlike every other section in this document, this one isn't filled in as shared team content. Each student writes and submits their **own individually-graded copy** (70% of your grade) directly to the instructor, not via this file and not via GitHub — see the [Ethics Report template](team_assignment/en/ethics-report-template.md) for the actual document to fill in and hand in. What follows below is left as a reference outline only, so the full shape of the report stays visible in one place — do not fill it in here, and do not treat filling it in here as a substitute for your individual submission.
 
 _(**Purpose:** To demonstrate awareness of the ethical implications of deploying AI agents and to discuss how your agent addresses or should address these concerns.)_
 

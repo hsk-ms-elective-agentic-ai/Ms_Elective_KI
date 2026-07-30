@@ -29,7 +29,7 @@ class BaseAgent:
 
     Pass `memory=True` (plus an `embedder` config if you're not relying on
     `OPENAI_API_KEY`'s default) to let CrewAI's own short-term memory carry
-    context across separate `run()` calls - see Step 02's "Giving it memory"
+    context across separate `run()` calls - see Step 08's "Giving it memory"
     section for what that buys you.
     """
 

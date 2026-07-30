@@ -46,7 +46,7 @@ def run():
 
     # This dict's keys fill in the `{topic}` placeholders in agents.yaml/tasks.yaml
     # (CrewAI interpolates them by name) — change 'topic' here to your team's
-    # actual topic, the same one you've used since Step 03.
+    # actual topic, the same one you've used since Step 02.
     inputs = {
         'topic': 'Artificial Intelligence in Healthcare'
     }

@@ -6,9 +6,11 @@
 
 ## `REPORT.md`
 
-This is the main deliverable: a full project report on the agent your team designs and builds — architecture, implementation choices, evaluation, and ethical considerations — not a step-by-step log. It's not reproduced here since it's long enough that a second copy would just drift out of sync with the real one; `REPORT.md` at your repo root has the actual section-by-section prompts, from Executive Summary through Individual Contribution Log.
+This is your team's shared design record — architecture, implementation choices, evaluation, theory — for the agent you design (and optionally build in `src/`). It isn't separately graded; it's the prep material behind your Interim and Final Presentations, and its sprint-by-sprint PR history is part of what the bonus criterion looks at (see [Assignment Overview](assignment-overview.md#grading)). It's not reproduced here since it's long enough that a second copy would just drift out of sync with the real one; `REPORT.md` at your repo root has the actual section-by-section prompts, from Executive Summary through Individual Contribution Log.
 
-One section worth calling out specifically: **Sprint Progression**, right after Team Members, is a required table — one row per sprint, filled in right after that sprint's PR, not reconstructed at the end. Generic answers ("it's more accurate") score less than specific ones ("the analyst in step 13 flagged X as overstated, which the researcher in step 09 didn't question") — that specificity is what the rest of the report is graded on too.
+One section worth calling out specifically: **Sprint Progression**, right after Team Members, is a required table — one row per sprint, filled in right after that sprint's PR, not reconstructed at the end. Generic answers ("it's more accurate") score less than specific ones ("the analyst in step 13 flagged X as overstated, which the researcher in step 09 didn't question") — that specificity is what makes for a good presentation too.
+
+`REPORT.md`'s Section 7 (Ethical Considerations) is left in as a reference outline only — its own note says so explicitly. Don't fill it in as a team: each student writes their own copy using `ethics-report-template.md` below and hands that in separately, not by editing Section 7.
 
 ## `TEAM.md`
 
@@ -22,21 +24,6 @@ One section worth calling out specifically: **Sprint Progression**, right after 
 Topic: [your topic]
 ```
 
-## Peer evaluation (private — do not commit this to your repo)
+## Ethics Report (individual — submit directly, not via your team repo)
 
-Submit this directly to your instructor (email, not GitHub) at each submission deadline. Keeping it out of the shared repo is what makes honest feedback possible; this feeds the individual adjustment described in [Assignment Overview](assignment-overview.md#grading).
-
-```markdown
-# Peer Evaluation — [your name] — [interim / final]
-
-## Your teammates
-One section per teammate, not yourself:
-
-### [Teammate name]
-- Contribution (1–5, 5 = pulled their full share or more):
-- What did they actually do this stage, specifically?
-- Anything else your instructor should know? (optional, confidential)
-
-## Yourself
-- What did you contribute this stage, specifically?
-```
+Each student writes their own copy of [`ethics-report-template.md`](ethics-report-template.md) and submits it directly to the instructor (not committed to the shared team repo) at the final deadline — see [Assignment Overview](assignment-overview.md#submission-package) for exactly where. This is your main individually-graded deliverable (70%); it isn't a group document, even though you and your teammates are writing about the same agent.

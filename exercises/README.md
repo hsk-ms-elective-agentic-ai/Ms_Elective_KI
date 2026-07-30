@@ -6,32 +6,34 @@ These are the hands-on steps for **Aktuelle Fallstudien der Digitalökonomie und
 
 The premise is simple: you'll run a sequence of versions of the same thing on the same topic, with each version adding one layer. Then you evaluate what each layer actually changed. The learning comes from the comparison, not from any single step.
 
-You should have [Run the crew](../README.md#run-the-crew) working in **your team's own repo** before Step 03 — see the main [README's "Getting access"](../README.md#getting-access-students) section if you don't have that yet. If Git, `uv`, Jupyter, or Python itself are new to you, start with Step 00 first.
+You should have [Run the crew](../README.md#run-the-crew) working in **your team's own repo** before Step 02 — see the main [README's "Getting access"](../README.md#getting-access-students) section if you don't have that yet. If Git, `uv`, or Jupyter are new to you, start with Step 00 first.
 
 ## Steps
 
 | # | Title | What it adds |
 | --- | --- | --- |
-| [00](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, Jupyter, and a Python refresher *(optional, if any of this is new to you)* |
-| [01](en/step_01_test_setup_and_first_agent.ipynb) | Test Your Setup & First Agent | Verify your environment works, tour the project, meet a standalone `Agent` *(optional)* |
-| [02](en/step_02_intro_to_crewai.ipynb) | Introduction to CrewAI | What CrewAI is, `Agent`/`Task`/`Crew`/`Process`, and built-in memory — built up from a plain LLM call *(optional)* |
-| [03](en/step_03_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline |
-| [04](en/step_04_few_shot.ipynb) | Few-Shot Prompting | 2–3 examples before the real question |
-| [05](en/step_05_prompt_template.ipynb) | Prompt Template | A role + output structure, same call |
-| [06](en/step_06_chain_prompting.ipynb) | Chain Prompting | Two sequential calls, one feeding the next |
-| [07](en/step_07_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
-| [08](en/step_08_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
-| [09](en/step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(interim submission due)* |
+| [00](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, and Jupyter *(optional, if any of this is new to you)* |
+| [01](en/step_01_test_setup_and_first_llm_call.ipynb) | Test Your Setup & First LLM Call | Verify your environment works, tour the project, make your first `crewai.LLM` call *(optional)* |
+| [02](en/step_02_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline |
+| [03](en/step_03_few_shot.ipynb) | Few-Shot Prompting | 2–3 examples before the real question |
+| [04](en/step_04_prompt_template.ipynb) | Prompt Template | A role + output structure, same call |
+| [05](en/step_05_chain_prompting.ipynb) | Chain Prompting | Two sequential calls, one feeding the next |
+| [06](en/step_06_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
+| [07](en/step_07_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
+| [08](en/step_08_intro_to_crewai.ipynb) | Introduction to CrewAI | What CrewAI is, `Agent`/`Task`/`Crew`/`Process`, and built-in memory — built up from a plain LLM call |
+| [09](en/step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(Interim Presentation)* |
 | [10](en/step_10_memory.ipynb) | Memory | Recall across separate `kickoff()` calls |
 | [11](en/step_11_tools.ipynb) | Tools | Live web search via a CrewAI tool |
 | [12](en/step_12_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
 | [13](en/step_13_rag.ipynb) | RAG | Retrieval from your own knowledge source |
-| [14](en/step_14_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(final submission due)* |
+| [14](en/step_14_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(Final Presentation)* |
 | [15](en/step_15_multi_agent_hierarchical.ipynb) | Multi-Agent (Hierarchical) | The same two agents, delegated to at runtime by a manager instead of fixed in code *(optional)* |
+| [16](en/step_16_design_patterns.ipynb) | Agentic Workflow Design Patterns | Anthropic's five workflow patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer), each mapped to a working CrewAI mechanism *(optional)* |
+| [17](en/step_17_evaluation_harness.ipynb) | Evaluating Speed, Accuracy & Cost | A reusable harness measuring latency, token cost, and an LLM-judged Goal Completion Rate — feeds `REPORT.md` Section 5.2 *(optional)* |
 
-Steps 03–14 use the **same topic** — you pick it once at step 03 and keep it. The primary deliverable is `REPORT.md`: a full project report — architecture, implementation, evaluation, ethics — on the agent your team designs and builds, informed by what changed at each step. Step 15 is optional and not part of the graded assignment.
+Steps 02–14 use the **same topic** — you pick it once at step 02 and keep it. These notebooks are individual practice, not a team submission; `REPORT.md` is where your team then captures the design of the agent you build together — architecture, implementation, evaluation — as prep for your Interim and Final Presentations. Each student separately writes and submits their own Ethics Report. Steps 15–17 are optional and not part of the graded assignment.
 
-For what's graded, the submission package, team setup, and templates (`REPORT.md`, `TEAM.md`, peer evaluation), see [Assignment Overview](../team_assignment/en/assignment-overview.md) (English / [Deutsch](../team_assignment/de/assignment-overview.md)).
+For what's graded, the submission package, team setup, and templates (`REPORT.md`, `TEAM.md`, Ethics Report), see [Assignment Overview](../team_assignment/en/assignment-overview.md) (English / [Deutsch](../team_assignment/de/assignment-overview.md)).
 
 ## Learn more on your own
 
