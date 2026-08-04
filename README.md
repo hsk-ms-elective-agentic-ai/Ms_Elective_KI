@@ -37,62 +37,48 @@ Teams of **3–5 students** work through a sequence of versions of the same AI s
 
 ### Use cases to pick from
 
-Pick one of the five use cases below. Each is designed so that the steps produce **noticeably different output**: a simple prompt gives a broad starting point, structured prompting adds focus and format, a single agent adds a consistent perspective, web search + RAG grounds the output in current, specific evidence, and a second agent transforms the grounded research into a recommendation. The quality of your evaluation depends on how well your team knows the subject — pick a topic you can actually judge.
-
----
-
 **1. Job Application Tailoring Assistant**
 
-A student applying to internships or working-student roles needs each application tailored to the specific posting — recruiters and applicant-tracking systems filter out generic, copy-pasted applications fast. *Step 02* gives you generic "how to write a cover letter" advice that could apply to any job anywhere. *Steps 03–07* add a career-coach persona and a structured bullet-point format — immediately more usable, but still generic to the role type, not the actual posting. *Step 09* gives you a job-posting analyst agent whose role keeps it focused on extracting the specific requirements and keywords from one real posting, not general career advice. *Steps 11–13* close the information gap: web search adds current company news, culture signals, and interview-process reports; the applicant's own CV as a RAG source grounds every suggestion in experience they actually have, not invented achievements. *Step 14* adds an application strategist who takes the now-grounded requirements and CV and writes a tailored pitch, mapping specific experience to specific requirements — the two agents together produce something neither produces alone.
+A student applying to internships or working-student roles needs each application tailored to the specific posting — recruiters and applicant-tracking systems filter out generic, copy-pasted applications fast. Writing one tailored application already takes real effort; writing a dozen, each genuinely specific to a different posting, company, and role, is what actually burns people out and pushes them back toward copy-paste. The hard part isn't writing well in general — it's reconciling two things that don't automatically line up: what a specific posting is actually asking for (often buried in vague corporate language, or split between the job ad and the company's own site), and what the applicant can honestly offer, using real experience rather than invented or exaggerated achievements. A good solution has to bridge that gap fresh for each posting, without the applicant manually rewriting their story from scratch every time.
 
 - **Topic example:** `"Tailor an application for a [Working Student — Data Analytics] role at [Company] in [City]"`
-- **Agents (Step 09, Step 14):** Job-Posting Analyst → Application Strategist
-- **Tool (step 11):** `SerperDevTool` — company news, culture, interview-process reports
-- **RAG source (step 13):** The applicant's own CV/resume (PDF)
+- **Context you have available:** the job posting itself; the applicant's own CV/resume; public information about the company (news, culture, interview-process reports) reachable via web search.
 
 ---
 
 **2. Exam Prep Coach**
 
-A student preparing for an exam needs active recall practice — testing what they actually remember — not another pass of re-reading slides, which feels productive but barely improves retention. *Step 02* gives you a generic "how to study effectively" list, useful for no exam in particular. *Steps 03–07* add a tutor persona and a structured quiz-question format — closer to something usable, but still built from the model's general knowledge of the subject, not the actual course. *Step 09* gives you a content-reviewer agent whose role keeps it focused on identifying the key concepts likely to matter for this exam, not explaining the subject from scratch. *Steps 11–13* close the information gap: web search adds a clearer explanation or worked example for a concept the notes only mention briefly; the student's own lecture notes as a RAG source ground every question in what was actually taught, not a generic textbook version. *Step 14* adds a quiz master who takes the now-grounded key concepts and runs an actual practice round — asking questions, checking the answer, and flagging what's still shaky — the two agents together produce something neither produces alone.
+A student preparing for an exam needs active recall practice — testing what they actually remember — not another pass of re-reading slides, which feels productive but barely improves retention. The problem has two parts that are easy to conflate: figuring out what's actually likely to matter for this exam (which takes judgment about relative importance, not just a list of topics), and then being genuinely tested on it — asked a question, forced to answer without peeking, and told honestly whether the answer was right or just close. Most students skip straight to re-reading because building good test questions from your own material is itself work — a lecture slide doesn't come with a quiz attached, and a generic online quiz for "the course" doesn't exist. A good solution needs to work from what was actually taught, not a generic textbook version of the subject, and needs to be honest when an answer is wrong rather than just moving on.
 
 - **Topic example:** `"Prepare me for the [Course Name] midterm, covering [Topic A, B, C]"`
-- **Agents (Step 09, Step 14):** Content Reviewer → Quiz Master
-- **Tool (step 11):** `SerperDevTool` — supplementary explanations, worked examples for tricky concepts
-- **RAG source (step 13):** The student's own lecture notes or slides (PDF/text)
+- **Context you have available:** the student's own lecture notes or slides; supplementary explanations and worked examples for tricky concepts, reachable via web search.
 
 ---
 
 **3. Personalized Study & Semester Planner**
 
-A student staring at a syllabus and an exam date needs a realistic day-by-day plan — not vague "study a bit every day" advice, but a schedule that actually accounts for how much time is left and how much material there is. *Step 02* gives you generic study-planning advice, the same for a two-week sprint or a full semester. *Steps 03–07* add a planner persona and a day-by-day table format — immediately more concrete, but still guessing at what the course actually covers. *Step 09* gives you a curriculum-analyst agent whose role keeps it focused on prioritizing the topics in one specific course by weight and difficulty, not studying in general. *Steps 11–13* close the information gap: web search adds effective study techniques for the specific subject (spaced repetition for vocabulary vs. worked problems for math); the course syllabus as a RAG source grounds the prioritization in what the course actually covers and how it's graded, not a generic curriculum. *Step 14* adds a study scheduler who takes the now-grounded priorities and turns them into an actual day-by-day plan that fits the available time — the two agents together produce something neither produces alone.
+A student staring at a syllabus and an exam date needs a realistic day-by-day plan — not vague "study a bit every day" advice, but a schedule that actually accounts for how much time is left and how much material there is. This is a genuine scheduling and prioritization problem, not just a motivational one: a syllabus lists topics, not effort — some are a one-lecture aside, others are the backbone of half the exam, and a plan that treats them equally wastes the time it's supposed to be protecting. Building a good plan means correctly weighing what deserves more or less time, sequencing it sensibly (foundational topics before the ones that build on them), and fitting all of that into the hours a student actually has available around their other commitments — not an idealized full-time student's schedule.
 
 - **Topic example:** `"4-week study plan for the [Course Name] final exam on [date], ~1.5h on weekdays"`
-- **Agents (Step 09, Step 14):** Curriculum Analyst → Study Scheduler
-- **Tool (step 11):** `SerperDevTool` — effective study techniques for the specific subject
-- **RAG source (step 13):** The course syllabus or module handbook (PDF)
+- **Context you have available:** the course syllabus or module handbook; effective study techniques for the specific subject, reachable via web search.
 
 ---
 
 **4. Inbox Triage & Draft-Reply Assistant**
 
-Anyone running a shared inbox — a student club, a TA mailbox, a part-time job — needs incoming emails read, understood, and answered consistently, without every reply being reinvented from scratch. *Step 02* gives you a generic reply to a generic email, ignoring who's actually asking or what they actually need. *Steps 03–07* add an assistant persona and a structured reply format — sounds more consistent, but still can't tell a meeting request from a complaint. *Step 09* gives you an email-triager agent whose role keeps it focused on classifying intent and extracting the actual ask, not producing a reply yet. *Steps 11–13* close the information gap: web search looks up something the email references — a company, an event, a policy change; a personal FAQ or past-reply document as a RAG source keeps every answer consistent with actual policy and tone, not invented on the spot. *Step 14* adds a reply drafter who takes the now-grounded classification and context and writes an actual reply, flagging anything that needs a human rather than guessing — the two agents together produce something neither produces alone.
+Anyone running a shared inbox — a student club, a TA mailbox, a part-time job — needs incoming emails read, understood, and answered consistently, without every reply being reinvented from scratch. Volume alone is rarely the hard part; the hard part is that "incoming email" isn't one task but several different ones wearing the same envelope — a meeting request, a complaint, a routine question with a known answer, something that genuinely needs a human's judgment call — and treating them all the same way either wastes effort on the simple ones or mishandles the ones that actually need care. A good solution has to tell these apart reliably, answer consistently with whatever the actual policy or past practice is instead of inventing a plausible-sounding but wrong answer, and know when to stop and hand something to a human rather than guess.
 
 - **Topic example:** `"Triage and draft replies for incoming emails to [a student club / TA inbox]"`
-- **Agents (Step 09, Step 14):** Email Triager → Reply Drafter
-- **Tool (step 11):** `SerperDevTool` — look up something the email references
-- **RAG source (step 13):** A personal FAQ, policy doc, or past reply examples (text file)
+- **Context you have available:** the incoming emails themselves, varying in intent and urgency; a personal FAQ, policy doc, or past reply examples; background an email might reference, reachable via web search.
 
 ---
 
 **5. Student Budget & Savings Planner**
 
-A student managing rent, part-time income, and irregular expenses needs an actual plan — not "spend less," but a concrete monthly budget that accounts for what's coming in and going out. *Step 02* gives you generic budgeting advice that ignores anyone's actual numbers. *Steps 03–07* add a financial-coach persona and a structured budget-table format — looks like a real budget, but the numbers are invented. *Step 09* gives you a spending-analyst agent whose role keeps it focused on reviewing actual income and spending patterns, not general financial advice. *Steps 11–13* close the information gap: web search adds current student discounts, grants, or cost-of-living figures for a specific city; a budget spreadsheet or bank statement as a RAG source grounds every recommendation in actual spending, not a hypothetical student's. *Step 14* adds a budget advisor who takes the now-grounded spending picture and proposes a concrete monthly plan with explicit trade-offs — the two agents together produce something neither produces alone.
+A student managing rent, part-time income, and irregular expenses needs an actual plan — not "spend less," but a concrete monthly budget that accounts for what's coming in and going out. Generic budgeting advice is nearly useless here, because the right answer depends entirely on someone's actual numbers, and those numbers are messy: income that varies month to month, expenses that aren't all monthly (a one-off semester fee, an irregular course cost), and goals that trade off against each other (save for X vs. afford Y this month). A good solution needs to work from someone's real income and spending rather than a hypothetical, and produce a plan that makes the actual trade-offs explicit, rather than hiding behind advice like "cut back on eating out."
 
 - **Topic example:** `"Monthly budget for a student earning [income], saving for [goal]"`
-- **Agents (Step 09, Step 14):** Spending Analyst → Budget Advisor
-- **Tool (step 11):** `SerperDevTool` — current student discounts, grants, cost-of-living data
-- **RAG source (step 13):** A sample budget spreadsheet or bank statement, exported as text (a synthetic one works fine — no need to use real financial data)
+- **Context you have available:** a budget spreadsheet or bank statement, exported as text (a synthetic one works fine — no need to use real financial data); current student discounts, grants, or cost-of-living figures, reachable via web search.
 
 ---
 
