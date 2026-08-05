@@ -14,18 +14,18 @@ Each sprint pairs an individual exercise-notebook range (do these yourselves —
 
 | Sprint | Dates | Individual exercises (Steps) | Team design task |
 | --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | [Steps 00–01 — Setup & Python Basics](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
-| 1 | 22.10.–05.11. | [Steps 02–07 — Zero-Shot & Prompting Techniques](../../exercises/en/step_02_zero_shot_prompting.ipynb) | The bare API call through several prompting techniques — design your own agent's baseline prompt, before CrewAI enters the picture |
-| 2 | 05.11.–19.11. | [Steps 08–09 — Introduction to CrewAI & Single Agent](../../exercises/en/step_08_intro_to_crewai.ipynb) | CrewAI's `Agent`/`Task`/`Crew`, then design your own single agent *(Interim Presentation)* |
-| 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval — decide which of these your own agent actually needs |
-| 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining — design the second agent your own case study needs *(Final Presentation)* |
+| 0 | 08.10.–22.10. | [Steps 00–01 — Setup & Python Basics](../../exercises/step_00_setup_and_python_basics.ipynb) | Technical setup — get your environment and team backlog ready, no PR required *(see checklist below)* |
+| 1 | 22.10.–05.11. | [Steps 02–07 — Zero-Shot & Prompting Techniques](../../exercises/step_02_zero_shot_prompting.ipynb) | The bare API call through several prompting techniques — design your own agent's baseline prompt, before CrewAI enters the picture |
+| 2 | 05.11.–19.11. | [Steps 08–09 — Introduction to CrewAI & Single Agent](../../exercises/step_08_intro_to_crewai.ipynb) | CrewAI's `Agent`/`Task`/`Crew`, then design your own single agent *(Interim Presentation)* |
+| 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval — decide which of these your own agent actually needs |
+| 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining — design the second agent your own case study needs *(Final Presentation)* |
 
 You don't redesign anything between sprints — you add one design layer each time, on the same topic throughout. Two live milestones: the **Interim Presentation** after sprint 2, and the **Final Presentation** after sprint 4. Your individual Ethics Report is due separately, alongside the final deadline — see [Grading](#grading) for exactly where to submit it.
 
 **Sprint 0 checklist** — before Sprint 1 starts, as a team:
 
 - [ ] Every member has a GitHub account and access to your team repo ([Getting access](../../README.md#getting-access-students))
-- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started)) — if Git, `uv`, or Jupyter are new to you, work through [Steps 00–01](../../exercises/en/step_00_setup_and_python_basics.ipynb) first
+- [ ] Clone your team repo and get [Run the crew](../../README.md#run-the-crew) working locally: install dependencies with `uv sync`, get your API keys and fill in `.env`, register the Jupyter kernel ([Getting started](../../README.md#getting-started)) — if Git, `uv`, or Jupyter are new to you, work through [Steps 00–01](../../exercises/step_00_setup_and_python_basics.ipynb) first
 - [ ] Set up your Milestones, Project board, and draft your team's initial product backlog as *User story* issues in your repo's Issues tab, covering what you want your agent to eventually do (see [One-time setup](#one-time-setup-do-this-during-sprint-0) below)
 
 Nothing to merge for Sprint 0 — it's setup, not a sprint deliverable.

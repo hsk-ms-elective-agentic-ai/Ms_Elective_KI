@@ -14,18 +14,18 @@ Jeder Sprint kombiniert einen individuellen Übungs-Notebook-Bereich (macht dies
 
 | Sprint | Termin | Individuelle Übungen (Schritte) | Team-Design-Aufgabe |
 | --- | --- | --- | --- |
-| 0 | 08.10.–22.10. | [Schritte 00–01 — Setup & Python-Grundlagen](../../exercises/en/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
-| 1 | 22.10.–05.11. | [Schritte 02–07 — Zero-Shot- & Prompting-Techniken](../../exercises/en/step_02_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu mehreren Prompting-Techniken — entwerft die Ausgangsbasis-Prompts eures eigenen Agenten, bevor CrewAI ins Spiel kommt |
-| 2 | 05.11.–19.11. | [Schritte 08–09 — Einführung in CrewAI & Einzelner Agent](../../exercises/en/step_08_intro_to_crewai.ipynb) | CrewAIs `Agent`/`Task`/`Crew`, dann entwerft euren eigenen einzelnen Agenten *(Zwischenpräsentation)* |
-| 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/en/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval — entscheidet, welche davon euer eigener Agent tatsächlich braucht |
-| 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/en/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung — entwerft den zweiten Agenten, den eure Fallstudie braucht *(Abschlusspräsentation)* |
+| 0 | 08.10.–22.10. | [Schritte 00–01 — Setup & Python-Grundlagen](../../exercises/step_00_setup_and_python_basics.ipynb) | Technisches Setup — Umgebung und Team-Backlog startklar machen, kein PR nötig *(siehe Checkliste unten)* |
+| 1 | 22.10.–05.11. | [Schritte 02–07 — Zero-Shot- & Prompting-Techniken](../../exercises/step_02_zero_shot_prompting.ipynb) | Der bloße API-Aufruf bis hin zu mehreren Prompting-Techniken — entwerft die Ausgangsbasis-Prompts eures eigenen Agenten, bevor CrewAI ins Spiel kommt |
+| 2 | 05.11.–19.11. | [Schritte 08–09 — Einführung in CrewAI & Einzelner Agent](../../exercises/step_08_intro_to_crewai.ipynb) | CrewAIs `Agent`/`Task`/`Crew`, dann entwerft euren eigenen einzelnen Agenten *(Zwischenpräsentation)* |
+| 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval — entscheidet, welche davon euer eigener Agent tatsächlich braucht |
+| 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung — entwerft den zweiten Agenten, den eure Fallstudie braucht *(Abschlusspräsentation)* |
 
 Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal eine Design-Schicht hinzu, zum selben Thema durchgehend. Zwei Live-Meilensteine: die **Zwischenpräsentation** nach Sprint 2, und die **Abschlusspräsentation** nach Sprint 4. Euer individueller Ethik-Report ist separat fällig, parallel zur Abschluss-Deadline — siehe [Bewertung](#bewertung) für genau wo ihr ihn einreicht.
 
 **Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
 
 - [ ] Jedes Mitglied hat einen GitHub-Account und Zugang zu eurem Team-Repo ([Zugang erhalten](../../README.md#getting-access-students))
-- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started)) — falls Git, `uv` oder Jupyter neu für euch sind, arbeitet zuerst [Schritte 00–01](../../exercises/en/step_00_setup_and_python_basics.ipynb) durch
+- [ ] Klont euer Team-Repo und bringt [Run the crew](../../README.md#run-the-crew) lokal zum Laufen: Abhängigkeiten mit `uv sync` installieren, API-Keys besorgen und in `.env` eintragen, den Jupyter-Kernel registrieren ([Getting started](../../README.md#getting-started)) — falls Git, `uv` oder Jupyter neu für euch sind, arbeitet zuerst [Schritte 00–01](../../exercises/step_00_setup_and_python_basics.ipynb) durch
 - [ ] Richtet eure Milestones und euer Project-Board ein und entwerft euren initialen Product Backlog als *User story*-Issues im Issues-Tab eures Repos, der abdeckt, was euer Agent am Ende können soll (siehe [Einmaliges Setup](#einmaliges-setup-macht-das-während-sprint-0) unten)
 
 Für Sprint 0 gibt es nichts zu mergen — das ist Setup, kein Sprint-Abgabeprodukt.

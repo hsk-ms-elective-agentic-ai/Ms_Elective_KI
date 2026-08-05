@@ -36,7 +36,7 @@ jobs:
         with:
           # Needs an org-admin personal access token, not the default GITHUB_TOKEN,
           # since adding someone to a team is an organization-level permission.
-          # See "For instructors" in exercises/en/assignment-overview.md for setup.
+          # See "For instructors" in team_assignment/en/assignment-overview.md for setup.
           github-token: ${{ secrets.ORG_ADMIN_TOKEN }}
           script: |
             const body = context.payload.issue.body || "";

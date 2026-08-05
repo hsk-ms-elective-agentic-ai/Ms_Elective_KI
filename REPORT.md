@@ -87,7 +87,7 @@ _(Explain the diagram and the overall workflow:_
 - _How does data flow through the system? Start with a user input (or the `topic`/inputs passed to `crew.kickoff()`) and trace its path._
 - _This is the most important place to describe your `Crew`. What are your `Agent`s (`role`/`goal`/`backstory`)? What `Task`s are they assigned, and how do they chain together (`context=[...]`)? What `Process` do you use — `sequential` or `hierarchical` — and why? If you wrote a reusable class (see `src/research_crew/agents/base.py`'s `BaseAgent` for an example) or a custom tool/MCP integration, describe that structure too.)_
 
-- **Design Pattern Choice:** [Step 16](exercises/en/step_16_design_patterns.ipynb) covers seven recurring workflow patterns — prompt chaining, chain of thought, tree of thought, routing, parallelization, orchestrator-workers, evaluator-optimizer. Name which one(s) your architecture actually uses, and justify **each one individually**, not as a group:
+- **Design Pattern Choice:** [Step 16](exercises/step_16_design_patterns.ipynb) covers seven recurring workflow patterns — prompt chaining, chain of thought, tree of thought, routing, parallelization, orchestrator-workers, evaluator-optimizer. Name which one(s) your architecture actually uses, and justify **each one individually**, not as a group:
   - Which CrewAI mechanism implements it in your code (e.g. `Task(context=[...])`, `Agent(reasoning=True)`, `ConditionalTask`, `Task(async_execution=True)`, `Process.hierarchical`, `Task(guardrail=...)`)?
   - Why this pattern over the simplest alternative — what would break, or measurably get worse, without it? ("It seemed more sophisticated" is not a justification.)
   - If you use **none** of the seven, say so explicitly and explain why a single `Task`/`Agent` was enough — that's a legitimate, gradeable answer, not a gap. This is a narrower, implementation-level version of the suitability question Section 5.1 asks about the project as a whole.
@@ -115,19 +115,19 @@ _(**Purpose:** To detail the "how" of your project, covering the specific techni
 - **Tools:** List and describe each tool (also MCP servers) you defined for your agent.
   - _(e.g., `SerperDevTool()`: live web search. A custom MCP server exposing `fetch_invoice(id: str) -> dict`.)_
 - **Memory:** What kind of memory does your agent have?
-  - _(e.g., "We enabled CrewAI's built-in `memory=True` on our `Crew`, giving our agent short-term recall of recent interactions via semantic retrieval — see [Step 08](exercises/en/step_08_intro_to_crewai.ipynb) for how this works under the hood." Or: "We manually folded a growing transcript into each `Task`'s description, giving the agent context across turns without relying on CrewAI's built-in memory system.")_
-  - _(Or, "We implemented RAG via `knowledge_sources`. We used a `TextFileKnowledgeSource` pointed at our own document, and the `Crew`'s `embedder` retrieves the relevant chunks automatically — see [Step 13](exercises/en/step_13_rag.ipynb).")_
+  - _(e.g., "We enabled CrewAI's built-in `memory=True` on our `Crew`, giving our agent short-term recall of recent interactions via semantic retrieval — see [Step 08](exercises/step_08_intro_to_crewai.ipynb) for how this works under the hood." Or: "We manually folded a growing transcript into each `Task`'s description, giving the agent context across turns without relying on CrewAI's built-in memory system.")_
+  - _(Or, "We implemented RAG via `knowledge_sources`. We used a `TextFileKnowledgeSource` pointed at our own document, and the `Crew`'s `embedder` retrieves the relevant chunks automatically — see [Step 13](exercises/step_13_rag.ipynb).")_
 
 ### 4.3. Prompt Engineering
 
 _(This is a critical section. Show your work.)_
 
-- **Agent Identity:** Include your final `role`/`goal`/`backstory` for each agent here. Explain why you wrote them this way (persona, rules, scope of responsibility) — the same components you experimented with as `persona`/`instruction`/`context`/`audience`/`tone` in [Step 04](exercises/en/step_04_prompt_template.ipynb).
+- **Agent Identity:** Include your final `role`/`goal`/`backstory` for each agent here. Explain why you wrote them this way (persona, rules, scope of responsibility) — the same components you experimented with as `persona`/`instruction`/`context`/`audience`/`tone` in [Step 04](exercises/step_04_prompt_template.ipynb).
 - **Prompting Techniques:** Explain how you used concepts from the exercise steps in your prompts or agent design.
-  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 03](exercises/en/step_03_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 05](exercises/en/step_05_chain_prompting.ipynb), [Step 14](exercises/en/step_14_multi_agent_seq.ipynb))?
-  - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 06](exercises/en/step_06_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature ([Step 16](exercises/en/step_16_design_patterns.ipynb) Pattern 2)? Show where. How did this change the verbose log or the final answer?
-  - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/en/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
-  - **Tree of Thought (ToT):** [Step 07](exercises/en/step_07_tree_of_thought.ipynb) simulates it via a single prompt asking one model to role-play multiple experts; [Step 16](exercises/en/step_16_design_patterns.ipynb) Pattern 3 rebuilds it properly with genuinely separate, parallel `Agent`s and a judge `Task`. Did you implement anything like this — which version, and why?
+  - **Few-Shot / Chain Prompting:** Did you embed examples in a `backstory` ([Step 03](exercises/step_03_few_shot.ipynb)), or split a task into multiple chained `Task`s via `context=[...]` ([Step 05](exercises/step_05_chain_prompting.ipynb), [Step 14](exercises/step_14_multi_agent_seq.ipynb))?
+  - **Chain of Thought (CoT):** Did you instruct an agent to "think step by step" in its `backstory`/`Task.description` ([Step 06](exercises/step_06_chain_of_thought.ipynb)), or use CrewAI's own `reasoning=True` plan-and-refine feature ([Step 16](exercises/step_16_design_patterns.ipynb) Pattern 2)? Show where. How did this change the verbose log or the final answer?
+  - **ReAct (Reasoning and Acting):** Every CrewAI `Agent` follows the ReAct loop internally by default ([Step 09](exercises/step_09_single_agent.ipynb)) — pull a snippet from your own verbose log showing a Thought → Action → Observation cycle, and explain what triggered it (e.g., a tool call).
+  - **Tree of Thought (ToT):** [Step 07](exercises/step_07_tree_of_thought.ipynb) simulates it via a single prompt asking one model to role-play multiple experts; [Step 16](exercises/step_16_design_patterns.ipynb) Pattern 3 rebuilds it properly with genuinely separate, parallel `Agent`s and a judge `Task`. Did you implement anything like this — which version, and why?
 - **Prompt Evolution:** How did your agents' `backstory`/`Task` descriptions change, specifically — what did you add to fix a failure or sharpen behavior?
 
   Sprint 1 is purely about this — no agent exists yet — so recap it here before the story shifts to agent architecture in Section 3:
@@ -148,9 +148,9 @@ _(**Purpose:** To explain how you manage and structure the context that your age
 - **Context Window Management:** How do you handle context window limits? Do you truncate, summarize, or prioritize certain information?
   - _(e.g., "For our multi-turn `BaseAgent` subclass, we cap the transcript we fold into each `Task.description` at the last 5 turns, dropping older ones, to keep the prompt from growing unbounded.")_
 - **Context Retrieval:** If you use RAG or `knowledge_sources`, how do you retrieve and rank relevant context?
-  - _(e.g., "Our `TextFileKnowledgeSource` is embedded via Gemini and retrieved by CrewAI's own semantic search — we did not need to implement retrieval ourselves, see [Step 13](exercises/en/step_13_rag.ipynb).")_
+  - _(e.g., "Our `TextFileKnowledgeSource` is embedded via Gemini and retrieved by CrewAI's own semantic search — we did not need to implement retrieval ourselves, see [Step 13](exercises/step_13_rag.ipynb).")_
 - **Context Compression/Summarization:** Do you use any techniques to compress or summarize context to fit more information?
-  - _(e.g., "We rely on `Task(context=[...])` passing only the *final output* of a prior task forward, not its full reasoning trail — this is itself a form of compression, discussed in [Step 08](exercises/en/step_08_intro_to_crewai.ipynb)'s 'What plays the role of state' section.")_
+  - _(e.g., "We rely on `Task(context=[...])` passing only the *final output* of a prior task forward, not its full reasoning trail — this is itself a form of compression, discussed in [Step 08](exercises/step_08_intro_to_crewai.ipynb)'s 'What plays the role of state' section.")_
 - **Dynamic Context Selection:** Does your agent dynamically select which context to include based on the task?
   - _(e.g., "Our Researcher agent only receives `knowledge_sources` when the question relates to our internal documents; for general questions we omit it to save on embedding calls.")_
 
@@ -171,13 +171,13 @@ _(Judge the choice itself, before judging performance. See Anthropic's [Building
 
 ### 5.2 Performance: How Well Does It Actually Work?
 
-_(Ground this in evidence, not impressions. `Crew(tracing=True)`'s dashboard — introduced in [Step 08](exercises/en/step_08_intro_to_crewai.ipynb) — is your primary evidence source here: it's where you'll actually find *why* a run failed, not just that it did. [Step 17](exercises/en/step_17_evaluation_harness.ipynb) builds a small, reusable harness that produces the Goal Completion Rate and cost/latency numbers below directly — run it on your own agent and test cases instead of estimating these by hand.)_
+_(Ground this in evidence, not impressions. `Crew(tracing=True)`'s dashboard — introduced in [Step 08](exercises/step_08_intro_to_crewai.ipynb) — is your primary evidence source here: it's where you'll actually find *why* a run failed, not just that it did. [Step 17](exercises/step_17_evaluation_harness.ipynb) builds a small, reusable harness that produces the Goal Completion Rate and cost/latency numbers below directly — run it on your own agent and test cases instead of estimating these by hand.)_
 
 - **Testing & Results:** How did you test your agent? What scenarios did you use?
   - Show 2-3 examples of your agent working **well**, each with its `tracing=True` dashboard link. (Include user input and agent output).
   - Show 1-2 examples of your agent **failing** or struggling, each with its trace link. Explain _why_ it failed (e.g., "The agent called the wrong tool," "A knowledge source chunk was retrieved out of context," "The LLM hallucinated a citation") — pull this from the trace's reasoning log, not just the final answer.
-- **Goal Completion Rate:** Of the scenarios you tested, what fraction did the agent complete correctly without human intervention? ([Step 17](exercises/en/step_17_evaluation_harness.ipynb)'s LLM-judge harness gives you this directly.)
-- **Cost & latency vs. baseline:** Per `result.token_usage` and wall-clock timing ([Step 17](exercises/en/step_17_evaluation_harness.ipynb)), how much slower/more expensive is a full agent run than the Step 02 zero-shot call? Is that trade-off justified by the quality difference you observed?
+- **Goal Completion Rate:** Of the scenarios you tested, what fraction did the agent complete correctly without human intervention? ([Step 17](exercises/step_17_evaluation_harness.ipynb)'s LLM-judge harness gives you this directly.)
+- **Cost & latency vs. baseline:** Per `result.token_usage` and wall-clock timing ([Step 17](exercises/step_17_evaluation_harness.ipynb)), how much slower/more expensive is a full agent run than the Step 02 zero-shot call? Is that trade-off justified by the quality difference you observed?
 - **Challenges Faced:** What was the hardest part of this project?
   - _(e.g., "Getting `context=[...]` to reliably carry the right information between two agents took several iterations." or "Debugging why our `Crew`'s memory wasn't being recalled across kickoffs was time-consuming.")_
 - **Limitations:** What are the known limitations of your final agent?

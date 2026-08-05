@@ -1,7 +1,5 @@
 # Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](de/README.md)
-
 These are the hands-on steps for **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Lecture theory is delivered via slides in class; this series is the practice companion — and it's also the graded team assignment, not a separate thing alongside it.
 
 The premise is simple: you'll run a sequence of versions of the same thing on the same topic, with each version adding one layer. Then you evaluate what each layer actually changed. The learning comes from the comparison, not from any single step.
@@ -12,24 +10,24 @@ You should have [Run the crew](../README.md#run-the-crew) working in **your team
 
 | # | Title | What it adds |
 | --- | --- | --- |
-| [00](en/step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, and Jupyter *(optional, if any of this is new to you)* |
-| [01](en/step_01_test_setup_and_first_llm_call.ipynb) | Test Your Setup & First LLM Call | Verify your environment works, tour the project, make your first `crewai.LLM` call *(optional)* |
-| [02](en/step_02_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline |
-| [03](en/step_03_few_shot.ipynb) | Few-Shot Prompting | 2–3 examples before the real question |
-| [04](en/step_04_prompt_template.ipynb) | Prompt Template | A role + output structure, same call |
-| [05](en/step_05_chain_prompting.ipynb) | Chain Prompting | Two sequential calls, one feeding the next |
-| [06](en/step_06_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
-| [07](en/step_07_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
-| [08](en/step_08_intro_to_crewai.ipynb) | Introduction to CrewAI | What CrewAI is, `Agent`/`Task`/`Crew`/`Process`, and built-in memory — built up from a plain LLM call |
-| [09](en/step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(Interim Presentation)* |
-| [10](en/step_10_memory.ipynb) | Memory | Recall across separate `kickoff()` calls |
-| [11](en/step_11_tools.ipynb) | Tools | Live web search via a CrewAI tool |
-| [12](en/step_12_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
-| [13](en/step_13_rag.ipynb) | RAG | Retrieval from your own knowledge source |
-| [14](en/step_14_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(Final Presentation)* |
-| [15](en/step_15_multi_agent_hierarchical.ipynb) | Multi-Agent (Hierarchical) | The same two agents, delegated to at runtime by a manager instead of fixed in code *(optional)* |
-| [16](en/step_16_design_patterns.ipynb) | Agentic Workflow Design Patterns | Anthropic's five workflow patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer), each mapped to a working CrewAI mechanism *(optional)* |
-| [17](en/step_17_evaluation_harness.ipynb) | Evaluating Speed, Accuracy & Cost | A reusable harness measuring latency, token cost, and an LLM-judged Goal Completion Rate — feeds `REPORT.md` Section 5.2 *(optional)* |
+| [00](step_00_setup_and_python_basics.ipynb) | Setup & Python Basics | Git/GitHub, `uv`, and Jupyter *(optional, if any of this is new to you)* |
+| [01](step_01_test_setup_and_first_llm_call.ipynb) | Test Your Setup & First LLM Call | Verify your environment works, tour the project, make your first `crewai.LLM` call *(optional)* |
+| [02](step_02_zero_shot_prompting.ipynb) | Zero-Shot Prompting | The bare API call — your baseline |
+| [03](step_03_few_shot.ipynb) | Few-Shot Prompting | 2–3 examples before the real question |
+| [04](step_04_prompt_template.ipynb) | Prompt Template | A role + output structure, same call |
+| [05](step_05_chain_prompting.ipynb) | Chain Prompting | Two sequential calls, one feeding the next |
+| [06](step_06_chain_of_thought.ipynb) | Chain of Thought | Explicit reasoning before the final answer |
+| [07](step_07_tree_of_thought.ipynb) | Tree of Thought | Several reasoning paths explored in parallel |
+| [08](step_08_intro_to_crewai.ipynb) | Introduction to CrewAI | What CrewAI is, `Agent`/`Task`/`Crew`/`Process`, and built-in memory — built up from a plain LLM call |
+| [09](step_09_single_agent.ipynb) | Single Agent | A standalone `Agent`, no framework project needed *(Interim Presentation)* |
+| [10](step_10_memory.ipynb) | Memory | Recall across separate `kickoff()` calls |
+| [11](step_11_tools.ipynb) | Tools | Live web search via a CrewAI tool |
+| [12](step_12_mcp.ipynb) | MCP | An external tool server via Model Context Protocol |
+| [13](step_13_rag.ipynb) | RAG | Retrieval from your own knowledge source |
+| [14](step_14_multi_agent_seq.ipynb) | Multi-Agent (Sequential) | Two agents, chained by passing one's output into the next *(Final Presentation)* |
+| [15](step_15_multi_agent_hierarchical.ipynb) | Multi-Agent (Hierarchical) | The same two agents, delegated to at runtime by a manager instead of fixed in code *(optional)* |
+| [16](step_16_design_patterns.ipynb) | Agentic Workflow Design Patterns | Anthropic's five workflow patterns (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer), each mapped to a working CrewAI mechanism *(optional)* |
+| [17](step_17_evaluation_harness.ipynb) | Evaluating Speed, Accuracy & Cost | A reusable harness measuring latency, token cost, and an LLM-judged Goal Completion Rate — feeds `REPORT.md` Section 5.2 *(optional)* |
 
 Steps 02–14 use the **same topic** — you pick it once at step 02 and keep it. These notebooks are individual practice, not a team submission; `REPORT.md` is where your team then captures the design of the agent you build together — architecture, implementation, evaluation — as prep for your Interim and Final Presentations. Each student separately writes and submits their own Ethics Report. Steps 15–17 are optional and not part of the graded assignment.
 

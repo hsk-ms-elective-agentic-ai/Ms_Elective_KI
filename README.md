@@ -82,7 +82,7 @@ A student managing rent, part-time income, and irregular expenses needs an actua
 
 ---
 
-Start at [Step 02 — Zero-Shot Prompting](exercises/en/step_02_zero_shot_prompting.ipynb) once you have the repo running — or [Step 00](exercises/en/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, or Jupyter are new to you.
+Start at [Step 02 — Zero-Shot Prompting](exercises/step_02_zero_shot_prompting.ipynb) once you have the repo running — or [Step 00](exercises/step_00_setup_and_python_basics.ipynb) first if Git, `uv`, or Jupyter are new to you.
 
 ## 3. Exercises & Tools
 
@@ -109,7 +109,7 @@ The exercise notebooks (Steps 08–14) are standalone — each defines its own `
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
 | [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool |
 | [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | `build_knowledge_sources()`, wired into `crew.py`'s `Crew(knowledge_sources=...)` — embeds `knowledge/user_preference.txt` and `knowledge/rag-data.pdf` |
-| [exercises/en/](exercises/en/) | Jupyter notebooks for Steps 00–14 |
+| [exercises/](exercises/) | Jupyter notebooks for Steps 00–14 |
 
 MCP needs no template file of its own: `crew.py`'s `researcher` agent connects directly to `mcp-server-fetch` (the official reference MCP server — an existing server, not one built for this repo) via `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]`.
 
@@ -117,7 +117,7 @@ MCP needs no template file of its own: `crew.py`'s `researcher` agent connects d
 
 ### Exercise steps
 
-These steps ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
+These steps (see [exercises/README.md](exercises/README.md)) walk through simple prompting → prompt template → single agent → multi-agent → tools/MCP/RAG, all on the same topic. Each step adds one layer and asks you to compare the output to the previous step — the progression is the exercise, and the comparison is the deliverable. Each step includes just enough background from the relevant research paper to place the concept, then goes straight into running and observing.
 
 ### Adding more tools, MCP servers, or RAG (for students)
 
@@ -149,9 +149,9 @@ WebsiteSearchTool(config={
 
 This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so `build_knowledge_sources()` in `knowledge_source_example.py` (wired into `Crew(knowledge_sources=...)`) embeds a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt` and a `PDFKnowledgeSource` pointing at `knowledge/rag-data.pdf` via Gemini automatically. Add or swap entries in that list for your own team's documents.
 
-[Step 13](exercises/en/step_13_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/en/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/en/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 13 for details).
+[Step 13](exercises/step_13_rag.ipynb) demonstrates the same `knowledge_sources`/`embedder` pattern standalone, with its own separate `exercises/knowledge/` folder. The two `knowledge/` directories are intentionally distinct, not a duplicate: this repo-root one belongs to the full demo project above; the one under `exercises/` belongs to that notebook, since `TextFileKnowledgeSource` resolves paths relative to wherever the code is actually running — the repo root for `crew.py`, but the notebook's own folder for a notebook (see Step 13 for details).
 
-Connecting an agent to an MCP server works the same way, just with `Agent(mcps=[...])` instead of `Crew(knowledge_sources=[...])`: `crew.py`'s `researcher` gets `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]` directly, no separate helper file — `mcp-server-fetch` is an existing, official reference server, not something built for this repo. See [Step 12](exercises/en/step_12_mcp.ipynb) for the underlying concept.
+Connecting an agent to an MCP server works the same way, just with `Agent(mcps=[...])` instead of `Crew(knowledge_sources=[...])`: `crew.py`'s `researcher` gets `mcps=[MCPServerStdio(command="uvx", args=["mcp-server-fetch"])]` directly, no separate helper file — `mcp-server-fetch` is an existing, official reference server, not something built for this repo. See [Step 12](exercises/step_12_mcp.ipynb) for the underlying concept.
 
 The table below covers the official [reference servers](https://github.com/modelcontextprotocol/servers) plus a few popular hosted ones — browse the [MCP Registry](https://registry.modelcontextprotocol.io/) for the full, ever-growing list. As with the tools table above, the setup that matters most is whether a server needs its own signup/API key, and — new for MCP — whether it runs locally via `uvx` (Python, no extra install, same as `mcp-server-fetch`) or `npx` (TypeScript/Node.js, **not** otherwise part of this repo's toolchain, so it needs installing separately).
 
