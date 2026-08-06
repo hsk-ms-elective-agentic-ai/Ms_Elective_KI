@@ -212,26 +212,27 @@ _(Analyze your agent's design and behavior based on Wooldridge's four characteri
 
 ---
 
-## 7. Ethical Considerations
+## 7. Ethical Considerations & Trustworthy AI
 
 > **Individual deliverable — hand in separately, not here.** Unlike every other section in this document, this one isn't filled in as shared team content. Each student writes and submits their **own individually-graded copy** (20% of your grade) via OpenOlat, not via this file and not via GitHub — see the [Ethics Report template](team_assignment/en/ethics-report-template.md) for the actual document to fill in and hand in. What follows below is left as a reference outline only, so the full shape of the report stays visible in one place — do not fill it in here, and do not treat filling it in here as a substitute for your individual submission.
 
-_(**Purpose:** To demonstrate awareness of the ethical implications of deploying AI agents and to discuss how your agent addresses or should address these concerns.)_
+_(**Purpose:** To judge your agent against the EU's framework for trustworthy AI — not just naming risks in the abstract, but reaching a grounded verdict on how trustworthy *this specific agent* is, and proposing concrete changes that would make it more so. See the [Ethics Report template](team_assignment/en/ethics-report-template.md) for the full prompts and the EU HLEG *Ethics Guidelines for Trustworthy AI* citation.)_
 
-_(Discuss the ethical dimensions of your agent. Consider the following aspects and address those that are relevant to your specific agent:)_
+_(Each dimension below asks for two things: a grounded reflection on where your agent actually stands, and a specific proposed change or amendment that would improve it. Address the dimensions relevant to your specific agent:)_
 
-- **Bias & Fairness:** Does your agent have the potential to exhibit bias? How might it treat different users or groups differently? What steps did you take (or should be taken) to mitigate bias?
+- **Bias & Fairness:** Does your agent have the potential to exhibit bias? How might it treat different users or groups differently? What steps did you take (or should be taken) to mitigate bias? What's one concrete change that would reduce this risk?
   - _(e.g., "Our agent uses a language model that may have been trained on biased data. We tested our agent with queries from diverse user personas and monitored for discriminatory outputs. We added explicit instructions in our agents' `backstory` to treat all users fairly.")_
-- **Privacy & Data Security:** What data does your agent collect, store, or process? How is user data handled? What privacy concerns arise from your agent's memory or tool usage?
+- **Privacy & Data Security:** What data does your agent collect, store, or process? How is user data handled? What privacy concerns arise from your agent's memory or tool usage? What's one concrete change that would improve this?
   - _(e.g., "CrewAI's `memory=True` stores interaction data locally under `CREWAI_STORAGE_DIR`. We reviewed what gets written there and ensured no sensitive information is included. Users can clear it via `crew.reset_memories('all')`.")_
-- **Transparency & Explainability:** Can users understand how your agent makes decisions? Is the agent's reasoning process transparent? What happens when the agent makes a mistake?
+- **Transparency & Explainability:** Can users understand how your agent makes decisions? Is the agent's reasoning process transparent? What happens when the agent makes a mistake? What's one concrete change that would improve this?
   - _(e.g., "Running with `verbose=True` exposes the agent's full ReAct reasoning trail, which we use for debugging. However, end users of our final output only see the final report, not this reasoning.")_
-- **Autonomy & Control:** What level of autonomy does your agent have, and what safeguards are in place? Can the agent take actions that have real-world consequences? How can users override or stop the agent?
+- **Autonomy & Control:** What level of autonomy does your agent have, and what safeguards are in place? Can the agent take actions that have real-world consequences? How can users override or stop the agent? What's one concrete change that would improve this?
   - _(e.g., "Our agent can only read data via tools/`knowledge_sources` — it has no tool that writes to or modifies an external system, so the blast radius of an error is limited to a bad answer, not a bad action.")_
-- **Misuse & Safety:** How could your agent be misused? What harmful behaviors could it enable? What safety measures did you implement?
+- **Misuse & Safety:** How could your agent be misused? What harmful behaviors could it enable? What safety measures did you implement? What's one concrete change that would improve this?
   - _(e.g., "A web-search-enabled agent could be misused to gather information for harmful purposes. We scoped our Researcher's `goal`/`backstory` narrowly to our topic and did not give it unrestricted search access.")_
-- **Accountability:** Who is responsible when the agent makes an error or causes harm? How do you handle errors and edge cases?
+- **Accountability:** Who is responsible when the agent makes an error or causes harm? How do you handle errors and edge cases? What's one concrete change that would improve this?
   - _(e.g., "We designed our agents' `expected_output` to include an explicit 'I don't know' path rather than guessing, and we log every `kickoff()`'s `tracing=True` trace URL for after-the-fact review.")_
+- **Trustworthiness verdict:** Overall, how trustworthy is this agent as it stands? Which one proposed change above would make the biggest difference, and would you deploy it as-is?
 
 ---
 
