@@ -33,7 +33,7 @@ Everything from section 4 onward in this README applies to **your team's repo**,
 
 ### Team assignment
 
-Teams of **3–5 students** work through a sequence of versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each step below both teaches a concept and produces output you compare directly to the previous step, done individually. As a team, you then design (and optionally build) your own agent, sprint by sprint, culminating in an Interim and a Final Presentation; each student separately writes and submits their own Ethics Report. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
+Teams of **3–5 students** work through a sequence of versions of the same AI system on the same topic — this *is* the exercise series, not a separate thing alongside it: each step below both teaches a concept and produces output you compare directly to the previous step, done individually. As a team, you then design and build your own agent, sprint by sprint, culminating in an Interim and a Final Presentation; each student separately writes and submits their own Ethics Report. Start at [team_assignment/en/assignment-overview.md](team_assignment/en/assignment-overview.md) (English / [Deutsch](team_assignment/de/assignment-overview.md)) for the full grading rubric.
 
 ### Use cases to pick from
 

@@ -3,7 +3,7 @@
 **Course:** Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 **Team:** [Your Team Name] — **Topic:** [your team's topic]
 
-This is your **individual** deliverable — 70% of your grade — submitted separately from your team's repo (see [Assignment Overview](assignment-overview.md#submission-package) for where and how). Even though you and your teammates are writing about the same agent, this is not a shared document: write your own analysis, in your own words, grounded in your team's actual `REPORT.md` (architecture, implementation, evaluation) and in what you personally observed while building and testing it. Two students on the same team should not read alike.
+This is your **individual** deliverable — 20% of your grade — submitted via OpenOlat, separately from your team's repo (see [Assignment Overview](assignment-overview.md#submission-package) for where and how). Even though you and your teammates are writing about the same agent, this is not a shared document: write your own analysis, in your own words, grounded in your team's actual `REPORT.md` (architecture, implementation, evaluation) and in what you personally observed while building and testing it. Two students on the same team should not read alike.
 
 Generic answers ("our agent could have bias, so we should be careful") score low. Specific, grounded ones score high — tie every claim to something concrete about *this* agent: a `role`/`goal`/`backstory` you can quote, a tool it actually calls, a memory/knowledge source it actually stores or retrieves, a real test run where something did or didn't go wrong.
 

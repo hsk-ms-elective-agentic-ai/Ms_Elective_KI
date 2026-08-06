@@ -3,7 +3,7 @@
 **Course:** Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 **Team Name:** [Your Team Name]
 
-> **What this document is:** your team's shared design record — architecture, implementation choices, evaluation, theory — built up sprint by sprint. It isn't separately graded; it's the prep material behind your Interim Presentation (10%) and Final Presentation (20%). Actual `src/` code implementing your agent is optional here and graded separately as a bonus (+10%, team-wide, judged from your commit/PR history) — see [Assignment Overview](team_assignment/en/assignment-overview.md#grading). Section 7 (Ethical Considerations) is the one exception to "shared team content": it's kept here only as a reference outline — each student fills in and hands in their **own individually-graded copy** (70%) separately, see the note in that section.
+> **What this document is:** your team's shared design record — architecture, implementation choices, evaluation, theory — built up sprint by sprint. It's graded directly as your team's **Project Report (40%)** — see [Assignment Overview](team_assignment/en/assignment-overview.md#grading). Your team's implementation is also graded, separately, as **Code (10%, team-wide)** — either your `src/` code or reworked exercise notebooks with your own topic, judged from your commit/PR history. Section 7 (Ethical Considerations) is the one exception to "shared team content": it's kept here only as a reference outline — each student fills in and hands in their **own individually-graded copy** (20%) separately, see the note in that section.
 
 ## Team Members
 
@@ -16,7 +16,7 @@
 
 ## Sprint Progression
 
-_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. A sprint's PR is your team's design progress on that layer, captured in this document; implementing it in `src/` is optional, see the note above. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 4 — in depth.)_
+_(Fill in one row per sprint, right after that sprint's PR — not retroactively at the end. A sprint's PR is your team's design progress on that layer, captured in this document; implementing it in `src/` counts toward your grade too, see the note above, though it doesn't have to be complete at every sprint. This table is the throughline; the rest of this report describes the final state — where you land after Sprint 4 — in depth.)_
 
 | Sprint | Added | What changed, concretely — and one surprise |
 | --- | --- | --- |
@@ -214,7 +214,7 @@ _(Analyze your agent's design and behavior based on Wooldridge's four characteri
 
 ## 7. Ethical Considerations
 
-> **Individual deliverable — hand in separately, not here.** Unlike every other section in this document, this one isn't filled in as shared team content. Each student writes and submits their **own individually-graded copy** (70% of your grade) directly to the instructor, not via this file and not via GitHub — see the [Ethics Report template](team_assignment/en/ethics-report-template.md) for the actual document to fill in and hand in. What follows below is left as a reference outline only, so the full shape of the report stays visible in one place — do not fill it in here, and do not treat filling it in here as a substitute for your individual submission.
+> **Individual deliverable — hand in separately, not here.** Unlike every other section in this document, this one isn't filled in as shared team content. Each student writes and submits their **own individually-graded copy** (20% of your grade) via OpenOlat, not via this file and not via GitHub — see the [Ethics Report template](team_assignment/en/ethics-report-template.md) for the actual document to fill in and hand in. What follows below is left as a reference outline only, so the full shape of the report stays visible in one place — do not fill it in here, and do not treat filling it in here as a substitute for your individual submission.
 
 _(**Purpose:** To demonstrate awareness of the ethical implications of deploying AI agents and to discuss how your agent addresses or should address these concerns.)_
 

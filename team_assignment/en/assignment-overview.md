@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-overview.md)
 
-This is the graded assignment, and it builds directly on the exercise series, but the two halves are split differently than you might expect. Individually, each of you works through the exercise notebooks on your own — in class or at home; they're not part of the team repo. As a team, you then design (and optionally build) your own agent on your own topic, organized into four sprints (preceded by a Sprint 0 setup phase), folding one new layer into the design each sprint. The graded deliverables are your team's Interim Presentation (10%) and Final Presentation (20%), an Ethics Report each of you writes and submits **individually** (70%), and an optional team bonus (+10%) for actually implementing your design in `src/`.
+This is the graded assignment, and it builds directly on the exercise series, but the two halves are split differently than you might expect. Individually, each of you works through the exercise notebooks on your own — in class or at home; they're not part of the team repo. As a team, you then design and build your own agent on your own topic, organized into four sprints (preceded by a Sprint 0 setup phase), folding one new layer into the design each sprint. The graded deliverables are your team's Project Report (`REPORT.md`, 40%), Final Presentation (30%), and a working Code implementation (10%, either `src/` or reworked exercise notebooks — pick one), plus an Ethics Report each of you writes and submits **individually** (20%). Your team also gives an Interim Presentation after sprint 2 — a required live checkpoint, but not separately graded.
 
 **Team size:** 3–5 students.
 
@@ -10,7 +10,7 @@ See [Assignment Templates](assignment-templates.md) for the documents you'll fil
 
 ## How this works: one sprint, one layer, one comparison
 
-Each sprint pairs an individual exercise-notebook range (do these yourselves — they aren't part of the team repo) with a team design task: fold that sprint's concept into your own agent, capture the decision in `REPORT.md`, and open a `sprint-<N>` → `main` PR before the next sprint starts. Building it in `src/` is optional — good practice, and it's what the team bonus is judged on (see [Grading](#grading)) — but not required for the sprint PR itself.
+Each sprint pairs an individual exercise-notebook range (do these yourselves — they aren't part of the team repo) with a team design task: fold that sprint's concept into your own agent, capture the decision in `REPORT.md`, and open a `sprint-<N>` → `main` PR before the next sprint starts. Building it out — either in `src/`, or as your own topic worked into copies of the exercise notebooks — counts toward your grade (Code, 10% — see [Grading](#grading), pick one path); it doesn't have to be complete at every sprint PR, only the final state of `main` is graded.
 
 | Sprint | Dates | Individual exercises (Steps) | Team design task |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ Each sprint pairs an individual exercise-notebook range (do these yourselves —
 | 3 | 19.11.–03.12. | [Steps 10–13 — Memory, Tools, MCP & RAG](../../exercises/step_10_memory.ipynb) | Recall across calls, plus external grounding: web search, an MCP server, document retrieval — decide which of these your own agent actually needs |
 | 4 | 03.12.–17.12. | [Step 14 — Multi-Agent](../../exercises/step_14_multi_agent_seq.ipynb) | Role specialization + output chaining — design the second agent your own case study needs *(Final Presentation)* |
 
-You don't redesign anything between sprints — you add one design layer each time, on the same topic throughout. Two live milestones: the **Interim Presentation** after sprint 2, and the **Final Presentation** after sprint 4. Your individual Ethics Report is due separately, alongside the final deadline — see [Grading](#grading) for exactly where to submit it.
+You don't redesign anything between sprints — you add one design layer each time, on the same topic throughout. Two live milestones: the **Interim Presentation** after sprint 2 (a required checkpoint, not separately graded), and the **Final Presentation** after sprint 4 (30% of your grade). Your individual Ethics Report is due separately, alongside the final deadline — see [Grading](#grading) for exactly where to submit it.
 
 **Sprint 0 checklist** — before Sprint 1 starts, as a team:
 
@@ -89,34 +89,35 @@ That's the whole vocabulary — the reasoning behind sprints, story-splitting, o
 
 ## Submission package
 
-### Team repo (shared — ungraded directly, but feeds your presentations and the bonus)
+### Team repo (shared — `REPORT.md` and `src/` are graded directly from here)
 
 | Artifact | Where | What it shows |
 | --- | --- | --- |
-| Design record | `REPORT.md` — sprint progression, architecture, implementation, evaluation, theory | Your team's actual design decisions, specifically grounded in your topic — the material your presentations are built from |
+| Project Report (40%) | `REPORT.md` — sprint progression, architecture, implementation, evaluation, theory | Your team's actual design decisions, specifically grounded in your topic — graded directly, and also the material your presentations are built from |
 | Sprint history | one merged pull request per sprint (`sprint-<N>` → `main`) | A reviewable diff of how the design progressed each sprint |
 | Team notes | `TEAM.md` | Members and who contributed what |
-| Optional: implementation | Code in `src/` (agents, tasks, tools, config) | What you actually ran — not required, but what the +10% team bonus is judged on (see Grading) |
+| Code (10%) | Either `src/` (agents, tasks, tools, config) or reworked exercise notebooks — pick one | Your working implementation — required, graded from your commit history and pull requests (see Grading) |
 
-The chain of merged sprint PRs is what your instructor reads to follow how the design progressed, rather than diffing raw commit history by hand. Use the PR description to note what you decided and why at each step.
+The chain of merged sprint PRs is what your instructor reads to follow how the design progressed, rather than diffing raw commit history by hand. Use the PR description to note what you decided and why at each step. If your team would rather not use the Markdown/GitHub workflow for the Project Report itself, a Word document submitted via OpenOlat is also accepted — see Grading below.
 
 ### Individual submission (per student — not via the repo)
 
-Each of you writes your own copy of [`ethics-report-template.md`](ethics-report-template.md) and submits it directly to your instructor (not committed to GitHub) by the final deadline. This is your main graded deliverable — see Grading below.
+Each of you writes your own copy of [`ethics-report-template.md`](ethics-report-template.md) and submits it via OpenOlat (not committed to GitHub) by the final deadline. Worth 20% of your grade, individually — see Grading below.
 
-The Interim and Final Presentations aren't repo artifacts either — they're live talks, nothing to commit for them.
+The Interim and Final Presentations aren't repo artifacts either — they're live talks; upload your slides to OpenOlat, nothing to commit in the repo for them.
 
 ## Grading
 
-The final grade has three components — the first two are team grades, the third is graded individually per student:
+The final grade has four components — three are team grades, one is graded individually per student:
 
 | Component | Weight | Team or individual? | What's assessed |
 | --- | --- | --- | --- |
-| Interim Presentation | 10% | Team | A short live walkthrough of your design so far, given after sprint 2 — what you've designed, what you've learned, and what's planned for the remaining sprints. Every team member should speak to at least one part. |
-| Final Presentation | 20% | Team | A live, in-class walkthrough of your agent's design — what it does, why you designed it this way, and (if you built it) a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred if you have one, but prepare a short recorded fallback in case of API hiccups during the talk. No separate file to submit — this happens live in the final course session, after the final submission deadline. |
-| Ethics Report | 70% | **Individual** | Your own [`ethics-report-template.md`](ethics-report-template.md), submitted directly to your instructor, not via GitHub (see Submission package above). Graded on how specifically and honestly it engages with each ethical dimension, grounded in your team's actual agent and your own observations — not generic claims. |
+| Project Report | 40% | Team | Your `REPORT.md` — architecture, implementation choices, evaluation, theory, grounded specifically in your team's actual topic, not generic claims. Submitted via this repo (Markdown) or, if your team prefers, as a Word document via OpenOlat. |
+| Final Presentation | 30% | Team | A live, in-class walkthrough of your agent's design — what it does, why you designed it this way, and a live demo of it actually running. Every team member should speak to at least one part. Plan for roughly 10 minutes + Q&A (your instructor may adjust this for class size); a working live demo is strongly preferred, but prepare a short recorded fallback in case of API hiccups during the talk. Upload your slides to OpenOlat; the grade itself comes from the live talk in the final course session, after the final submission deadline. |
+| Ethics Report | 20% | **Individual** | Your own [`ethics-report-template.md`](ethics-report-template.md), submitted via OpenOlat, not GitHub (see Submission package above). Graded on how specifically and honestly it engages with each ethical dimension, grounded in your team's actual agent and your own observations — not generic claims. Listed as "Schriftliche Ausarbeitung" on the official grading sheet. |
+| Code | 10% | Team | A working implementation of your design that actually runs — pick **one** of two paths, not both: the `src/` template built out with your own agents/tasks/tools, or copies of the relevant exercise notebooks reworked with your own topic and committed to this repo. Either way, judged from your commit history and pull requests: does it run end-to-end without errors, is it reasonably organized, and does it match what `REPORT.md` describes? |
 
-**Team bonus (+10%, same for every team member):** a working implementation of your design in `src/` that actually runs end-to-end (`crew.kickoff()` completes without errors, code is reasonably organized, and matches what `REPORT.md` describes) — judged from your commit history and pull requests. Never required, never a substitute for a thin design.
+Your team also gives an **Interim Presentation** after sprint 2 — same format as the Final Presentation, and just as mandatory, but it isn't separately graded: it exists to surface design problems early, while there's still time to fix them before the deadlines above.
 
 ## For instructors
 
@@ -146,4 +147,4 @@ Students submit their **email and GitHub username** via a [team sign-up issue](.
 
 ### 4. Ongoing: review submissions
 
-Each team merges one pull request per sprint (`sprint-<N>` → `main`) — review that PR's diff on GitHub (**Pull requests → Closed**) for what was designed and decided; a `src/` implementation may or may not be present, since it's bonus-only. Grade the two team presentations against the state of `main` at each deadline, using the chain of merged sprint PRs as the step-by-step record. Ethics Reports arrive separately, one per student, outside GitHub — grade those individually. Solutions aren't included on purpose.
+Each team merges one pull request per sprint (`sprint-<N>` → `main`) — review that PR's diff on GitHub (**Pull requests → Closed**) for what was designed and decided. Grade `REPORT.md` (Project Report, 40%) and the team's Code (10%, either `src/` or reworked exercise notebooks) from the state of `main` at the final deadline, using the chain of merged sprint PRs as the step-by-step record of how the design got there — unless a team submitted the report as a Word document via OpenOlat instead. Grade the Final Presentation (30%) live; the Interim Presentation after sprint 2 is mandatory but not separately graded. Ethics Reports (20%, individual) arrive separately via OpenOlat, one per student — grade those individually. Solutions aren't included on purpose.

@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-overview.md)
 
-Dies ist die benotete Aufgabe und baut direkt auf der Übungsreihe auf, aber die beiden Hälften sind anders aufgeteilt, als ihr vielleicht erwartet. Individuell arbeitet sich jede*r von euch selbst durch die Übungs-Notebooks — im Kurs oder zu Hause; sie sind nicht Teil des Team-Repos. Als Team entwerft (und baut optional) ihr dann euren eigenen Agenten zu eurem eigenen Thema, organisiert in vier Sprints (mit einer vorgeschalteten Sprint-0-Setup-Phase), wobei jeder Sprint eine neue Schicht in den Entwurf einfügt. Die benoteten Abgaben sind die Zwischenpräsentation (10%) und die Abschlusspräsentation (20%) eures Teams, ein Ethik-Report, den jede*r von euch selbst schreibt und **individuell** einreicht (70%), sowie ein optionaler Team-Bonus (+10%) für die tatsächliche Umsetzung eures Entwurfs in `src/`.
+Dies ist die benotete Aufgabe und baut direkt auf der Übungsreihe auf, aber die beiden Hälften sind anders aufgeteilt, als ihr vielleicht erwartet. Individuell arbeitet sich jede*r von euch selbst durch die Übungs-Notebooks — im Kurs oder zu Hause; sie sind nicht Teil des Team-Repos. Als Team entwerft und baut ihr dann euren eigenen Agenten zu eurem eigenen Thema, organisiert in vier Sprints (mit einer vorgeschalteten Sprint-0-Setup-Phase), wobei jeder Sprint eine neue Schicht in den Entwurf einfügt. Die benoteten Abgaben sind der Projektbericht eures Teams (`REPORT.md`, 40%), die Abschlusspräsentation (30%) und eine funktionierende Code-Umsetzung (10%, entweder `src/` oder überarbeitete Übungs-Notebooks — wählt eins), sowie ein Ethik-Report, den jede*r von euch selbst schreibt und **individuell** einreicht (20%). Euer Team hält außerdem eine Zwischenpräsentation nach Sprint 2 — ein verpflichtender Live-Termin, der aber nicht separat benotet wird.
 
 **Teamgröße:** 3–5 Studierende.
 
@@ -10,7 +10,7 @@ Vorlagen für die Dokumente, die ihr ausfüllt (`REPORT.md`, `TEAM.md`, Ethik-Re
 
 ## So funktioniert es: ein Sprint, eine Schicht, ein Vergleich
 
-Jeder Sprint kombiniert einen individuellen Übungs-Notebook-Bereich (macht diese selbst — sie sind nicht Teil des Team-Repos) mit einer Team-Design-Aufgabe: fügt das Konzept dieses Sprints in den Entwurf eures eigenen Agenten ein, haltet die Entscheidung in `REPORT.md` fest, und öffnet einen `sprint-<N>` → `main`-PR, bevor der nächste Sprint beginnt. Es in `src/` zu bauen ist optional — gute Praxis, und darauf wird der Team-Bonus bewertet (siehe [Bewertung](#bewertung)) — aber für den Sprint-PR selbst nicht erforderlich.
+Jeder Sprint kombiniert einen individuellen Übungs-Notebook-Bereich (macht diese selbst — sie sind nicht Teil des Team-Repos) mit einer Team-Design-Aufgabe: fügt das Konzept dieses Sprints in den Entwurf eures eigenen Agenten ein, haltet die Entscheidung in `REPORT.md` fest, und öffnet einen `sprint-<N>` → `main`-PR, bevor der nächste Sprint beginnt. Es auszubauen — entweder in `src/`, oder als euer eigenes Thema in Kopien der Übungs-Notebooks eingearbeitet — zählt in eure Note (Code, 10% — siehe [Bewertung](#bewertung), wählt einen Weg); es muss aber nicht bei jedem Sprint-PR vollständig sein, bewertet wird nur der finale Stand von `main`.
 
 | Sprint | Termin | Individuelle Übungen (Schritte) | Team-Design-Aufgabe |
 | --- | --- | --- | --- |
@@ -20,7 +20,7 @@ Jeder Sprint kombiniert einen individuellen Übungs-Notebook-Bereich (macht dies
 | 3 | 19.11.–03.12. | [Schritte 10–13 — Memory, Tools, MCP & RAG](../../exercises/step_10_memory.ipynb) | Erinnerung über Aufrufe hinweg, plus externe Verankerung: Websuche, ein MCP-Server, Dokumenten-Retrieval — entscheidet, welche davon euer eigener Agent tatsächlich braucht |
 | 4 | 03.12.–17.12. | [Schritt 14 — Multi-Agent](../../exercises/step_14_multi_agent_seq.ipynb) | Rollenspezialisierung + Ausgaben-Verkettung — entwerft den zweiten Agenten, den eure Fallstudie braucht *(Abschlusspräsentation)* |
 
-Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal eine Design-Schicht hinzu, zum selben Thema durchgehend. Zwei Live-Meilensteine: die **Zwischenpräsentation** nach Sprint 2, und die **Abschlusspräsentation** nach Sprint 4. Euer individueller Ethik-Report ist separat fällig, parallel zur Abschluss-Deadline — siehe [Bewertung](#bewertung) für genau wo ihr ihn einreicht.
+Ihr entwerft zwischen den Sprints nichts neu — ihr fügt jedes Mal eine Design-Schicht hinzu, zum selben Thema durchgehend. Zwei Live-Meilensteine: die **Zwischenpräsentation** nach Sprint 2 (verpflichtender Termin, nicht separat benotet), und die **Abschlusspräsentation** nach Sprint 4 (30% eurer Note). Euer individueller Ethik-Report ist separat fällig, parallel zur Abschluss-Deadline — siehe [Bewertung](#bewertung) für genau wo ihr ihn einreicht.
 
 **Sprint-0-Checkliste** — vor Beginn von Sprint 1, als Team:
 
@@ -89,34 +89,35 @@ Das ist schon das gesamte Vokabular — die Begründung hinter Sprints, dem Auft
 
 ## Abgabepaket
 
-### Team-Repo (gemeinsam — nicht direkt benotet, aber Grundlage für eure Präsentationen und den Bonus)
+### Team-Repo (gemeinsam — `REPORT.md` und `src/` werden direkt von hier benotet)
 
 | Artefakt | Wo | Was es zeigt |
 | --- | --- | --- |
-| Design-Dokumentation | `REPORT.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung, Theorie | Die tatsächlichen Design-Entscheidungen eures Teams, spezifisch auf euer Thema bezogen — das Material, aus dem eure Präsentationen entstehen |
+| Projektbericht (40%) | `REPORT.md` — Sprint-Fortschritt, Architektur, Implementierung, Evaluierung, Theorie | Die tatsächlichen Design-Entscheidungen eures Teams, spezifisch auf euer Thema bezogen — direkt benotet, und zugleich das Material, aus dem eure Präsentationen entstehen |
 | Sprint-Historie | ein gemergter Pull Request pro Sprint (`sprint-<N>` → `main`) | Ein prüfbarer Diff, wie sich der Entwurf in jedem Sprint weiterentwickelt hat |
 | Team-Notizen | `TEAM.md` | Mitglieder und wer was beigetragen hat |
-| Optional: Umsetzung | Code in `src/` (Agents, Tasks, Tools, Config) | Was ihr tatsächlich ausgeführt habt — nicht erforderlich, aber worauf der +10%-Team-Bonus bewertet wird (siehe Bewertung) |
+| Code (10%) | Entweder `src/` (Agents, Tasks, Tools, Config) oder überarbeitete Übungs-Notebooks — wählt eins | Eure funktionierende Umsetzung — verpflichtend, bewertet anhand eurer Commit-Historie und Pull Requests (siehe Bewertung) |
 
-Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt des Entwurfs zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr entschieden habt und warum.
+Die Kette der gemergten Sprint-PRs ist das, was eure Lehrperson liest, um den Fortschritt des Entwurfs zu verfolgen. Nutzt die PR-Beschreibung, um zu notieren, was ihr entschieden habt und warum. Falls euer Team den Projektbericht lieber nicht über den Markdown/GitHub-Workflow einreichen möchte, wird auch ein Textdokument (MS Word) über OpenOlat akzeptiert — siehe Bewertung.
 
 ### Individuelle Abgabe (pro Studierendem — nicht über das Repo)
 
-Jede*r von euch schreibt eine eigene Kopie von [`ethics-report-template.md`](ethics-report-template.md) und reicht sie direkt bei der Lehrperson ein (nicht ins GitHub-Repo committen) zur Abschluss-Deadline. Das ist eure wichtigste benotete Abgabe — siehe Bewertung unten.
+Jede*r von euch schreibt eine eigene Kopie von [`ethics-report-template.md`](ethics-report-template.md) und reicht sie über OpenOlat ein (nicht ins GitHub-Repo committen) zur Abschluss-Deadline. Zählt 20% eurer Note, individuell — siehe Bewertung unten.
 
-Die Zwischen- und Abschlusspräsentation sind ebenfalls keine Repo-Artefakte — sie sind Live-Vorträge, dafür wird nichts committed.
+Die Zwischen- und Abschlusspräsentation sind ebenfalls keine Repo-Artefakte — sie sind Live-Vorträge; ladet eure Folien in OpenOlat hoch, dafür wird nichts im Repo committed.
 
 ## Bewertung
 
-Die Abschlussnote setzt sich aus drei Komponenten zusammen — die ersten beiden sind Team-Noten, die dritte wird individuell pro Studierendem bewertet:
+Die Abschlussnote setzt sich aus vier Komponenten zusammen — drei sind Team-Noten, eine wird individuell pro Studierendem bewertet:
 
 | Komponente | Gewicht | Team oder individuell? | Was bewertet wird |
 | --- | --- | --- | --- |
-| Zwischenpräsentation | 10% | Team | Ein kurzer Live-Rundgang durch euren bisherigen Entwurf, gehalten nach Sprint 2 — was ihr entworfen habt, was ihr gelernt habt, und was für die verbleibenden Sprints geplant ist. Jedes Teammitglied sollte mindestens einen Teil vortragen. |
-| Abschlusspräsentation | 20% | Team | Ein Live-Rundgang durch den Entwurf eures Agenten im Kurs — was er macht, warum ihr ihn so entworfen habt, und (falls gebaut) eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, falls vorhanden, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Kein separates File zum Einreichen — das passiert live in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
-| Ethik-Report | 70% | **Individuell** | Euer eigener [`ethics-report-template.md`](ethics-report-template.md), direkt bei der Lehrperson eingereicht, nicht über GitHub (siehe Abgabepaket oben). Bewertet danach, wie spezifisch und ehrlich er sich mit jeder ethischen Dimension auseinandersetzt, verankert im tatsächlichen Agenten eures Teams und euren eigenen Beobachtungen — nicht generisch. |
+| Projektbericht | 40% | Team | Euer `REPORT.md` — Architektur, Implementierungsentscheidungen, Evaluierung, Theorie, spezifisch auf das tatsächliche Thema eures Teams bezogen, nicht generisch. Einreichung über dieses Repo (Markdown) oder, falls euer Team das bevorzugt, als Textdokument (MS Word) über OpenOlat. |
+| Abschlusspräsentation | 30% | Team | Ein Live-Rundgang durch den Entwurf eures Agenten im Kurs — was er macht, warum ihr ihn so entworfen habt, und eine Live-Demo, die tatsächlich läuft. Jedes Teammitglied sollte mindestens einen Teil vortragen. Plant etwa 10 Minuten + Fragerunde ein (eure Lehrperson kann das an die Kursgröße anpassen); eine funktionierende Live-Demo ist klar bevorzugt, bereitet aber eine kurze aufgezeichnete Rückfalllösung vor, falls während des Vortrags API-Probleme auftreten. Ladet eure Folien in OpenOlat hoch; die Note selbst kommt aus dem Live-Vortrag in der letzten Kurssitzung, nach der Abschlussabgabe-Deadline. |
+| Ethik-Report | 20% | **Individuell** | Euer eigener [`ethics-report-template.md`](ethics-report-template.md), eingereicht über OpenOlat, nicht über GitHub (siehe Abgabepaket oben). Bewertet danach, wie spezifisch und ehrlich er sich mit jeder ethischen Dimension auseinandersetzt, verankert im tatsächlichen Agenten eures Teams und euren eigenen Beobachtungen — nicht generisch. Auf dem offiziellen Bewertungsbogen als "Schriftliche Ausarbeitung" geführt. |
+| Code | 10% | Team | Eine funktionierende Umsetzung eures Entwurfs — wählt **einen** von zwei Wegen, nicht beide: das `src/`-Template, ausgebaut mit euren eigenen Agents/Tasks/Tools, oder Kopien der relevanten Übungs-Notebooks, überarbeitet mit eurem eigenen Thema und ins Repo committet. So oder so bewertet anhand eurer Commit-Historie und Pull Requests: läuft es durchgängig ohne Fehler, ist der Code einigermaßen sauber strukturiert, und stimmt es mit dem überein, was `REPORT.md` beschreibt? |
 
-**Team-Bonus (+10%, gleich für alle Teammitglieder):** eine funktionierende Umsetzung eures Entwurfs in `src/`, die durchgängig läuft (`crew.kickoff()` schließt ohne Fehler ab, der Code ist einigermaßen sauber strukturiert und stimmt mit dem überein, was `REPORT.md` beschreibt) — bewertet anhand eurer Commit-Historie und Pull Requests. Nie Pflicht, nie Ersatz für einen dünnen Entwurf.
+Euer Team hält außerdem eine **Zwischenpräsentation** nach Sprint 2 — im selben Format wie die Abschlusspräsentation, genauso verpflichtend, aber nicht separat benotet: sie soll Design-Probleme früh sichtbar machen, solange noch Zeit bleibt, sie vor den obigen Deadlines zu beheben.
 
 ## Für Lehrende
 
@@ -146,4 +147,4 @@ Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Te
 
 ### 4. Laufend: Abgaben bewerten
 
-Jedes Team mergt einen Pull Request pro Sprint (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**) darauf, was entworfen und entschieden wurde; eine `src/`-Umsetzung kann vorhanden sein oder auch nicht, da sie nur Bonus ist. Bewertet die beiden Team-Präsentationen zum Deadline-Zeitpunkt gegen den Zustand von `main`, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis. Ethik-Reports kommen separat rein, einer pro Studierendem, außerhalb von GitHub — bewertet die individuell. Musterlösungen sind bewusst nicht enthalten.
+Jedes Team mergt einen Pull Request pro Sprint (`sprint-<N>` → `main`) — bewertet den Diff dieses PRs direkt auf GitHub (**Pull requests → Closed**) darauf, was entworfen und entschieden wurde. Bewertet `REPORT.md` (Projektbericht, 40%) und den Code des Teams (10%, entweder `src/` oder überarbeitete Übungs-Notebooks) anhand des Zustands von `main` zur Abschluss-Deadline, mit der Kette gemergter Sprint-PRs als schrittweiser Nachweis — außer ein Team hat den Bericht stattdessen als Textdokument über OpenOlat eingereicht. Bewertet die Abschlusspräsentation (30%) live; die Zwischenpräsentation nach Sprint 2 ist verpflichtend, aber nicht separat benotet. Ethik-Reports (20%, individuell) kommen separat über OpenOlat rein, einer pro Studierendem — bewertet die individuell. Musterlösungen sind bewusst nicht enthalten.
