@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/assignment-templates.md)
 
-**`REPORT.md` and `TEAM.md` already exist at your repo root** — every team's copy starts with them already in place. Fill them in directly. See [Assignment Overview](assignment-overview.md) for how they're used, and each step's own page for what to write at each stage.
+**`REPORT.md` and `TEAM.md` already exist at your repo root** — every team's copy starts with them already in place. Fill them in directly. See [Assignment Overview](assignment-overview.md) for how they're used, and each step's own page for what to write at each stage. New to Markdown, the format both files are written in? See the [Markdown Quick Guide](markdown-guide.md).
 
 ## `REPORT.md`
 

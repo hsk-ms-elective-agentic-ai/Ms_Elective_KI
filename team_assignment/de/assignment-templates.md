@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/assignment-templates.md)
 
-**`REPORT.md` und `TEAM.md` existieren bereits im Root eures Repos** — jede Team-Kopie startet damit schon als Vorlage. Füllt sie direkt aus. Siehe [Überblick zur Aufgabe](assignment-overview.md) für die Verwendung, und die jeweilige Schrittseite für das, was bei jedem Schritt geschrieben werden soll.
+**`REPORT.md` und `TEAM.md` existieren bereits im Root eures Repos** — jede Team-Kopie startet damit schon als Vorlage. Füllt sie direkt aus. Siehe [Überblick zur Aufgabe](assignment-overview.md) für die Verwendung, und die jeweilige Schrittseite für das, was bei jedem Schritt geschrieben werden soll. Neu bei Markdown, dem Format, in dem beide Dateien geschrieben sind? Siehe die [Markdown-Kurzanleitung](markdown-guide.md).
 
 ## `REPORT.md`
 
